@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {SideBar} from './components/sidebar';
-import { mainSection } from './components/mainSection';
+import { MainSection } from './components/mainSection';
 import { useState } from 'react';
 function App() {
 
@@ -13,8 +13,7 @@ function App() {
         <SideBar/>
       </div>
       <div className='mainSection'>
-        <h1>Autotekk</h1>
-        <mainSection/>
+        <MainSection />
       </div>
 
     </div>

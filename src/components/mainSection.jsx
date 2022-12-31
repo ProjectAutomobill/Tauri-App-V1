@@ -1,7 +1,12 @@
 import React from 'react'
-
-export function mainSection(){
+import './mainSection.css'
+import { Parties } from './parties';
+export function MainSection() {
   return (
-    <h1>Autotekkl</h1>
- );
+    <div className='main-section'>
+        
+        <Parties />
+
+    </div>
+  );
 }

@@ -1,0 +1,87 @@
+.parties-items{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* background-color: aqua; */
+}
+
+.upperDiv{
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    /* margin-bottom: 10%; */
+    background-color: white;
+}
+
+.lowerBody{
+    display: flex;
+    /* margin-top: 10%; */
+}
+
+.leftDiv{
+    position: absolute;
+    top: 16%;
+    width: 25%;
+    height: 83%;
+    overflow: auto;
+    /* margin-top: 10%; */
+    background-color: white;
+}
+
+.rightDiv{
+    position: absolute;
+    top: 16%;
+    margin-left: 25%;
+    width: 75%;
+    height: 83%;
+    /* margin-top: 10%; */
+    /* background-color: purple; */
+}
+
+.innerRightDiv{
+    display: flex;
+}
+
+.upperDivRight{
+    position: absolute;
+    margin : 2%;
+    width: 96%;
+    height: 15%;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: white;
+
+}
+
+.lowerDivRight{
+    position: absolute;
+    top: 16%;
+    margin : 2%;
+    width: 96%;
+    height: 84%;
+    margin-top: 0;
+    background-color: white;
+
+}
+
+.leftDivbtnSearch{
+    display: flex;
+    /* background-color: aquamarine; */
+}
+
+.partyBtn{
+    margin: 5%;
+    margin-left: auto;
+    background-color: orange;
+    border: 0ch;
+    padding: 3%;
+    font-size: smaller;
+    color: white;
+    border-radius: 10px;
+}
+
+.searchIcon{
+    font-size: large;
+    margin: 5%;
+}
