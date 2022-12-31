@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.sideBar{
+  position: absolute;
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(25,29,43);
+}
+
+.mainSection{
+  position: absolute;
+  margin-left: 20vw;
+  width: 80vw;
+  height: 100vh;
+  /* background-color: black; */
+}
+

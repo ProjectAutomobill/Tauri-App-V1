@@ -1,0 +1,35 @@
+.sidebar-Component{
+    /* padding:0vmin; */
+    /* margin: 0%; */
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 1%;
+    /* background-color: aliceblue; */
+    
+}
+
+.icons{
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 5%;
+}
+
+.sideBarText{
+    font-weight: 500;
+    font-size: medium;
+    color: white;
+}
+
+.sidebar-Component:hover{
+    background-color: rgb(17, 2, 78);
+}
+
+h3{
+    margin: 1%;
+}
+
+h2{
+    color: white;
+  }

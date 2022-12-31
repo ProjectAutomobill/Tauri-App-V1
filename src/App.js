@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {SideBar} from './components/sidebar';
+import { mainSection } from './components/mainSection';
+import { useState } from 'react';
 function App() {
+
+  // var [content,setContent] = useState("home");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='sideBar'>
+        <SideBar/>
+      </div>
+      <div className='mainSection'>
+        <h1>Autotekk</h1>
+        <mainSection/>
+      </div>
+
     </div>
   );
 }
