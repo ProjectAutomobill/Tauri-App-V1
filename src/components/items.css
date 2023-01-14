@@ -1,31 +1,57 @@
-.parties-items-parties{
+.parties-items{
     position: absolute;
     height: 100%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     /* background-color: aqua; */
 }
 
-.upperDiv-parties{
-    position: absolute;
+.upperDiv{
+    /* position: absolute; */
     width: 100%;
     height: 15%;
-    display: block;
+    display:block;
     /* margin-bottom: 10%; */
     background-color: white;
 }
-.upperDivPart1-parties{
+.input-business{
+    /* margin-left: 2%; */
+    padding:01%;
+    /* background-color: yellow; */
+    width: 30%;
+    height: 60%;
+}
+.upperDivPart1{
   display: flex;
   /* background-color: cornflowerblue; */
   width: 100%;
   height: 60%;
 }
-.lowerBody-parties{
+/* .middle-portion{
+  margin-left: 15%;
+  margin-top: 7%;
+  font-weight: 600;
+  font-size: 120%;
+} */
+.horizontal-line{
+  width:100%;
+  height: 1%;
+  background-color: rgb(173, 171, 171);
+  /* margin-top:7%; */
+}
+#business-entry{
+  font-size: 130%;
+  height: 50%;
+  width: 80%;
+}
+
+
+.lowerBody{
     display: flex;
     /* margin-top: 10%; */
 }
 
-.leftDiv-parties{
+.leftDiv{
     position: absolute;
     top: 16%;
     width: 25%;
@@ -35,7 +61,7 @@
     background-color: white;
 }
 
-.rightDiv-parties{
+.rightDiv{
     position: absolute;
     top: 16%;
     margin-left: 25%;
@@ -45,11 +71,11 @@
     /* background-color: purple; */
 }
 
-.innerRightDiv-parties{
+.innerRightDiv{
     display: flex;
 }
 
-.upperDivRight-parties{
+.upperDivRight{
     position: absolute;
     margin : 2%;
     width: 96%;
@@ -57,77 +83,79 @@
     margin-top: 0;
     margin-bottom: 0;
     background-color: white;
-    display: block;
 
 }
-.upperDivRight1-parties{
+
+
+.upperDivRight1-items{
   display: flex;
   /* background-color: aqua; */
   width: 100%;
-  height: 25%;
+  height: 30%;
   /* margin-left: auto; */
 }
-.upperDivRight1-name-parties{
+.upperDivRight1-name-items{
   /* width:10%; */
   margin-left: 0.5%;
   /* background-color: burlywood; */
 }
-.upperDivRight1-options-parties{
+.upperDivRight1-button-items{
   margin-left:auto;
   /* position: relative; */
   display: flex;
   width:10%;
   /* background-color: blue; */
 }
+.button-items{
+  color: white;
+  background-color: blue;
+  font-weight: 300;
+  border-radius: 5px;
 
-.upperDivRight1-whatsapp-parties{
-  margin-left: 20%;
-  /* background-color: bisque; */
 }
-.upperDivRight1-alarm-parties{
-  margin-left: 20%;
-  /* background-color: bisque; */
-}
-.upperDivRight2-parties{
+.upperDivRight2-items{
   /* background-color: blueviolet; */
   display: flex;
-  height: 75%;
+  height: 70%;
   /* max-height: fit-content; */
 }
-.upperDivRight2-part1-parties{
+.upperDivRight2-part1-items{
   /* background-color: crimson; */
   width:40%;
-
+  /* padding: 1%; */
   /* align-content: left; */
   /* height: 10%; */
   /* max-height: fit-content; */
 
 }
-.upperDivRight2-part1-phoneNo-parties{
+.upperDivRight2-part1-purchasePrice-items{
+  /* align-content: center; */
+  /* background-color: brown; */
+  margin-top: 3%;
+  font-weight: 400;
+  width:35%;
+}
+.upperDivRight2-part1-salePrice-items{
   /* align-content: center; */
   /* background-color: brown; */
   font-weight: 400;
-  width:25%;
+  width: 25%;
 }
-.upperDivRight2-part1-email-parties{
-  /* align-content: center; */
-  /* background-color: brown; */
-  font-weight: 400;
-width:15%;
-}
-.upperDivRight2-part1-NoCredit-parties{
-  align-content: left;
-  /* background-color: brown; */
-  font-weight: 400;
-  width:42%;
-}
-.upperDivRight2-part2-parties{
+
+.upperDivRight2-part2-items{
   margin-left: auto;
   /* background-color: crimson; */
   font-weight: 400;
-  width: 40%;
+  width: 30%;
 }
-.lowerDivRight-parties{
+.upperDivRight2-part1-stockQuantity-items{
+  margin-top: 3%;
+}
+
+
+
+
+.lowerDivRight{
     position: absolute;
     top: 16%;
     margin : 2%;
@@ -139,47 +167,42 @@ width:15%;
 
 }
 
-.leftDivbtnSearch-parties{
+.leftDivbtnSearch{
     display: flex;
     /* background-color: aquamarine; */
 }
 
-
-.partyBtn-parties{
-  margin: 5%;
-  width: 40%;
-  margin-left: 35%;
-  background-color: orange;
-  border: 0ch;
-  padding: 2%;
-  font-size: smaller;
-  color: white;
-  border-radius: 10px;
+.partyBtn{
+    margin: 5%;
+    width: 40%;
+    margin-left: auto;
+    background-color: orange;
+    border: 0ch;
+    padding: 3%;
+    font-size: smaller;
+    color: white;
+    border-radius: 10px;
 }
 
-.partyBtn-parties:hover{
-  background-color: rgb(243, 206, 136);
-}
-
-.searchIcon-parties{
+.searchIcon{
     font-size: large;
     margin: 5%;
 }
 
-.transaction-search-parties{
+.transaction-search{
     display: flex;
     font-weight: 0;
     margin-top: 2%;
     /* background-color: green; */
 }
-.search-input-parties{
+.search-input{
     margin: 10px;
     margin-left: auto;
     border-radius: 10px;
     border: 2%;
 }
 
-.Ttable-parties{
+.Ttable{
     overflow: auto;
 }
 
@@ -202,30 +225,12 @@ width:15%;
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
-  .plus-parties{
-    font-weight: 800;
-  }
-  .input-business-parties{
-    /* margin-left: 2%; */
-    padding:01%;
-    /* background-color: yellow; */
-    width: 30%;
-    height: 60%;
-}
-  .horizontal-line-parties{
-    width:100%;
-    height: 1%;
-    background-color: rgb(173, 171, 171);
-    /* margin-top:7%; */
-  }
-  #business-entry-parties{
-    font-size: 130%;
-    height: 50%;
-    width: 80%;
+  .plus{
+    font-weight: 500;
   }
 
-  .saleBtnDiv-parties{
+  
+  .saleBtnDiv{
     display: flex;
     /* margin-right: auto; */
     margin-right: 10px;
@@ -233,7 +238,7 @@ width:15%;
     height:100%;
     /* background-color: bisque; */
   }
-  .purchaseBtnDiv-parties{
+  .purchaseBtnDiv{
     display: flex;
       /* margin-right: auto; */
       margin-right: 10px;
@@ -241,15 +246,15 @@ width:15%;
       height:100%;
       /* background-color: bisque; */
   }
-  .moreBtnDiv-parties{
-    display: flex;
-      /* margin-right: auto; */
-      margin-right: 10px;
-      width:20%;
-      height:100%;
-      /* background-color: bisque; */
-  }
-  .addBtnSale-parties{
+.moreBtnDiv{
+  display: flex;
+    /* margin-right: auto; */
+    margin-right: 10px;
+    width:20%;
+    height:100%;
+    /* background-color: bisque; */
+}
+  .addBtnSale{
     height: 80%;
     width: 100%;
     color: white;
@@ -259,7 +264,7 @@ width:15%;
     border: 0;
     border-radius: 24px;
   }
-  .addBtnPurchase-parties{
+  .addBtnPurchase{
     height: 80%;
     width: 100%;
     color: white;
@@ -269,7 +274,7 @@ width:15%;
     border: 0;
     border-radius: 24px;
   }
-  .addBtnMore-parties{
+  .addBtnMore{
     height: 80%;
     width: 100%;
     color: blue;
@@ -282,21 +287,21 @@ width:15%;
     border-radius: 24px;
     border-color: blue;
   }
-  .plusSaleMore-parties{
+  .plusSaleMore{
     color:blue;
     position: absolute;
     margin-left: 0.8%;
     margin-top: 0.6%;
     margin-right:10vw;
   }
-  .plusSale-purchase-parties{
+  .plusSale-purchase{
     color: white;
     position: absolute;
     margin-left: 0.6%;
     margin-top: 0.6%;
     margin-right:10vw;
   }
- .plusSale-parties{
+ .plusSale{
     color: white;
     position: absolute;
     margin-left: 0.8%;
@@ -305,26 +310,28 @@ width:15%;
     /* margin-top: 1%; */
     /* font-weight: 900; */
  }
- .settingBtnDiv-parties{
+ .settingBtnDiv{
   width: 5%;
   /* background-color: beige; */
   /* margin-top: 2%; */
 
  }
- .setting-parties{
+ .setting{
   /* margin-top: 0%; */
   /* margin-left: 2%; */
   width: 100%;
   height: 70%;
   /* flex-basis: 60%; */
  }
- .marginDiv-parties{
+ .marginDiv{
   display: flex;
   margin-left: auto;
-  /* margin mene upar  wala change kiya hai */
   padding: 1%;
   /* margin-right:1%; */
   width: 60%;
   justify-content: right  ;
   /* background-color: aqua; */
 }
+
+
+ 

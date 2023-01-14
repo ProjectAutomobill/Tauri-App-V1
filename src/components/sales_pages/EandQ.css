@@ -1,0 +1,221 @@
+.main-saleEandQ{
+    
+    height: 100vh; 
+    width: 100%;  
+    background-color: rgb(207, 199, 199);
+    /* position:relative;
+    display: block; */
+}
+
+
+
+
+
+.upperDiv-saleEandQ{
+  /* position: absolute; */
+  width: 100%;
+  height: 15%;
+  /* display:block; */
+  /* margin-bottom: 10%; */
+  background-color: white;
+}
+
+.upperDivPart1-saleEandQ{
+  display: flex;
+  /* background-color: cornflowerblue; */
+  width: 100%;
+  height: 60%;
+}
+
+
+.input-business-saleEandQ{
+  /* margin-left: 2%; */
+  padding:1%;
+  /* background-color: yellow; */
+  /* width: 20%; */
+  /* height: 100%; */
+  width: 30%;
+  height: 60%;
+}
+
+#business-entry-saleEandQ{
+  font-size: 130%;
+  height: 50%;
+  width: 80%;
+}
+
+
+.marginDiv-saleEandQ{
+  display: flex;
+  margin-left: auto;
+  /* margin mene upar  wala change kiya hai */
+  padding: 1%;
+  /* margin-right:1%; */
+  width: 60%;
+  justify-content: right  ;
+  /* background-color: aqua; */
+}
+
+.saleBtnDiv-saleEandQ{
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width:20%;
+  height:100%;
+  /* background-color: bisque; */
+}
+
+.plusSale-saleEandQ{
+  color: white;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right:10vw;
+  /* margin-top: 1%; */
+  /* font-weight: 900; */
+}
+
+.addBtnSale-saleEandQ{
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: red;
+  border: 0;
+  border-radius: 24px;
+}
+
+.purchaseBtnDiv-saleEandQ{
+  display: flex;
+    /* margin-right: auto; */
+    margin-right: 10px;
+    width:24%;
+    height:100%;
+    /* background-color: bisque; */
+}
+
+.plusSale-purchase-saleEandQ{
+  color: white;
+  position: absolute;
+  margin-left: 0.6%;
+  margin-top: 0.6%;
+  margin-right:10vw;
+}
+
+.addBtnPurchase-saleEandQ{
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: blue;
+  border: 0;
+  border-radius: 24px;
+}
+
+.moreBtnDiv-saleEandQ{
+  display: flex;
+    /* margin-right: auto; */
+    margin-right: 10px;
+    width:20%;
+    height:100%;
+    /* background-color: bisque; */
+}
+
+.plusSaleMore-saleEandQ{
+  color:blue;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right:10vw;
+}
+
+.addBtnMore-saleEandQ{
+  height: 80%;
+  width: 100%;
+  color: blue;
+  font-weight: 700;
+  /* margin-left: auto; */
+  /* margin-left: 7%; */
+  font-size: large;
+  background-color: white;
+  border: 1;
+  border-radius: 24px;
+  border-color: blue;
+}
+
+.settingBtnDiv-saleEandQ{
+  width: 5%;
+  /* background-color: beige; */
+  /* margin-top: 2%; */
+
+ }
+.setting-saleEandQ{
+ /* margin-top: 0%; */
+/* margin-left: 2%; */
+width: 100%;
+height: 70%;
+/* flex-basis: 60%; */
+}
+
+.horizontal-line-saleEandQ{
+ width:100%;
+ height: 1%;
+ background-color: rgb(173, 171, 171);
+ /* margin-top:7%; */
+}
+
+
+
+
+
+
+.lowerBody-saleEandQ{
+    /* margin-top:1%;
+    margin-left:1%; 
+    margin-right:1%; */
+    /* margin-bottom: 10%; */
+    margin-left: 1%;
+    margin-right: 1%;
+    /* height: 200%; */
+    width: 98%;
+    height: 82%;
+    margin-top : 1%;
+    
+    /* width:97%; */
+    background-color: white;
+}
+
+.lowerBody-part1-saleEandQ{
+  /* background-color: aqua; */
+  
+  margin-left: 2%;
+  margin-right: 2%;
+  /* margin-top: 2%; */
+  /* height: 200%; */
+  width: 96%;
+  height: 90%;
+  /* isme pata nahi ku lowerBody-saleEandQ
+  se shuru nahi ho rha hai .. lagta
+  hai aur upar se shuru ho rha hai */
+
+}
+.image-saleEandQ{
+    margin-top:15%;
+    width:30%;
+    height:30%;
+}
+.paragraph-saleEandQ{
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.add-your-first-estimate-saleEandQ{
+    width: 15%;
+    height: 6%;
+    color: white;
+    font-weight: 700;
+    background-color: orange;
+    border-radius: 7px;
+}
