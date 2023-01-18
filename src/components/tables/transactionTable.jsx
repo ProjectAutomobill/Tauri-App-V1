@@ -1,7 +1,17 @@
 import React from 'react'
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material'
 import './transactionTable.css';
+import { getPartyDetails } from '../../api-firebase/firebase';
 
+var data = [];
+var dataTable1 = getPartyDetails().then((val) => {
+  data = val;
+});
+// var dataTable1 = getPartyDetails().then((val) => {
+//   y = val;
+// });
+console.log("TransactionTable");
+console.log(data);
 export const TransactionTable = () => {
   return (
     <TableContainer component={Paper}>
@@ -17,13 +27,13 @@ export const TransactionTable = () => {
             </TableHead>
             <TableBody>
                 {
-                    dataTable.map((row) =>(
+                    data.map((row) =>(
                         <TableRow>
-                            <TableCell sx={{fontSize: 12}}>{row.TYPE}</TableCell>
-                            <TableCell sx={{fontSize: 12}}>{row.NUMBER}</TableCell>
-                            <TableCell sx={{fontSize: 12}}>{row.DATE}</TableCell>
-                            <TableCell sx={{fontSize: 12}}>{row.TOTAL}</TableCell>
-                            <TableCell sx={{fontSize: 12, color: 'black', fontWeight: 100}}>{row.BALANCE}</TableCell>
+                            <TableCell sx={{fontSize: 12}}>{row.Type}</TableCell>
+                            <TableCell sx={{fontSize: 12}}>{row.Number}</TableCell>
+                            <TableCell sx={{fontSize: 12}}>{row.Number}</TableCell>
+                            <TableCell sx={{fontSize: 12}}>{row.Total}</TableCell>
+                            <TableCell sx={{fontSize: 12, color: 'black', fontWeight: 100}}>{row.Balance}</TableCell>
                         </TableRow>
                     ))
                 }

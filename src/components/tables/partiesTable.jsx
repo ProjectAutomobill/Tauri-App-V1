@@ -1,8 +1,21 @@
 import React from 'react'
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material'
 import { green } from '@mui/material/colors'
+import { getPartyDetails } from '../../api-firebase/firebase'
+
+var x = [];
+var dataTable1 = getPartyDetails().then((val) => {
+  x = val;
+});
+// console.log("PartiesTable : ");
+// console.log(x);
+// console.log("Format : ");
 
 export const PartiesTable = () => {
+
+  // console.log(dataTable);
+  // console.log(dataTable1);  
+
   return (
     <TableContainer component={Paper}>
         <Table aria-label='simple table'>
@@ -14,19 +27,22 @@ export const PartiesTable = () => {
             </TableHead>
             <TableBody>
                 {
-                    dataTable.map((row) =>(
+                    x.map((row) =>(
+                    // dataTable1.array.forEach(element => {
+                      
+                    
                         <TableRow>
-                            <TableCell sx={{fontSize: 12}}>{row.Party}</TableCell>
-                            <TableCell sx={{fontSize: 12, color: 'green', fontWeight: 600}}>{row.Amount}</TableCell>
+                            <TableCell sx={{fontSize: 12}}>{row.Total}</TableCell>
+                            <TableCell sx={{fontSize: 12, color: 'green', fontWeight: 600}}>{row.Balance}</TableCell>
                         </TableRow>
                     ))
+                  // })
                 }
             </TableBody>
         </Table>
     </TableContainer>
   )
 }
-
 
 const dataTable = [{
     "Party": "Wordify",
@@ -47,3 +63,4 @@ const dataTable = [{
     "Party": "Geba",
     "Amount": "$16087.96"
   }]
+  console.log(dataTable);

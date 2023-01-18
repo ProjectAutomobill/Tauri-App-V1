@@ -47,9 +47,9 @@ export const SaleOrder = () => {
             <div className='lowerBody-part1-saleOrder'>
 
                 <TbReport className='image-saleOrder'/>
-                <p className='paragraph-saleOrder'>Make Estimates/Quotations/Proforma Invoices and share with 
-                        your parties by WhatsApp, Email or Printed copies.
-                    You can convert them to Sale invoices later by just click of a button
+                <p className='paragraph-saleOrder'>
+                    Make & share sale orders & convert them to sale
+                    invoice instantly.
                 </p>
                 <button className='add-your-first-estimate-saleOrder'>Add Your First Sale Order</button>
             </div>

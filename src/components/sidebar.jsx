@@ -100,7 +100,7 @@ export function SideBar(props) {
             <a href="#" className="sideBarText"  onClick={() => print("paymentIn")}>Payment In</a>
             <a href="#" className="sideBarText"  onClick={() => print("saleOrder")}>Sale Order</a>
             <a href="#" className="sideBarText"  onClick={() => print("deliveryChallan")}>Delivery Challan</a>
-            <a href="#" className="sideBarText"  onClick={() => print("saleOrder")}>Sale return/ Cr. Note</a>
+            <a href="#" className="sideBarText"  onClick={() => print("saleReturn")}>Sale return/ Cr. Note</a>
 
         </div>
 
@@ -111,10 +111,10 @@ export function SideBar(props) {
 
         </div>
         <div class="dropdown-container" id="purchase-dropdown">
-            <a href="#" className="sideBarText"  onClick={() => print("sales")}>Purchase Bills</a>
-            <a href="#" className="sideBarText"  onClick={() => print("estimateAndquotation")}>Payment Out</a>
-            <a href="#" className="sideBarText"  onClick={() => print("paymentIn")}>Purchase Order</a>
-            <a href="#" className="sideBarText"  onClick={() => print("saleOrder")}>Purchase return/ Cr. note</a>
+            <a href="#" className="sideBarText"  onClick={() => print("purchases")}>Purchase Bills</a>
+            <a href="#" className="sideBarText"  onClick={() => print("paymentOut")}>Payment Out</a>
+            <a href="#" className="sideBarText"  onClick={() => print("purchaseOrder")}>Purchase Order</a>
+            <a href="#" className="sideBarText"  onClick={() => print("purchaseReturn")}>Purchase return/ Dr. note</a>
 
         </div>
         <div className="sidebar-Component">

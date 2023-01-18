@@ -1,10 +1,10 @@
-.main-paymentIn{
+.main-purchaseReturn{
     display: block;
     width: 100%;
     height: 100vh;
   }
 
-  .upperDiv-paymentIn{
+  .upperDiv-purchaseReturn{
   
       /* same as dashboar,see later */
       /* position: absolute; */
@@ -15,7 +15,7 @@
       background-color: white;
   }
   
-  .upperDivPart1-paymentIn{
+  .upperDivPart1-purchaseReturn{
       display: flex;
       /* position: absolute; */
       width: 100%;
@@ -35,7 +35,7 @@
   
   
   
-  .marginDiv-paymentIn{
+  .marginDiv-purchaseReturn{
     display: flex;
     margin-left: auto;
     /* margin mene upar  wala change kiya hai */
@@ -45,7 +45,7 @@
     justify-content: right  ;
     /* background-color: aqua; */
   }
-  .input-business-paymentIn{
+  .input-business-purchaseReturn{
       /* margin-left: 2%; */
       /* padding:01%; */
       /* background-color: yellow; */
@@ -53,19 +53,19 @@
       width: 30%;
       height: 100%;
   }
-    /* .horizontal-line-paymentIn{
+    /* .horizontal-line-purchaseReturn{
       width:100%;
       height: 1%;
       background-color: rgb(173, 171, 171);
       
     } */
-    #business-entry-paymentIn{
+    #business-entry-purchaseReturn{
       font-size: 130%;
       height: 50%;
       width: 80%;
     }
   
-    .saleBtnDiv-paymentIn{
+    .saleBtnDiv-purchaseReturn{
       display: flex;
       /* margin-right: auto; */
       margin-right: 10px;
@@ -74,7 +74,7 @@
       margin-top: 0.5%;
       /* background-color: bisque; */
     }
-    .purchaseBtnDiv-paymentIn{
+    .purchaseBtnDiv-purchaseReturn{
       display: flex;
         /* margin-right: auto; */
         margin-right: 10px;
@@ -83,7 +83,7 @@
         margin-top: 0.5%;
         /* background-color: bisque; */
     }
-    .moreBtnDiv-paymentIn{
+    .moreBtnDiv-purchaseReturn{
       display: flex;
         /* margin-right: auto; */
         margin-right: 10px;
@@ -92,7 +92,7 @@
         margin-top: 0.5%;
         /* background-color: bisque; */
     }
-    .addBtnSale-paymentIn{
+    .addBtnSale-purchaseReturn{
       height: 80%;
       width: 100%;
       color: white;
@@ -102,7 +102,7 @@
       border: 0;
       border-radius: 24px;
     }
-    .addBtnPurchase-paymentIn{
+    .addBtnPurchase-purchaseReturn{
       height: 80%;
       width: 100%;
       color: white;
@@ -112,7 +112,7 @@
       border: 0;
       border-radius: 24px;
     }
-    .addBtnMore-paymentIn{
+    .addBtnMore-purchaseReturn{
       height: 80%;
       width: 100%;
       color: blue;
@@ -125,21 +125,21 @@
       border-radius: 24px;
       border-color: blue;
     }
-    .plusSaleMore-paymentIn{
+    .plusSaleMore-purchaseReturn{
       color:blue;
       position: absolute;
       margin-left: 0.8%;
       margin-top: 0.6%;
       margin-right:10vw;
     }
-    .plusSale-purchase-paymentIn{
+    .plusSale-purchase-purchaseReturn{
       color: white;
       position: absolute;
       margin-left: 0.6%;
       margin-top: 0.6%;
       margin-right:10vw;
     }
-   .plusSale-paymentIn{
+   .plusSale-purchaseReturn{
       color: white;
       position: absolute;
       margin-left: 0.8%;
@@ -148,14 +148,14 @@
       /* margin-top: 1%; */
       /* font-weight: 900; */
    }
-   .settingBtnDiv-paymentIn{
+   .settingBtnDiv-purchaseReturn{
     width: 5%;
     margin-top: 0.5%;
     /* background-color: beige; */
     /* margin-top: 2%; */
   
    }
-   .setting-paymentIn{
+   .setting-purchaseReturn{
     /* margin-top: 0%; */
     /* margin-left: 2%; */
     width: 100%;
@@ -166,80 +166,80 @@
 
 
   
-   .middleDiv-paymentIn{
+   .middleDiv-purchaseReturn{
     margin-top: 0.5%;
     margin-left: 1%;
     width: 98%;
     height:9%;
     background-color: white;
   }
-.middleDiv-part1-paymentIn{
+.middleDiv-part1-purchaseReturn{
   display: flex;
   height: 60%;
   /* background-color: aqua; */
 }
 
-.choose-months-paymentIn{
+.choose-months-purchaseReturn{
   padding:0.5%;
   /* background-color: yellow; */
 
 }
-#months-paymentIn{
+#months-purchaseReturn{
   border: none;
   height: 100%;
   width: 100%;
   
 }
-.choose-dates-paymentIn{
+.choose-dates-purchaseReturn{
   /* margin-left: 1%; */
   padding:0.5%;
   width: 30%;
   /* background-color: blue; */
 }
-#from-paymentIn{
+#from-purchaseReturn{
   height:50%;
 
 }
-#to-paymentIn{
+#to-purchaseReturn{
   height: 50%;
   margin-right: 1%;
 }
-#firm-paymentIn{
+#firm-purchaseReturn{
   margin-left:1%;
 }
-.options-middlepart1-paymentIn{
+.options-middlepart1-purchaseReturn{
   /* background-color: blanchedalmond; */
   margin-top: 0.5%;
   width: 10%;
   margin-left: auto;
 }
 
-.report-middlepart1-paymentIn{
+.report-middlepart1-purchaseReturn{
   height:50%;
   width: 30%;
 }
-.print-middlepart1-paymentIn{
+.print-middlepart1-purchaseReturn{
   height:50%;
   width: 30%;
 }
-.middleDiv-part2-paymentIn{
+.middleDiv-part2-purchaseReturn{
   height: 40%;
   /* background-color: rgb(39, 179, 17); */
   /* text-align: left; */
   /* display: flex; */
 }
-.content-middleDiv-part2-paymentIn{
+.content-middleDiv-part2-purchaseReturn{
   width:12%;
   height: 100%;
   margin-left: 0.5%;
   /* background-color: brown; */
 }
-.choose-payment_in-paymentIn{
+.choose-purchase_return-purchaseReturn{
   padding:0.5%;
   /* background-color: yellow; */
 
 }
-/* #paymentin-paymentIn{
+/* #purchaseReturn-purchaseReturn{
   border: none;
   height: 100%;
   width: 100%;
@@ -252,7 +252,7 @@
 
 
   
-.lowerDivSale-paymentIn{
+.lowerDivSale-purchaseReturn{
     position: absolute;
     width: 100%;
     height: 82%;
@@ -261,15 +261,15 @@
     background-color: white;
 }
   
-  .top-part-A-paymentIn{
+  .top-part-A-purchaseReturn{
     display: flex;
     margin-left:1%;
     /* background-color: green; */
   }
-  .transaction-paymentIn{
+  .transaction-purchaseReturn{
     text-align:left;
   }
-  .search-input-paymentIn{
+  .search-input-purchaseReturn{
     height: 4vh;
     margin: 10px;
     margin-right: auto;
@@ -277,7 +277,7 @@
     border: 2%;
   }
   
-  .addBtnSale-sale2-paymentIn{
+  .addBtnSale-sale2-purchaseReturn{
     height: 4vh;
     width: 9vw;
     margin: auto;

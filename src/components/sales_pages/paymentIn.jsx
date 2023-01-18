@@ -1,6 +1,6 @@
 import React from 'react'
 // import {Link} from 'react-router-dom';
-import '../purchaseBills.css';
+// import '../purchaseBills.css';
 import './paymentIn.css';
 import {AiOutlinePlus} from 'react-icons/ai';
 // import { PurchaseBillsTable } from '../tables/purchaseBillsTable';
@@ -93,8 +93,8 @@ export const PaymentIn = () => {
           <div className='middleDiv-part2-paymentIn'>
             <div className='content-middleDiv-part2-paymentIn'> 
               
-              <div className='choose-paymentin-paymentIn'>
-                <select id="paymentin-paymentIn">
+              <div className='choose-payment_in-paymentIn'>
+                <select id="payment_in-paymentIn">
                   <option value="allTransactions-paymentIn">All Transactions</option>
                   <option value="sale-paymentIn">Sale</option>
                   <option value="purchase-paymentIn">Purchase</option>

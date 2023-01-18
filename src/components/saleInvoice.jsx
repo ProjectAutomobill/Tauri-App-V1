@@ -75,9 +75,9 @@ export const SaleInvoice = () => {
               <label for="to-saleInvoice">To :</label>
               <input type="date" id="to-saleInvoice" name="to-saleInvoice"/>
               
-              <select id="firm-saleinovice">
-                <option value="allFirms-saleInovice">All Firm</option>
-                <option value="myCompany-saleInovice">My Company</option>
+              <select id="firm-saleInovice">
+                <option value="allFirms-saleInvoice">All Firm</option>
+                <option value="myCompany-saleInvoice">My Company</option>
               </select>
 
             </div>
