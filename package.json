@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:8001",
   "dependencies": {
     "@coreui/icons": "^2.1.0",
     "@coreui/icons-react": "^2.1.0",
@@ -21,7 +22,7 @@
     "react-icons": "^4.7.1",
     "react-pro-sidebar": "^1.0.0-alpha.9",
     "react-router-dom": "^6.6.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -29,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "npm start",
+    "dev": "concurrently \"npm start\" \"python backend/firebase.py\"",
     "tauri": "tauri"
   },
   "eslintConfig": {
