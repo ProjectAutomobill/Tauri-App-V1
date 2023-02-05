@@ -7,7 +7,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "testApp",
+    "productName": "Autotekk",
     "version": "0.1.0"
   },
   "tauri": {

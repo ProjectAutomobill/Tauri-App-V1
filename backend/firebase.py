@@ -10,8 +10,16 @@ docs = users.stream()
 
 #=====================Output Vars==========================
 party_transaction_Dict = []
-
-
+partyNamesAndTotal = []
+salesData = []
+date_data_Sale = []
+purchase_data = []
+date_data_Purchase = []
+purchaseBalance = 0
+Balance = 0
+purchaseAmountGlobal = 0
+companyID = None
+partyID = None
 for doc in docs:
     # print('{} => {} '.format(doc.id, doc.to_dict()))
 
@@ -22,23 +30,45 @@ for doc in docs:
 
         for doc_C in companyDocs:
             # print('{} => {} '.format(doc_C.id, doc_C.to_dict()))
-
+            companyID = doc_C.id
             parties = db.collection('users',doc.id,'company',doc_C.id,'parties')
             partiesDocs = parties.stream()
-
+            i = 0
+            j = 0
             for doc_P in partiesDocs:
                 # print('{} => {} '.format(doc_P.id, doc_P.to_dict()))
-                
+                partyID = doc_P.id 
                 partyTransactions = db.collection('users',doc.id,'company',doc_C.id,'parties',doc_P.id,'PartyDetails')
                 partyTransactionsDocs = partyTransactions.stream()
 
                 temp = []
+                total_amount = 0
+                sales_amount = 0
+                purchase_amount = 0
+                
                 for doc_T in partyTransactionsDocs:
                     # print('{} => {} '.format(doc_T.id, doc_T.to_dict()))
                     temp.append(doc_T.to_dict())
-
+                    print(str(i) + "  "+ str(doc_T.to_dict()["Type"]))
+                    # Balance = Balance + doc_T.to_dict()["Balance"]
+                    if(doc_T.to_dict()["Type"] == "Sale"):
+                         
+                         sales_amount = sales_amount + doc_T.to_dict()["Total"]
+                         salesData.append(int(doc_T.to_dict()["Total"]))
+                         date_data_Sale.append(i)
+                         Balance = Balance + int(doc_T.to_dict()["Balance"])
+                         i = i+1
+                    else:
+                         purchase_amount = purchase_amount + doc_T.to_dict()["Total"]
+                         purchaseAmountGlobal = purchaseAmountGlobal + doc_T.to_dict()["Total"]
+                         purchase_data.append( doc_T.to_dict()["Total"])
+                         date_data_Purchase.append(j)
+                         purchaseBalance = purchaseBalance + doc_T.to_dict()["Balance"]
+                         j = j+1
+                         
+                total_amount = sales_amount - purchase_amount
                 party_transaction_Dict.append([doc_P.to_dict()['PartyName'],temp])
-    
+                partyNamesAndTotal.append({"Name" : doc_P.to_dict()['PartyName'], "Amount" : total_amount})
     else:
         print("Record Not found...")
 
@@ -52,6 +82,60 @@ def getPartyTransactions():
          if(party_transaction_Dict[i][0] == str(source)):
               temp = jsonify(party_transaction_Dict[i][1])
     return temp
+
+
+@app.route('/getPartyNames')
+def getPartyNames():
+    global party_transaction_Dict
+    # source = request.args.get('partyName')
+    # party_transaction_Dict = jsonify(party_transaction_Dict[str(source)])
+    temp = None
+    # for i in range(len(party_transaction_Dict)):
+    #      if(party_transaction_Dict[i][0] == str(source)):
+    #           temp = jsonify(party_transaction_Dict[i][1])
+    temp = jsonify(partyNamesAndTotal)
+    return temp
+
+@app.route('/getSalesData')
+def getSalesData():
+     return salesData
+
+@app.route('/getSalesDate')
+def getSalesDate():
+     return date_data_Sale
+
+@app.route('/getPurchaseData')
+def getPurchaseData():
+     return purchase_data
+
+
+@app.route('/getPurchaseDate')
+def getPurchaseDate():
+     return date_data_Purchase
+
+@app.route('/getBalance')
+def getBalance():
+     return str(Balance)
+
+@app.route('/getPurchaseBalance')
+def getPurchaseBalance():
+     return str(purchaseBalance)
+
+@app.route('/getPurchaseAmount')
+def getPurchaseAmount():
+     return str(purchaseAmountGlobal)
+
+@app.route('/addData')
+def addData():
+     data = request.args.get('balance')
+     db.collection('users',doc.id,'company',companyID,'parties',partyID,'PartyDetails').add({
+          "Balance" : data,
+          "Date" : None,
+          "Type" : "Sale",
+          "Number" : 20,
+          "Total" : 2200
+     })
+     return "Done"
 
 if __name__ == '__main__':
 	app.run(debug=True,port=8001)
