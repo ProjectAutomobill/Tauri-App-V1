@@ -7,6 +7,19 @@ export const SalesGraph = () => {
   const [dataD, setDataD] = useState();
 
   const [options, setOptions] = useState({
+    grid: {
+      show: false,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    label: {
+      show: false,
+    },
+
     colors: ["#00FF00"],
     chart: {
       toolbar: {
@@ -19,6 +32,14 @@ export const SalesGraph = () => {
     },
     xaxis: {
       categories: dataS,
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
     },
   });
 
@@ -75,8 +96,8 @@ export const SalesGraph = () => {
       options={options}
       series={series}
       type="area"
-      // width={500}
-      // height={320}
+      width={340}
+      height={220}
     />
   );
   //   }

@@ -7,8 +7,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { SalesGraph } from "./charts/SalesChart";
 import { PurchaseGraph } from "./charts/PurchaseChart";
 import { useState, useEffect } from "react";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-
+import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
+import { GrCart } from "react-icons/gr";
 export const DashBoard = () => {
   const [balance, setBalance] = useState(0);
   const [purchaseBalance, setPurchaseBalance] = useState(0);
@@ -90,7 +90,20 @@ export const DashBoard = () => {
         <div className="leftDiv1">
           <div className="leftDiv-dashboardA">
             {/* This is left section | part(a) */}
-            <SalesGraph />
+            {/* <FaFileInvoice /> */}
+            <div className="top-header-sale">
+              <FaFileInvoice className="invoice" />
+              <h4>Sale</h4>
+            </div>
+            <div className="lower-part-sale-graph">
+              <div className="left-portion">
+                <h4 className="sale-label">$0.00</h4>
+                <h6 style={{ color: "blue" }}>Total Sale</h6>
+              </div>
+              <div className="right-portion">
+                <SalesGraph className="sale-graph" />
+              </div>
+            </div>
           </div>
           <div className="leftDiv-dashboardB">
             {/* This is left section | part(b) */}
@@ -100,20 +113,26 @@ export const DashBoard = () => {
 
         <div className="leftDiv2">
           <div className="leftDiv2A">
-            <div>
-              <FaArrowDown />
-              <h3>You'll Receive</h3>
+            <div className="receive-div">
+              <FaArrowDown className="down-arrow" />
+              <h5>You'll Receive</h5>
             </div>
-            {balance}
+            <h4 className="balance-tag">${balance}.00</h4>
           </div>
           <div className="leftDiv2B">
-            <div>
-              <FaArrowDown />
-              <h3>You'll Pay</h3>
+            <div className="receive-div">
+              <FaArrowUp className="down-arrow" />
+              <h5>You'll Pay</h5>
             </div>
-            {purchaseBalance}
+            <h4 className="balance-tag">${purchaseBalance}.00</h4>
           </div>
-          <div className="leftDiv2C">{purchaseAmount}</div>
+          <div className="leftDiv2C">
+            <div className="receive-div">
+              <GrCart className="down-arrow" />
+              <h5>Purchase</h5>
+            </div>
+            <h4 className="balance-tag">${purchaseAmount}.00</h4>
+          </div>
         </div>
 
         <div className="rightDiv-dashboard">

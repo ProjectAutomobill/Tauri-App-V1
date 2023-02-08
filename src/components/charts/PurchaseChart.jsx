@@ -7,6 +7,18 @@ export const PurchaseGraph = () => {
   const [dataD, setDataD] = useState();
 
   const [options, setOptions] = useState({
+    grid: {
+      show: false,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    label: {
+      show: false,
+    },
     chart: {
       toolbar: {
         show: false,
@@ -15,6 +27,14 @@ export const PurchaseGraph = () => {
     },
     xaxis: {
       categories: dataD,
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
     },
   });
 

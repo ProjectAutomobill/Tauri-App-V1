@@ -37,18 +37,17 @@
   }
 }
 
-.sideBar{
+.sideBar {
   position: absolute;
-  width: 20vw;
+  width: 15vw;
   height: 100vh;
-  background-color: rgb(25,29,43);
+  background-color: rgb(25, 29, 43);
 }
 
-.mainSection{
+.mainSection {
   position: absolute;
-  margin-left: 20vw;
-  width: 80vw;
+  margin-left: 15vw;
+  width: 85vw;
   height: 100vh;
   background-color: rgb(215, 211, 211);
 }
-

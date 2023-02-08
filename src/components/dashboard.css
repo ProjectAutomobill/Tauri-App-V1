@@ -52,6 +52,44 @@
   /* border: 1px; */
   /* border-style: dotted; */
 }
+
+.top-header-sale {
+  display: flex;
+  /* background-color: green; */
+  gap: 1%;
+}
+
+.invoice {
+  font-size: x-large;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2%;
+  color: rgb(231, 231, 59);
+}
+
+.lower-part-sale-graph {
+  /* background-color: yellow; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* gap: 20%; */
+}
+.left-portion {
+  /* background-color: aqua; */
+  width: 30%;
+  height: 100%;
+}
+.right-portion {
+  /* background-color: yellow; */
+  width: 70%;
+  height: 100%;
+}
+
+.sale-label {
+  margin: auto;
+  margin-top: 40%;
+}
+
 .leftDiv-dashboardB {
   background-color: white;
   margin-left: 2%;
@@ -232,4 +270,23 @@
   width: 60%;
   justify-content: right;
   /* background-color: aqua; */
+}
+
+.receive-div {
+  display: flex;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.down-arrow {
+  color: rgb(107, 214, 107);
+  font-size: larger;
+  margin: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.balance-tag {
+  margin-right: 25%;
+  color: rgb(128, 130, 132);
 }
