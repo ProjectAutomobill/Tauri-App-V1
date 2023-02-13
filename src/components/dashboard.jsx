@@ -9,11 +9,13 @@ import { PurchaseGraph } from "./charts/PurchaseChart";
 import { useState, useEffect } from "react";
 import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
+import Dropdown from "react-bootstrap/Dropdown";
+
 export const DashBoard = () => {
   const [balance, setBalance] = useState(0);
   const [purchaseBalance, setPurchaseBalance] = useState(0);
   const [purchaseAmount, setPurchaseAmount] = useState(0);
-
+  const [salesAmount, setSalesAmount] = useState(0);
   async function componentDidMount() {
     await fetch("/getBalance")
       .then((val) => val.json())
@@ -39,11 +41,20 @@ export const DashBoard = () => {
         // console.log(data);
       });
   }
+  async function totalSalesAmount() {
+    await fetch("/getTotalSalesAmount")
+      .then((val) => val.json())
+      .then((value) => {
+        setSalesAmount(parseInt(value));
+        // console.log(data);
+      });
+  }
 
   useEffect(() => {
     componentDidMount();
     PurchaseBalance();
     PurchaseAmount();
+    totalSalesAmount();
   }, []);
 
   return (
@@ -93,21 +104,35 @@ export const DashBoard = () => {
             {/* <FaFileInvoice /> */}
             <div className="top-header-sale">
               <FaFileInvoice className="invoice" />
-              <h4>Sale</h4>
+              <h5 className="tag-header">Sale</h5>
+              <DropdownDashboard />
             </div>
             <div className="lower-part-sale-graph">
               <div className="left-portion">
-                <h4 className="sale-label">$0.00</h4>
+                <h4 className="sale-label">${salesAmount}.00</h4>
                 <h6 style={{ color: "blue" }}>Total Sale</h6>
+                <br />
+                <br />
+                <br />
+                <FaArrowUp />
+                <div className="small-text">This month Growth</div>
               </div>
+              <div className="dotted-line"></div>
               <div className="right-portion">
                 <SalesGraph className="sale-graph" />
+                <div className="small-text">Report : Lifetime</div>
               </div>
             </div>
           </div>
           <div className="leftDiv-dashboardB">
             {/* This is left section | part(b) */}
+            <div className="top-header-sale">
+              <FaFileInvoice className="invoice" />
+              <h5 className="tag-header">Expenses</h5>
+              {/* <DropdownDashboard /> */}
+            </div>
             <PurchaseGraph />
+            <div className="small-text">Report : Lifetime</div>
           </div>
         </div>
 
@@ -117,33 +142,93 @@ export const DashBoard = () => {
               <FaArrowDown className="down-arrow" />
               <h5>You'll Receive</h5>
             </div>
-            <h4 className="balance-tag">${balance}.00</h4>
+            <h5 className="balance-tag">${balance}.00</h5>
           </div>
           <div className="leftDiv2B">
             <div className="receive-div">
               <FaArrowUp className="down-arrow" />
               <h5>You'll Pay</h5>
             </div>
-            <h4 className="balance-tag">${purchaseBalance}.00</h4>
+            <h5 className="balance-tag">${purchaseBalance}.00</h5>
           </div>
           <div className="leftDiv2C">
             <div className="receive-div">
               <GrCart className="down-arrow" />
               <h5>Purchase</h5>
             </div>
-            <h4 className="balance-tag">${purchaseAmount}.00</h4>
+            <h5 className="balance-tag">${purchaseAmount}.00</h5>
           </div>
         </div>
 
         <div className="rightDiv-dashboard">
+          <div className="tag-header">Stock Inventory</div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Stock Value</div>
+            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
+          </div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Low Stock</div>
+            <div style={{ margin: "0 0 0 -70%" }}>Items 10</div>
+          </div>
+          <div className="tag-header">Cash & Bank</div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Cash in hand</div>
+            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
+          </div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Bank Accounts</div>
+            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
+          </div>
+          <div className="tag-header">Sales</div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Sales Order</div>
+            <div style={{ margin: "0 0 0 -70%" }}>Quantity</div>
+          </div>
+          <div className="tag-header">Purchase</div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -70%" }}>Purchase Order</div>
+            <div style={{ margin: "0 0 0 -70%" }}>Quantity</div>
+          </div>
+          {/* <div className="data-box"></div>
           <div className="data-box"></div>
           <div className="data-box"></div>
           <div className="data-box"></div>
-          <div className="data-box"></div>
-          <div className="data-box"></div>
-          <div className="data-box"></div>
+          <div className="data-box"></div> */}
         </div>
       </div>
     </div>
   );
 };
+
+// async function getTotalSale(setTotalSale) {
+//   await fetch("/gettotalsale")
+//     .then((val) => val.json())
+//     .then((value) => {
+//       setTotalSale(parseInt(value));
+//       // console.log(data);
+//     });
+// }
+
+function DropdownDashboard() {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
+        Time Period
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">
+          <div className="small-text">This Month</div>
+        </Dropdown.Item>
+        <Dropdown.Item href="#/action-2">
+          {" "}
+          <div className="small-text">Previous Month</div>
+        </Dropdown.Item>
+        <Dropdown.Item href="#/action-3">
+          {" "}
+          <div className="small-text">Lifetime</div>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}

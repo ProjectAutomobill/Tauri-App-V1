@@ -20,6 +20,8 @@ Balance = 0
 purchaseAmountGlobal = 0
 companyID = None
 partyID = None
+company_name = " "
+
 for doc in docs:
     # print('{} => {} '.format(doc.id, doc.to_dict()))
 
@@ -31,6 +33,8 @@ for doc in docs:
         for doc_C in companyDocs:
             # print('{} => {} '.format(doc_C.id, doc_C.to_dict()))
             companyID = doc_C.id
+            company_name = str(doc_C.to_dict()["name"])
+            print("Setting company name :  " + str(doc_C.to_dict()["name"]))
             parties = db.collection('users',doc.id,'company',doc_C.id,'parties')
             partiesDocs = parties.stream()
             i = 0
@@ -56,7 +60,7 @@ for doc in docs:
                          sales_amount = sales_amount + doc_T.to_dict()["Total"]
                          salesData.append(int(doc_T.to_dict()["Total"]))
                          date_data_Sale.append(i)
-                         Balance = Balance + int(doc_T.to_dict()["Balance"])
+                         Balance = Balance + doc_T.to_dict()["Balance"]
                          i = i+1
                     else:
                          purchase_amount = purchase_amount + doc_T.to_dict()["Total"]
@@ -124,6 +128,18 @@ def getPurchaseBalance():
 @app.route('/getPurchaseAmount')
 def getPurchaseAmount():
      return str(purchaseAmountGlobal)
+
+@app.route('/getTotalSalesAmount')
+def getTotalSalesAmount():
+     return str(sum(salesData))
+
+
+@app.route('/getCompanyName')
+def getCompanyName():
+     print(company_name)
+     # name_json = {"name" : }
+     return {"name" : company_name}
+
 
 @app.route('/addData')
 def addData():

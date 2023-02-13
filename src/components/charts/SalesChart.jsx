@@ -41,6 +41,9 @@ export const SalesGraph = () => {
         show: false,
       },
     },
+    stroke: {
+      width: 1,
+    },
   });
 
   const [series, SetSeries] = useState([

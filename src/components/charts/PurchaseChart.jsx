@@ -36,6 +36,9 @@ export const PurchaseGraph = () => {
         show: false,
       },
     },
+    stroke: {
+      width: 1,
+    },
   });
 
   const [series, SetSeries] = useState([

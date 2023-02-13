@@ -16,7 +16,7 @@
   top: 16%;
   width: 70%;
   height: 40%;
-  overflow: auto;
+  /* overflow: auto; */
   /* background-color: aqua; */
 }
 .rightDiv-dashboard {
@@ -85,6 +85,17 @@
   height: 100%;
 }
 
+.small-text {
+  font-size: smaller;
+  color: gray;
+  margin-right: auto;
+}
+
+.dotted-line {
+  width: 1px;
+  height: 80%;
+  background-color: rgb(228, 219, 219);
+}
 .sale-label {
   margin: auto;
   margin-top: 40%;
@@ -289,4 +300,25 @@
 .balance-tag {
   margin-right: 25%;
   color: rgb(128, 130, 132);
+}
+
+.tag-header {
+  font-size: large;
+  font-weight: bold;
+  color: rgb(142, 136, 136);
+  margin-right: 60%;
+  /* background-color: aliceblue; */
+}
+
+.data-box-stock {
+  background-color: white;
+  width: 98%;
+  /* height: 20%; */
+  margin: auto;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* overflow: auto; */
 }
