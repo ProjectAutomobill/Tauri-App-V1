@@ -153,5 +153,17 @@ def addData():
      })
      return "Done"
 
+@app.route('/addParty')
+def addPartyData():
+     name = request.args.get('name')
+     gstin = request.args.get('gstin')
+     pnumber = request.args.get('pnumber')
+     db.collection('users',doc.id,'company',companyID,'parties').add({
+          "PartyName" : str(name),
+          "GSTIN" : str(gstin),
+          "PhoneNumber" : str(pnumber)
+     })
+     print("ADDED NEW PARTY DETAILS...")
+     return "Done"
 if __name__ == '__main__':
 	app.run(debug=True,port=8001)

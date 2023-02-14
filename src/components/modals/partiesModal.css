@@ -1,0 +1,9 @@
+#body-content {
+  display: block;
+  gap: 5%;
+}
+
+#upper-input {
+  display: flex;
+  gap: 5%;
+}
