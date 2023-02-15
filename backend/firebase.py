@@ -158,10 +158,14 @@ def addPartyData():
      name = request.args.get('name')
      gstin = request.args.get('gstin')
      pnumber = request.args.get('pnumber')
+     email = request.args.get('email')
+     address = request.args.get('address')
      db.collection('users',doc.id,'company',companyID,'parties').add({
           "PartyName" : str(name),
           "GSTIN" : str(gstin),
-          "PhoneNumber" : str(pnumber)
+          "PhoneNumber" : str(pnumber),
+          "Email" : str(email),
+          "Address" : str(address)
      })
      print("ADDED NEW PARTY DETAILS...")
      return "Done"

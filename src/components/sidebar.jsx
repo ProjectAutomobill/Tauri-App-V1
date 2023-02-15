@@ -20,10 +20,14 @@ import { FaAngleDown } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Rotate90DegreesCcw, RotateLeft } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-
+import { CompanyModal } from "./modals/companyModal";
 export function SideBar(props) {
   const [companyName, setCompanyName] = useState("Your Company");
+  const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
 
+  function CompanyModalToggle() {
+    setModalShowCompanyModal(true);
+  }
   function print(val) {
     props.val2(val);
   }
@@ -89,7 +93,10 @@ export function SideBar(props) {
   // console.log(props.val1);
   return (
     <div className="sidebarDiv">
-      <div className="company-tag">
+      <div
+        className="company-tag"
+        onClick={() => setModalShowCompanyModal(true)}
+      >
         <CgProfile className="profile-icon" />
         <h5 style={{ color: "#e6e6e6" }}>{companyName}</h5>
       </div>
@@ -280,6 +287,10 @@ export function SideBar(props) {
           Share FeedBack
         </h3>
       </div>
+      <CompanyModal
+        show={modalShowCompanyModal}
+        onHide={() => setModalShowCompanyModal(false)}
+      />
     </div>
   );
 }

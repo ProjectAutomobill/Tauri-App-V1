@@ -4,15 +4,28 @@ import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import "./partiesModal.css";
+import { GstPage } from "./gstPage";
 export function PartiesModal(props) {
   const [partyName, setPartyName] = useState("");
   const [gstin, setGstin] = useState("");
   const [phone_no, setPhoneNo] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
 
   async function addPartyDetails() {
     await fetch(
-      "/addParty?name=" + partyName + "&gstin=" + gstin + "&pnumber=" + phone_no
+      "/addParty?name=" +
+        partyName +
+        "&gstin=" +
+        gstin +
+        "&pnumber=" +
+        phone_no +
+        "&email=" +
+        email +
+        "&address=" +
+        address
     ).then((val) => console.log(val));
+    props.onHide();
   }
 
   return (
@@ -58,7 +71,7 @@ export function PartiesModal(props) {
             className="mb-3"
           >
             <Tab eventKey="home" title="GST & Address">
-              Tab 1
+              <GstPage setEmail={setEmail} setAddress={setAddress} />
             </Tab>
             <Tab eventKey="profile" title="Credit & Balance">
               Tab 2
