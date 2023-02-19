@@ -1,0 +1,21 @@
+#company-body {
+  display: flex;
+  gap: 10%;
+}
+
+#left-side {
+  /* position: absolute; */
+  width: 40%;
+  height: 100%;
+  background-color: aqua;
+}
+
+#right-side {
+  display: block;
+  /* margin-left: 50%; */
+  /* background-color: green; */
+}
+
+#ctextbox {
+  margin-top: 5%;
+}

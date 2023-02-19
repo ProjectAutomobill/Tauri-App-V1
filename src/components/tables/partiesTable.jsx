@@ -12,20 +12,29 @@ import { green } from "@mui/material/colors";
 import { getPartyDetails } from "../../api-firebase/firebase";
 import { getValue } from "@mui/system";
 import { useEffect } from "react";
+import "./partiesTable.css";
 
-export const PartiesTable = () => {
+export const PartiesTable = (props) => {
   // console.log(dataTable);
   // console.log(dataTable1);
   const [data, setData] = useState();
-
+  const [partyName, setPartyName] = useState();
+  const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
   async function componentDidMount1() {
-    await fetch("/getTransactions?partyName=Party 2")
+    await fetch("/getPartyNames")
       .then((val) => val.json())
       .then((value) => {
         setData(value);
         // console.log(data);
       });
   }
+
+  function getData() {
+    // setPartyName(val);
+    console.log("PartyName : " + partyName);
+  }
+
+  // getData();
   useEffect(() => {
     componentDidMount1();
   }, []);
@@ -44,12 +53,18 @@ export const PartiesTable = () => {
             data?.map((row) => (
               // dataTable1.array.forEach(element => {
 
-              <TableRow>
-                <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
+              <TableRow className="table-row">
+                <TableCell
+                  sx={{ fontSize: 12 }}
+                  onClick={() => props.setTrans(row.Name)}
+                >
+                  {row.Name}
+                </TableCell>
                 <TableCell
                   sx={{ fontSize: 12, color: "green", fontWeight: 600 }}
+                  onClick={() => console.log(props.partyName)}
                 >
-                  {row.Balance}
+                  {row.Amount}
                 </TableCell>
               </TableRow>
             ))
@@ -87,4 +102,4 @@ const dataTable = [
     Amount: "$16087.96",
   },
 ];
-console.log(dataTable);
+// console.log(dataTable);

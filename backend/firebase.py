@@ -1,8 +1,10 @@
 from firebase_config import db
 from flask import Flask, jsonify, request
+from flask_ngrok import run_with_ngrok
 
 
 app = Flask(__name__)
+# run_with_ngrok(app)
 
 users = db.collection('users')
 docs = users.stream()
@@ -170,4 +172,4 @@ def addPartyData():
      print("ADDED NEW PARTY DETAILS...")
      return "Done"
 if __name__ == '__main__':
-	app.run(debug=True,port=8001)
+	app.run(port="8001")

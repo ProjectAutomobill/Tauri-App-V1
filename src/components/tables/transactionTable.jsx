@@ -20,17 +20,24 @@ var dataTable1 = getPartyDetails().then((val) => {
 //   y = val;
 // });
 console.log("TransactionTable");
-console.log(data);
-export const TransactionTable = () => {
+// console.log(data);
+export const TransactionTable = (props) => {
   const [dataT, setDataT] = useState();
-
+  const [prev, setPrev] = useState();
   async function componentDidMount() {
-    await fetch("/getTransactions?partyName=Party 2")
+    var partyName = props.partyName;
+    await fetch("/getTransactions?partyName=" + partyName)
       .then((val) => val.json())
       .then((value) => {
         setDataT(value);
+
         // console.log(data);
       });
+  }
+
+  if (props.partyName != prev) {
+    componentDidMount();
+    setPrev(props.partyName);
   }
   useEffect(() => {
     componentDidMount();

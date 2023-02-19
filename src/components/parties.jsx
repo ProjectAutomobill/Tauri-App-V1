@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Table } from "@mui/material";
 import "./parties.css";
 import { PartiesTable } from "./tables/partiesTable";
@@ -10,7 +10,34 @@ import { Link } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BiAlarm } from "react-icons/bi";
+
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { PartiesModal } from "./modals/partiesModal";
+
 export const Parties = () => {
+  const [modalShow, setModalShow] = useState(false);
+  const [partyTransaction, setPartyTransaction] = useState();
+  // const [dataParty, setDataParty] = useState();
+
+  // async function getPartyDetailsUpper() {
+  //   await fetch("/getTransactions?partyName=" + partyTransaction)
+  //     .then((val) => val.json())
+  //     .then((value) => {
+  //       setDataParty(value);
+
+  //       // console.log(data);
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   getPartyDetailsUpper();
+  // }, []);
+
+  function test() {
+    console.log(modalShow);
+    setModalShow(true);
+  }
   return (
     <div className="parties-items-parties">
       <div className="upperDiv-parties">
@@ -53,17 +80,24 @@ export const Parties = () => {
 
       <div className="lowerBody-parties">
         <div className="leftDiv-parties">
-          <Link style={{ textDecoration: "none" }} to="/addParty">
-            <div className="leftDivbtnSearch-parties">
-              <FiSearch className="searchIcon-parties" />
-              <button className="partyBtn-parties">
-                {" "}
-                <AiOutlinePlus className="plus-parties" />
-                Add Party
-              </button>
-            </div>
-          </Link>
-          <PartiesTable />
+          {/* <Link style={{ textDecoration: "none" }} to="/addParty"> */}
+          <div className="leftDivbtnSearch-parties">
+            <FiSearch className="searchIcon-parties" />
+            <button
+              className="partyBtn-parties"
+              onClick={() => setModalShow(true)}
+            >
+              {" "}
+              <AiOutlinePlus className="plus-parties" />
+              Add Party
+            </button>
+          </div>
+
+          {/* </Link> */}
+          <PartiesTable
+            setTrans={setPartyTransaction}
+            partyName={partyTransaction}
+          />
         </div>
 
         <div className="rightDiv-parties">
@@ -122,12 +156,13 @@ export const Parties = () => {
                 />
               </div>
               <div className="Ttable-parties">
-                <TransactionTable />
+                <TransactionTable partyName={partyTransaction} />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <PartiesModal show={modalShow} onHide={() => setModalShow(false)} />
     </div>
   );
 };

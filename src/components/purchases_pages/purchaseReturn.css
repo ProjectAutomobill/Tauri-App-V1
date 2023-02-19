@@ -1,243 +1,226 @@
-.main-purchaseReturn{
-    display: block;
-    width: 100%;
-    height: 100vh;
-  }
+.main-purchaseReturn {
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
 
-  .upperDiv-purchaseReturn{
-  
-      /* same as dashboar,see later */
-      /* position: absolute; */
-      width: 100%;
-      height: 5vh;
-      /* display: block; */
-      /* margin-bottom: 10%; */
-      background-color: white;
-  }
-  
-  .upperDivPart1-purchaseReturn{
-      display: flex;
-      /* position: absolute; */
-      width: 100%;
-      height: 100%;
-      /* ye yahan par parties
+.upperDiv-purchaseReturn {
+  /* same as dashboar,see later */
+  /* position: absolute; */
+  width: 100%;
+  height: 5vh;
+  /* display: block; */
+  /* margin-bottom: 10%; */
+  background-color: white;
+}
+
+.upperDivPart1-purchaseReturn {
+  display: flex;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  /* ye yahan par parties
       wale css se alg hai.. aur upar
       upperDiv define kiya hua
       ..kam toh ban gya par samajh nahi aya */
-      /* background-color: brown; */
-      
-    }
-  
+  /* background-color: brown; */
+}
 
-
-  
-  
-  
-  
-  
-  .marginDiv-purchaseReturn{
-    display: flex;
-    margin-left: auto;
-    /* margin mene upar  wala change kiya hai */
-    /* padding: 1%; */
-    /* margin-right:1%; */
-    width: 60%;
-    justify-content: right  ;
-    /* background-color: aqua; */
-  }
-  .input-business-purchaseReturn{
-      /* margin-left: 2%; */
-      /* padding:01%; */
-      /* background-color: yellow; */
-      margin-top: 0.5%;
-      width: 30%;
-      height: 100%;
-  }
-    /* .horizontal-line-purchaseReturn{
+.marginDiv-purchaseReturn {
+  display: flex;
+  margin-left: auto;
+  /* margin mene upar  wala change kiya hai */
+  /* padding: 1%; */
+  /* margin-right:1%; */
+  width: 60%;
+  justify-content: right;
+  /* background-color: aqua; */
+}
+.input-business-purchaseReturn {
+  /* margin-left: 2%; */
+  /* padding:01%; */
+  /* background-color: yellow; */
+  margin-top: 0.5%;
+  width: 30%;
+  height: 100%;
+}
+/* .horizontal-line-purchaseReturn{
       width:100%;
       height: 1%;
       background-color: rgb(173, 171, 171);
       
     } */
-    #business-entry-purchaseReturn{
-      font-size: 130%;
-      height: 50%;
-      width: 80%;
-    }
-  
-    .saleBtnDiv-purchaseReturn{
-      display: flex;
-      /* margin-right: auto; */
-      margin-right: 10px;
-      width:20%;
-      height:100%;
-      margin-top: 0.5%;
-      /* background-color: bisque; */
-    }
-    .purchaseBtnDiv-purchaseReturn{
-      display: flex;
-        /* margin-right: auto; */
-        margin-right: 10px;
-        width:24%;
-        height:100%;
-        margin-top: 0.5%;
-        /* background-color: bisque; */
-    }
-    .moreBtnDiv-purchaseReturn{
-      display: flex;
-        /* margin-right: auto; */
-        margin-right: 10px;
-        width:20%;
-        height:100%;
-        margin-top: 0.5%;
-        /* background-color: bisque; */
-    }
-    .addBtnSale-purchaseReturn{
-      height: 80%;
-      width: 100%;
-      color: white;
-      font-size: large;
-      font-weight: 700;
-      background-color: red;
-      border: 0;
-      border-radius: 24px;
-    }
-    .addBtnPurchase-purchaseReturn{
-      height: 80%;
-      width: 100%;
-      color: white;
-      font-size: large;
-      font-weight: 700;
-      background-color: blue;
-      border: 0;
-      border-radius: 24px;
-    }
-    .addBtnMore-purchaseReturn{
-      height: 80%;
-      width: 100%;
-      color: blue;
-      font-weight: 700;
-      /* margin-left: auto; */
-      /* margin-left: 7%; */
-      font-size: large;
-      background-color: white;
-      border: 1;
-      border-radius: 24px;
-      border-color: blue;
-    }
-    .plusSaleMore-purchaseReturn{
-      color:blue;
-      position: absolute;
-      margin-left: 0.8%;
-      margin-top: 0.6%;
-      margin-right:10vw;
-    }
-    .plusSale-purchase-purchaseReturn{
-      color: white;
-      position: absolute;
-      margin-left: 0.6%;
-      margin-top: 0.6%;
-      margin-right:10vw;
-    }
-   .plusSale-purchaseReturn{
-      color: white;
-      position: absolute;
-      margin-left: 0.8%;
-      margin-top: 0.6%;
-      margin-right:10vw;
-      /* margin-top: 1%; */
-      /* font-weight: 900; */
-   }
-   .settingBtnDiv-purchaseReturn{
-    width: 5%;
-    margin-top: 0.5%;
-    /* background-color: beige; */
-    /* margin-top: 2%; */
-  
-   }
-   .setting-purchaseReturn{
-    /* margin-top: 0%; */
-    /* margin-left: 2%; */
-    width: 100%;
-    height: 70%;
-    /* flex-basis: 60%; */
-   }
-  
+#business-entry-purchaseReturn {
+  font-size: 130%;
+  height: 50%;
+  width: 80%;
+}
 
+.saleBtnDiv-purchaseReturn {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 20%;
+  height: 100%;
+  margin-top: 0.5%;
+  /* background-color: bisque; */
+}
+.purchaseBtnDiv-purchaseReturn {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 24%;
+  height: 100%;
+  margin-top: 0.5%;
+  /* background-color: bisque; */
+}
+.moreBtnDiv-purchaseReturn {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 20%;
+  height: 100%;
+  margin-top: 0.5%;
+  /* background-color: bisque; */
+}
+.addBtnSale-purchaseReturn {
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: red;
+  border: 0;
+  border-radius: 24px;
+}
+.addBtnPurchase-purchaseReturn {
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: blue;
+  border: 0;
+  border-radius: 24px;
+}
+.addBtnMore-purchaseReturn {
+  height: 80%;
+  width: 100%;
+  color: blue;
+  font-weight: 700;
+  /* margin-left: auto; */
+  /* margin-left: 7%; */
+  font-size: large;
+  background-color: white;
+  border: 1;
+  border-radius: 24px;
+  border-color: blue;
+}
+.plusSaleMore-purchaseReturn {
+  color: blue;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+}
+.plusSale-purchase-purchaseReturn {
+  color: white;
+  position: absolute;
+  margin-left: 0.6%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+}
+.plusSale-purchaseReturn {
+  color: white;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+  /* margin-top: 1%; */
+  /* font-weight: 900; */
+}
+.settingBtnDiv-purchaseReturn {
+  width: 5%;
+  margin-top: 0.5%;
+  /* background-color: beige; */
+  /* margin-top: 2%; */
+}
+.setting-purchaseReturn {
+  /* margin-top: 0%; */
+  /* margin-left: 2%; */
+  width: 100%;
+  height: 70%;
+  /* flex-basis: 60%; */
+}
 
-  
-   .middleDiv-purchaseReturn{
-    margin-top: 0.5%;
-    margin-left: 1%;
-    width: 98%;
-    height:9%;
-    background-color: white;
-  }
-.middleDiv-part1-purchaseReturn{
+.middleDiv-purchaseReturn {
+  margin-top: 0.5%;
+  margin-left: 1%;
+  width: 98%;
+  height: 9%;
+  background-color: white;
+}
+.middleDiv-part1-purchaseReturn {
   display: flex;
   height: 60%;
   /* background-color: aqua; */
 }
 
-.choose-months-purchaseReturn{
-  padding:0.5%;
+.choose-months-purchaseReturn {
+  padding: 0.5%;
   /* background-color: yellow; */
-
 }
-#months-purchaseReturn{
+#months-purchaseReturn {
   border: none;
   height: 100%;
   width: 100%;
-  
 }
-.choose-dates-purchaseReturn{
+.choose-dates-purchaseReturn {
   /* margin-left: 1%; */
-  padding:0.5%;
+  padding: 0.5%;
   width: 30%;
   /* background-color: blue; */
 }
-#from-purchaseReturn{
-  height:50%;
-
+#from-purchaseReturn {
+  height: 50%;
 }
-#to-purchaseReturn{
+#to-purchaseReturn {
   height: 50%;
   margin-right: 1%;
 }
-#firm-purchaseReturn{
-  margin-left:1%;
+#firm-purchaseReturn {
+  margin-left: 1%;
 }
-.options-middlepart1-purchaseReturn{
+.options-middlepart1-purchaseReturn {
   /* background-color: blanchedalmond; */
   margin-top: 0.5%;
   width: 10%;
   margin-left: auto;
 }
 
-.report-middlepart1-purchaseReturn{
-  height:50%;
+.report-middlepart1-purchaseReturn {
+  height: 50%;
   width: 30%;
 }
-.print-middlepart1-purchaseReturn{
-  height:50%;
+.print-middlepart1-purchaseReturn {
+  height: 50%;
   width: 30%;
 }
-.middleDiv-part2-purchaseReturn{
+.middleDiv-part2-purchaseReturn {
   height: 40%;
   /* background-color: rgb(39, 179, 17); */
   /* text-align: left; */
   /* display: flex; */
 }
-.content-middleDiv-part2-purchaseReturn{
-  width:12%;
+.content-middleDiv-part2-purchaseReturn {
+  width: 12%;
   height: 100%;
   margin-left: 0.5%;
   /* background-color: brown; */
 }
-.choose-purchase_return-purchaseReturn{
-  padding:0.5%;
+.choose-purchase_return-purchaseReturn {
+  padding: 0.5%;
   /* background-color: yellow; */
-
 }
 /* #purchaseReturn-purchaseReturn{
   border: none;
@@ -246,47 +229,39 @@
   
 } */
 
-
-
-
-
-
-  
-.lowerDivSale-purchaseReturn{
-    position: absolute;
-    width: 100%;
-    height: 82%;
-    top: 16%;
-    overflow: auto;
-    background-color: white;
+.lowerDivSale-purchaseReturn {
+  position: absolute;
+  width: 100%;
+  height: 82%;
+  top: 16%;
+  overflow: auto;
+  background-color: white;
 }
-  
-  .top-part-A-purchaseReturn{
-    display: flex;
-    margin-left:1%;
-    /* background-color: green; */
-  }
-  .transaction-purchaseReturn{
-    text-align:left;
-  }
-  .search-input-purchaseReturn{
-    height: 4vh;
-    margin: 10px;
-    margin-right: auto;
-    border-radius: 5px;
-    border: 2%;
-  }
-  
-  .addBtnSale-sale2-purchaseReturn{
-    height: 4vh;
-    width: 9vw;
-    margin: auto;
-    margin-right: 2%;
-    color: white;
-    font-weight: 700;
-    background-color: blue;
-    border: 0;
-    border-radius: 24px;
-  }
-  
-  
+
+.top-part-A-purchaseReturn {
+  display: flex;
+  margin-left: 1%;
+  /* background-color: green; */
+}
+.transaction-purchaseReturn {
+  text-align: left;
+}
+.search-input-purchaseReturn {
+  height: 4vh;
+  margin: 10px;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 2%;
+}
+
+.addBtnSale-sale2-purchaseReturn {
+  height: 4vh;
+  width: 12vw;
+  margin: auto;
+  margin-right: 2%;
+  color: white;
+  font-weight: 500;
+  background-color: blue;
+  border: 0;
+  border-radius: 24px;
+}

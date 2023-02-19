@@ -1,12 +1,12 @@
-.main-purchaseOrder {
+.main-bankAccounts {
   height: 100vh;
   width: 100%;
   background-color: rgb(207, 199, 199);
   /* position:relative;
-    display: block; */
+      display: block; */
 }
 
-.upperDiv-purchaseOrder {
+.upperDiv-bankAccounts {
   /* position: absolute; */
   width: 100%;
   height: 15%;
@@ -15,14 +15,14 @@
   background-color: white;
 }
 
-.upperDivPart1-purchaseOrder {
+.upperDivPart1-bankAccounts {
   display: flex;
   /* background-color: cornflowerblue; */
   width: 100%;
   height: 60%;
 }
 
-.input-business-purchaseOrder {
+.input-business-bankAccounts {
   /* margin-left: 2%; */
   padding: 1%;
   /* background-color: yellow; */
@@ -32,13 +32,13 @@
   height: 60%;
 }
 
-#business-entry-purchaseOrder {
+#business-entry-bankAccounts {
   font-size: 130%;
   height: 150%;
   width: 80%;
 }
 
-.marginDiv-purchaseOrder {
+.marginDiv-bankAccounts {
   display: flex;
   margin-left: auto;
   /* margin mene upar  wala change kiya hai */
@@ -49,7 +49,7 @@
   /* background-color: aqua; */
 }
 
-.saleBtnDiv-purchaseOrder {
+.saleBtnDiv-bankAccounts {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -58,7 +58,7 @@
   /* background-color: bisque; */
 }
 
-.plusSale-purchaseOrder {
+.plusSale-bankAccounts {
   color: white;
   position: absolute;
   margin-left: 0.8%;
@@ -68,7 +68,7 @@
   /* font-weight: 900; */
 }
 
-.addBtnSale-purchaseOrder {
+.addBtnSale-bankAccounts {
   height: 80%;
   width: 100%;
   color: white;
@@ -79,7 +79,7 @@
   border-radius: 24px;
 }
 
-.purchaseBtnDiv-purchaseOrder {
+.purchaseBtnDiv-bankAccounts {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -88,7 +88,7 @@
   /* background-color: bisque; */
 }
 
-.plusSale-purchase-purchaseOrder {
+.plusSale-purchase-bankAccounts {
   color: white;
   position: absolute;
   margin-left: 0.6%;
@@ -96,7 +96,7 @@
   margin-right: 10vw;
 }
 
-.addBtnPurchase-purchaseOrder {
+.addBtnPurchase-bankAccounts {
   height: 80%;
   width: 100%;
   color: white;
@@ -107,7 +107,7 @@
   border-radius: 24px;
 }
 
-.moreBtnDiv-purchaseOrder {
+.moreBtnDiv-bankAccounts {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -116,7 +116,7 @@
   /* background-color: bisque; */
 }
 
-.plusSaleMore-purchaseOrder {
+.plusSaleMore-bankAccounts {
   color: blue;
   position: absolute;
   margin-left: 0.8%;
@@ -124,7 +124,7 @@
   margin-right: 10vw;
 }
 
-.addBtnMore-purchaseOrder {
+.addBtnMore-bankAccounts {
   height: 80%;
   width: 100%;
   color: blue;
@@ -138,12 +138,12 @@
   border-color: blue;
 }
 
-.settingBtnDiv-purchaseOrder {
+.settingBtnDiv-bankAccounts {
   width: 5%;
   /* background-color: beige; */
   /* margin-top: 2%; */
 }
-.setting-purchaseOrder {
+.setting-bankAccounts {
   /* margin-top: 0%; */
   /* margin-left: 2%; */
   width: 100%;
@@ -151,17 +151,17 @@
   /* flex-basis: 60%; */
 }
 
-.horizontal-line-purchaseOrder {
+.horizontal-line-bankAccounts {
   width: 100%;
   height: 1%;
   background-color: rgb(173, 171, 171);
   /* margin-top:7%; */
 }
 
-.lowerBody-purchaseOrder {
+.lowerBody-bankAccounts {
   /* margin-top:1%;
-    margin-left:1%; 
-    margin-right:1%; */
+      margin-left:1%; 
+      margin-right:1%; */
   /* margin-bottom: 10%; */
   margin-left: 1%;
   margin-right: 1%;
@@ -174,34 +174,86 @@
   background-color: white;
 }
 
-.lowerBody-part1-purchaseOrder {
+.lowerBody-part1-bankAccounts {
   /* background-color: aqua; */
-
+  display: block;
   margin-left: 2%;
   margin-right: 2%;
   /* margin-top: 2%; */
   /* height: 200%; */
   width: 96%;
   height: 90%;
-  /* isme pata nahi ku lowerBody-purchaseOrder
-  se shuru nahi ho rha hai .. lagta
-  hai aur upar se shuru ho rha hai */
+  /* isme pata nahi ku lowerBody-bankAccounts
+    se shuru nahi ho rha hai .. lagta
+    hai aur upar se shuru ho rha hai */
 }
-.image-purchaseOrder {
-  margin-top: 15%;
-  width: 30%;
+.lowerBody-part1-first-bankAccounts {
+  /* background-color: blue; */
   height: 30%;
+  /* display: block; */
+  /* align-content: center; */
+  /* justify-content: center; */
 }
-.paragraph-purchaseOrder {
+.lowerBody-part1-first-section1-bankAccounts {
+  /* align-content: center; */
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  top: 30%;
+  /* margin-top: auto; */
+  /* background-color: beige; */
+}
+.lowerBody-part1-first-section1-content-bankAccounts {
+  font-size: x-large;
+  font-weight: 700;
+}
+.lowerBody-part1-second-bankAccounts {
+  /* background-color: aquamarine; */
+  height: 30%;
+  display: flex;
+  gap: 2%;
+}
+.lowerBody-part1-second-section1-bankAccounts {
+  /* background-color: darkgreen; */
+  border: 2px solid rgb(195, 192, 192);
+  border-radius: 4px;
+  margin-left: 2%;
+  height: 60%;
+}
+.lowerBody-part1-second-section2-bankAccounts {
+  /* background-color: darkgreen; */
+  height: 60%;
+  border-radius: 4px;
+  border: 2px solid rgb(195, 192, 192);
+}
+.lowerBody-part1-second-section3-bankAccounts {
+  /* background-color: darkgreen; */
+  margin-right: 2%;
+  border-radius: 4px;
+  border: 2px solid rgb(195, 192, 192);
+  height: 60%;
+}
+
+.lowerBody-part1-third-bankAccounts {
+  /* background-color: brown; */
+  height: 30%;
   text-align: center;
-  margin-left: 15%;
-  margin-right: 15%;
 }
-.add-your-first-estimate-purchaseOrder {
-  width: 24%;
-  height: 6%;
+.add-bank-account-bankAccounts {
+  width: 15%;
+  height: 20%;
+  margin-top: 1%;
   color: white;
   font-weight: 700;
-  background-color: orange;
-  border-radius: 7px;
+  background-color: red;
+  border-radius: 25px;
+}
+.watch-video-bankAccounts {
+  width: 12%;
+  height: 20%;
+  margin-left: 1.5%;
+  color: red;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 25px;
 }

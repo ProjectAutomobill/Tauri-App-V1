@@ -50,8 +50,26 @@ export function SideBar(props) {
     // arrow.style.transform = 'rotate(90)';
   }
   function dropdown_option_purchase(val) {
-    // print(val);
+    print(val);
     var dropdown = document.getElementById("purchase-dropdown");
+    var arrow = document.getElementById("downArrow");
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+      // arrow.style.transform = 'rotate(90)';
+    } else {
+      dropdown.style.display = "block";
+      // arrow.style.transform = 'rotate(90)';
+    }
+    console.log("In sales option Functions...");
+
+    // var arrow = document.getElementById("sale-arrow");
+
+    // var arrow = document.querySelector('downArrow');
+    // arrow.style.transform = 'rotate(90)';
+  }
+  function dropdown_option_cashAndBank(val) {
+    print(val);
+    var dropdown = document.getElementById("cashAndBanks-dropdown");
     var arrow = document.getElementById("downArrow");
     if (dropdown.style.display === "block") {
       dropdown.style.display = "none";
@@ -122,6 +140,7 @@ export function SideBar(props) {
         </h3>
         <AiOutlinePlus className="plus" />
       </div>
+
       <div className="sidebar-Component">
         <GiPaperBagOpen className="icons" />
         <h3
@@ -221,16 +240,59 @@ export function SideBar(props) {
       </div>
       <div className="sidebar-Component">
         <AiFillWallet className="icons" />
-        <h3 className="sideBarText" onClick={() => print("purchases")}>
+        <h3 className="sideBarText" onClick={() => print("expenses")}>
           Expenses
         </h3>
       </div>
+
       <div className="sidebar-Component">
-        <AiFillBank className="icons" />
-        <h3 className="sideBarText" onClick={() => print("purchases")}>
+        <BsFillCartDashFill className="icons" />
+        <h3
+          className="sideBarText"
+          onClick={() => dropdown_option_cashAndBank("cashAndBanks")}
+        >
           Cash & Banks
         </h3>
+        <FaAngleDown className="downArrow" id="sale-arrow" />
       </div>
+      <div class="dropdown-container" id="cashAndBanks-dropdown">
+        <a
+          href="#"
+          className="sideBarText-dropdown"
+          onClick={() => print("cashAndBanks")}
+        >
+          Bank Accounts
+        </a>
+        <a
+          href="#"
+          className="sideBarText-dropdown"
+          onClick={() => print("cashInHand")}
+        >
+          Cash In Hand
+        </a>
+        <a
+          href="#"
+          className="sideBarText-dropdown"
+          onClick={() => print("cheques")}
+        >
+          Cheques
+        </a>
+        <a
+          href="#"
+          className="sideBarText-dropdown"
+          onClick={() => print("loanAccounts")}
+        >
+          Loan Accounts
+        </a>
+        <a
+          href="#"
+          className="sideBarText-dropdown"
+          onClick={() => print("fixedAssets")}
+        >
+          Fixed Assets
+        </a>
+      </div>
+
       <div className="sidebar-Component">
         <BsFillBarChartFill className="icons" />
         <h3 className="sideBarText" onClick={() => print("purchases")}>

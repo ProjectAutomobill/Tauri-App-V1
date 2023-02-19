@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import {SideBar} from './components/sidebar';
-import { MainSection } from './components/mainSection';
-import { useState } from 'react';
-import { AddPurchase } from './components/addPurchase';
-import { Routes, Route,Router } from "react-router-dom";
-import {Home} from './components/home';
-import {AddParty} from './components/addParty';
+import logo from "./logo.svg";
+import "./App.css";
+import { SideBar } from "./components/sidebar";
+import { MainSection } from "./components/mainSection";
+import { useState } from "react";
+import { AddPurchase } from "./components/addPurchase";
+import { Routes, Route, Router } from "react-router-dom";
+import { Home } from "./components/home";
+import { AddParty } from "./components/addParty";
+import { Login } from "./login";
+import { InvoicePage } from "./components/invoicePage";
 
 function App() {
-
   // var [content,setContent] = useState("home");
-  
+
   return (
-    <div className='App'>
-    
+    <div className="App">
       <Routes>
-        <Route path='/' element={<Home/>} />
-          {/* <div className="App">
+        <Route path="/" element={<Home />} />
+        {/* <div className="App">
             <div className='sideBar'>
               <SideBar val1 = {content} val2 = {setContent}/>
             </div>
@@ -26,16 +26,15 @@ function App() {
             </div>
             
           </div> */}
-          {/* <h1>First Page</h1>
+        {/* <h1>First Page</h1>
         </Route> */}
 
-        <Route path='/purchase' element={<AddPurchase/>} />
-        <Route path='/addParty' element={<AddParty/>} />
+        <Route path="/purchase" element={<InvoicePage />} />
+        <Route path="/addParty" element={<AddParty />} />
 
-          {/* <AddPurchase/> */}
+        {/* <AddPurchase/> */}
         {/* </Route> */}
       </Routes>
-    
     </div>
   );
 }

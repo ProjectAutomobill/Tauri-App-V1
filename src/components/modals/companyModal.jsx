@@ -13,9 +13,33 @@ export function CompanyModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Add Party</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit Firm</Modal.Title>
       </Modal.Header>
-      <Modal.Body></Modal.Body>
+
+      <Modal.Body>
+        <div id="company-body">
+          <div id="left-side">Logo</div>
+          <div id="right-side">
+            <input
+              type="text"
+              name=""
+              id="ctextbox"
+              placeholder="Business Name"
+            />
+            <br />
+            <input type="text" name="" id="ctextbox" placeholder="GSTIN" />
+            <br />
+            <input
+              type="number"
+              name=""
+              id="ctextbox"
+              placeholder="Phone Number"
+            />
+            <br />
+            <input type="email" name="" id="ctextbox" placeholder="Email ID" />
+          </div>
+        </div>
+      </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
         <Button>Add</Button>

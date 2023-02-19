@@ -1,0 +1,154 @@
+#body-invoice {
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+}
+
+#invoice-page {
+  position: absolute;
+  width: 50vw;
+  height: 90vh;
+  margin-left: 25%;
+  margin-top: 5vh;
+  background-color: white;
+  display: block;
+  gap: 2%;
+}
+
+#header-invoice {
+  margin-top: 2%;
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+  /* padding-top: 1%; */
+  background-color: rgb(45, 45, 45);
+}
+
+#address {
+  /* background-color: aqua; */
+  display: grid;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+.houseNo {
+  /* position: relative; */
+  /* margin-right: auto; */
+  /* justify-self: left; */
+  float: left;
+  border: 0ch;
+  width: 30%;
+}
+
+.houseNo:focus {
+  outline: none;
+}
+
+#AddressLine {
+  color: rgb(120, 118, 118);
+  /* background-color: blue; */
+}
+
+#AddressLine2 {
+  color: rgb(120, 118, 118);
+  /* background-color: blue; */
+}
+
+#city {
+  color: rgb(120, 118, 118);
+
+  /* background-color: brown; */
+}
+
+#invoice-detail {
+  display: flex;
+  margin-top: 4%;
+  /* background-color: aquamarine; */
+}
+
+#details {
+  display: grid;
+  margin-left: auto;
+  margin-right: 2%;
+  /* background-color: black; */
+  gap: 10px;
+}
+/* 
+#invoice-no {
+  float: right;
+}
+#dat-invoice {
+  float: right;
+} */
+
+#company-name {
+  width: 50%;
+  height: 8vh;
+  margin-left: 2%;
+}
+#company-name-input {
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  font-weight: 500;
+  border: 0ch;
+  /* background-color: black; */
+}
+
+#company-name-input:focus {
+  outline: none;
+}
+
+#grid-container {
+  /* position: absolute; */
+  /* width: calc(100% - 5%); */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 8%;
+  margin-bottom: 2%;
+  /* margin-left: 5%; */
+  /* background-color: aqua; */
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
+  /* margin-left: 5%; */
+  /* margin-right: 5%; */
+  /* border-color: black; */
+}
+
+.grid-item {
+  border: 1px solid black;
+  /* border-color: black; */
+  margin-left: 1%;
+  margin-right: 1%;
+  border-radius: 2px;
+  font-weight: 700;
+  background-color: rgb(217, 216, 216);
+}
+
+.grid-item-inner {
+  /* border: 1px solid black; */
+  border-color: rgb(144, 140, 140);
+  /* margin-left: 1%;
+  margin-right: 1%; */
+  /* margin-top: 5px; */
+  border-radius: 2px;
+  font-weight: 700;
+  background-color: rgb(255, 255, 255);
+}
+
+#add-icon {
+  color: blue;
+  font-size: x-large;
+  float: left;
+  margin-left: 2%;
+  /* background-color: aqua; */
+}
+
+#add-icon:hover {
+  color: rgb(1, 1, 60);
+}
+
+#select-party {
+  margin-top: 2%;
+  float: left;
+  margin-left: 2%;
+}
