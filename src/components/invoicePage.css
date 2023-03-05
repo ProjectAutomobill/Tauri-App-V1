@@ -102,7 +102,7 @@
   /* position: absolute; */
   /* width: calc(100% - 5%); */
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   margin-top: 8%;
   margin-bottom: 2%;
   /* margin-left: 5%; */
@@ -130,6 +130,8 @@
   /* margin-left: 1%;
   margin-right: 1%; */
   /* margin-top: 5px; */
+  margin-left: 1%;
+  margin-right: 1%;
   border-radius: 2px;
   font-weight: 700;
   background-color: rgb(255, 255, 255);
@@ -151,4 +153,32 @@
   margin-top: 2%;
   float: left;
   margin-left: 2%;
+  /* background-color: aquamarine; */
+}
+.addDescription-invoicePage {
+  margin-top: 12%;
+  float: left;
+  margin-left: -18%;
+}
+#total-invoicePage {
+  margin-top: 2%;
+  float: right;
+  margin-right: 2%;
+  background-color: blanchedalmond;
+}
+.lastDetails-invoicePage {
+  margin-top: 30%;
+  float: right;
+  margin-right: -24%;
+  /* background-color: rgb(239, 239, 19); */
+  width: 20%;
+}
+#saveButton-invoicePage {
+  /* margin-left: %; */
+  float: right;
+  background-color: blue;
+  color: white;
+}
+#shareButton-invoicePage {
+  color: blue;
 }

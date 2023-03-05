@@ -51,7 +51,10 @@ export const BankAccounts = () => {
                 Banking with Vyapar
               </p>
 
-              <p> Add Bank accounts on Vyapar and you can effortlessley:</p>
+              <p className="content-bankAccounts">
+                {" "}
+                Add Bank accounts on Vyapar and you can effortlessley:
+              </p>
             </div>
           </div>
           <div className="lowerBody-part1-second-bankAccounts">

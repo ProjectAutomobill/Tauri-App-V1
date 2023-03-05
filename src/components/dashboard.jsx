@@ -93,8 +93,8 @@ export const DashBoard = () => {
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
         </div>
-        <div className="horizontal-line-dashboard"></div>
-        <h3 className="heading-dashboard">YOUR PROFILE</h3>
+        {/* <div className="horizontal-line-dashboard"></div>
+        <h3 className="heading-dashboard">DASHBOARD</h3> */}
       </div>
 
       <div className="lowerBody-dashboard">
@@ -164,30 +164,99 @@ export const DashBoard = () => {
           <div className="tag-header">Stock Inventory</div>
           <div className="data-box-stock">
             <div style={{ margin: "0 0 0 -70%" }}>Stock Value</div>
-            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
+            <div style={{ margin: "0 0 0 -80%" }}>
+              <b>$0.00</b>
+            </div>
+          </div>
+          <div className="data-box-stock-stockInventory-2ndPart">
+            <div
+              style={{ margin: "0 0 0 -70%" }}
+              className="lowStock-stockInventory"
+            >
+              Low Stocks
+            </div>
+
+            <div
+              style={{ margin: "0 0 0 -77%" }}
+              className="sampleItem-stockInventory"
+            >
+              Items 10
+            </div>
+          </div>
+          <div className="tag-header-cashAndBank-dashboard">Cash & Bank</div>
+          <div className="data-box-stock">
+            <div style={{ margin: "0 0 0 -66%" }}>Cash in hand</div>
+            <div style={{ margin: "0 0 0 -80%" }}>
+              <b>$0.00</b>
+            </div>
           </div>
           <div className="data-box-stock">
-            <div style={{ margin: "0 0 0 -70%" }}>Low Stock</div>
-            <div style={{ margin: "0 0 0 -70%" }}>Items 10</div>
+            <div style={{ margin: "0 0 0 -63%" }}>Bank Accounts</div>
+            <div style={{ margin: "0 0 0 -80%" }}>
+              <b>$0.00</b>
+            </div>
           </div>
-          <div className="tag-header">Cash & Bank</div>
-          <div className="data-box-stock">
-            <div style={{ margin: "0 0 0 -70%" }}>Cash in hand</div>
-            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
+          <div className="data-box-stock-openCheques-dashboard">
+            <div style={{ margin: "0 0 0 -63%" }}>Open Cheques</div>
+            <div
+              style={{ margin: "0 0 0 -73%" }}
+              className="sampleItem-stockInventory"
+            >
+              Received(1)
+            </div>
+            <div
+              style={{ margin: "0 0 0 -80%" }}
+              className="sampleItem-stockInventory"
+            >
+              Paid(0)
+            </div>
           </div>
-          <div className="data-box-stock">
-            <div style={{ margin: "0 0 0 -70%" }}>Bank Accounts</div>
-            <div style={{ margin: "0 0 0 -70%" }}>$0.00</div>
-          </div>
-          <div className="tag-header">Sales</div>
-          <div className="data-box-stock">
+          <div className="tag-header-sales-dashboard">Sales</div>
+          <div className="data-box-stock-sales-dashboard">
             <div style={{ margin: "0 0 0 -70%" }}>Sales Order</div>
-            <div style={{ margin: "0 0 0 -70%" }}>Quantity</div>
+            <div
+              style={{ margin: "0 0 0 -60%" }}
+              className="sampleItem-stockInventory"
+            >
+              No. of Open Orders
+            </div>
+            <div
+              style={{ margin: "0 0 0 -50%" }}
+              className="sampleItem-stockInventory"
+            >
+              Open Sales Order Amount
+            </div>
           </div>
-          <div className="tag-header">Purchase</div>
-          <div className="data-box-stock">
-            <div style={{ margin: "0 0 0 -70%" }}>Purchase Order</div>
-            <div style={{ margin: "0 0 0 -70%" }}>Quantity</div>
+          <div className="data-box-stock-sales-dashboard">
+            <div style={{ margin: "0 0 0 -60%" }}>Delivery Challans</div>
+            <div
+              style={{ margin: "0 0 0 -58%" }}
+              className="sampleItem-stockInventory"
+            >
+              No. of Open Challans
+            </div>
+            <div
+              style={{ margin: "0 0 0 -53%" }}
+              className="sampleItem-stockInventory"
+            >
+              Delivery Challan Amount
+            </div>
+          </div>
+          <div className="tag-header-purchase-dashboard">Purchase</div>
+          <div className="data-box-stock-purchase-dashboard">
+            <div style={{ margin: "0 0 0 -63%" }}>Purchase Order</div>
+            <div
+              style={{ margin: "0 0 0 -55%" }}
+              className="sampleItem-stockInventory"
+            >
+              No. of Purchase Orders
+            </div>
+            <div
+              style={{ margin: "0 0 0 -53%" }}
+              className="sampleItem-stockInventory"
+            >
+              Purchase Order Amount
+            </div>
           </div>
           {/* <div className="data-box"></div>
           <div className="data-box"></div>

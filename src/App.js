@@ -9,14 +9,14 @@ import { Home } from "./components/home";
 import { AddParty } from "./components/addParty";
 import { Login } from "./login";
 import { InvoicePage } from "./components/invoicePage";
-
+import { InvoicePageV2 } from "./invoicePageV2";
 function App() {
   // var [content,setContent] = useState("home");
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         {/* <div className="App">
             <div className='sideBar'>
               <SideBar val1 = {content} val2 = {setContent}/>
@@ -28,8 +28,8 @@ function App() {
           </div> */}
         {/* <h1>First Page</h1>
         </Route> */}
-
-        <Route path="/purchase" element={<InvoicePage />} />
+        <Route path="/loggedIn" element={<Home />} />
+        <Route path="/purchase" element={<InvoicePageV2 />} />
         <Route path="/addParty" element={<AddParty />} />
 
         {/* <AddPurchase/> */}

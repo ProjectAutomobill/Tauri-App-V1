@@ -1,17 +1,10 @@
-.main-purchaseBills {
+.main-cheques {
   display: block;
   width: 100%;
   height: 100vh;
 }
-.lowerDivSale-purchaseBills {
-  position: absolute;
-  width: 100%;
-  height: 82%;
-  top: 16%;
-  overflow: auto;
-  background-color: white;
-}
-.upperDiv-purchaseBills {
+
+.upperDiv-cheques {
   /* same as dashboar,see later */
   /* position: absolute; */
   width: 100%;
@@ -21,88 +14,19 @@
   background-color: white;
 }
 
-.upperDivPart1-purchaseBills {
+.upperDivPart1-cheques {
   display: flex;
   /* position: absolute; */
   width: 100%;
   height: 100%;
   /* ye yahan par parties
-    wale css se alg hai.. aur upar
-    upperDiv define kiya hua
-    ..kam toh ban gya par samajh nahi aya */
+          wale css se alg hai.. aur upar
+          upperDiv define kiya hua
+          ..kam toh ban gya par samajh nahi aya */
   /* background-color: brown; */
 }
 
-.middleDiv-purchaseBills {
-  margin-top: 0.5%;
-  margin-left: 1%;
-  width: 98%;
-  height: 9%;
-  background-color: white;
-}
-.middleDiv-part1-purchaseBills {
-  display: flex;
-  height: 60%;
-  /* background-color: aqua; */
-}
-
-.choose-months-purchaseBills {
-  padding: 0.5%;
-  /* background-color: yellow; */
-}
-#months-purchaseBills {
-  border: none;
-  height: 100%;
-  width: 100%;
-}
-.choose-dates-purchaseBills {
-  /* margin-left: 1%; */
-  padding: 0.5%;
-  width: 40%;
-  /* background-color: blue; */
-}
-#from-purchaseBills {
-  height: 50%;
-}
-#to-purchaseBills {
-  height: 50%;
-  margin-right: 1%;
-}
-#firm-purchaseBills {
-  margin-left: 1%;
-}
-.options-middlepart1-purchaseBills {
-  /* background-color: blanchedalmond; */
-  margin-top: 0.5%;
-  width: 10%;
-  margin-left: auto;
-}
-.graph-middlepart1-purchaseBills {
-  height: 50%;
-  width: 30%;
-}
-.report-middlepart1-purchaseBills {
-  height: 50%;
-  width: 30%;
-}
-.print-middlepart1-purchaseBills {
-  height: 50%;
-  width: 30%;
-}
-.middleDiv-part2-purchaseBills {
-  height: 40%;
-  /* background-color: rgb(39, 179, 17); */
-  /* text-align: left; */
-  /* display: flex; */
-}
-.content-middleDiv-part2-purchaseBills {
-  width: 12%;
-  height: 100%;
-  margin-left: 0.5%;
-  /* background-color: brown; */
-}
-
-.marginDiv-purchaseBills {
+.marginDiv-cheques {
   display: flex;
   margin-left: auto;
   /* margin mene upar  wala change kiya hai */
@@ -112,7 +36,7 @@
   justify-content: right;
   /* background-color: aqua; */
 }
-.input-business-purchaseBills {
+.input-business-cheques {
   /* margin-left: 2%; */
   /* padding:01%; */
   /* background-color: yellow; */
@@ -120,19 +44,19 @@
   width: 30%;
   height: 100%;
 }
-/* .horizontal-line-purchaseBills{
-    width:100%;
-    height: 1%;
-    background-color: rgb(173, 171, 171);
-    
-  } */
-#business-entry-purchaseBills {
+/* .horizontal-line-cheques{
+          width:100%;
+          height: 1%;
+          background-color: rgb(173, 171, 171);
+          
+        } */
+#business-entry-cheques {
   font-size: 130%;
   height: 50%;
   width: 80%;
 }
 
-.saleBtnDiv-purchaseBills {
+.saleBtnDiv-cheques {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -141,7 +65,7 @@
   margin-top: 0.5%;
   /* background-color: bisque; */
 }
-.purchaseBtnDiv-purchaseBills {
+.purchaseBtnDiv-cheques {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -150,7 +74,7 @@
   margin-top: 0.5%;
   /* background-color: bisque; */
 }
-.moreBtnDiv-purchaseBills {
+.moreBtnDiv-cheques {
   display: flex;
   /* margin-right: auto; */
   margin-right: 10px;
@@ -159,7 +83,7 @@
   margin-top: 0.5%;
   /* background-color: bisque; */
 }
-.addBtnSale-purchaseBills {
+.addBtnSale-cheques {
   height: 80%;
   width: 100%;
   color: white;
@@ -169,7 +93,7 @@
   border: 0;
   border-radius: 24px;
 }
-.addBtnPurchase-purchaseBills {
+.addBtnPurchase-cheques {
   height: 80%;
   width: 100%;
   color: white;
@@ -179,7 +103,7 @@
   border: 0;
   border-radius: 24px;
 }
-.addBtnMore-purchaseBills {
+.addBtnMore-cheques {
   height: 80%;
   width: 100%;
   color: blue;
@@ -192,21 +116,21 @@
   border-radius: 24px;
   border-color: blue;
 }
-.plusSaleMore-purchaseBills {
+.plusSaleMore-cheques {
   color: blue;
   position: absolute;
   margin-left: 0.8%;
   margin-top: 0.6%;
   margin-right: 10vw;
 }
-.plusSale-purchase-purchaseBills {
+.plusSale-purchase-cheques {
   color: white;
   position: absolute;
   margin-left: 0.6%;
   margin-top: 0.6%;
   margin-right: 10vw;
 }
-.plusSale-purchaseBills {
+.plusSale-cheques {
   color: white;
   position: absolute;
   margin-left: 0.8%;
@@ -215,13 +139,13 @@
   /* margin-top: 1%; */
   /* font-weight: 900; */
 }
-.settingBtnDiv-purchaseBills {
+.settingBtnDiv-cheques {
   width: 5%;
   margin-top: 0.5%;
   /* background-color: beige; */
   /* margin-top: 2%; */
 }
-.setting-purchaseBills {
+.setting-cheques {
   /* margin-top: 0%; */
   /* margin-left: 2%; */
   width: 100%;
@@ -229,15 +153,47 @@
   /* flex-basis: 60%; */
 }
 
-.top-part-A-purchaseBills {
+.middleDiv-cheques {
+  margin-top: 0.5%;
+  margin-left: 1%;
+  width: 98%;
+  height: 5%;
+  background-color: white;
+  justify-content: left;
+}
+.text-cheques {
+  /* font-size: x-large; */
+  color: rgb(121, 117, 117);
+  padding: 0.5%;
+}
+.text-value-cheques {
+  color: green;
+}
+.lowerDivSale-cheques {
+  position: absolute;
+  width: 100%;
+  height: 86%;
+  top: 12%;
+  overflow: auto;
+  background-color: white;
+}
+
+.top-part-A-cheques {
   display: flex;
   margin-left: 1%;
   /* background-color: green; */
 }
-.transaction-purchaseBills {
+.top-part-text-cheques {
+  margin-top: 1%;
+  margin-right: 2%;
+  font-size: larger;
+  color: rgb(127, 120, 120);
+  font-weight: 500;
+}
+.transaction-cheques {
   text-align: left;
 }
-.search-input-purchaseBills {
+.search-input-cheques {
   height: 4vh;
   margin: 10px;
   margin-right: auto;
@@ -245,13 +201,13 @@
   border: 2%;
 }
 
-.addBtnSale-sale2-purchaseBills {
+.addBtnSale-sale2-cheques {
   height: 4vh;
-  width: 11vw;
+  width: 10vw;
   margin: auto;
   margin-right: 2%;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   background-color: blue;
   border: 0;
   border-radius: 24px;

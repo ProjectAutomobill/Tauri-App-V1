@@ -25,7 +25,7 @@ export const PartiesTable = (props) => {
       .then((val) => val.json())
       .then((value) => {
         setData(value);
-        // console.log(data);
+        console.log("Data : " + data);
       });
   }
 

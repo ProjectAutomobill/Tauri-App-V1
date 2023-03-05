@@ -1,0 +1,55 @@
+#purchase-background {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(214, 214, 214);
+}
+#container-box {
+  width: 60%;
+  height: 100%;
+  margin-left: 20%;
+  background-color: white;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  overflow: hidden;
+}
+
+#header-Tag {
+  background-color: black;
+  color: white;
+  font-size: large;
+}
+
+#section-upper {
+  width: 100%;
+  display: flex;
+  /* background-color: aqua; */
+}
+
+#section-one {
+  display: block;
+  /* float: right; */
+  margin-left: auto;
+  margin-top: 4%;
+  /* background-color: green; */
+}
+
+#invoice-date {
+  width: 100%;
+  margin-top: 5%;
+}
+
+#section-two {
+  float: left;
+  margin-top: 4%;
+  /* background-color: green; */
+}
+
+#section-three {
+  position: absolute;
+  display: flex;
+}
+
+.elements-items {
+  width: 21.5%;
+}

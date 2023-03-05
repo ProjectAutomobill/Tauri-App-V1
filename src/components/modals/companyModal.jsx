@@ -11,6 +11,7 @@ export function CompanyModal(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className="my-modal-companyModal"
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">Edit Firm</Modal.Title>
@@ -18,8 +19,10 @@ export function CompanyModal(props) {
 
       <Modal.Body>
         <div id="company-body">
-          <div id="left-side">Logo</div>
-          <div id="right-side">
+          <div id="left-side-companyModal">
+            <h5>Add Logo</h5>
+          </div>
+          <div id="right-side-companyModal">
             <input
               type="text"
               name=""

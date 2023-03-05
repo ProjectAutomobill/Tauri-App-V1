@@ -284,13 +284,6 @@ export function SideBar(props) {
         >
           Loan Accounts
         </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("fixedAssets")}
-        >
-          Fixed Assets
-        </a>
       </div>
 
       <div className="sidebar-Component">

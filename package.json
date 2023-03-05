@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://127.0.0.1:8001",
   "dependencies": {
     "@coreui/icons": "^2.1.0",
     "@coreui/icons-react": "^2.1.0",
@@ -17,8 +16,10 @@
     "apexcharts": "^3.36.3",
     "concurrently": "^7.6.0",
     "firebase": "^9.15.0",
+    "http-proxy-middleware": "^2.0.6",
     "material-react-table": "^1.5.4",
     "nodemon": "^2.0.20",
+    "otp-input-react": "^0.3.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.0",
@@ -34,7 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm start\" \"python backend/firebase.py\"",
+    "dev": "concurrently \"npm start\" \"python backend/firebaseV2.py\"",
     "tauri": "tauri"
   },
   "eslintConfig": {

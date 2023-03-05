@@ -171,5 +171,32 @@ def addPartyData():
      })
      print("ADDED NEW PARTY DETAILS...")
      return "Done"
+
+
+@app.route('/test')
+def addPurchase():
+     # name = request.args.get('PartyName')
+     # item_name = request.args.get('itemName')
+     # item_price = request.args.get('itemPrice')
+     # item_total = request.args.get('itemTotal')
+     # item_quantity = request.args.get('itemQty')
+     # temp = db.collection('users',doc.id,'company',companyID,'parties')
+     # q = temp.where(u"PartyName",u"==", name)
+     # db.collection(q,"PartyDetails").add({
+     #      "Type" : "Purchase",
+     #      "Item" : item_name,
+     #      "Date" : 0,
+     #      "Number" : item_quantity,
+     #      "Total" : item_total
+     # })
+     json_data = request.get_json()
+     print(json_data["Item"])
+
+     return True
+
+
+
+
+
 if __name__ == '__main__':
 	app.run(port="8001")

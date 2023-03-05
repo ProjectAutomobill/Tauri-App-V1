@@ -15,6 +15,10 @@ import { PurchaseOrder } from "./purchases_pages/purchaseOrder";
 import { PurchaseReturn } from "./purchases_pages/purchaseReturn";
 import { Expenses } from "./expenses";
 import { BankAccounts } from "./bankAccounts";
+import { LoanAccounts } from "./cashAndBanks_pages/loanAccounts";
+import { CashInHand } from "./cashAndBanks_pages/cashInHand";
+import { Cheques } from "./cashAndBanks_pages/cheques";
+
 export function MainSection(props) {
   return (
     <div className="main-section">
@@ -49,6 +53,12 @@ export function MainSection(props) {
           return <Expenses />;
         } else if (props.val1 === "cashAndBanks") {
           return <BankAccounts />;
+        } else if (props.val1 === "cashInHand") {
+          return <CashInHand />;
+        } else if (props.val1 === "loanAccounts") {
+          return <LoanAccounts />;
+        } else if (props.val1 === "cheques") {
+          return <Cheques />;
         }
       })()}
     </div>

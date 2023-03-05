@@ -1,151 +1,147 @@
-.parties-items-parties{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    /* background-color: aqua; */
+.parties-items-parties {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* background-color: aqua; */
 }
 
-.upperDiv-parties{
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    display: block;
-    /* margin-bottom: 10%; */
-    background-color: white;
+.upperDiv-parties {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  display: block;
+  /* margin-bottom: 10%; */
+  background-color: white;
 }
-.upperDivPart1-parties{
+.upperDivPart1-parties {
   display: flex;
   /* background-color: cornflowerblue; */
   width: 100%;
   height: 60%;
 }
-.lowerBody-parties{
-    display: flex;
-    /* margin-top: 10%; */
+.lowerBody-parties {
+  display: flex;
+  /* margin-top: 10%; */
 }
 
-.leftDiv-parties{
-    position: absolute;
-    top: 16%;
-    width: 25%;
-    height: 83%;
-    overflow: auto;
-    /* margin-top: 10%; */
-    background-color: white;
+.leftDiv-parties {
+  position: absolute;
+  top: 16%;
+  width: 25%;
+  height: 83%;
+  overflow: auto;
+  /* margin-top: 10%; */
+  background-color: white;
 }
 
-.rightDiv-parties{
-    position: absolute;
-    top: 16%;
-    margin-left: 25%;
-    width: 75%;
-    height: 83%;
-    /* margin-top: 10%; */
-    /* background-color: purple; */
+.rightDiv-parties {
+  position: absolute;
+  top: 16%;
+  margin-left: 25%;
+  width: 75%;
+  height: 83%;
+  /* margin-top: 10%; */
+  /* background-color: purple; */
 }
 
-.innerRightDiv-parties{
-    display: flex;
+.innerRightDiv-parties {
+  display: flex;
 }
 
-.upperDivRight-parties{
-    position: absolute;
-    margin : 2%;
-    width: 96%;
-    height: 15%;
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: white;
-    display: block;
-
+.upperDivRight-parties {
+  position: absolute;
+  margin: 2%;
+  width: 96%;
+  height: 15%;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: white;
+  display: block;
 }
-.upperDivRight1-parties{
+.upperDivRight1-parties {
   display: flex;
   /* background-color: aqua; */
   width: 100%;
   height: 25%;
   /* margin-left: auto; */
 }
-.upperDivRight1-name-parties{
+.upperDivRight1-name-parties {
   /* width:10%; */
   margin-left: 0.5%;
   /* background-color: burlywood; */
 }
-.upperDivRight1-options-parties{
-  margin-left:auto;
+.upperDivRight1-options-parties {
+  margin-left: auto;
   /* position: relative; */
   display: flex;
-  width:10%;
+  width: 10%;
   /* background-color: blue; */
 }
 
-.upperDivRight1-whatsapp-parties{
+.upperDivRight1-whatsapp-parties {
   margin-left: 20%;
   /* background-color: bisque; */
 }
-.upperDivRight1-alarm-parties{
+.upperDivRight1-alarm-parties {
   margin-left: 20%;
   /* background-color: bisque; */
 }
-.upperDivRight2-parties{
+.upperDivRight2-parties {
   /* background-color: blueviolet; */
   display: flex;
   height: 75%;
   /* max-height: fit-content; */
 }
-.upperDivRight2-part1-parties{
+.upperDivRight2-part1-parties {
   /* background-color: crimson; */
-  width:40%;
+  width: 40%;
 
   /* align-content: left; */
   /* height: 10%; */
   /* max-height: fit-content; */
-
 }
-.upperDivRight2-part1-phoneNo-parties{
+.upperDivRight2-part1-phoneNo-parties {
   /* align-content: center; */
   /* background-color: brown; */
   font-weight: 400;
-  width:25%;
+  width: 25%;
 }
-.upperDivRight2-part1-email-parties{
+.upperDivRight2-part1-email-parties {
   /* align-content: center; */
   /* background-color: brown; */
   font-weight: 400;
-  width:15%;
+  width: 15%;
 }
-.upperDivRight2-part1-NoCredit-parties{
+.upperDivRight2-part1-NoCredit-parties {
   align-content: left;
   /* background-color: brown; */
   font-weight: 400;
-  width:42%;
+  width: 42%;
 }
-.upperDivRight2-part2-parties{
+.upperDivRight2-part2-parties {
   margin-left: auto;
   /* background-color: crimson; */
   font-weight: 400;
   width: 40%;
 }
-.lowerDivRight-parties{
-    position: absolute;
-    top: 16%;
-    margin : 2%;
-    width: 96%;
-    height: 84%;
-    margin-top: 0;
-    overflow: auto;
-    background-color: white;
-
+.lowerDivRight-parties {
+  position: absolute;
+  top: 16%;
+  margin: 2%;
+  width: 96%;
+  height: 84%;
+  margin-top: 0;
+  overflow: auto;
+  background-color: white;
 }
 
-.leftDivbtnSearch-parties{
-    display: flex;
-    /* background-color: aquamarine; */
+.leftDivbtnSearch-parties {
+  display: flex;
+  /* background-color: aquamarine; */
 }
 
-
-.partyBtn-parties{
+.partyBtn-parties {
   margin: 5%;
   width: 40%;
   margin-left: 35%;
@@ -157,174 +153,173 @@
   border-radius: 10px;
 }
 
-.partyBtn-parties:hover{
+.partyBtn-parties:hover {
   background-color: rgb(243, 206, 136);
 }
 
-.searchIcon-parties{
-    font-size: large;
-    margin: 5%;
+.searchIcon-parties {
+  font-size: large;
+  margin: 5%;
 }
 
-.transaction-search-parties{
-    display: flex;
-    font-weight: 0;
-    margin-top: 2%;
-    /* background-color: green; */
+.transaction-search-parties {
+  display: flex;
+  font-weight: 0;
+  margin-top: 2%;
+  /* background-color: green; */
 }
-.search-input-parties{
-    margin: 10px;
-    margin-left: auto;
-    border-radius: 10px;
-    border: 2%;
+.search-input-parties {
+  margin: 10px;
+  margin-left: auto;
+  border-radius: 10px;
+  border: 2%;
 }
 
-.Ttable-parties{
-    overflow: auto;
+.Ttable-parties {
+  overflow: auto;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    /* background: #888; */
-    background: rgb(66, 66, 94);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-
-  .plus-parties{
-    font-weight: 800;
-  }
-  .input-business-parties{
-    /* margin-left: 2%; */
-    padding:01%;
-    /* background-color: yellow; */
-    width: 30%;
-    height: 60%;
+  width: 6px;
 }
-  .horizontal-line-parties{
-    width:100%;
-    height: 1%;
-    background-color: rgb(173, 171, 171);
-    /* margin-top:7%; */
-  }
-  #business-entry-parties{
-    font-size: 130%;
-    height: 50%;
-    width: 80%;
-  }
 
-  .saleBtnDiv-parties{
-    display: flex;
-    /* margin-right: auto; */
-    margin-right: 10px;
-    width:20%;
-    height:100%;
-    /* background-color: bisque; */
-  }
-  .purchaseBtnDiv-parties{
-    display: flex;
-      /* margin-right: auto; */
-      margin-right: 10px;
-      width:24%;
-      height:100%;
-      /* background-color: bisque; */
-  }
-  .moreBtnDiv-parties{
-    display: flex;
-      /* margin-right: auto; */
-      margin-right: 10px;
-      width:20%;
-      height:100%;
-      /* background-color: bisque; */
-  }
-  .addBtnSale-parties{
-    height: 80%;
-    width: 100%;
-    color: white;
-    font-size: large;
-    font-weight: 700;
-    background-color: red;
-    border: 0;
-    border-radius: 24px;
-  }
-  .addBtnPurchase-parties{
-    height: 80%;
-    width: 100%;
-    color: white;
-    font-size: large;
-    font-weight: 700;
-    background-color: blue;
-    border: 0;
-    border-radius: 24px;
-  }
-  .addBtnMore-parties{
-    height: 80%;
-    width: 100%;
-    color: blue;
-    font-weight: 700;
-    /* margin-left: auto; */
-    /* margin-left: 7%; */
-    font-size: large;
-    background-color: white;
-    border: 1;
-    border-radius: 24px;
-    border-color: blue;
-  }
-  .plusSaleMore-parties{
-    color:blue;
-    position: absolute;
-    margin-left: 0.8%;
-    margin-top: 0.6%;
-    margin-right:10vw;
-  }
-  .plusSale-purchase-parties{
-    color: white;
-    position: absolute;
-    margin-left: 0.6%;
-    margin-top: 0.6%;
-    margin-right:10vw;
-  }
- .plusSale-parties{
-    color: white;
-    position: absolute;
-    margin-left: 0.8%;
-    margin-top: 0.6%;
-    margin-right:10vw;
-    /* margin-top: 1%; */
-    /* font-weight: 900; */
- }
- .settingBtnDiv-parties{
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  background: rgb(66, 66, 94);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.plus-parties {
+  font-weight: 800;
+}
+.input-business-parties {
+  /* margin-left: 2%; */
+  padding: 01%;
+  /* background-color: yellow; */
+  width: 30%;
+  height: 60%;
+}
+.horizontal-line-parties {
+  width: 100%;
+  height: 1%;
+  background-color: rgb(173, 171, 171);
+  /* margin-top:7%; */
+}
+#business-entry-parties {
+  font-size: 130%;
+  height: 150%;
+  width: 80%;
+}
+
+.saleBtnDiv-parties {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 20%;
+  height: 100%;
+  /* background-color: bisque; */
+}
+.purchaseBtnDiv-parties {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 24%;
+  height: 100%;
+  /* background-color: bisque; */
+}
+.moreBtnDiv-parties {
+  display: flex;
+  /* margin-right: auto; */
+  margin-right: 10px;
+  width: 20%;
+  height: 100%;
+  /* background-color: bisque; */
+}
+.addBtnSale-parties {
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: red;
+  border: 0;
+  border-radius: 24px;
+}
+.addBtnPurchase-parties {
+  height: 80%;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: 700;
+  background-color: blue;
+  border: 0;
+  border-radius: 24px;
+}
+.addBtnMore-parties {
+  height: 80%;
+  width: 100%;
+  color: blue;
+  font-weight: 700;
+  /* margin-left: auto; */
+  /* margin-left: 7%; */
+  font-size: large;
+  background-color: white;
+  border: 1;
+  border-radius: 24px;
+  border-color: blue;
+}
+.plusSaleMore-parties {
+  color: blue;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+}
+.plusSale-purchase-parties {
+  color: white;
+  position: absolute;
+  margin-left: 0.6%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+}
+.plusSale-parties {
+  color: white;
+  position: absolute;
+  margin-left: 0.8%;
+  margin-top: 0.6%;
+  margin-right: 10vw;
+  /* margin-top: 1%; */
+  /* font-weight: 900; */
+}
+.settingBtnDiv-parties {
   width: 5%;
   /* background-color: beige; */
   /* margin-top: 2%; */
-
- }
- .setting-parties{
+}
+.setting-parties {
   /* margin-top: 0%; */
   /* margin-left: 2%; */
   width: 100%;
   height: 70%;
   /* flex-basis: 60%; */
- }
- .marginDiv-parties{
+}
+.marginDiv-parties {
   display: flex;
   margin-left: auto;
   /* margin mene upar  wala change kiya hai */
   padding: 1%;
   /* margin-right:1%; */
   width: 60%;
-  justify-content: right  ;
+  justify-content: right;
   /* background-color: aqua; */
 }
