@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
 
-export const SalesGraph = () => {
+export const SalesGraph = (props) => {
   const [dataS, setDataS] = useState();
   const [dataD, setDataD] = useState();
 
@@ -54,7 +54,12 @@ export const SalesGraph = () => {
   ]);
 
   async function componentDidMount() {
-    await fetch("/getSalesData")
+    await fetch(
+      "/getSalesData?number=" +
+        props.userNumber +
+        "&company=" +
+        props.userCompany
+    )
       .then((val) => val.json())
       .then((value) => {
         setDataS(value);
@@ -69,7 +74,12 @@ export const SalesGraph = () => {
       });
   }
   async function componentDidMountV1() {
-    await fetch("/getSalesDate")
+    await fetch(
+      "/getSalesDate?number=" +
+        props.userNumber +
+        "&company=" +
+        props.userCompany
+    )
       .then((val) => val.json())
       .then((value) => {
         setDataD(value);

@@ -87,7 +87,7 @@ export function SideBar(props) {
   }
 
   async function getCompanyName() {
-    await fetch("/getCompanyName")
+    await fetch("/getCompanyName?number=" + props.userNumber)
       .then(
         (val) =>
           //   setCompanyName(val);

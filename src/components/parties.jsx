@@ -15,9 +15,14 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { PartiesModal } from "./modals/partiesModal";
 
-export const Parties = () => {
+export const Parties = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [partyTransaction, setPartyTransaction] = useState();
+  const [partyDetails, setPartyDetails] = useState();
+  const [partyNumber, setPartyNumber] = useState();
+  const [partyEmail, setPartyEmail] = useState();
+  const [partyAddress, setPartyAddress] = useState();
+  const [partyGSTIN, setPartyGSTIN] = useState();
   // const [dataParty, setDataParty] = useState();
 
   // async function getPartyDetailsUpper() {
@@ -34,10 +39,31 @@ export const Parties = () => {
   //   getPartyDetailsUpper();
   // }, []);
 
-  function test() {
-    console.log(modalShow);
-    setModalShow(true);
+  async function getPartyDetails() {
+    console.log("Party Name : " + partyTransaction);
+    await fetch(
+      "/getPartyDetails?number=" +
+        props.userNumber +
+        "partyName=" +
+        partyTransaction
+    )
+      .then((val) => val.json())
+      .then((value) => {
+        setPartyDetails(value);
+        console.log("Party Data : " + partyDetails["Number"]);
+        setPartyNumber(partyDetails["Number"]);
+        setPartyEmail(partyDetails["Email"]);
+        setPartyAddress(partyDetails["Address"]);
+        setPartyGSTIN(partyDetails["GSTIN"]);
+      });
   }
+  useEffect(() => {
+    getPartyDetails();
+  }, []);
+  // function test() {
+  //   console.log(modalShow);
+  //   setModalShow(true);
+  // }
   return (
     <div className="parties-items-parties">
       <div className="upperDiv-parties">
@@ -75,7 +101,8 @@ export const Parties = () => {
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
         </div>
         <div className="horizontal-line-parties"></div>
-        <h3 className="heading-parties">NAME</h3>
+        <div className="heading-parties">NAME</div>
+        <div className="horizontal-line-parties" id="blue-line"></div>
       </div>
 
       <div className="lowerBody-parties">
@@ -85,7 +112,8 @@ export const Parties = () => {
             <FiSearch className="searchIcon-parties" />
             <button
               className="partyBtn-parties"
-              onClick={() => setModalShow(true)}
+              // onClick={() => setModalShow(true)}
+              onClick={getPartyDetails}
             >
               {" "}
               <AiOutlinePlus className="plus-parties" />
@@ -97,16 +125,16 @@ export const Parties = () => {
           <PartiesTable
             setTrans={setPartyTransaction}
             partyName={partyTransaction}
+            userNumber={props.userNumber}
           />
         </div>
 
         <div className="rightDiv-parties">
           <div className="innerRightDiv-parties">
             <div className="upperDivRight-parties">
-              {/* <h3> Data to be taken from DataBase</h3> */}
               <div className="upperDivRight1-parties">
                 <div className="upperDivRight1-name-parties">
-                  <b>P_NAME</b>
+                  <b>{partyTransaction}</b>
                 </div>
                 <div className="upperDivRight1-options-parties">
                   <div className="upperDivRight1-message-parties">
@@ -124,29 +152,55 @@ export const Parties = () => {
               <div className="upperDivRight2-parties">
                 <div className="upperDivRight2-part1-parties">
                   <div className="upperDivRight2-part1-phoneNo-parties">
-                    {" "}
-                    Phone no. :{" "}
+                    <label className="label-upper-partyDetails">
+                      Phone no. :
+                    </label>
+                    {/* Phone no. :{""} */}
+                    <label className="label-upper-partyDetails">
+                      {partyNumber}
+                    </label>
+                    <label className="label-upper-partyDetails">Email : </label>
+                    {/* Phone no. :{""} */}
+                    <label className="label-upper-partyDetails">
+                      {partyEmail}
+                    </label>
+                    <label className="label-upper-partyDetails">
+                      Set Credit Limit :
+                    </label>
+                    {/* Phone no. :{""} */}
+                    <label className="label-upper-partyDetails">
+                      {partyNumber}
+                    </label>
                   </div>
-                  <div className="upperDivRight2-part1-email-parties">
+                  {/* <div className="upperDivRight2-part1-email-parties">
                     {" "}
                     Email :
-                  </div>
-                  <div className="upperDivRight2-part1-NoCredit-parties">
+                  </div> */}
+                  {/* <div className="upperDivRight2-part1-NoCredit-parties">
                     {" "}
                     No Credit Limit set :
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="upperDivRight2-part2-parties">
-                  <div> Address : </div>
-                  <div> GSTIN :</div>
+                  <label className="label-upper-partyDetails">Address :</label>
+                  {/* Phone no. :{""} */}
+                  <label className="label-upper-partyDetails">
+                    {partyAddress}
+                  </label>
+
+                  <label className="label-upper-partyDetails">GSTIN :</label>
+                  {/* Phone no. :{""} */}
+                  <label className="label-upper-partyDetails">
+                    {partyGSTIN}
+                  </label>
                 </div>
               </div>
             </div>
 
             <div className="lowerDivRight-parties">
               <div className="transaction-search-parties">
-                <h3>TRANSACTIONS</h3>
+                <h5>TRANSACTIONS</h5>
                 <input
                   type="search"
                   name="search"
@@ -156,7 +210,10 @@ export const Parties = () => {
                 />
               </div>
               <div className="Ttable-parties">
-                <TransactionTable partyName={partyTransaction} />
+                <TransactionTable
+                  partyName={partyTransaction}
+                  userNumber={props.userNumber}
+                />
               </div>
             </div>
           </div>

@@ -3,30 +3,26 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import "./partiesModal.css";
+import "./itemsModal.css";
 import { GstPage } from "./gstPage";
-export function PartiesModal(props) {
+export function ItemsModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
-  const [partyName, setPartyName] = useState("");
-  const [gstin, setGstin] = useState("");
-  const [phone_no, setPhoneNo] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [salePrice, setSalePrice] = useState("");
+  const [wholesalePrice, setWholesalePrice] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  async function addPartyDetails() {
+  async function addItemDetails() {
     await fetch(
-      "/addParty?number=" +
+      "/addItem?number=" +
         props.userNumber +
         "name=" +
-        partyName +
-        "&gstin=" +
-        gstin +
-        "&pnumber=" +
-        phone_no +
-        "&email=" +
-        email +
-        "&address=" +
-        address
+        itemName +
+        "&SalePrice=" +
+        salePrice +
+        "&WholesalePrice=" +
+        wholesalePrice
     ).then((val) => console.log(val));
     props.onHide();
   }
@@ -39,7 +35,7 @@ export function PartiesModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Add Party</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Add Item</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div id="body-content">
@@ -47,23 +43,23 @@ export function PartiesModal(props) {
             <input
               type="text"
               name=""
-              id="party_name"
-              placeholder="Party Name"
-              onChange={(v) => setPartyName(v.target.value)}
+              id="item_name"
+              placeholder="Item Name"
+              onChange={(v) => setItemName(v.target.value)}
             />
             <input
               type="text"
               name=""
-              id="GSTIN"
-              placeholder="GSTIN"
-              onChange={(v) => setGstin(v.target.value)}
+              id="sale_price"
+              placeholder="Sale Price"
+              onChange={(v) => setSalePrice(v.target.value)}
             />
             <input
               type="text"
               name=""
-              id="Phone_no"
-              placeholder="Phone No"
-              onChange={(v) => setPhoneNo(v.target.value)}
+              id="wholesale_price"
+              placeholder="WholeSale Price"
+              onChange={(v) => setWholesalePrice(v.target.value)}
             />
           </div>
           <br />
@@ -73,14 +69,12 @@ export function PartiesModal(props) {
             id="uncontrolled-tab-example"
             className="mb-3"
           >
-            <Tab eventKey="home" title="GST & Address">
-              <GstPage setEmail={setEmail} setAddress={setAddress} />
+            <Tab eventKey="home" title="Pricing">
+              {/* <GstPage setEmail={setEmail} setAddress={setAddress} /> */}
+              Tab 1
             </Tab>
-            <Tab eventKey="profile" title="Credit & Balance">
+            <Tab eventKey="profile" title="Stock">
               Tab 2
-            </Tab>
-            <Tab eventKey="contact" title="Additional Fields" disabled>
-              Tab 3
             </Tab>
           </Tabs>
           {/* <ul className="nav nav-tabs">
@@ -101,7 +95,7 @@ export function PartiesModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button onClick={addPartyDetails}>Add</Button>
+        <Button onClick={addItemDetails}>Add</Button>
       </Modal.Footer>
     </Modal>
   );

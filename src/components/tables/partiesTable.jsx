@@ -21,17 +21,12 @@ export const PartiesTable = (props) => {
   const [partyName, setPartyName] = useState();
   const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
   async function componentDidMount1() {
-    await fetch("/getPartyNames")
+    await fetch("/getPartyNames?number=" + props.userNumber)
       .then((val) => val.json())
       .then((value) => {
         setData(value);
         console.log("Data : " + data);
       });
-  }
-
-  function getData() {
-    // setPartyName(val);
-    console.log("PartyName : " + partyName);
   }
 
   // getData();
@@ -44,8 +39,10 @@ export const PartiesTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>Party</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>Amount</TableCell>
+            <TableCell sx={{ fontWeight: 550, fontSize: 11 }}>PARTY</TableCell>
+            <TableCell sx={{ fontWeight: 550, fontSize: 11, float: "right" }}>
+              AMOUNT
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,7 +58,11 @@ export const PartiesTable = (props) => {
                   {row.Name}
                 </TableCell>
                 <TableCell
-                  sx={{ fontSize: 12, color: "green", fontWeight: 600 }}
+                  sx={{
+                    fontSize: 12,
+                    color: "green",
+                    fontWeight: 600,
+                  }}
                   onClick={() => console.log(props.partyName)}
                 >
                   {row.Amount}

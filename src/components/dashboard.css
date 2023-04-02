@@ -11,7 +11,7 @@
     background-color: brown;
     overflow:auto;
 } */
-.leftDiv1 {
+.leftDiv1-dashboard {
   position: absolute;
   display: flex;
   top: 10%;
@@ -34,7 +34,7 @@
   overflow: auto;
 }
 
-.data-box {
+.data-box-dashboard {
   background-color: white;
   width: 98%;
   height: 20%;
@@ -45,7 +45,7 @@
   /* overflow: auto; */
 }
 
-.leftDiv-dashboardA {
+.leftDiv-dashboardA-dashboard {
   background-color: white;
   margin-left: 4%;
   width: 61%;
@@ -54,13 +54,13 @@
   /* border-style: dotted; */
 }
 
-.top-header-sale {
+.top-header-sale-dashboard {
   display: flex;
   /* background-color: green; */
   gap: 1%;
 }
 
-.invoice {
+.invoice-dashboard {
   font-size: x-large;
   margin-top: auto;
   margin-bottom: auto;
@@ -68,41 +68,43 @@
   color: rgb(231, 231, 59);
 }
 
-.lower-part-sale-graph {
+.lower-part-sale-graph-dashboard {
   /* background-color: yellow; */
   width: 100%;
   height: 100%;
   display: flex;
   /* gap: 20%; */
 }
-.left-portion {
+.left-portion-dashboard {
   /* background-color: aqua; */
   width: 30%;
   height: 100%;
 }
-.right-portion {
+.right-portion-dashboard {
   /* background-color: yellow; */
   width: 70%;
   height: 100%;
 }
 
-.small-text {
+.small-text-dashboard {
   font-size: smaller;
   color: gray;
   margin-right: auto;
 }
 
-.dotted-line {
+.dotted-line-dashboard {
   width: 1px;
   height: 80%;
   background-color: rgb(228, 219, 219);
 }
-.sale-label {
+.sale-label-dashboard {
   margin: auto;
+  color: rgb(125, 122, 122);
   margin-top: 40%;
+  font-weight: bold;
 }
 
-.leftDiv-dashboardB {
+.leftDiv-dashboardB-dashboard {
   background-color: white;
   margin-left: 2%;
   width: 30%;
@@ -111,7 +113,7 @@
   /* border-style: dotted; */
 }
 
-.leftDiv2 {
+.leftDiv2-dashboard {
   position: absolute;
   top: 52%;
   width: 70%;
@@ -119,7 +121,7 @@
   display: flex;
   /* background-color: rgb(255, 217, 0); */
 }
-.leftDiv2A {
+.leftDiv2A-dashboard {
   margin-left: 4%;
   background-color: white;
   width: 30%;
@@ -127,7 +129,31 @@
   /* border: 1px; */
   /* border-style: dotted; */
 }
-.leftDiv2B {
+.receiveInfo-dashboard {
+  /* background-color: gray; */
+  display: flex;
+}
+.receiveInfoName-dashboard {
+  color: gray;
+  margin-left: 4%;
+  font-size: small;
+  margin-bottom: 2%;
+}
+.payInfoBalance-dashboard {
+  color: red;
+  margin-left: auto;
+  margin-right: 4%;
+  font-weight: 550;
+  font-size: small;
+}
+.receiveInfoBalance-dashboard {
+  color: rgb(145, 216, 40);
+  margin-left: auto;
+  margin-right: 4%;
+  font-weight: 550;
+  font-size: small;
+}
+.leftDiv2B-dashboard {
   margin-left: 2%;
   background-color: white;
   width: 30%;
@@ -135,7 +161,7 @@
   /* border: 1px; */
   /* border-style: dotted; */
 }
-.leftDiv2C {
+.leftDiv2C-dashboard {
   margin-left: 2%;
   background-color: white;
   width: 30%;
@@ -177,9 +203,31 @@
   /* margin-top:7%; */
 }
 #business-entry-dashboard {
-  font-size: 130%;
+  font-size: 120%;
   height: 50%;
   width: 80%;
+  outline: none;
+  border: 0px;
+}
+
+#business-name-save-btn {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+
+#business-entry-dashboard:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-dashboard:focus + #business-name-save-btn {
+  border-bottom: 1px solid black;
+  opacity: 1;
 }
 
 .saleBtnDiv-dashboard {
@@ -207,38 +255,53 @@
   /* background-color: bisque; */
 }
 .addBtnSale-dashboard {
-  height: 80%;
+  height: 100%;
   width: 100%;
   color: white;
-  font-size: large;
+  font-size: medium;
   font-weight: 700;
   background-color: red;
   border: 0;
   border-radius: 24px;
 }
+
+.addBtnSale-dashboard:hover {
+  background-color: rgb(242, 110, 110);
+}
+
 .addBtnPurchase-dashboard {
-  height: 80%;
+  height: 100%;
   width: 100%;
   color: white;
-  font-size: large;
+  font-size: medium;
   font-weight: 700;
   background-color: blue;
   border: 0;
   border-radius: 24px;
 }
+
+.addBtnPurchase-dashboard:hover {
+  background-color: rgb(124, 124, 248);
+}
+
 .addBtnMore-dashboard {
-  height: 80%;
+  height: 100%;
   width: 100%;
   color: blue;
   font-weight: 700;
   /* margin-left: auto; */
   /* margin-left: 7%; */
-  font-size: large;
+  font-size: medium;
   background-color: white;
   border: 1;
   border-radius: 24px;
   border-color: blue;
 }
+
+.addBtnMore-dashboard:hover {
+  background-color: rgb(223, 223, 247);
+}
+
 .plusSaleMore-dashboard {
   color: blue;
   position: absolute;
@@ -274,6 +337,11 @@
   height: 70%;
   /* flex-basis: 60%; */
 }
+
+.setting-dashboard:hover {
+  color: #00a2ed;
+  cursor: pointer;
+}
 .marginDiv-dashboard {
   display: flex;
   margin-left: auto;
@@ -285,13 +353,13 @@
   /* background-color: aqua; */
 }
 
-.receive-div {
+.receive-div-dashboard {
   display: flex;
   margin-top: 2%;
   margin-left: 2%;
 }
 
-.down-arrow {
+.down-arrow-dashboard {
   color: rgb(107, 214, 107);
   font-size: larger;
   margin: auto;
@@ -299,12 +367,26 @@
   margin-right: 2%;
 }
 
-.balance-tag {
-  margin-right: 25%;
-  color: rgb(128, 130, 132);
+.up-arrow-dashboard {
+  color: rgb(244, 58, 58);
+  font-size: larger;
+  margin: auto;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
-.tag-header {
+.balance-tag-dashboard {
+  margin-right: 25%;
+  /* color: rgb(128, 130, 132); */
+  color: rgb(30, 29, 29);
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.gray-color {
+  color: rgb(99, 98, 98);
+}
+.tag-header-dashboard {
   font-size: large;
   font-weight: bold;
   color: rgb(142, 136, 136);
@@ -312,7 +394,7 @@
   /* background-color: aliceblue; */
 }
 
-.data-box-stock {
+.data-box-stock-dashboard {
   background-color: white;
   width: 98%;
   /* height: 20%; */
@@ -323,18 +405,48 @@
   padding-top: 2%;
   padding-bottom: 2%;
   /* overflow: auto; */
+  display: block;
 }
-.lowStock-stockInventory {
+.inner-element-data-box-dashboard {
+  /* float: left; */
+  width: 96%;
+  text-align: left;
+  margin-left: 4%;
+  /* background-color: #00a2ed; */
+}
+.inner-element-val-data-box-dashboard {
+  width: 96%;
+  text-align: left;
+  margin-left: 4%;
+  font-size: large;
+}
+.inner-element-val-data-box-stock-dashboard {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+  /* background-color: #00a2ed; */
+}
+.item-name-stock-box {
+  font-size: small;
+  color: gray;
+}
+.item-qty-stock-box {
+  margin-left: auto;
+  font-size: small;
+  color: red;
+}
+.lowStock-stockInventory-dashboard {
   margin-bottom: 2%;
   /* background-color: rgb(230, 139, 20); */
 }
-.sampleItem-stockInventory {
+.sampleItem-stockInventory-dashboard {
   /* margin-top: 5%; */
   font-size: small;
   /* background-color: aqua; */
 }
 
-.data-box-stock-stockInventory-2ndPart {
+.data-box-stock-stockInventory-2ndPart-dashboard {
   background-color: white;
   width: 98%;
   height: 12%;

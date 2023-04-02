@@ -2,35 +2,63 @@ import logo from "./logo.svg";
 import "./App.css";
 import { SideBar } from "./components/sidebar";
 import { MainSection } from "./components/mainSection";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AddPurchase } from "./components/addPurchase";
+import { AddPurchaseV2 } from "./components/addPurchaseV2";
 import { Routes, Route, Router } from "react-router-dom";
 import { Home } from "./components/home";
 import { AddParty } from "./components/addParty";
 import { Login } from "./login";
 import { InvoicePage } from "./components/invoicePage";
 import { InvoicePageV2 } from "./invoicePageV2";
+import { AddSale } from "./components/addSale";
+import { YourCompanies } from "./yourCompanies";
+
 function App() {
   // var [content,setContent] = useState("home");
+  // if(userNumber!=""){
 
+  // }
+
+  var [userNumber, setUserNumber] = useState(0);
+  const userNumber1 = useRef();
+  const userCompany = useRef();
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
-        {/* <div className="App">
-            <div className='sideBar'>
-              <SideBar val1 = {content} val2 = {setContent}/>
-            </div>
-            <div className='mainSection'>
-              <MainSection val1 = {content}/>
-            </div>
-            
-          </div> */}
-        {/* <h1>First Page</h1>
-        </Route> */}
-        <Route path="/loggedIn" element={<Home />} />
-        <Route path="/purchase" element={<InvoicePageV2 />} />
-        <Route path="/addParty" element={<AddParty />} />
+        <Route
+          path="/"
+          element={
+            <Login
+              setUserNumber={setUserNumber}
+              userNumber={userNumber}
+              userNumber1={userNumber1}
+              userCompany={userCompany}
+            />
+          }
+        />
+
+        <Route
+          path="/loggedIn"
+          element={
+            <Home userNumber={userNumber1} userCompany={userCompany.current} />
+          }
+        />
+        <Route
+          path="/purchase"
+          element={<AddPurchaseV2 userNumber={userNumber} />}
+        />
+        <Route path="/sale" element={<AddSale userNumber={userNumber} />} />
+        <Route
+          path="/addParty"
+          element={<AddParty userNumber={userNumber} />}
+        />
+        <Route
+          path="/yourCompanies"
+          element={
+            <YourCompanies userNumber={userNumber1} userCompany={userCompany} />
+          }
+        />
 
         {/* <AddPurchase/> */}
         {/* </Route> */}

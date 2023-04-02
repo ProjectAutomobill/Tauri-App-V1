@@ -26,7 +26,9 @@ export const TransactionTable = (props) => {
   const [prev, setPrev] = useState();
   async function componentDidMount() {
     var partyName = props.partyName;
-    await fetch("/getTransactions?partyName=" + partyName)
+    await fetch(
+      "/getTransactions?number=" + props.userNumber + "&partyName=" + partyName
+    )
       .then((val) => val.json())
       .then((value) => {
         setDataT(value);
@@ -47,11 +49,13 @@ export const TransactionTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>NUMBER</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>TOTAL</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>BALANCE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NUMBER</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TOTAL</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+              BALANCE
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

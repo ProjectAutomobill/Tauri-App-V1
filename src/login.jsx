@@ -8,26 +8,36 @@ import {
   RecaptchaVerifier,
 } from "firebase/auth";
 import { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 import { auth } from "./api-firebase/firebase-config";
 import OTPInput, { ResendOTP } from "otp-input-react";
-
-export const Login = () => {
+// import Spinner from "react-bootstrap/Spinner";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+export const Login = (props) => {
   const [number, setNumber] = useState();
   const [otp, setOTP] = useState();
 
   const navigate = useNavigate();
   async function sendNumber() {
-    await fetch("/setNumber?number=" + number);
+    var numberSliced = String(number).slice(3);
+    console.log("Sliced Number : " + numberSliced);
+    props.setUserNumber(numberSliced);
+    props.userNumber1.current = numberSliced;
+    console.log("USER NUMBER IN LOGIN : " + props.userNumber);
+    await fetch("/setNumber?number=" + numberSliced).then((res) => {
+      console.log("Number Sent...." + res);
+    });
+    // navigate("/loggedIn");
     // navigate("/loggedIn");
     console.log("Send Number Function Is called");
-    document.getElementById("otp-container-id").style.display = "block";
+    document.getElementById("otp-container-id-login").style.display = "block";
   }
 
   function onCaptchaVerify() {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
-        "recaptcha-container",
+        "recaptcha-container-login",
         {
           size: "invisible",
           callback: (response) => {
@@ -52,7 +62,7 @@ export const Login = () => {
   function login() {
     onCaptchaVerify();
     const appVerifier = window.recaptchaVerifier;
-    console.log("Number : " + number);
+    console.log("Number : " + typeof number);
     signInWithPhoneNumber(auth, number, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
@@ -76,38 +86,50 @@ export const Login = () => {
       .confirm(otp)
       .then(async (res) => {
         console.log("OTP Verified");
-
-        navigate("/loggedIn");
+        toast.success("Login successful");
+        navigate("/yourCompanies");
+        // {
+        //   <Navigate to="/yourCompanies" state={{ number }} />;
+        // }
       })
       .catch((err) => {
         console.log(err);
       });
   }
+  function byPass() {
+    sendNumber();
+    navigate("/yourCompanies");
+  }
 
   return (
     <div>
-      <div className="background"></div>
-      <div className="container">
+      <div className="background-login"></div>
+      <div className="container-login">
         {/* <img
           src="D://Autotekk/Tauri-App-V1/src/autotekk_logo.jpeg"
           id="logo"
         ></img> */}
-        <div className="logoV"></div>
-        <h5>Autotekk</h5>
+        <div className="logoV-login"></div>
+        <h5 className="h5-login">Autotekk</h5>
 
         {/* <p>We will send you a One Time Password (OTP)</p> */}
-        <form>
+        <form className="form-login">
           <input
             type="tel"
             placeholder="Enter mobile number"
-            id="mobile"
+            id="mobile-login"
+            className="input-setting-login"
             onChange={(e) => setNumber(e.target.value)}
           />
-          <button type="button" onClick={login}>
+          <button
+            type="button"
+            onClick={byPass}
+            className="button-setting-login"
+          >
             Send OTP
           </button>
         </form>
-        <div className="otp-container" id="otp-container-id">
+        <div className="otp-container-login" id="otp-container-id-login">
           <p>Enter OTP:</p>
           {/* <input
             type="number"
@@ -115,7 +137,7 @@ export const Login = () => {
             onChange={(e) => setOTP(e.target.value)}
           /> */}
           <OTPInput
-            className="otp-input"
+            className="otp-input-login"
             value={otp}
             onChange={setOTP}
             autoFocus
@@ -125,10 +147,14 @@ export const Login = () => {
             secure
           />
           <br />
-          <button type="button" onClick={verifyOTP}>
+          <button
+            type="button"
+            className="button-setting-login"
+            onClick={verifyOTP}
+          >
             Verify OTP
           </button>
-          <div id="recaptcha-container"></div>
+          <div id="recaptcha-container-login"></div>
         </div>
       </div>
       {/* <script src="script.js"></script> */}

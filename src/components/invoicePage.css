@@ -100,7 +100,7 @@
 
 #grid-container {
   /* position: absolute; */
-  /* width: calc(100% - 5%); */
+  width: calc(100% - 5%);
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   margin-top: 8%;
