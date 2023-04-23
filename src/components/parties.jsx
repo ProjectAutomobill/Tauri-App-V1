@@ -43,7 +43,7 @@ export const Parties = (props) => {
   // }, []);
 
   async function getPartyDetails() {
-    console.log("Party Name : " + partyTransaction);
+    // console.log("Party Name : " + partyTransaction);
     await fetch(
       "/getPartyDetails?number=" +
         "&company=" +
@@ -55,7 +55,7 @@ export const Parties = (props) => {
       .then((val) => val.json())
       .then((value) => {
         setPartyDetails(value);
-        console.log("Party Data : " + partyDetails["Number"]);
+        // console.log("Party Data : " + partyDetails["Number"]);
         setPartyNumber(partyDetails["Number"]);
         setPartyEmail(partyDetails["Email"]);
         setPartyAddress(partyDetails["Address"]);
@@ -73,7 +73,7 @@ export const Parties = (props) => {
       // `invoke` returns a Promise
       .then((response) => {
         setPartyDetails(JSON.parse(response));
-        console.log("Party Data : " + partyDetails["Number"]);
+        // console.log("Party Data : " + partyDetails["Number"]);
         setPartyNumber(partyDetails["Number"]);
         setPartyEmail(partyDetails["Email"]);
         setPartyAddress(partyDetails["Address"]);

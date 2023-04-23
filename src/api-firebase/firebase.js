@@ -19,11 +19,11 @@ class Database {
     users.forEach(async (doc) => {
       //   var userDoc = collection(db, "users", doc.id.toString());
       //   const userData = await getDocs(userDoc);
-      console.log(doc.data());
+      // console.log(doc.data());
       if (this.mobile_no.toString() === doc.data().number) {
-        console.log("Found Data in Database : " + this.mobile_no);
+        // console.log("Found Data in Database : " + this.mobile_no);
         this.userDocId = doc.id;
-        console.log("Document ID : " + this.userDocId);
+        // console.log("Document ID : " + this.userDocId);
       }
     });
   }
@@ -40,7 +40,7 @@ class Database {
     companies.forEach(async (doc) => {
       if (name === doc.data().name) {
         this.companyID = doc.id;
-        console.log("Company Doc Id : " + this.companyID);
+        // console.log("Company Doc Id : " + this.companyID);
       }
     });
   }
@@ -49,7 +49,7 @@ class Database {
 export async function getPartyDetails() {
   let test = new Database(9350244300);
   const tableData = new Array();
-  console.log("Getting Party Details...");
+  // console.log("Getting Party Details...");
   var users = collection(db, "users");
   const usersData = await getDocs(users);
   usersData.forEach(async (doc) => {
@@ -100,9 +100,9 @@ export async function getPartyDetails() {
     });
   });
 
-  console.log("firebase : ");
+  // console.log("firebase : ");
   // var tableData1 = JSON.parse(JSON.stringify(tableData));
-  console.log(tableData);
+  // console.log(tableData);
   return tableData;
   // var usersData1 = JSON.stringify(usersData);
   // usersData1 = JSON.parse(usersData1);

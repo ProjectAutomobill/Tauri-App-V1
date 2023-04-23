@@ -65,7 +65,7 @@ export function SideBar(props) {
       dropdown.style.display = "block";
       // arrow.style.transform = 'rotate(90)';
     }
-    console.log("In sales option Functions...");
+    // console.log("In sales option Functions...");
 
     // var arrow = document.getElementById("sale-arrow");
 
@@ -83,7 +83,7 @@ export function SideBar(props) {
       dropdown.style.display = "block";
       // arrow.style.transform = 'rotate(90)';
     }
-    console.log("In sales option Functions...");
+    // console.log("In sales option Functions...");
 
     // var arrow = document.getElementById("sale-arrow");
 

@@ -33,7 +33,7 @@ export const YourCompanies = (props) => {
   function navigateToDashBoard(val) {
     // setCurrCompany(val);
     props.userCompany.current = val;
-    console.log("MOVING TO DASHBOARD : " + props.userCompany.current);
+    // console.log("MOVING TO DASHBOARD : " + props.userCompany.current);
 
     navigate("/loggedIn", { state: { company: val } });
   }
@@ -43,7 +43,7 @@ export const YourCompanies = (props) => {
       // `invoke` returns a Promise
       .then((response) => setCompanyNames(JSON.parse(response)));
 
-    console.log(companyNames);
+    // console.log(companyNames);
   }, []);
   return (
     <div id="background-yourCompanies">

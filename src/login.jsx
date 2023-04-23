@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./login.css";
 import { CarouselLogin } from "./carousel";
@@ -15,26 +15,30 @@ import OTPInput, { ResendOTP } from "otp-input-react";
 import { toast } from "react-toastify";
 import { UserData } from "./state_manager";
 import "react-toastify/dist/ReactToastify.css";
+import { AppContext } from "./App";
 export const Login = (props) => {
   const [number, setNumber] = useState();
   const [otp, setOTP] = useState();
+  const { setTest } = useContext(AppContext);
 
   const navigate = useNavigate();
   async function sendNumber() {
     var numberSliced = String(number).slice(3);
-    console.log("Sliced Number : " + numberSliced);
+    // console.log("Sliced Number : " + numberSliced);
     // props.setUserNumber(numberSliced);
     props.userNumber1.current = numberSliced;
     // UserData.number = numberSliced;
-    console.log("USER NUMBER IN LOGIN : " + props.userNumber1.current);
+    setTest(numberSliced);
+    console.log("In Login : " + props.userNumber1.current);
+    // console.log("USER NUMBER IN LOGIN : " + props.userNumber1.current);
     await fetch(
       "http://15.206.187.61:443/setNumber?number=" + numberSliced
     ).then((res) => {
-      console.log("Number Sent...." + res);
+      // console.log("Number Sent...." + res);
     });
     // navigate("/loggedIn");
     // navigate("/loggedIn");
-    console.log("Send Number Function Is called");
+    // console.log("Send Number Function Is called");
     document.getElementById("otp-container-id-login").style.display = "block";
   }
 
@@ -66,7 +70,7 @@ export const Login = (props) => {
   function login() {
     onCaptchaVerify();
     const appVerifier = window.recaptchaVerifier;
-    console.log("Number : " + typeof number);
+    // console.log("Number : " + typeof number);
     signInWithPhoneNumber(auth, number, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
@@ -89,7 +93,7 @@ export const Login = (props) => {
     window.confirmationResult
       .confirm(otp)
       .then(async (res) => {
-        console.log("OTP Verified");
+        // console.log("OTP Verified");
         toast.success("Login successful");
         navigate("/yourCompanies");
         // {

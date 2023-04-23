@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./addSale.css";
 import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
@@ -9,12 +9,14 @@ import { invoke } from "@tauri-apps/api";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import { store } from "../state_manager";
+import { AppContext } from "../App";
 
 export const AddSale = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
   const [invoiceNo, setInvoiceNo] = useState();
+  const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
   const [rows, setRows] = useState([
     {
@@ -39,7 +41,7 @@ export const AddSale = (props) => {
   };
 
   const addRow1 = () => {
-    console.log("ADDING ROWS");
+    // console.log("ADDING ROWS");
     setRows([
       ...rows,
       {
@@ -52,7 +54,7 @@ export const AddSale = (props) => {
         balance: "",
       },
     ]);
-    console.log("Length : " + rows.length);
+    // console.log("Length : " + rows.length);
   };
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
@@ -81,7 +83,7 @@ export const AddSale = (props) => {
   }
   async function getPartyNames() {
     // console.log("ADD SALE PAGE : " + props.userNumber);
-    await fetch("/getPartyNames?number=" + props.userNumber)
+    await fetch("/getPartyNames?number=" + props.userNumber.current)
       .then((val) => val.json())
       .then((value) => {
         setPartyNames(value);
@@ -96,7 +98,7 @@ export const AddSale = (props) => {
 
     const formData = new FormData(form);
     const formDataJSON = Object.fromEntries(formData);
-    console.log(formDataJSON);
+    // console.log(formDataJSON);
 
     // ... Do something with the form data ...
     // });
@@ -108,15 +110,16 @@ export const AddSale = (props) => {
     console.log(formData);
     // console.log(currParty);
 
-    console.log(
-      "NUMBER FROM SALE : " +
-        props.userNumber +
-        "\t\tCOMPANY : " +
-        props.userCompany
-    );
+    // console.log(
+    //   "NUMBER FROM SALE : " +
+    //     props.userNumber.current +
+    //     "\t\tCOMPANY : " +
+    //     props.userCompany.current
+    // );
+
     invoke("new_sale_data", {
-      number: props.userNumber,
-      company: props.userCompany,
+      number: props.userNumber.current,
+      company: props.userCompany.current,
       jsonData: formData,
     });
     // `invoke` returns a Promise
@@ -127,7 +130,7 @@ export const AddSale = (props) => {
     const { name, value } = event.target;
     const newRows = [...rows];
     newRows[index][name] = value;
-    console.log(newRows[index]);
+    // console.log(newRows[index]);
     newRows[index]["party_name_dropdown"] = currParty;
     newRows[index]["invoice_no"] = invoiceNo;
     setRows(newRows);
@@ -136,21 +139,22 @@ export const AddSale = (props) => {
   };
 
   const testFunction = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSelectedPartyName(event.target.value);
   };
   useEffect(() => {
     // getPartyNames();
-    console.log(
-      "FROM ADD SALES : " + props.userNumber + "\t\t" + props.userCompany
-    );
+    // console.log(
+    //   "FROM ADD SALES : " + props.userNumber + "\t\t" + props.userCompany
+    // );
+    console.log("In addSale : " + props.userNumber.current);
     invoke("get_parties_name", {
-      number: "9350244300",
-      company: "DataE",
+      number: props.userNumber.current,
+      company: props.userCompany.current,
     }).then((response) => {
       setPartyNames(JSON.parse(response));
     });
-    console.log("Party Names List : " + partyNames);
+    // console.log("Party Names List : " + partyNames);
   }, []);
   return (
     <div>

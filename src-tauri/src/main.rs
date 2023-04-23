@@ -466,10 +466,18 @@ resp.into()
 
 
 #[tauri::command]
-async fn new_sale_data(number : String, company : String,jsonData : String){
+async fn new_sale_data(number : String, company : String, jsonData : String){
  
   let mut a = String::from("http://127.0.0.1:8001/getJsonData?json_data=");
+  let mut b = String::from("&company=");
+  let mut c = String::from("&number=");
+  
   a.push_str(&jsonData);
+  b.push_str(&company);
+  c.push_str(&number);
+
+  a.push_str(&b);
+  a.push_str(&c);
   let resp = match reqwest::get(a).await {
     Ok(resp) => resp.text().await.unwrap(),
     Err(err) => panic!("Error: {}", err)

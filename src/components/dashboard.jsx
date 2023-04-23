@@ -40,7 +40,7 @@ export const DashBoard = (props) => {
       });
   }
   async function PurchaseBalance() {
-    console.log("Purchase Balance : " + purchaseBalance);
+    // console.log("Purchase Balance : " + purchaseBalance);
     await fetch(
       "/getPurchaseBalance?number=" +
         props.userNumber +
@@ -54,7 +54,7 @@ export const DashBoard = (props) => {
   }
 
   async function PurchaseAmount() {
-    console.log("Purchase Balance : " + purchaseBalance);
+    // console.log("Purchase Balance : " + purchaseBalance);
     await fetch(
       "/getPurchaseAmount?number=" +
         props.userNumber +
@@ -64,7 +64,7 @@ export const DashBoard = (props) => {
       .then((val) => val.json())
       .then((value) => {
         setPurchaseAmount(parseInt(value));
-        console.log("Value : " + value);
+        // console.log("Value : " + value);
       });
     // await fetch("/getPurchaseAmount")
     //   .then((val) => console.log("Fetch Data  :" + val.json()))
@@ -82,7 +82,7 @@ export const DashBoard = (props) => {
       .then((val) => val.json())
       .then((value) => {
         setSalesAmount(parseInt(value));
-        console.log("SalesAmount  :" + salesAmount);
+        // console.log("SalesAmount  :" + salesAmount);
       });
   }
   async function getStockValue() {
@@ -161,7 +161,7 @@ export const DashBoard = (props) => {
   }
 
   useEffect(() => {
-    console.log("USER NUMBER : " + props.userNumber + "&company=" + cName);
+    // console.log("USER NUMBER : " + props.userNumber + "&company=" + cName);
     // componentDidMount();
     // PurchaseBalance();
     // PurchaseAmount();

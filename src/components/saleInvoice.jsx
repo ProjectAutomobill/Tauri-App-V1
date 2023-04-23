@@ -2,7 +2,7 @@ import React from "react";
 import "./saleInvoice.css";
 import { AiOutlinePlus } from "react-icons/ai";
 import { SaleInvoiceTable } from "./tables/salesInvoiceTable";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 import { GoGraph } from "react-icons/go";
@@ -10,6 +10,10 @@ import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
 
 export const SaleInvoice = (props) => {
+  const navigate = useNavigate();
+  function goToSale() {
+    navigate("/sale");
+  }
   return (
     <div className="main-saleInvoice">
       <div className="upperDiv-saleInvoice">
@@ -110,15 +114,16 @@ export const SaleInvoice = (props) => {
             className="search-input-saleInvoice"
             placeholder="Search ..."
           />
-          <Link to="/sale">
-            <button
-              className="addBtnSale-sale2-saleInvoice"
-              onClick={<Navigate to="/purchase" />}
-            >
-              <AiOutlinePlus className="plus-saleInvoice" />
-              Add Sale
-            </button>
-          </Link>
+          {/* <Link to="/sale"> */}
+          <button
+            className="addBtnSale-sale2-saleInvoice"
+            // onClick={<Navigate to="/purchase" />}
+            onClick={goToSale}
+          >
+            <AiOutlinePlus className="plus-saleInvoice" />
+            Add Sale
+          </button>
+          {/* </Link> */}
         </div>
         <SaleInvoiceTable userNumber={props.userNumber} />
       </div>

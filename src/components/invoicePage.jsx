@@ -10,13 +10,13 @@ export const InvoicePage = () => {
   //   const items = [];
 
   function addItems() {
-    console.log("In function");
+    // console.log("In function");
     const temp = [...items1, [], [], [], [], []];
     setItems1(temp);
     addPurchaseData();
   }
   function removeItems() {
-    console.log("In function");
+    // console.log("In function");
     // const temp = [...items, []];
     // setItems(temp);
   }
@@ -46,7 +46,7 @@ export const InvoicePage = () => {
       invoiceNo: invoiceNo,
       Date: invoiceDate,
     };
-    console.log("Item Name : " + item_name);
+    // console.log("Item Name : " + item_name);
     await fetch("http:127.0.0.1:8001/purchase/addPurchase", json_data);
   }
 

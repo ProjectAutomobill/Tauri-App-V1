@@ -673,11 +673,13 @@ def UpdateCompanyName():
 @app.route("/getJsonData")
 def getJsonData():
     data = request.args.get("json_data")
+    number = request.args.get("number")
+    company = request.args.get("company")
     data = json.loads(data)
     print(data[0]["item"])
         ##Data Upload Code
     # data = request.get_json()
-    userData = UserData("9350244300","DataE")
+    userData = UserData(number,company)
     partyRef = db.collection(
         "users", userData.doc_id, "company", userData.companyID, "parties"
     ).where("PartyName", "==", str(data[0]["party_name_dropdown"]))
