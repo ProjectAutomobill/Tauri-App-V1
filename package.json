@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://127.0.0.1:8001",
   "homepage": ".",
   "dependencies": {
     "@coreui/icons": "^2.1.0",
@@ -12,6 +11,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.2",
+    "@tauri-apps/api": "^1.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -28,9 +28,12 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-pro-sidebar": "^1.0.0-alpha.9",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.1.1",
+    "react-toggle-button": "^2.2.0",
+    "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,7 +41,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm start\" \"python backend/firebaseV2.py\"",
+    "dev": "npm start",
     "tauri": "tauri"
   },
   "eslintConfig": {

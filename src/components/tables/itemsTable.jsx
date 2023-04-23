@@ -11,6 +11,7 @@ import {
 import { green } from "@mui/material/colors";
 import { useState } from "react";
 import { useEffect } from "react";
+import { invoke } from "@tauri-apps/api";
 
 export const ItemsTable = (props) => {
   const [itemData, setItemData] = useState();
@@ -25,7 +26,15 @@ export const ItemsTable = (props) => {
   }
 
   useEffect(() => {
-    getItemDetails();
+    // getItemDetails();
+    invoke("get_item_details", {
+      number: props.userNumber,
+      company: props.userCompany.toString(),
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setItemData(JSON.parse(response));
+      });
   }, []);
   return (
     <TableContainer component={Paper}>

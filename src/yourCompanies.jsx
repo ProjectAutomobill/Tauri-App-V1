@@ -8,21 +8,28 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { useEffect, useLocation } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import { invoke } from "@tauri-apps/api";
 export const YourCompanies = (props) => {
   const [companyNames, setCompanyNames] = useState();
   const navigate = useNavigate();
   //   const { state } = useLocation();
   //   const { number } = state;
   //   const location = useLocation();
-  async function getCompaniesNames() {
-    await fetch("/getCompanyList?number=" + props.userNumber.current)
-      .then((val) => val.json())
-      .then((value) => {
-        setCompanyNames(value);
-        console.log(companyNames);
-      });
-  }
+  //   invoke("greet")
+  //     // `invoke` returns a Promise
+  //     .then((response) => setCompanyNames(JSON.parse(response)));
+
+  //   async function getCompaniesNames() {
+  //     await fetch(
+  //       "http://15.206.187.61:443/getCompanyList?number=" +
+  //         props.userNumber.current
+  //     )
+  //       .then((val) => val.json())
+  //       .then((value) => {
+  //         setCompanyNames(value);
+  //         console.log(companyNames);
+  //       });
+  //   }
   function navigateToDashBoard(val) {
     // setCurrCompany(val);
     props.userCompany.current = val;
@@ -31,7 +38,12 @@ export const YourCompanies = (props) => {
     navigate("/loggedIn", { state: { company: val } });
   }
   useEffect(() => {
-    getCompaniesNames();
+    // getCompaniesNames();
+    invoke("get_companies_name", { number: props.userNumber.current })
+      // `invoke` returns a Promise
+      .then((response) => setCompanyNames(JSON.parse(response)));
+
+    console.log(companyNames);
   }, []);
   return (
     <div id="background-yourCompanies">

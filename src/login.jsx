@@ -13,6 +13,7 @@ import { auth } from "./api-firebase/firebase-config";
 import OTPInput, { ResendOTP } from "otp-input-react";
 // import Spinner from "react-bootstrap/Spinner";
 import { toast } from "react-toastify";
+import { UserData } from "./state_manager";
 import "react-toastify/dist/ReactToastify.css";
 export const Login = (props) => {
   const [number, setNumber] = useState();
@@ -22,10 +23,13 @@ export const Login = (props) => {
   async function sendNumber() {
     var numberSliced = String(number).slice(3);
     console.log("Sliced Number : " + numberSliced);
-    props.setUserNumber(numberSliced);
+    // props.setUserNumber(numberSliced);
     props.userNumber1.current = numberSliced;
-    console.log("USER NUMBER IN LOGIN : " + props.userNumber);
-    await fetch("/setNumber?number=" + numberSliced).then((res) => {
+    // UserData.number = numberSliced;
+    console.log("USER NUMBER IN LOGIN : " + props.userNumber1.current);
+    await fetch(
+      "http://15.206.187.61:443/setNumber?number=" + numberSliced
+    ).then((res) => {
       console.log("Number Sent...." + res);
     });
     // navigate("/loggedIn");

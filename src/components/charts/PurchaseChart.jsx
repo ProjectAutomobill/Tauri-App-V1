@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import { invoke } from "@tauri-apps/api";
 
 export const PurchaseGraph = (props) => {
   const [dataS, setDataS] = useState();
@@ -92,8 +93,40 @@ export const PurchaseGraph = (props) => {
       });
   }
   useEffect(() => {
-    componentDidMount();
-    componentDidMountV1();
+    // componentDidMount();
+    // componentDidMountV1();
+
+    invoke("get_purchase_graph_data", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setDataS(JSON.parse(response));
+        SetSeries([
+          {
+            name: "series-1",
+            data: JSON.parse(response),
+          },
+        ]);
+      });
+
+    invoke("get_purchase_graph_date", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setDataD(JSON.parse(response));
+        setOptions({
+          chart: {
+            id: "apexchart-example",
+          },
+          xaxis: {
+            categories: JSON.parse(response),
+          },
+        });
+      });
   }, []);
   //   console.log("Data Type 1 :" + dataD.type);
 

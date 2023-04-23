@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import "./partiesModal.css";
 import { GstPage } from "./gstPage";
+import { invoke } from "@tauri-apps/api";
+
 export function PartiesModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
   const [partyName, setPartyName] = useState("");
@@ -13,24 +15,45 @@ export function PartiesModal(props) {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  async function addPartyDetails() {
-    await fetch(
-      "/addParty?number=" +
-        props.userNumber +
-        "name=" +
-        partyName +
-        "&gstin=" +
-        gstin +
-        "&pnumber=" +
-        phone_no +
-        "&email=" +
-        email +
-        "&address=" +
-        address
-    ).then((val) => console.log(val));
+  function addPartyDetails() {
+    // await fetch(
+    //   "/addParty?number=" +
+    //     props.userNumber +
+    //     "name=" +
+    //     partyName +
+    //     "&gstin=" +
+    //     gstin +
+    //     "&pnumber=" +
+    //     phone_no +
+    //     "&email=" +
+    //     email +
+    //     "&address=" +
+    //     address
+    // ).then((val) => console.log(val));
+
+    invoke("add_party_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+      name: partyName,
+      gstin: gstin,
+      pnumber: phone_no,
+      email: email,
+      address: address,
+    });
     props.onHide();
   }
 
+  // useEffect(() => {
+  // invoke("add_party_details", {
+  //   number: props.userNumber,
+  //   company: props.userCompany,
+  //   name: partyName,
+  //   gstin: gstin,
+  //   pnumber: phone_no,
+  //   email: email,
+  //   address: address,
+  // });
+  // }, []);
   return (
     <Modal
       {...props}

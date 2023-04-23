@@ -12,8 +12,14 @@ import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BiAlarm } from "react-icons/bi";
 import { ItemsModal } from "./modals/itemsModal";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
+
 export const Items = (props) => {
   const [modalShowItem, setModalShowItem] = useState(false);
+  const location = useLocation();
+  const [cName, setCName] = useState(location.state.company);
+
   return (
     <div className="parties-items">
       <div className="upperDiv">
@@ -63,7 +69,7 @@ export const Items = (props) => {
               Add Item
             </button>
           </div>
-          <ItemsTable userNumber={props.userNumber} />
+          <ItemsTable userNumber={props.userNumber} userCompany={cName} />
         </div>
 
         <div className="rightDiv">
@@ -121,7 +127,12 @@ export const Items = (props) => {
           </div>
         </div>
       </div>
-      <ItemsModal show={modalShowItem} onHide={() => setModalShowItem(false)} />
+      <ItemsModal
+        show={modalShowItem}
+        onHide={() => setModalShowItem(false)}
+        userNumber={props.userNumber}
+        userCompany={cName}
+      />
     </div>
   );
 };

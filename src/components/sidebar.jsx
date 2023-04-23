@@ -21,10 +21,15 @@ import { CgProfile } from "react-icons/cg";
 import { Rotate90DegreesCcw, RotateLeft } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import { CompanyModal } from "./modals/companyModal";
+import { Link, useLocation } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
+
 export function SideBar(props) {
   const [companyName, setCompanyName] = useState("Your Company");
   const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
 
+  const location = useLocation();
+  const [cName, setCName] = useState(location.state.company);
   function CompanyModalToggle() {
     setModalShowCompanyModal(true);
   }
@@ -106,7 +111,12 @@ export function SideBar(props) {
   }
 
   useEffect(() => {
-    getCompanyName();
+    // getCompanyName();
+    invoke("get_company_name", {
+      number: props.userNumber,
+      company: cName.toString(),
+      // party_name: partyTransaction,
+    }).then((response) => setCompanyName(JSON.parse(response)["name"]));
   }, []);
   // console.log(props.val1);
   return (

@@ -10,7 +10,10 @@ import { useState, useEffect } from "react";
 import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
 import Dropdown from "react-bootstrap/Dropdown";
+import { invoke } from "@tauri-apps/api";
 import { Link, Navigate, useLocation } from "react-router-dom";
+import ToggleButton from "react-toggle-button";
+
 export const DashBoard = (props) => {
   const [balance, setBalance] = useState(0);
   const [purchaseBalance, setPurchaseBalance] = useState(0);
@@ -23,7 +26,8 @@ export const DashBoard = (props) => {
   const [receiveList, setReceiveList] = useState();
   const [payList, setPayList] = useState();
   const [purchaseItemList, setPurchaseItemList] = useState();
-
+  const [blur, setBlur] = useState(false);
+  const [b_name, setNewBName] = useState();
   // console.log(cName);
   async function componentDidMount() {
     await fetch(
@@ -140,17 +144,76 @@ export const DashBoard = (props) => {
         setPurchaseItemList(value);
       });
   }
+
+  function blurScreen() {
+    document.getElementsByClassName("dashboard").style.backdropFilter =
+      "blur(10px)";
+  }
+
+  function update_b_name() {
+    invoke("change_business_name", {
+      number: props.userNumber,
+      company: cName,
+      bNameVal: b_name.toString(),
+    });
+    // `invoke` returns a Promise
+    // .then((response) => setBalance(parseInt(response)));
+  }
+
   useEffect(() => {
     console.log("USER NUMBER : " + props.userNumber + "&company=" + cName);
-    componentDidMount();
-    PurchaseBalance();
-    PurchaseAmount();
-    totalSalesAmount();
-    getStockValue();
-    getStockQty();
-    getReceiveList();
-    getPayList();
-    getPurchaseItemList();
+    // componentDidMount();
+    // PurchaseBalance();
+    // PurchaseAmount();
+    // totalSalesAmount();
+    // getStockValue();
+    // getStockQty();
+    // getReceiveList();
+    // getPayList();
+    // getPurchaseItemList();
+    invoke("component_did_mount", { number: props.userNumber, company: cName })
+      // `invoke` returns a Promise
+      .then((response) => setBalance(parseInt(response)));
+
+    invoke("purchase_balance", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setPurchaseBalance(parseInt(response)));
+
+    invoke("purchase_amount", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setPurchaseAmount(parseInt(response)));
+
+    invoke("total_sales_amount", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setSalesAmount(parseInt(response)));
+
+    invoke("get_stock_value", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setStockValue(parseInt(response)));
+
+    invoke("get_stock_qty", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setStockQty(parseInt(response)));
+
+    invoke("get_receive_list", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setReceiveList(JSON.parse(response)));
+
+    invoke("get_pay_list", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setPayList(JSON.parse(response)));
+
+    invoke("get_purchase_item_list", {
+      number: props.userNumber,
+      company: cName,
+    }).then((response) => setPurchaseItemList(JSON.parse(response)));
   }, []);
 
   return (
@@ -162,8 +225,11 @@ export const DashBoard = (props) => {
               type="text"
               placeholder="• Enter Business Name"
               id="business-entry-dashboard"
+              onChange={(e) => setNewBName(e.target.value)}
             ></input>
-            <button id="business-name-save-btn">Save</button>
+            <button id="business-name-save-btn" onClick={update_b_name}>
+              Save
+            </button>
           </div>
 
           {/* <div className='middle-portion'>
@@ -296,6 +362,20 @@ export const DashBoard = (props) => {
         </div>
 
         <div className="rightDiv-dashboard">
+          <div className="data-box-stock-dashboard-privacy">
+            <div className="inner-element-data-box-dashboard">Privacy</div>
+            {/* <div className="inner-element-val-data-box-dashboard">
+              <b>${stockValue}.00</b>
+            </div> */}
+            <ToggleButton
+              value={blur}
+              onToggle={(value) => {
+                // setBlur(!value);
+                blurScreen(true);
+              }}
+            />
+          </div>
+          <br />
           <div className="tag-header-dashboard">Stock Inventory</div>
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Stock Value</div>

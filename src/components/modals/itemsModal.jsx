@@ -5,6 +5,8 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import "./itemsModal.css";
 import { GstPage } from "./gstPage";
+import { invoke } from "@tauri-apps/api";
+
 export function ItemsModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
   const [itemName, setItemName] = useState("");
@@ -14,16 +16,23 @@ export function ItemsModal(props) {
   const [address, setAddress] = useState("");
 
   async function addItemDetails() {
-    await fetch(
-      "/addItem?number=" +
-        props.userNumber +
-        "name=" +
-        itemName +
-        "&SalePrice=" +
-        salePrice +
-        "&WholesalePrice=" +
-        wholesalePrice
-    ).then((val) => console.log(val));
+    // await fetch(
+    //   "/addItem?number=" +
+    //     props.userNumber +
+    //     "name=" +
+    //     itemName +
+    //     "&SalePrice=" +
+    //     salePrice +
+    //     "&WholesalePrice=" +
+    //     wholesalePrice
+    // ).then((val) => console.log(val));
+    invoke("add_item_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+      name: itemName,
+      salePrice: salePrice,
+      wholesalePrice: wholesalePrice,
+    });
     props.onHide();
   }
 

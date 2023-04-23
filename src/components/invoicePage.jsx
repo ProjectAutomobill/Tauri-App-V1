@@ -11,7 +11,7 @@ export const InvoicePage = () => {
 
   function addItems() {
     console.log("In function");
-    const temp = [...items1, [], [], [], []];
+    const temp = [...items1, [], [], [], [], []];
     setItems1(temp);
     addPurchaseData();
   }
@@ -87,22 +87,22 @@ export const InvoicePage = () => {
         <div id="grid-container">
           <div className="grid-item">Item</div>
           <div className="grid-item">QTY</div>
-          {/* <div className="grid-item">UNIT</div> */}
+          <div className="grid-item">UNIT</div>
           <div className="grid-item">PRICE</div>
           <div className="grid-item">Total</div>
-          {/* {items1.map((data, i) => {
+          {items1.map((data, i) => {
             return (
               <div className="grid-item-inner" key={i}>
                 <input
                   type="text"
                   name=""
                   id={i.toString()}
-                  className="grid-items"
+                  className="input-inner-items"
                 />
               </div>
             );
-          })} */}
-          <div className="grid-item-inner">
+          })}
+          {/* <div className="grid-item-inner">
             <input type="text" name="" id="item-name" />
           </div>
           <div className="grid-item-inner">
@@ -113,7 +113,7 @@ export const InvoicePage = () => {
           </div>
           <div className="grid-item-inner">
             <input type="number" name="" id="item-total" />
-          </div>
+          </div> */}
         </div>
         <FaPlusCircle onClick={addItems} id="add-icon" />
         <br />

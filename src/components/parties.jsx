@@ -6,7 +6,7 @@ import { TransactionTable } from "./tables/transactionTable";
 import { FiSearch } from "react-icons/fi";
 import { AiFillSetting, AiOutlinePlus } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BiAlarm } from "react-icons/bi";
@@ -14,6 +14,7 @@ import { BiAlarm } from "react-icons/bi";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { PartiesModal } from "./modals/partiesModal";
+import { invoke } from "@tauri-apps/api";
 
 export const Parties = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -23,6 +24,8 @@ export const Parties = (props) => {
   const [partyEmail, setPartyEmail] = useState();
   const [partyAddress, setPartyAddress] = useState();
   const [partyGSTIN, setPartyGSTIN] = useState();
+  const location = useLocation();
+  const [cName, setCName] = useState(location.state.company);
   // const [dataParty, setDataParty] = useState();
 
   // async function getPartyDetailsUpper() {
@@ -43,6 +46,8 @@ export const Parties = (props) => {
     console.log("Party Name : " + partyTransaction);
     await fetch(
       "/getPartyDetails?number=" +
+        "&company=" +
+        cName.toString() +
         props.userNumber +
         "partyName=" +
         partyTransaction
@@ -58,7 +63,22 @@ export const Parties = (props) => {
       });
   }
   useEffect(() => {
-    getPartyDetails();
+    // getPartyDetails();
+
+    invoke("get_parties_details", {
+      number: props.userNumber,
+      company: cName.toString(),
+      party_name: partyTransaction,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setPartyDetails(JSON.parse(response));
+        console.log("Party Data : " + partyDetails["Number"]);
+        setPartyNumber(partyDetails["Number"]);
+        setPartyEmail(partyDetails["Email"]);
+        setPartyAddress(partyDetails["Address"]);
+        setPartyGSTIN(partyDetails["GSTIN"]);
+      });
   }, []);
   // function test() {
   //   console.log(modalShow);
@@ -112,8 +132,8 @@ export const Parties = (props) => {
             <FiSearch className="searchIcon-parties" />
             <button
               className="partyBtn-parties"
-              // onClick={() => setModalShow(true)}
-              onClick={getPartyDetails}
+              onClick={() => setModalShow(true)}
+              // onClick={getPartyDetails}
             >
               {" "}
               <AiOutlinePlus className="plus-parties" />
@@ -213,13 +233,19 @@ export const Parties = (props) => {
                 <TransactionTable
                   partyName={partyTransaction}
                   userNumber={props.userNumber}
+                  userCompany={cName}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <PartiesModal show={modalShow} onHide={() => setModalShow(false)} />
+      <PartiesModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        userNumber={props.userNumber}
+        userCompany={cName.toString()}
+      />
     </div>
   );
 };

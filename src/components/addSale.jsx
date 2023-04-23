@@ -4,11 +4,58 @@ import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
+import { useSelector } from "react-redux";
+import { Provider } from "react-redux";
+import { store } from "../state_manager";
 
 export const AddSale = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
+  const [currParty, setSelectedPartyName] = useState();
+  const [invoiceNo, setInvoiceNo] = useState();
+  const [balance, setBalance] = useState(0);
+  const [rows, setRows] = useState([
+    {
+      party_name_dropdown: "",
+      invoice_no: "",
+      item: "",
+      qty: "",
+      price: "",
+      amount: "",
+      balance: "",
+    },
+  ]);
 
+  const handleRemoveLast = () => {
+    setRows(rows.slice(0, -1));
+  };
+
+  const calcBalance = () => {
+    for (var i = 0; i < rows.length; i++) {
+      setBalance(balance + parseInt(rows[i]["amount"]));
+    }
+  };
+
+  const addRow1 = () => {
+    console.log("ADDING ROWS");
+    setRows([
+      ...rows,
+      {
+        party_name_dropdown: "",
+        invoice_no: "",
+        item: "",
+        qty: "",
+        price: "",
+        amount: "",
+        balance: "",
+      },
+    ]);
+    console.log("Length : " + rows.length);
+  };
+  const location = useLocation();
+  // const [cName, setCName] = useState(location.state.company);
   var i = 0;
   function addRow(i) {
     i = i + 1;
@@ -33,7 +80,7 @@ export const AddSale = (props) => {
     table.innerHTML += template;
   }
   async function getPartyNames() {
-    console.log("ADD SALE PAGE : " + props.userNumber);
+    // console.log("ADD SALE PAGE : " + props.userNumber);
     await fetch("/getPartyNames?number=" + props.userNumber)
       .then((val) => val.json())
       .then((value) => {
@@ -41,14 +88,79 @@ export const AddSale = (props) => {
         console.log(value);
       });
   }
+  function getFormData() {
+    const form = document.querySelector("#myForm");
 
+    // form.addEventListener("submit", async (event) => {
+    //   event.preventDefault();
+
+    const formData = new FormData(form);
+    const formDataJSON = Object.fromEntries(formData);
+    console.log(formDataJSON);
+
+    // ... Do something with the form data ...
+    // });
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = JSON.stringify(rows);
+    console.log(formData);
+    // console.log(currParty);
+
+    console.log(
+      "NUMBER FROM SALE : " +
+        props.userNumber +
+        "\t\tCOMPANY : " +
+        props.userCompany
+    );
+    invoke("new_sale_data", {
+      number: props.userNumber,
+      company: props.userCompany,
+      jsonData: formData,
+    });
+    // `invoke` returns a Promise
+    // .then((response) => setBalance(parseInt(response)));
+  };
+
+  const handleChange = (event, index) => {
+    const { name, value } = event.target;
+    const newRows = [...rows];
+    newRows[index][name] = value;
+    console.log(newRows[index]);
+    newRows[index]["party_name_dropdown"] = currParty;
+    newRows[index]["invoice_no"] = invoiceNo;
+    setRows(newRows);
+    // console.log("Balance : " + balance);
+    document.getElementById("total-value-input").value = balance;
+  };
+
+  const testFunction = (event) => {
+    console.log(event.target.value);
+    setSelectedPartyName(event.target.value);
+  };
   useEffect(() => {
-    getPartyNames();
+    // getPartyNames();
+    console.log(
+      "FROM ADD SALES : " + props.userNumber + "\t\t" + props.userCompany
+    );
+    invoke("get_parties_name", {
+      number: "9350244300",
+      company: "DataE",
+    }).then((response) => {
+      setPartyNames(JSON.parse(response));
+    });
     console.log("Party Names List : " + partyNames);
   }, []);
   return (
     <div>
-      <form className="form-purchase" action="/addSaleData" method="post">
+      {/* action="/addSaleData" */}
+      <form
+        className="form-purchase"
+        // method="post"
+        id="myForm"
+        onSubmit={handleSubmit}
+      >
         <div className="purchaseTag">
           <h3>Sale</h3>
         </div>
@@ -60,14 +172,24 @@ export const AddSale = (props) => {
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase">
           <div className="party-detail-part1-addPurchase">
-            <select id="dropdown-party-addPurchase" name="party-name-dropdown">
+            <select
+              id="dropdown-party-addPurchase"
+              name="party_name_dropdown"
+              onChange={testFunction}
+            >
               {/* <option value="volvo">Party 1</option>
           <option value="saab">Party 2</option>
           <option value="mercedes">Party 3</option>
           <option value="audi">Party 4</option> */}
 
-              {partyNames?.map((row) => (
-                <option value={row.Name}>{row.Name}</option>
+              {partyNames?.map((row, index) => (
+                <option
+                  value={row.Name}
+                  // name="party-name-dropdown"
+                  // onClick={(e) => testFunction(e.target.val)}
+                >
+                  {row.Name}
+                </option>
               ))}
             </select>
 
@@ -80,7 +202,8 @@ export const AddSale = (props) => {
               <input
                 type="text"
                 className="upperButton-addPurchase"
-                name="invoice-no"
+                name="invoice_no"
+                onChange={(e) => setInvoiceNo(e.target.value)}
               ></input>
 
               <label className="balance-box-label">Invoice Date</label>
@@ -96,46 +219,60 @@ export const AddSale = (props) => {
           <div className="header-table-addPurchase">
             <table className="responsive-table" id="input-table">
               {/* <form action="/addPurchaseData" method="get"> */}
-              <tr>
-                <td className="col col-1">ITEM</td>
-                <td className="col col-2">QTY</td>
-                <td className="col col-3">PRICE</td>
-                <td className="col col-4">AMOUNT</td>
-              </tr>
-              <tr>
-                <td className="col col-1">
-                  <input
-                    className="table-input-addpurchase"
-                    type="text"
-                    name="item"
-                    id="item"
-                  />
-                </td>
-                <td className="col col-2">
-                  <input
-                    className="table-input-addpurchase"
-                    type="number"
-                    name="qty"
-                    id="qty"
-                  />
-                </td>
-                <td className="col col-3">
-                  <input
-                    className="table-input-addpurchase"
-                    type="number"
-                    name="price"
-                    id="price"
-                  />
-                </td>
-                <td className="col col-4">
-                  <input
-                    className="table-input-addpurchase"
-                    type="number"
-                    name="amount"
-                    id="amount"
-                  />
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td className="col col-1">ITEM</td>
+                  <td className="col col-2">QTY</td>
+                  <td className="col col-3">PRICE</td>
+                  <td className="col col-4">AMOUNT</td>
+                </tr>
+                {rows.map((row, index) => {
+                  return (
+                    <tr key={index}>
+                      <td className="col col-1">
+                        <input
+                          className="table-input-addpurchase"
+                          type="text"
+                          name="item"
+                          id="item"
+                          value={row.item}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td className="col col-2">
+                        <input
+                          className="table-input-addpurchase"
+                          type="number"
+                          name="qty"
+                          id="qty"
+                          value={row.qty}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td className="col col-3">
+                        <input
+                          className="table-input-addpurchase"
+                          type="number"
+                          name="price"
+                          id="price"
+                          value={row.price}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td className="col col-4">
+                        <input
+                          className="table-input-addpurchase"
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
             <br />
             {/* <button type="submit" id="submit-button-addPurchase">
@@ -147,16 +284,26 @@ export const AddSale = (props) => {
             {/* <button onClick={addRow}>Add Row</button> */}
           </div>
 
-          <button type="submit" id="submit-button-addPurchase">
+          <button
+            type="submit"
+            id="submit-button-addPurchase"
+            // onClick={getFormData}
+          >
             Save
           </button>
+          {/* <button onClick={getFormData}>Print</button> */}
           {/* <button onClick={() => addRow(i)} id="add-row-button">
             Add Row
           </button> */}
           {/* <button onClick={clickTest}>Test Name</button> */}
         </div>
-        <div onClick={() => addRow(i)} id="add-row-button">
+        <div onClick={addRow1} id="add-row-button">
           Add Row
+        </div>
+        <br />
+        <br />
+        <div onClick={handleRemoveLast} id="add-row-button">
+          Remove Row
         </div>
         <div id="balance-box">
           <label className="balance-box-label">Total</label>

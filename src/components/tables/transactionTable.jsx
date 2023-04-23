@@ -11,6 +11,8 @@ import {
 import "./transactionTable.css";
 import { getPartyDetails } from "../../api-firebase/firebase";
 import { useState, useEffect } from "react";
+import { invoke } from "@tauri-apps/api";
+import { Link, useLocation } from "react-router-dom";
 
 var data = [];
 var dataTable1 = getPartyDetails().then((val) => {
@@ -19,11 +21,13 @@ var dataTable1 = getPartyDetails().then((val) => {
 // var dataTable1 = getPartyDetails().then((val) => {
 //   y = val;
 // });
-console.log("TransactionTable");
 // console.log(data);
 export const TransactionTable = (props) => {
   const [dataT, setDataT] = useState();
   const [prev, setPrev] = useState();
+  const location = useLocation();
+  const [cName, setCName] = useState(location.state.company);
+  // const [dataParty, setDataParty] = useState();
   async function componentDidMount() {
     var partyName = props.partyName;
     await fetch(
@@ -38,11 +42,29 @@ export const TransactionTable = (props) => {
   }
 
   if (props.partyName != prev) {
-    componentDidMount();
+    // componentDidMount();
+    console.log("In Transaction Table");
+    invoke("get_party_transactions", {
+      number: props.userNumber,
+      company: cName.toString(),
+      selected_name: props.partyName,
+    }).then((response) => {
+      setDataT(JSON.parse(response));
+    });
     setPrev(props.partyName);
   }
   useEffect(() => {
-    componentDidMount();
+    // componentDidMount();
+    console.log("In Transaction Table");
+    invoke("get_party_transactions", {
+      number: props.userNumber,
+      company: cName.toString(),
+      selected_name: props.partyName,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setDataT(JSON.parse(response));
+      });
   }, []);
   return (
     <TableContainer component={Paper}>

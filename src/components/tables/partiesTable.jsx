@@ -12,6 +12,9 @@ import { green } from "@mui/material/colors";
 import { getPartyDetails } from "../../api-firebase/firebase";
 import { getValue } from "@mui/system";
 import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
+
 import "./partiesTable.css";
 
 export const PartiesTable = (props) => {
@@ -19,7 +22,9 @@ export const PartiesTable = (props) => {
   // console.log(dataTable1);
   const [data, setData] = useState();
   const [partyName, setPartyName] = useState();
-  const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
+  // const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
+  const location = useLocation();
+  const [cName, setCName] = useState(location.state.company);
   async function componentDidMount1() {
     await fetch("/getPartyNames?number=" + props.userNumber)
       .then((val) => val.json())
@@ -31,7 +36,15 @@ export const PartiesTable = (props) => {
 
   // getData();
   useEffect(() => {
-    componentDidMount1();
+    // componentDidMount1();
+    invoke("get_party_names", {
+      number: props.userNumber,
+      company: cName.toString(),
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setData(JSON.parse(response));
+      });
   }, []);
 
   return (
