@@ -16,6 +16,7 @@ import { YourCompanies } from "./yourCompanies";
 import { Provider } from "react-redux";
 import { store } from "./state_manager";
 import { useEffect } from "react";
+import { AddPurchaseV3 } from "./addPurchaseV3";
 
 export const AppContext = createContext(null);
 
@@ -60,7 +61,12 @@ function App() {
           />
           <Route
             path="/purchase"
-            element={<AddPurchaseV2 userNumber={userNumber1} />}
+            element={
+              <AddPurchaseV3
+                userNumber={userNumber1}
+                userCompany={userCompany}
+              />
+            }
           />
           <Route
             path="/sale"

@@ -729,5 +729,64 @@ def getJsonData():
 
     return "True"
 
+@app.route("/uploadNewPurchaseData")
+def uploadNewPurchaseData():
+    data = request.args.get("json_data")
+    number = request.args.get("number")
+    company = request.args.get("company")
+    data = json.loads(data)
+    print(data[0]["item"])
+        ##Data Upload Code
+    # data = request.get_json()
+    userData = UserData(number,company)
+    partyRef = db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "parties"
+    ).where("PartyName", "==", str(data[0]["party_name_dropdown"]))
+
+    partydocs = partyRef.get()
+
+    for doc in partydocs:
+        print(str(data[0]["party_name_dropdown"]))
+        if (str(doc.to_dict()["PartyName"]), "==", str(data[0]["party_name_dropdown"])):
+            print("condition Satisfied")
+            for i in range(len(data)):
+                db.collection(
+                    "users",
+                    userData.doc_id,
+                    "company",
+                    userData.companyID,
+                    "parties",
+                    str(doc.id),
+                    "PartyDetails",
+                ).add(
+                    {
+                        # "Item": data["item"][0],
+                        # "Quantity": data["qty"][0],
+                        # "Price": data["price"][0],
+                        # "Amount": data["amount"][0],
+                        "Item": data[i]["item"],
+                        "Number": int(data[i]["qty"]),
+                        "Price": int(data[i]["price"]),
+                        "Total": int(data[i]["amount"]),
+                        "Type": "Purchase",
+                        "Balance": 100,
+                        "Date": firestore.SERVER_TIMESTAMP,
+                    }
+                )
+    for i in range(len(data)):
+        item_ref = db.collection(
+            "users", userData.doc_id, "company", userData.companyID, "items"
+        ).where("ItemName", "==", str(data[i]["item"]))
+        # item_ref.update({"Units": 10})
+        items = item_ref.get()
+        for doc in items:
+            key = doc.id
+            if doc.to_dict()["ItemName"] == str(data[i]["item"]):
+                db.collection(
+                    "users", userData.doc_id, "company", userData.companyID, "items"
+                ).document(key).update({"Units": firestore.Increment(int(data[i]["qty"]))})
+
+    return "True"
+
 if __name__ == "__main__":
     app.run(port="8001")

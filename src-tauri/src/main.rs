@@ -7,7 +7,7 @@ use reqwest;
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![get_companies_name,component_did_mount,purchase_balance,purchase_amount,total_sales_amount,get_stock_value,get_stock_qty,get_receive_list,get_pay_list,get_purchase_item_list,get_purchase_graph_data,get_purchase_graph_date,get_sale_graph_data,get_sale_graph_date,get_parties_details,get_party_names,get_party_transactions,change_business_name,add_party_details,get_item_details,add_item_details,get_company_name,get_parties_name,new_sale_data])
+    .invoke_handler(tauri::generate_handler![get_companies_name,component_did_mount,purchase_balance,purchase_amount,total_sales_amount,get_stock_value,get_stock_qty,get_receive_list,get_pay_list,get_purchase_item_list,get_purchase_graph_data,get_purchase_graph_date,get_sale_graph_data,get_sale_graph_date,get_parties_details,get_party_names,get_party_transactions,change_business_name,add_party_details,get_item_details,add_item_details,get_company_name,get_parties_name,new_sale_data,new_purchase_data])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
@@ -471,7 +471,29 @@ async fn new_sale_data(number : String, company : String, jsonData : String){
   let mut a = String::from("http://127.0.0.1:8001/getJsonData?json_data=");
   let mut b = String::from("&company=");
   let mut c = String::from("&number=");
-  
+   
+  a.push_str(&jsonData);
+  b.push_str(&company);
+  c.push_str(&number);
+
+  a.push_str(&b);
+  a.push_str(&c);
+  let resp = match reqwest::get(a).await {
+    Ok(resp) => resp.text().await.unwrap(),
+    Err(err) => panic!("Error: {}", err)
+};
+println!("{}", jsonData);
+// resp.into()
+}
+
+
+#[tauri::command]
+async fn new_purchase_data(number : String, company : String, jsonData : String){
+ 
+  let mut a = String::from("http://127.0.0.1:8001/uploadNewPurchaseData?json_data=");
+  let mut b = String::from("&company=");
+  let mut c = String::from("&number=");
+   
   a.push_str(&jsonData);
   b.push_str(&company);
   c.push_str(&number);

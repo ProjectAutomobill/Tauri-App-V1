@@ -24,6 +24,7 @@ export const Parties = (props) => {
   const [partyEmail, setPartyEmail] = useState();
   const [partyAddress, setPartyAddress] = useState();
   const [partyGSTIN, setPartyGSTIN] = useState();
+  const [stateChange, setStateChange] = useState(true);
   const location = useLocation();
   const [cName, setCName] = useState(location.state.company);
   // const [dataParty, setDataParty] = useState();
@@ -60,6 +61,21 @@ export const Parties = (props) => {
         setPartyEmail(partyDetails["Email"]);
         setPartyAddress(partyDetails["Address"]);
         setPartyGSTIN(partyDetails["GSTIN"]);
+
+        invoke("get_parties_details", {
+          number: props.userNumber,
+          company: cName.toString(),
+          party_name: partyTransaction,
+        })
+          // `invoke` returns a Promise
+          .then((response) => {
+            setPartyDetails(JSON.parse(response));
+            // console.log("Party Data : " + partyDetails["Number"]);
+            setPartyNumber(partyDetails["Number"]);
+            setPartyEmail(partyDetails["Email"]);
+            setPartyAddress(partyDetails["Address"]);
+            setPartyGSTIN(partyDetails["GSTIN"]);
+          });
       });
   }
   useEffect(() => {
@@ -146,6 +162,8 @@ export const Parties = (props) => {
             setTrans={setPartyTransaction}
             partyName={partyTransaction}
             userNumber={props.userNumber}
+            setStateChange={setStateChange}
+            stateChange={stateChange}
           />
         </div>
 

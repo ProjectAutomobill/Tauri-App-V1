@@ -45,6 +45,7 @@ export const PartiesTable = (props) => {
       .then((response) => {
         setData(JSON.parse(response));
       });
+    props.setStateChange(!props.stateChange);
   }, []);
 
   return (
