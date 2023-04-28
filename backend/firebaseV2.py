@@ -2,6 +2,7 @@ from firebase_config import db
 from flask import Flask, jsonify, request
 from firebase_admin import firestore
 import json
+
 # from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
@@ -677,9 +678,9 @@ def getJsonData():
     company = request.args.get("company")
     data = json.loads(data)
     print(data[0]["item"])
-        ##Data Upload Code
+    ##Data Upload Code
     # data = request.get_json()
-    userData = UserData(number,company)
+    userData = UserData(number, company)
     partyRef = db.collection(
         "users", userData.doc_id, "company", userData.companyID, "parties"
     ).where("PartyName", "==", str(data[0]["party_name_dropdown"]))
@@ -725,9 +726,12 @@ def getJsonData():
             if doc.to_dict()["ItemName"] == str(data[i]["item"]):
                 db.collection(
                     "users", userData.doc_id, "company", userData.companyID, "items"
-                ).document(key).update({"Units": firestore.Increment(-int(data[i]["qty"]))})
+                ).document(key).update(
+                    {"Units": firestore.Increment(-int(data[i]["qty"]))}
+                )
 
     return "True"
+
 
 @app.route("/uploadNewPurchaseData")
 def uploadNewPurchaseData():
@@ -736,9 +740,9 @@ def uploadNewPurchaseData():
     company = request.args.get("company")
     data = json.loads(data)
     print(data[0]["item"])
-        ##Data Upload Code
+    ##Data Upload Code
     # data = request.get_json()
-    userData = UserData(number,company)
+    userData = UserData(number, company)
     partyRef = db.collection(
         "users", userData.doc_id, "company", userData.companyID, "parties"
     ).where("PartyName", "==", str(data[0]["party_name_dropdown"]))
@@ -784,9 +788,12 @@ def uploadNewPurchaseData():
             if doc.to_dict()["ItemName"] == str(data[i]["item"]):
                 db.collection(
                     "users", userData.doc_id, "company", userData.companyID, "items"
-                ).document(key).update({"Units": firestore.Increment(int(data[i]["qty"]))})
+                ).document(key).update(
+                    {"Units": firestore.Increment(int(data[i]["qty"]))}
+                )
 
     return "True"
+
 
 if __name__ == "__main__":
     app.run(port="8001")
