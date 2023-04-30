@@ -26,7 +26,9 @@ export const TransactionTable = (props) => {
   const [dataT, setDataT] = useState();
   const [prev, setPrev] = useState();
   const location = useLocation();
-  const [cName, setCName] = useState(location.state.company);
+  //const [cName, setCName] = useState(location.state.company);
+  const [cName, setCName] = useState();
+
   // const [dataParty, setDataParty] = useState();
   async function componentDidMount() {
     var partyName = props.partyName;
@@ -46,7 +48,7 @@ export const TransactionTable = (props) => {
     console.log("In Transaction Table");
     invoke("get_party_transactions", {
       number: props.userNumber,
-      company: cName.toString(),
+      company: props.userCompany,
       selected_name: props.partyName,
     }).then((response) => {
       setDataT(JSON.parse(response));
@@ -58,7 +60,7 @@ export const TransactionTable = (props) => {
     console.log("In Transaction Table");
     invoke("get_party_transactions", {
       number: props.userNumber,
-      company: cName.toString(),
+      company: props.userCompany,
       selected_name: props.partyName,
     })
       // `invoke` returns a Promise

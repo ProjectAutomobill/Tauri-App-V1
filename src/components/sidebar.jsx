@@ -27,9 +27,11 @@ import { invoke } from "@tauri-apps/api";
 export function SideBar(props) {
   const [companyName, setCompanyName] = useState("Your Company");
   const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
+  // const location = document.getElementById("useLocation()");
 
   const location = useLocation();
-  const [cName, setCName] = useState(location.state.company);
+  // const location2 = location.value;
+  // const [cName, setCName] = useState(location.state.company);
   function CompanyModalToggle() {
     setModalShowCompanyModal(true);
   }
@@ -114,7 +116,8 @@ export function SideBar(props) {
     // getCompanyName();
     invoke("get_company_name", {
       number: props.userNumber,
-      company: cName.toString(),
+      // company: cName.toString(),
+      company: props.userCompany,
       // party_name: partyTransaction,
     }).then((response) => setCompanyName(JSON.parse(response)["name"]));
   }, []);

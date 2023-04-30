@@ -54,7 +54,13 @@
   padding: 6px;
   padding-bottom: 8px;
 }
-#blue-line {
+.horizontal-line-parties {
+  width: 100%;
+  height: 1%;
+  background-color: rgb(173, 171, 171);
+  /* margin-top:7%; */
+}
+#blue-line-parties {
   background-color: cornflowerblue;
   height: 2px;
 }
@@ -101,16 +107,17 @@
   margin-left: 20%;
   /* background-color: bisque; */
 }
+
 .upperDivRight2-parties {
   /* background-color: blueviolet; */
   display: flex;
-  height: 75%;
-  margin-top: 10px;
+  height: 70%;
+  /* margin-top: 10px; */
   /* max-height: fit-content; */
 }
 .upperDivRight2-part1-parties {
   /* background-color: crimson; */
-  width: 40%;
+  width: 50%;
 
   /* align-content: left; */
   /* height: 10%; */
@@ -119,14 +126,55 @@
 .upperDivRight2-part1-phoneNo-parties {
   /* align-content: center; */
   /* background-color: brown; */
-  font-weight: 400;
-  width: 80%;
+  /* font-weight: 400; */
+  width: 20%;
+  height: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  /* gap: 0%; */
+  margin: 0%;
+  /* align-items: left; */
+  /* grid-template-columns: auto auto; */
 }
 
-.label-upper-partyDetails {
-  font-size: small;
+.label-upper-partyDetails-phoneNo-parties {
+  font-size: 70%;
+  /* row-gap: 0%; */
+  /* display: grid; */
+  /* background-color: ySellow; */
+  /* align-items: left; */
+  margin-bottom: 0%;
+  /* margin: 0%; */
+  width: 80%;
+  /* margin-left: 2%; */
+  /* height: 20%; */
+}
+.label-upper-partyDetails-Email-parties {
+  font-size: 70%;
+  /* row-gap: 0%; */
+  /* display: grid; */
+  margin-bottom: 0%;
+  /* background-color: yellow; */
+  /* justify-content: left; */
+  width: 50%;
+  /* margin-left: 2%; */
+  /* height: 20%; */
+}
+.label-upper-partyDetails-setCreditLimit-parties {
+  font-size: 70%;
+  /* row-gap: 0%; */
+  width: 100%;
+
+  /* display: grid; */
+  margin-left: 3%;
+
+  /* background-color: yellow; */
+}
+.label-upper-partyDetails-parties {
+  font-size: 70%;
+  /* row-gap: 0%; */
+  /* display: grid; */
+  /* background-color: yellow; */
+  /* height: 20%; */
 }
 
 .upperDivRight2-part1-email-parties {
@@ -238,18 +286,32 @@
   width: 30%;
   height: 60%;
 }
-.horizontal-line-parties {
-  width: 100%;
-  height: 1%;
-  background-color: rgb(173, 171, 171);
-  /* margin-top:7%; */
-}
-#business-entry-parties {
-  font-size: 130%;
-  height: 150%;
-  width: 80%;
-}
 
+#business-entry-parties {
+  font-size: 120%;
+  /* height: 60%; */
+  width: 80%;
+  outline: none;
+  border: 0px;
+}
+#business-name-save-btn-parties {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-parties:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-parties:focus + #business-name-save-btn-parties {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .saleBtnDiv-parties {
   display: flex;
   /* margin-right: auto; */

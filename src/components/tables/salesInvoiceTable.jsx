@@ -11,6 +11,7 @@ import {
 import "./transactionTable.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { invoke } from "@tauri-apps/api";
 
 export const SaleInvoiceTable = (props) => {
   const [dataSales, setSalesData] = useState();
@@ -25,7 +26,11 @@ export const SaleInvoiceTable = (props) => {
   }
 
   useEffect(() => {
-    getSaleTransactions();
+    // getSaleTransactions();
+    invoke("get_sales_transaction", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => setSalesData(JSON.parse(response)));
   }, []);
   return (
     <TableContainer component={Paper}>

@@ -1,0 +1,61 @@
+#body-content {
+  display: block;
+  gap: 5%;
+}
+
+#upper-input {
+  display: flex;
+  gap: 5%;
+}
+
+#body-paymentInModal {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#leftside-paymentInModal {
+  display: block;
+}
+
+.select-paymentInModal {
+  width: 50%;
+  padding: 2%;
+}
+
+.select-paymentInModal:hover {
+  border: 2px solid black;
+}
+
+#rightside-paymentInModal {
+  display: block;
+}
+
+#upper-block {
+  width: 50%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  /* border: 2px solid black; */
+  float: right;
+}
+
+.small-text {
+  font-size: small;
+}
+
+.receipt-no-paymentInModal {
+  width: 60%;
+  border: 0px;
+  outline: 0px;
+  border-bottom: 1px solid gray;
+}
+.date-paymentInModal {
+  width: 60%;
+  border: 0px;
+  outline: 0px;
+  /* border-bottom: 1px solid gray; */
+}
+
+.received-paymentInModal {
+  width: 60%;
+}

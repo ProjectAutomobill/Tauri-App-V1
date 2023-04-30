@@ -24,6 +24,8 @@ def setGlobalNumber():
 class UserData:
     def __init__(self, number, company):
         self.party_transaction_Dict = []
+        self.get_all_transaction = []
+        self.item_transaction_Dict = []
         self.partyNamesAndTotal = []
         self.itemNames = []
         self.salesData = []
@@ -47,6 +49,8 @@ class UserData:
         self.receive_list = []
         self.pay_list = []
         self.purchase_item_list = []
+        self.low_stock_item_list = []
+        self.paymentInData = []
         self.getCompanyNames()
         self.getData()
 
@@ -114,6 +118,20 @@ class UserData:
                             for doc_T in partyTransactionsDocs:
                                 # print('{} => {} '.format(doc_T.id, doc_T.to_dict()))
                                 temp.append(doc_T.to_dict())
+                                self.get_all_transaction.append(
+                                    {
+                                        "Balance": doc_T.to_dict()["Balance"],
+                                        "Total": doc_T.to_dict()["Total"],
+                                        "Date": doc_T.to_dict()["Date"],
+                                        "Item": doc_T.to_dict()["Item"],
+                                        "Number": doc_T.to_dict()["Number"],
+                                        "Payment_Type": "Cash",
+                                        "Transaction_Type": doc_T.to_dict()["Type"],
+                                        "PartyName": doc_P.to_dict()["PartyName"],
+                                        "Invoice_No": 0,
+                                        "Status": "Paid",
+                                    }
+                                )
                                 # print(str(i) + "  " + str(doc_T.to_dict()["Type"]))
                                 # Balance = Balance + doc_T.to_dict()["Balance"]
                                 if doc_T.to_dict()["Type"] == "Sale":
@@ -213,7 +231,7 @@ class UserData:
                             "users", doc.id, "company", doc_C.id, "items"
                         )
                         itemDocs = items.stream()
-
+                        temp_item = []
                         for doc_I in itemDocs:
                             self.itemNames.append(
                                 {
@@ -231,7 +249,36 @@ class UserData:
                             self.stock_value = self.stock_value + int(
                                 doc_I.to_dict()["Units"]
                             ) * int(doc_I.to_dict()["Sale_Price"])
+
+                            if int(doc_I.to_dict()["Units"]) <= 0:
+                                self.low_stock_item_list.append(
+                                    {
+                                        "Name": doc_I.to_dict()["ItemName"],
+                                        "Units": doc_I.to_dict()["Units"],
+                                    }
+                                )
+
+                            item_transactions = db.collection(
+                                "users",
+                                doc.id,
+                                "company",
+                                doc_C.id,
+                                "items",
+                                doc_I.id,
+                                "",
+                            )
+                            itemTransDocs = item_transactions.stream()
+
+                        paymentInDetails = db.collection(
+                            "users", doc.id, "company", doc_C.id, "paymentIn"
+                        )
+                        paymentInDocs = paymentInDetails.stream()
+
+                        for doc_PI in paymentInDocs:
+                            self.paymentInData.append(doc_PI.to_dict())
+
                         break
+
                 else:
                     print("Record Not found...")
 
@@ -250,6 +297,38 @@ def getPartyTransactions():
         if party_transaction_Dict[i][0] == str(source):
             temp = jsonify(party_transaction_Dict[i][1])
     return temp
+
+
+@app.route("/getItemTransactions")
+def getItemTransactions():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    itemName = request.args.get("itemName")
+    userData = UserData(number, company)
+    # global party_transaction_Dict
+    item_transaction_Dict = userData.get_all_transaction
+
+    output = []
+    for i in range(len(item_transaction_Dict)):
+        if item_transaction_Dict[i]["Item"] == str(itemName):
+            output.append(item_transaction_Dict[i])
+    return jsonify(output)
+
+
+# @app.route("/getItemTransactions")
+# def getItemTransactions():
+#     number = request.args.get("number")
+#     company = request.args.get("company")
+#     userData = UserData(number, company)
+#     # global party_transaction_Dict
+#     party_transaction_Dict = userData.party_transaction_Dict
+#     source = request.args.get("partyName")
+#     # party_transaction_Dict = jsonify(party_transaction_Dict[str(source)])
+#     temp = None
+#     for i in range(len(party_transaction_Dict)):
+#         if party_transaction_Dict[i][0] == str(source):
+#             temp = jsonify(party_transaction_Dict[i][1])
+#     return temp
 
 
 @app.route("/getCompanyList")
@@ -793,6 +872,46 @@ def uploadNewPurchaseData():
                 )
 
     return "True"
+
+
+@app.route("/getLowStockData")
+def GetLowStockData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    return userData.low_stock_item_list
+
+
+@app.route("/addPaymentInData")
+def addPaymentInData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    jsonData = request.args.get("json_data")
+    jsonData = json.loads(jsonData)
+
+    userData = UserData(number, company)
+    db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "paymentIn"
+    ).add(
+        {
+            "Received": jsonData["received"],
+            "ReceiptNo": jsonData["receiptno"],
+            "Date": jsonData["Date"],
+            "TransactionType": jsonData["transactiontype"],
+            "PartyName": jsonData["party"],
+        }
+    )
+
+    return "true"
+
+
+@app.route("/getPaymentInData")
+def GetPaymentInData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+
+    return userData.paymentInData
 
 
 if __name__ == "__main__":

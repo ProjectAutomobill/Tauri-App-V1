@@ -387,7 +387,7 @@
   color: rgb(99, 98, 98);
 }
 .tag-header-dashboard {
-  font-size: large;
+  font-size: medium;
   font-weight: bold;
   color: rgb(142, 136, 136);
   margin-right: 60%;
@@ -473,10 +473,11 @@
 }
 
 .tag-header-cashAndBank-dashboard {
-  font-size: large;
+  font-size: medium;
   font-weight: bold;
   color: rgb(142, 136, 136);
   margin-right: 67%;
+  margin-top: 5px;
 }
 .data-box-stock-openCheques-dashboard {
   background-color: white;

@@ -29,7 +29,7 @@ export const ItemsTable = (props) => {
     // getItemDetails();
     invoke("get_item_details", {
       number: props.userNumber,
-      company: props.userCompany.toString(),
+      company: props.userCompany,
     })
       // `invoke` returns a Promise
       .then((response) => {
@@ -48,7 +48,15 @@ export const ItemsTable = (props) => {
         <TableBody>
           {itemData?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.Name}</TableCell>
+              <TableCell
+                sx={{ fontSize: 12 }}
+                onClick={() => {
+                  props.setTrans(row.Name);
+                  props.getItemDetails();
+                }}
+              >
+                {row.Name}
+              </TableCell>
               <TableCell sx={{ fontSize: 12, color: "green", fontWeight: 600 }}>
                 {row.Units}
               </TableCell>

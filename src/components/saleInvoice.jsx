@@ -125,7 +125,10 @@ export const SaleInvoice = (props) => {
           </button>
           {/* </Link> */}
         </div>
-        <SaleInvoiceTable userNumber={props.userNumber} />
+        <SaleInvoiceTable
+          userNumber={props.userNumber}
+          userCompany={props.userCompany}
+        />
       </div>
     </div>
   );

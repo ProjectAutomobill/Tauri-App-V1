@@ -34,7 +34,7 @@ export const YourCompanies = (props) => {
     // setCurrCompany(val);
     props.userCompany.current = val;
     // console.log("MOVING TO DASHBOARD : " + props.userCompany.current);
-
+    console.log("Company Var from ypurCompanies : " + val);
     navigate("/loggedIn", { state: { company: val } });
   }
   useEffect(() => {

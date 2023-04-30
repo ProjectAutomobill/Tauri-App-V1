@@ -53,10 +53,7 @@ function App() {
           <Route
             path="/loggedIn"
             element={
-              <Home
-                userNumber={userNumber1}
-                userCompany={userCompany.current}
-              />
+              <Home userNumber={userNumber1} userCompany={userCompany} />
             }
           />
           <Route

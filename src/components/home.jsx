@@ -15,10 +15,15 @@ export const Home = (props) => {
             val1={content}
             val2={setContent}
             userNumber={props.userNumber.current}
+            userCompany={props.userCompany.current}
           />
         </div>
         <div className="mainSection">
-          <MainSection val1={content} userNumber={props.userNumber.current} />
+          <MainSection
+            val1={content}
+            userNumber={props.userNumber.current}
+            userCompany={props.userCompany.current}
+          />
         </div>
       </div>
     </div>

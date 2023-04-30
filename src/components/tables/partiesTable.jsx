@@ -24,7 +24,9 @@ export const PartiesTable = (props) => {
   const [partyName, setPartyName] = useState();
   // const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
   const location = useLocation();
-  const [cName, setCName] = useState(location.state.company);
+  //  const [cName, setCName] = useState(location.state.company);
+  const [cName, setCName] = useState();
+
   async function componentDidMount1() {
     await fetch("/getPartyNames?number=" + props.userNumber)
       .then((val) => val.json())
@@ -39,7 +41,7 @@ export const PartiesTable = (props) => {
     // componentDidMount1();
     invoke("get_party_names", {
       number: props.userNumber,
-      company: cName.toString(),
+      company: props.userCompany,
     })
       // `invoke` returns a Promise
       .then((response) => {
@@ -67,7 +69,10 @@ export const PartiesTable = (props) => {
               <TableRow className="table-row">
                 <TableCell
                   sx={{ fontSize: 12 }}
-                  onClick={() => props.setTrans(row.Name)}
+                  onClick={() => {
+                    props.setTrans(row.Name);
+                    props.getPartyDetails();
+                  }}
                 >
                   {row.Name}
                 </TableCell>

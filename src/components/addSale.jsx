@@ -108,22 +108,12 @@ export const AddSale = (props) => {
     event.preventDefault();
     const formData = JSON.stringify(rows);
     console.log(formData);
-    // console.log(currParty);
-
-    // console.log(
-    //   "NUMBER FROM SALE : " +
-    //     props.userNumber.current +
-    //     "\t\tCOMPANY : " +
-    //     props.userCompany.current
-    // );
 
     invoke("new_sale_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
     });
-    // `invoke` returns a Promise
-    // .then((response) => setBalance(parseInt(response)));
   };
 
   const handleChange = (event, index) => {
@@ -153,6 +143,7 @@ export const AddSale = (props) => {
       company: props.userCompany.current,
     }).then((response) => {
       setPartyNames(JSON.parse(response));
+      setSelectedPartyName(partyNames[0].Name);
     });
     // console.log("Party Names List : " + partyNames);
   }, []);
@@ -160,24 +151,24 @@ export const AddSale = (props) => {
     <div>
       {/* action="/addSaleData" */}
       <form
-        className="form-purchase"
+        className="form-purchase-addSale"
         // method="post"
-        id="myForm"
+        id="myForm-addSale"
         onSubmit={handleSubmit}
       >
-        <div className="purchaseTag">
+        <div className="purchaseTag-addSale">
           <h3>Sale</h3>
         </div>
-        <div className="top-bar">
-          <AiFillCalculator className="icn" />
-          <AiFillSetting className="icn" />
-          <RxCrossCircled className="icn" />
+        <div className="top-bar-addSale">
+          <AiFillCalculator className="icn-addSale" />
+          <AiFillSetting className="icn-addSale" />
+          <RxCrossCircled className="icn-addSale" />
         </div>
         {/* <div className="line"></div> */}
-        <div className="party-detail-addPurchase">
-          <div className="party-detail-part1-addPurchase">
+        <div className="party-detail-addPurchase-addSale">
+          <div className="party-detail-part1-addPurchase-addSale">
             <select
-              id="dropdown-party-addPurchase"
+              id="dropdown-party-addPurchase-addSale"
               name="party_name_dropdown"
               onChange={testFunction}
             >
@@ -197,31 +188,45 @@ export const AddSale = (props) => {
               ))}
             </select>
 
-            <input className="number-addPurchase" placeholder="Phone no." />
+            <input
+              className="number-addPurchase-addSale"
+              placeholder="Phone no."
+            />
           </div>
 
-          <div className="party-detail-part2-addPurchase">
-            <div className="party-detail-part2-insideDiv-addPurchase">
-              <label className="balance-box-label">Invoice no.</label>
+          <div className="party-detail-part2-addPurchase-addSale">
+            <div className="party-detail-part2-insideDiv-addPurchase-addSale">
+              <label className="balance-box-label-addSale">Invoice no.</label>
               <input
                 type="text"
-                className="upperButton-addPurchase"
+                className="upperButton-addPurchase-addSale"
                 name="invoice_no"
                 onChange={(e) => setInvoiceNo(e.target.value)}
               ></input>
 
-              <label className="balance-box-label">Invoice Date</label>
-              <input type="date" className="upperButton-addPurchase"></input>
+              <label className="balance-box-label-addSale">Invoice Date</label>
+              <input
+                type="date"
+                className="upperButton-addPurchase-addSale"
+              ></input>
 
-              <label className="balance-box-label">State of supply </label>
-              <input type="text" className="upperButton-addPurchase"></input>
+              <label className="balance-box-label-addSale">
+                State of supply{" "}
+              </label>
+              <input
+                type="text"
+                className="upperButton-addPurchase-addSale"
+              ></input>
             </div>
           </div>
         </div>
 
-        <div className="item-table-addPurchase">
-          <div className="header-table-addPurchase">
-            <table className="responsive-table" id="input-table">
+        <div className="item-table-addPurchase-addSale">
+          <div className="header-table-addPurchase-addSale">
+            <table
+              className="responsive-table-addSale"
+              id="input-table-addSale"
+            >
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
@@ -235,7 +240,7 @@ export const AddSale = (props) => {
                     <tr key={index}>
                       <td className="col col-1">
                         <input
-                          className="table-input-addpurchase"
+                          className="table-2nd-input-addpurchase-addSale"
                           type="text"
                           name="item"
                           id="item"
@@ -245,7 +250,7 @@ export const AddSale = (props) => {
                       </td>
                       <td className="col col-2">
                         <input
-                          className="table-input-addpurchase"
+                          className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="qty"
                           id="qty"
@@ -255,7 +260,7 @@ export const AddSale = (props) => {
                       </td>
                       <td className="col col-3">
                         <input
-                          className="table-input-addpurchase"
+                          className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="price"
                           id="price"
@@ -265,7 +270,7 @@ export const AddSale = (props) => {
                       </td>
                       <td className="col col-4">
                         <input
-                          className="table-input-addpurchase"
+                          className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="amount"
                           id="amount"
@@ -290,7 +295,7 @@ export const AddSale = (props) => {
 
           <button
             type="submit"
-            id="submit-button-addPurchase"
+            id="submit-button-addPurchase-addSale"
             // onClick={getFormData}
           >
             Save
@@ -301,26 +306,26 @@ export const AddSale = (props) => {
           </button> */}
           {/* <button onClick={clickTest}>Test Name</button> */}
         </div>
-        <div onClick={addRow1} id="add-row-button">
+        <div onClick={addRow1} id="add-row-button-addSale">
           Add Row
         </div>
         <br />
         <br />
-        <div onClick={handleRemoveLast} id="add-row-button">
+        <div onClick={handleRemoveLast} id="add-row-button-addSale">
           Remove Row
         </div>
-        <div id="balance-box">
-          <label className="balance-box-label">Total</label>
+        <div id="balance-box-addSale">
+          <label className="balance-box-label-addSale">Total</label>
           <input
             type="text"
-            className="balance-box-input"
+            className="balance-box-input-addSale"
             id="total-value-input"
           />
           {/* <br /> */}
-          <label className="balance-box-label">Received</label>
+          <label className="balance-box-label-addSale">Received</label>
           <input
             type="text"
-            className="balance-box-input"
+            className="balance-box-input-addSale"
             id="received-amount"
           />
         </div>

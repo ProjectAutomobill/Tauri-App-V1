@@ -11,7 +11,7 @@ import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
 import Dropdown from "react-bootstrap/Dropdown";
 import { invoke } from "@tauri-apps/api";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import ToggleButton from "react-toggle-button";
 
 export const DashBoard = (props) => {
@@ -22,13 +22,24 @@ export const DashBoard = (props) => {
   const [stockValue, setStockValue] = useState(0);
   const [stockQty, setStockQty] = useState(0);
   const location = useLocation();
-  const [cName, setCName] = useState(location.state.company);
+  // const [cName, setCName] = useState(location.state.company);
+  const [cName, setCName] = useState(0);
   const [receiveList, setReceiveList] = useState();
   const [payList, setPayList] = useState();
   const [purchaseItemList, setPurchaseItemList] = useState();
   const [blur, setBlur] = useState(false);
   const [b_name, setNewBName] = useState();
+  const [lowStockData, setLowStockData] = useState();
+  const navigate = useNavigate();
   // console.log(cName);
+
+  function navigateToSale() {
+    navigate("/sale");
+  }
+  function navigateToPurchase() {
+    navigate("/purchase");
+  }
+
   async function componentDidMount() {
     await fetch(
       "/getBalance?number=" + props.userNumber + "&company=" + cName.toString()
@@ -153,7 +164,7 @@ export const DashBoard = (props) => {
   function update_b_name() {
     invoke("change_business_name", {
       number: props.userNumber,
-      company: cName,
+      company: cName.toString(),
       bNameVal: b_name.toString(),
     });
     // `invoke` returns a Promise
@@ -161,7 +172,13 @@ export const DashBoard = (props) => {
   }
 
   useEffect(() => {
-    // console.log("USER NUMBER : " + props.userNumber + "&company=" + cName);
+    console.log(
+      "USER NUMBER : " +
+        props.userNumber +
+        "&company=" +
+        props.userCompany +
+        "\tIn Dashboard"
+    );
     // componentDidMount();
     // PurchaseBalance();
     // PurchaseAmount();
@@ -171,49 +188,57 @@ export const DashBoard = (props) => {
     // getReceiveList();
     // getPayList();
     // getPurchaseItemList();
-    invoke("component_did_mount", { number: props.userNumber, company: cName })
+    invoke("component_did_mount", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
       // `invoke` returns a Promise
       .then((response) => setBalance(parseInt(response)));
 
     invoke("purchase_balance", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setPurchaseBalance(parseInt(response)));
 
     invoke("purchase_amount", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setPurchaseAmount(parseInt(response)));
 
     invoke("total_sales_amount", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setSalesAmount(parseInt(response)));
 
     invoke("get_stock_value", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setStockValue(parseInt(response)));
 
     invoke("get_stock_qty", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setStockQty(parseInt(response)));
 
     invoke("get_receive_list", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setReceiveList(JSON.parse(response)));
 
     invoke("get_pay_list", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setPayList(JSON.parse(response)));
 
     invoke("get_purchase_item_list", {
       number: props.userNumber,
-      company: cName,
+      company: props.userCompany,
     }).then((response) => setPurchaseItemList(JSON.parse(response)));
+
+    invoke("get_low_stock_data", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => setLowStockData(JSON.parse(response)));
   }, []);
 
   return (
@@ -241,10 +266,7 @@ export const DashBoard = (props) => {
             <div className="saleBtnDiv-dashboard">
               <BsFillPlusCircleFill className="plusSale-dashboard" />
 
-              <button
-                className="addBtnSale-dashboard"
-                onClick={<Navigate to="/sale" />}
-              >
+              <button className="addBtnSale-dashboard" onClick={navigateToSale}>
                 Add Sale
               </button>
             </div>
@@ -252,7 +274,12 @@ export const DashBoard = (props) => {
             <div className="purchaseBtnDiv-dashboard">
               {/* <AiOutlinePlus className="plusSale" /> */}
               <BsFillPlusCircleFill className="plusSale-purchase-dashboard" />
-              <button className="addBtnPurchase-dashboard">Add Purchase</button>
+              <button
+                className="addBtnPurchase-dashboard"
+                onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </button>
             </div>
             <div className="moreBtnDiv-dashboard">
               <BsFillPlusCircleFill className="plusSaleMore-dashboard" />
@@ -299,7 +326,7 @@ export const DashBoard = (props) => {
                 <SalesGraph
                   className="sale-graph-dashboard"
                   userNumber={props.userNumber}
-                  userCompany={cName}
+                  userCompany={props.userCompany}
                 />
                 <div className="small-text-dashboard">Report : Lifetime</div>
               </div>
@@ -312,7 +339,10 @@ export const DashBoard = (props) => {
               <h5 className="tag-header-dashboard">Expenses</h5>
               {/* <DropdownDashboard /> */}
             </div>
-            <PurchaseGraph userNumber={props.userNumber} userCompany={cName} />
+            <PurchaseGraph
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
             <div className="small-text-dashboard">Report : Lifetime</div>
           </div>
         </div>
@@ -385,10 +415,12 @@ export const DashBoard = (props) => {
           </div>
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Low Stocks</div>
-            <div className="inner-element-val-data-box-stock-dashboard">
-              <div className="item-name-stock-box">Item</div>
-              <div className="item-qty-stock-box">-100</div>
-            </div>
+            {lowStockData?.map((row) => (
+              <div className="inner-element-val-data-box-stock-dashboard">
+                <div className="item-name-stock-box">{row.Name}</div>
+                <div className="item-qty-stock-box">{row.Units}</div>
+              </div>
+            ))}
           </div>
           <div className="tag-header-cashAndBank-dashboard">Cash & Bank</div>
           <div className="data-box-stock-dashboard">

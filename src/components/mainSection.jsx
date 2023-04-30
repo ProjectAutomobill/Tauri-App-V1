@@ -24,41 +24,131 @@ export function MainSection(props) {
     <div className="main-section">
       {(() => {
         if (props.val1 === "dashboard" || props.val1 === "home") {
-          return <DashBoard userNumber={props.userNumber} />;
+          return (
+            <DashBoard
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "parties") {
-          return <Parties userNumber={props.userNumber} />;
+          return (
+            <Parties
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "items") {
-          return <Items userNumber={props.userNumber} />;
+          return (
+            <Items
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "sales") {
-          return <SaleInvoice userNumber={props.userNumber} />;
+          return (
+            <SaleInvoice
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "estimateAndquotation") {
-          return <EandQ userNumber={props.userNumber} />;
+          return (
+            <EandQ
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "paymentIn") {
-          return <PaymentIn userNumber={props.userNumber} />;
+          return (
+            <PaymentIn
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "saleOrder") {
-          return <SaleOrder userNumber={props.userNumber} />;
+          return (
+            <SaleOrder
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "deliveryChallan") {
-          return <DeliveryChallan userNumber={props.userNumber} />;
+          return (
+            <DeliveryChallan
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "saleReturn") {
-          return <SaleReturn userNumber={props.userNumber} />;
+          return (
+            <SaleReturn
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "purchases") {
-          return <PurchaseBills userNumber={props.userNumber} />;
+          return (
+            <PurchaseBills
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "paymentOut") {
-          return <PaymentOut userNumber={props.userNumber} />;
+          return (
+            <PaymentOut
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "purchaseOrder") {
-          return <PurchaseOrder userNumber={props.userNumber} />;
+          return (
+            <PurchaseOrder
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "purchaseReturn") {
-          return <PurchaseReturn userNumber={props.userNumber} />;
+          return (
+            <PurchaseReturn
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "expenses") {
-          return <Expenses userNumber={props.userNumber} />;
+          return (
+            <Expenses
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "cashAndBanks") {
-          return <BankAccounts userNumber={props.userNumber} />;
+          return (
+            <BankAccounts
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "cashInHand") {
-          return <CashInHand userNumber={props.userNumber} />;
+          return (
+            <CashInHand
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "loanAccounts") {
-          return <LoanAccounts userNumber={props.userNumber} />;
+          return (
+            <LoanAccounts
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         } else if (props.val1 === "cheques") {
-          return <Cheques userNumber={props.userNumber} />;
+          return (
+            <Cheques
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
         }
       })()}
     </div>
