@@ -244,29 +244,36 @@ export const Parties = (props) => {
 
               <div className="upperDivRight2-parties">
                 <div className="upperDivRight2-part1-parties">
-                  <div className="upperDivRight2-part1-phoneNo-parties">
-                    <label className="label-upper-partyDetails-phoneNo-parties">
-                      Phone no. :
-                    </label>
-                    {/* Phone no. :{""} */}
-                    <label className="label-upper-partyDetails-parties">
-                      {partyNumber}
-                    </label>
-                    <label className="label-upper-partyDetails-Email-parties">
-                      Email :{" "}
-                    </label>
-                    {/* Phone no. :{""} */}
-                    <label className="label-upper-partyDetails-parties">
-                      {partyEmail}
-                    </label>
-                    <label className="label-upper-partyDetails-setCreditLimit-parties">
-                      Set Credit Limit :
-                    </label>
-                    {/* Phone no. :{""} */}
-                    <label className="label-upper-partyDetails-parties">
-                      {partyNumber}
-                    </label>
+                  {/* <div className="upperDivRight2-part1-phoneNo-parties"> */}
+                  <div className="label-upper-partyDetails-phoneNo-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      Phone no. :{partyNumber}
+                    </div>
                   </div>
+                  {/* Phone no. :{""} */}
+                  {/* <div className="label-upper-partyDetails-parties">
+                    {partyNumber}
+                  </div> */}
+                  {/* </div> */}
+                  <div className="label-upper-partyDetails-Email-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      Email : {partyEmail}
+                    </div>
+                  </div>
+                  {/* Phone no. :{""} */}
+                  {/* <div className="label-upper-partyDetails-parties">
+                    {partyEmail}
+                  </div> */}
+                  <div className="label-upper-partyDetails-setCreditLimit-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      Set Credit Limit :{partyNumber}
+                    </div>
+                  </div>
+                  {/* Phone no. :{""} */}
+                  {/* <div className="label-upper-partyDetails-parties">
+                    {partyNumber}
+                  </div> */}
+
                   {/* <div className="upperDivRight2-part1-email-parties">
                     {" "}
                     Email :
@@ -278,19 +285,23 @@ export const Parties = (props) => {
                 </div>
 
                 <div className="upperDivRight2-part2-parties">
-                  <label className="label-upper-partyDetails">Address :</label>
-                  {/* Phone no. :{""} */}
-                  <label className="label-upper-partyDetails-parties">
-                    {partyAddress}
-                  </label>
-
-                  <label className="label-upper-partyDetails-parties">
-                    GSTIN :
-                  </label>
-                  {/* Phone no. :{""} */}
-                  <label className="label-upper-partyDetails-parties">
-                    {partyGSTIN}
-                  </label>
+                  {/* <div className="upperDivRight2-part2-ADiv-parties"> */}
+                  {/* <div className="label-upper-partyDetails-setCreditLimit-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      Set Credit Limit :{partyNumber}
+                    </div>
+                  </div> */}
+                  <div className="label-upper-partyDetails-address-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      Address :{partyAddress}
+                    </div>
+                  </div>
+                  <div className="label-upper-partyDetails-GSTIN-parties">
+                    <div className="label-upper-partyDetails-parties">
+                      GSTIN :{partyGSTIN}
+                    </div>
+                  </div>
+                  {/* </div> */}
                 </div>
               </div>
             </div>

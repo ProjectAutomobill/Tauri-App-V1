@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import { store } from "../state_manager";
 import { AppContext } from "../App";
 
-export const AddSale = (props) => {
+export const AddSaleOrder = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
@@ -19,6 +19,8 @@ export const AddSale = (props) => {
   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
+  const [currDate, setCurrDate] = useState();
+  const [dueDate, setDueDate] = useState();
   const [rows, setRows] = useState([
     {
       party_name_dropdown: "",
@@ -28,6 +30,8 @@ export const AddSale = (props) => {
       price: "",
       amount: "",
       balance: "",
+      Date: "",
+      Due_Date: "",
     },
   ]);
 
@@ -53,6 +57,8 @@ export const AddSale = (props) => {
         price: "",
         amount: "",
         balance: "",
+        Date: "",
+        Due_Date: "",
       },
     ]);
     // console.log("Length : " + rows.length);
@@ -110,7 +116,7 @@ export const AddSale = (props) => {
     const formData = JSON.stringify(rows);
     console.log(formData);
 
-    invoke("new_sale_data", {
+    invoke("new_sale_order_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
@@ -139,6 +145,8 @@ export const AddSale = (props) => {
     newRows[index]["party_name_dropdown"] = currParty;
     newRows[index]["Invoice_no"] = invoiceNo;
     newRows[index]["balance"] = calcBalance();
+    newRows[index]["Date"] = currDate;
+    newRows[index]["Due_Date"] = dueDate;
     setRows(newRows);
     // console.log("Balance : " + balance);
     document.getElementById("total-value-input").value = balance;
@@ -153,7 +161,7 @@ export const AddSale = (props) => {
     // console.log(
     //   "FROM ADD SALES : " + props.userNumber + "\t\t" + props.userCompany
     // );
-    console.log("In addSale : " + props.userNumber.current);
+    console.log("In addSaleOrder : " + props.userNumber.current);
     invoke("get_parties_name", {
       number: props.userNumber.current,
       company: props.userCompany.current,
@@ -173,7 +181,7 @@ export const AddSale = (props) => {
         onSubmit={handleSubmit}
       >
         <div className="purchaseTag-addSale">
-          <h3>Sale</h3>
+          <h3>Sale Order</h3>
         </div>
         <div className="top-bar-addSale">
           <AiFillCalculator className="icn-addSale" />
@@ -224,6 +232,13 @@ export const AddSale = (props) => {
               <input
                 type="date"
                 className="upperButton-addPurchase-addSale"
+                onChange={(e) => setCurrDate(e.target.value)}
+              ></input>
+              <label className="balance-box-label-addSale">Due Date</label>
+              <input
+                type="date"
+                className="upperButton-addPurchase-addSale"
+                onChange={(e) => setDueDate(e.target.value)}
               ></input>
 
               <label className="balance-box-label-addSale">

@@ -160,22 +160,29 @@ export const Items = (props) => {
                 <div className="upperDivRight2-part1-items">
                   <div className="upperDivRight2-part1-purchasePrice-items">
                     {" "}
-                    Purchase Price :{" "}
+                    <div className="label-upper-partyDetails-items">
+                      Purchase Price :{" "}
+                    </div>
                   </div>
                   <div className="upperDivRight2-part1-salePrice-items">
                     {" "}
-                    Sale Price:
+                    <div className="label-upper-partyDetails-items">
+                      Sale Price: :{" "}
+                    </div>
                   </div>
                 </div>
 
                 <div className="upperDivRight2-part2-items">
                   <div className="upperDivRight2-part1-stockQuantity-items">
-                    {" "}
-                    Stock Quantity :{" "}
+                    <div className="label-upper-partyDetails-items">
+                      Stock Quantity :{" "}
+                    </div>
                   </div>
-                  <div className="upperDivRight2-part1-stcokValue-items">
+                  <div className="upperDivRight2-part1-stockValue-items">
                     {" "}
-                    Stock Value :
+                    <div className="label-upper-partyDetails-items">
+                      Stock Value :{" "}
+                    </div>
                   </div>
                 </div>
               </div>

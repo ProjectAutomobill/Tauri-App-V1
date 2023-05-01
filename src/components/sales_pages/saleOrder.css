@@ -33,11 +33,33 @@
 }
 
 #business-entry-saleOrder {
-  font-size: 130%;
-  height: 150%;
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
+  /* font-size: 130%;
+  height: 150%;
+  width: 80%; */
 }
-
+#business-name-save-btn-saleOrder {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-saleOrder:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-saleOrder:focus + #business-name-save-btn-saleOrder {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .marginDiv-saleOrder {
   display: flex;
   margin-left: auto;

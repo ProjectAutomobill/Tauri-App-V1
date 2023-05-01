@@ -42,7 +42,7 @@
 }
 .middleDiv-part1-saleInvoice {
   display: flex;
-  height: 60%;
+  height: 50%;
   /* background-color: aqua; */
 }
 
@@ -116,9 +116,6 @@
   margin-top: 0.5%;
   width: 10%;
   margin-left: auto;
-}
-
-#paid-block {
 }
 
 .graph-middlepart1-saleInvoice {
@@ -201,18 +198,35 @@
   width: 30%;
   height: 100%;
 }
-/* .horizontal-line-saleInvoice{
-    width:100%;
-    height: 1%;
-    background-color: rgb(173, 171, 171);
-    
-  } */
-#business-entry-saleInvoice {
-  font-size: 130%;
-  height: 50%;
-  width: 80%;
-}
 
+#business-entry-saleInvoice {
+  /* font-size: 130%;
+  height: 50%;
+  width: 80%; */
+  font-size: 120%;
+  /* height: 60%; */
+  width: 80%;
+  outline: none;
+  border: 0px;
+}
+#business-name-save-btn-saleInvoice {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-saleInvoice:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-saleInvoice:focus + #business-name-save-btn-saleInvoice {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .saleBtnDiv-saleInvoice {
   display: flex;
   /* margin-right: auto; */

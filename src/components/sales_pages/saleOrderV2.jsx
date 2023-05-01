@@ -5,79 +5,43 @@ import "./paymentIn.css";
 import { AiOutlinePlus } from "react-icons/ai";
 // import { PurchaseBillsTable } from '../tables/purchaseBillsTable';
 import { PaymentInTable } from "../tables/paymentInTable";
-import { Navigate, Link, useNavigate } from "react-router-dom";
+// import { Navigate, Link } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 // import { GoGraph } from 'react-icons/go';
 import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
-// import { Navigate, Link, useNavigate } from "react-router-dom";
 import { PaymentInModal } from "../modals/paymentInModal";
-import { invoke } from "@tauri-apps/api";
+import { SaleOrderTable } from "../tables/saleOrderTable";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-export const PaymentIn = (props) => {
-  const [modalShow, setModalShow] = useState(false);
+export const SaleOrderV2 = (props) => {
   const navigate = useNavigate();
-  const [b_name, setNewBName] = useState();
-  function navigateToSale() {
-    navigate("/sale");
+
+  function navigateToSaleOrder() {
+    navigate("/saleOrder");
   }
-  function navigateToPurchase() {
-    navigate("/purchase");
-  }
-  function update_b_name_paymentIn() {
-    invoke("change_business_name", {
-      number: props.userNumber,
-      company: props.userCompany,
-      bNameVal: b_name.toString(),
-    });
-    // `invoke` returns a Promise
-    // .then((response) => setBalance(parseInt(response)));
-  }
+
   return (
     <div className="main-paymentIn">
       <div className="upperDiv-paymentIn">
         <div className="upperDivPart1-paymentIn">
           <div className="input-business-paymentIn">
-            {/* <input
+            <input
               type="text"
               placeholder="•Enter Business Name"
               id="business-entry-paymentIn"
-            ></input> */}
-            <input
-              type="text"
-              placeholder="• Enter Business Name"
-              id="business-entry-paymentIn"
-              onChange={(e) => setNewBName(e.target.value)}
             ></input>
-            <button
-              id="business-name-save-btn-paymentIn"
-              onClick={update_b_name_paymentIn}
-            >
-              Save
-            </button>
           </div>
-
-          {/* <div className='middle-portion'>
-                PRODUCTS
-            </div> */}
 
           <div className="marginDiv-paymentIn">
             <div className="saleBtnDiv-paymentIn">
               <BsFillPlusCircleFill className="plusSale-paymentIn" />
-              <button className="addBtnSale-paymentIn" onClick={navigateToSale}>
-                Add Sale
-              </button>
+              <button className="addBtnSale-paymentIn">Add Sale</button>
             </div>
             <div className="purchaseBtnDiv-paymentIn">
-              {/* <AiOutlinePlus className="plusSale" /> */}
               <BsFillPlusCircleFill className="plusSale-purchase-paymentIn" />
-              <button
-                className="addBtnPurchase-paymentIn"
-                onClick={navigateToPurchase}
-              >
-                Add Purchase
-              </button>
+              <button className="addBtnPurchase-paymentIn">Add Purchase</button>
             </div>
             <div className="moreBtnDiv-paymentIn">
               <BsFillPlusCircleFill className="plusSaleMore-paymentIn" />
@@ -87,10 +51,7 @@ export const PaymentIn = (props) => {
               <AiFillSetting className="setting-paymentIn" />
             </div>
           </div>
-          {/* <div className='horizontal-line'>fgyrfhj</div> */}
         </div>
-        {/* <div className='horizontal-line-paymentIn'></div>
-        <h3 className='heading-paymentIn'>SALE INVOICES</h3> */}
       </div>
 
       <div className="middleDiv-paymentIn">
@@ -115,7 +76,6 @@ export const PaymentIn = (props) => {
           </div>
 
           <div className="options-middlepart1-paymentIn">
-            {/* <GoGraph className='graph-middlepart1-paymentIn'/> */}
             <HiDocumentReport className="report-middlepart1-paymentIn" />
             <AiFillPrinter className="print-middlepart1-paymentIn" />
           </div>
@@ -168,24 +128,18 @@ export const PaymentIn = (props) => {
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-paymentIn"
-            onClick={() => setModalShow(true)}
+            onClick={navigateToSaleOrder}
           >
             <AiOutlinePlus className="plus-paymentIn" />
-            Add Payment-In
+            Add Sale Order
           </button>
           {/* </Link> */}
         </div>
-        <PaymentInTable
+        <SaleOrderTable
           userNumber={props.userNumber}
           userCompany={props.userCompany}
         />
       </div>
-      <PaymentInModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        userNumber={props.userNumber}
-        userCompany={props.userCompany}
-      />
     </div>
 
     // <div>

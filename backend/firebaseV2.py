@@ -51,6 +51,7 @@ class UserData:
         self.purchase_item_list = []
         self.low_stock_item_list = []
         self.paymentInData = []
+        self.sale_order_data = []
         self.getCompanyNames()
         self.getData()
 
@@ -156,7 +157,7 @@ class UserData:
                                             "Payment_Type": "Cash",
                                             "Transaction_Type": doc_T.to_dict()["Type"],
                                             "PartyName": doc_P.to_dict()["PartyName"],
-                                            "Invoice_No": 0,
+                                            "Invoice_No": doc_T.to_dict()["Invoice_no"],
                                         }
                                     )
                                     pendingBalance = pendingBalance + int(
@@ -268,7 +269,7 @@ class UserData:
                                 "",
                             )
                             itemTransDocs = item_transactions.stream()
-
+                        #####################################################################################
                         paymentInDetails = db.collection(
                             "users", doc.id, "company", doc_C.id, "paymentIn"
                         )
@@ -276,6 +277,14 @@ class UserData:
 
                         for doc_PI in paymentInDocs:
                             self.paymentInData.append(doc_PI.to_dict())
+                        ######################################################################################
+                        saleOrderDetails = db.collection(
+                            "users", doc.id, "company", doc_C.id, "SaleOrder"
+                        )
+                        saleOrderDocs = saleOrderDetails.stream()
+
+                        for doc_SO in saleOrderDocs:
+                            self.sale_order_data.append(doc_SO.to_dict())
 
                         break
 
@@ -336,6 +345,15 @@ def getCompaniesNames():
     number = request.args.get("number")
     userData = UserData(number, " ")
     return userData.companies_list
+
+
+@app.route("/getSaleOrderData")
+def GetSaleOrderData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    print(userData.sale_order_data)
+    return userData.sale_order_data
 
 
 @app.route("/getReceiveList")
@@ -790,8 +808,9 @@ def getJsonData():
                         "Price": int(data[i]["price"]),
                         "Total": int(data[i]["amount"]),
                         "Type": "Sale",
-                        "Balance": 100,
+                        "Balance": int(data[i]["balance"]),
                         "Date": firestore.SERVER_TIMESTAMP,
+                        "Invoice_no": int(data[i]["Invoice_no"]),
                     }
                 )
     for i in range(len(data)):
@@ -808,6 +827,71 @@ def getJsonData():
                 ).document(key).update(
                     {"Units": firestore.Increment(-int(data[i]["qty"]))}
                 )
+
+    return "True"
+
+
+@app.route("/addSaleOrderData")
+def AddSaleOrderData():
+    data = request.args.get("json_data")
+    number = request.args.get("number")
+    company = request.args.get("company")
+    data = json.loads(data)
+    print(data[0]["item"])
+    ##Data Upload Code
+    # data = request.get_json()
+    userData = UserData(number, company)
+    partyRef = db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "parties"
+    ).where("PartyName", "==", str(data[0]["party_name_dropdown"]))
+
+    partydocs = partyRef.get()
+
+    for doc in partydocs:
+        print(str(data[0]["party_name_dropdown"]))
+        if (str(doc.to_dict()["PartyName"]), "==", str(data[0]["party_name_dropdown"])):
+            print("condition Satisfied")
+            for i in range(len(data)):
+                db.collection(
+                    "users",
+                    userData.doc_id,
+                    "company",
+                    userData.companyID,
+                    "SaleOrder",
+                    # str(doc.id),
+                    # "PartyDetails",
+                ).add(
+                    {
+                        # "Item": data["item"][0],
+                        # "Quantity": data["qty"][0],
+                        # "Price": data["price"][0],
+                        # "Amount": data["amount"][0],
+                        "Item": data[i]["item"],
+                        "Number": int(data[i]["qty"]),
+                        "Price": int(data[i]["price"]),
+                        "Total": int(data[i]["amount"]),
+                        "Type": "Sale",
+                        "Balance": int(data[i]["balance"]),
+                        "Date": str(data[i]["Date"]),
+                        "Due_Date": str(data[i]["Due_Date"]),
+                        "Invoice_no": int(data[i]["Invoice_no"]),
+                        "Party": str(data[i]["party_name_dropdown"]),
+                    }
+                )
+    # for i in range(len(data)):
+    #     item_ref = db.collection(
+    #         "users", userData.doc_id, "company", userData.companyID, "items"
+    #     ).where("ItemName", "==", str(data[i]["item"]))
+    #     # item_ref.update({"Units": 10})
+    #     items = item_ref.get()
+    #     for doc in items:
+    #         key = doc.id
+    #         if doc.to_dict()["ItemName"] == str(data[i]["item"]):
+    #             db.collection(
+    #                 "users", userData.doc_id, "company", userData.companyID, "items"
+    #             ).document(key).update(
+    #                 {"Units": firestore.Increment(-int(data[i]["qty"]))}
+    #             )
 
     return "True"
 

@@ -33,11 +33,33 @@
 }
 
 #business-entry-saleEandQ {
-  font-size: 130%;
+  /* font-size: 130%;
   height: 150%;
+  width: 80%; */
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
 }
-
+#business-name-save-btn-saleEandQ {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-saleEandQ:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-saleEandQ:focus + #business-name-save-btn-saleEandQ {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .marginDiv-saleEandQ {
   display: flex;
   margin-left: auto;
@@ -157,7 +179,19 @@
   background-color: rgb(173, 171, 171);
   /* margin-top:7%; */
 }
-
+#blue-line-saleEandQ {
+  background-color: cornflowerblue;
+  height: 2px;
+}
+.heading-saleEandQ {
+  font-size: large;
+  font-weight: 550;
+  color: black;
+  /* margin-top: 2px; */
+  background-color: rgb(245, 245, 245);
+  padding: 6px;
+  padding-bottom: 8px;
+}
 .lowerBody-saleEandQ {
   /* margin-top:1%;
     margin-left:1%; 

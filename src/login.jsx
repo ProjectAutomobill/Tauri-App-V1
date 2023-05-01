@@ -31,11 +31,11 @@ export const Login = (props) => {
     setTest(numberSliced);
     console.log("In Login : " + props.userNumber1.current);
     // console.log("USER NUMBER IN LOGIN : " + props.userNumber1.current);
-    await fetch(
-      "http://15.206.187.61:443/setNumber?number=" + numberSliced
-    ).then((res) => {
-      // console.log("Number Sent...." + res);
-    });
+    // await fetch(
+    //   "http://15.206.187.61:443/setNumber?number=" + numberSliced
+    // ).then((res) => {
+    //   // console.log("Number Sent...." + res);
+    // });
     // navigate("/loggedIn");
     // navigate("/loggedIn");
     // console.log("Send Number Function Is called");

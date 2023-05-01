@@ -147,13 +147,15 @@
 .upperDivRight2-items {
   /* background-color: blueviolet; */
   display: flex;
-  height: 70%;
+  height: 75%;
   /* margin-top: 10px; */
   /* max-height: fit-content; */
 }
 .upperDivRight2-part1-items {
   /* background-color: crimson; */
-  width: 40%;
+  width: 50%;
+  float: left;
+  display: grid;
   /* padding: 1%; */
   /* align-content: left; */
   /* height: 10%; */
@@ -162,27 +164,49 @@
 .upperDivRight2-part1-purchasePrice-items {
   /* align-content: center; */
   /* background-color: brown; */
-  margin-top: 3%;
+  /* margin-top: 3%; */
   font-weight: 400;
-  width: 35%;
+  /* width: 35%; */
+  /* float: left; */
 }
 .upperDivRight2-part1-salePrice-items {
   /* align-content: center; */
-  /* background-color: brown; */
+  /* background-color: rgb(164, 147, 53); */
   font-weight: 400;
-  width: 25%;
+  /* width: 35%; */
 }
 
 .upperDivRight2-part2-items {
-  margin-left: auto;
-  /* background-color: crimson; */
+  /* margin-left: 50%; */
+  /* background-color: rgb(35, 160, 156); */
   font-weight: 400;
-  width: 30%;
+  width: 50%;
+  display: grid;
+  /* float: right; */
 }
 .upperDivRight2-part1-stockQuantity-items {
-  margin-top: 3%;
+  /* margin-top: 3%; */
+  /* background-color: aquamarine; */
+  /* width: 35%; */
+  /* float: right; */
+  margin-left: 30%;
 }
-
+.upperDivRight2-part1-stockValue-items {
+  /* background-color: chocolate; */
+  /* width: 35%; */
+  margin-left: 30%;
+}
+.label-upper-partyDetails-items {
+  /* font-size: 100%; */
+  /* row-gap: 0%; */
+  /* display: grid; */
+  float: left;
+  /* height: fit-content; */
+  /* color: rgb(55, 55, 188);
+  font-weight: 540; */
+  /* background-color: yellow; */
+  /* height: 20%; */
+}
 .lowerDivRight-items {
   position: absolute;
   top: 16%;
