@@ -246,15 +246,23 @@ export const AddSale = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1">ITEM</td>
-                  <td className="col col-2">QTY</td>
-                  <td className="col col-3">PRICE</td>
-                  <td className="col col-4">AMOUNT</td>
+                  <td className="col col-1" id="td-addSale">
+                    ITEM
+                  </td>
+                  <td className="col col-2" id="td-addSale">
+                    QTY
+                  </td>
+                  <td className="col col-3" id="td-addSale">
+                    PRICE
+                  </td>
+                  <td className="col col-4" id="td-addSale">
+                    AMOUNT
+                  </td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
-                      <td className="col col-1">
+                      <td className="col col-1" id="td-addSale">
                         <input
                           className="table-2nd-input-addpurchase-addSale"
                           type="text"
@@ -264,7 +272,7 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-2">
+                      <td className="col col-2" id="td-addSale">
                         <input
                           className="table-2nd-input-addpurchase-addSale"
                           type="number"
@@ -274,7 +282,7 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-3">
+                      <td className="col col-3" id="td-addSale">
                         <input
                           className="table-2nd-input-addpurchase-addSale"
                           type="number"
@@ -284,7 +292,7 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-4">
+                      <td className="col col-4" id="td-addSale">
                         <input
                           className="table-2nd-input-addpurchase-addSale"
                           type="number"

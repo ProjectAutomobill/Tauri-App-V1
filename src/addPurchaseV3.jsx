@@ -245,15 +245,23 @@ export const AddPurchaseV3 = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1">ITEM</td>
-                  <td className="col col-2">QTY</td>
-                  <td className="col col-3">PRICE</td>
-                  <td className="col col-4">AMOUNT</td>
+                  <td className="col col-1" id="td-addPurchase">
+                    ITEM
+                  </td>
+                  <td className="col col-2" id="td-addPurchase">
+                    QTY
+                  </td>
+                  <td className="col col-3" id="td-addPurchase">
+                    PRICE
+                  </td>
+                  <td className="col col-4" id="td-addPurchase">
+                    AMOUNT
+                  </td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
-                      <td className="col col-1">
+                      <td className="col col-1" id="td-addPurchase">
                         <input
                           className="table-input-addpurchase-addPurchaseV3"
                           type="text"
@@ -263,7 +271,7 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-2">
+                      <td className="col col-2" id="td-addPurchase">
                         <input
                           className="table-input-addpurchase-addPurchaseV3"
                           type="number"
@@ -273,7 +281,7 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-3">
+                      <td className="col col-3" id="td-addPurchase">
                         <input
                           className="table-input-addpurchase-addPurchaseV3"
                           type="number"
@@ -283,7 +291,7 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-4">
+                      <td className="col col-4" id="td-addPurchase">
                         <input
                           className="table-input-addpurchase-addPurchaseV3"
                           type="number"
