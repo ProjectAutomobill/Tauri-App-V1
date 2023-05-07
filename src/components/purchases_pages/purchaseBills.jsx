@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./purchaseBills.css";
 import { AiOutlinePlus } from "react-icons/ai";
 // import { Navigate, Link } from "react-router-dom";
@@ -8,23 +8,49 @@ import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
 import { PurchaseBillsTable } from "../tables/purchaseBillsTable";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
 
-export const PurchaseBills = () => {
+export const PurchaseBills = (props) => {
   const navigate = useNavigate();
+  const [b_name, setNewBName] = useState();
 
+  function navigateToSale() {
+    navigate("/sale");
+  }
   function navigateToPurchase() {
     navigate("/purchase");
+  }
+  function update_b_name_purchaseBills() {
+    invoke("change_business_name", {
+      number: props.userNumber,
+      company: props.userCompany,
+      bNameVal: b_name.toString(),
+    });
+    // `invoke` returns a Promise
+    // .then((response) => setBalance(parseInt(response)));
   }
   return (
     <div className="main-purchaseBills">
       <div className="upperDiv-purchaseBills">
         <div className="upperDivPart1-purchaseBills">
           <div className="input-business-purchaseBills">
-            <input
+            {/* <input
               type="text"
               placeholder="•Enter Business Name"
               id="business-entry-purchaseBills"
+            ></input> */}
+            <input
+              type="text"
+              placeholder="• Enter Business Name"
+              id="business-entry-purchaseBills"
+              onChange={(e) => setNewBName(e.target.value)}
             ></input>
+            <button
+              id="business-name-save-btn-purchaseBills"
+              onClick={update_b_name_purchaseBills}
+            >
+              Save
+            </button>
           </div>
 
           {/* <div className='middle-portion'>
@@ -34,12 +60,20 @@ export const PurchaseBills = () => {
           <div className="marginDiv-purchaseBills">
             <div className="saleBtnDiv-purchaseBills">
               <BsFillPlusCircleFill className="plusSale-purchaseBills" />
-              <button className="addBtnSale-purchaseBills">Add Sale</button>
+              <button
+                className="addBtnSale-purchaseBills"
+                onClick={navigateToSale}
+              >
+                Add Sale
+              </button>
             </div>
             <div className="purchaseBtnDiv-purchaseBills">
               {/* <AiOutlinePlus className="plusSale" /> */}
               <BsFillPlusCircleFill className="plusSale-purchase-purchaseBills" />
-              <button className="addBtnPurchase-purchaseBills">
+              <button
+                className="addBtnPurchase-purchaseBills"
+                onClick={navigateToPurchase}
+              >
                 Add Purchase
               </button>
             </div>
@@ -72,7 +106,7 @@ export const PurchaseBills = () => {
             </select>
           </div>
 
-          <div className="choose-dates-purchaseBills">
+          {/* <div className="choose-dates-purchaseBills">
             <label for="from-purchaseBills">Betweeen :</label>
             <input
               type="date"
@@ -81,6 +115,26 @@ export const PurchaseBills = () => {
             />
 
             <label for="to-purchaseBills">To :</label>
+            <input type="date" id="to-purchaseBills" name="to-purchaseBills" />
+
+            <select id="firm-purchaseBills">
+              <option value="allFirms-purchaseBills">All Firm</option>
+              <option value="myCompany-purchaseBills">My Company</option>
+            </select>
+          </div> */}
+          <div className="choose-dates-purchaseBills">
+            <div id="between-label">
+              <label for="from-purchaseBills">Between </label>
+            </div>
+            <input
+              type="date"
+              id="from-purchaseBills"
+              name="from-purchaseBills"
+            />
+
+            <label for="to-purchaseBills" id="to-label">
+              To
+            </label>
             <input type="date" id="to-purchaseBills" name="to-purchaseBills" />
 
             <select id="firm-purchaseBills">
@@ -97,7 +151,11 @@ export const PurchaseBills = () => {
         </div>
         <div className="middleDiv-part2-purchaseBills">
           <div className="content-middleDiv-part2-purchaseBills">
-            Paid+Unpaid=Total
+            <div id="paid-block">Paid</div>
+            <div id="plus">+</div>
+            <div id="unpaid-block">Unpaid</div>
+            <div id="equal">=</div>
+            <div id="total-block">Total</div>
           </div>
         </div>
       </div>

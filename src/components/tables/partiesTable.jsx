@@ -55,8 +55,16 @@ export const PartiesTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 550, fontSize: 11 }}>PARTY</TableCell>
-            <TableCell sx={{ fontWeight: 550, fontSize: 11, float: "right" }}>
+            <TableCell
+              sx={{ fontWeight: 550, fontSize: 11 }}
+              className="table-header-parties"
+            >
+              PARTY
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 550, fontSize: 11, float: "right" }}
+              className="table-header-parties"
+            >
               AMOUNT
             </TableCell>
           </TableRow>
@@ -73,6 +81,7 @@ export const PartiesTable = (props) => {
                     props.setTrans(row.Name);
                     props.getPartyDetails();
                   }}
+                  className="table-cell-data-names"
                 >
                   {row.Name}
                 </TableCell>
@@ -83,6 +92,7 @@ export const PartiesTable = (props) => {
                     fontWeight: 600,
                   }}
                   onClick={() => console.log(props.partyName)}
+                  className="table-cell-data-amount"
                 >
                   {row.Amount}
                 </TableCell>

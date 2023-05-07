@@ -33,11 +33,33 @@
 }
 
 #business-entry-expenses {
-  font-size: 130%;
+  /* font-size: 130%;
   height: 150%;
+  width: 80%; */
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
 }
-
+#business-name-save-btn-expenses {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-expenses:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-expenses:focus + #business-name-save-btn-expenses {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .marginDiv-expenses {
   display: flex;
   margin-left: auto;

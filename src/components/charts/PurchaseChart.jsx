@@ -20,6 +20,7 @@ export const PurchaseGraph = (props) => {
     label: {
       show: false,
     },
+    colors: ["#50B450"],
     chart: {
       toolbar: {
         show: false,
@@ -39,6 +40,15 @@ export const PurchaseGraph = (props) => {
     },
     stroke: {
       width: 1,
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.3,
+        opacityTo: 0.5,
+        stops: [0, 90, 100],
+      },
     },
   });
 

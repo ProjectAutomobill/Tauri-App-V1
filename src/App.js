@@ -18,6 +18,7 @@ import { store } from "./state_manager";
 import { useEffect } from "react";
 import { AddPurchaseV3 } from "./addPurchaseV3";
 import { AddSaleOrder } from "./components/addSaleOrder";
+import { EandQV2 } from "./components/sales_pages/EandQV2";
 export const AppContext = createContext(null);
 
 function App() {
@@ -91,6 +92,12 @@ function App() {
                 userNumber={userNumber1}
                 userCompany={userCompany}
               />
+            }
+          />
+          <Route
+            path="/EandQ"
+            element={
+              <EandQV2 userNumber={userNumber1} userCompany={userCompany} />
             }
           />
 

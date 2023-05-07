@@ -51,11 +51,33 @@
       
     } */
 #business-entry-paymentOut {
-  font-size: 130%;
+  /* font-size: 130%;
   height: 50%;
+  width: 80%; */
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
 }
-
+#business-name-save-btn-paymentOut {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-paymentOut:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-paymentOut:focus + #business-name-save-btn-paymentOut {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .saleBtnDiv-paymentOut {
   display: flex;
   /* margin-right: auto; */
@@ -174,19 +196,32 @@
   border: none;
   height: 100%;
   width: 100%;
+  color: rgb(78, 78, 209);
+  font-weight: 550;
 }
 .choose-dates-paymentOut {
   /* margin-left: 1%; */
   padding: 0.5%;
-  width: 30%;
+  width: 40%;
+  display: flex;
+
   /* background-color: blue; */
 }
-#from-paymentOut {
-  height: 50%;
+.from-paymentOut {
+  background-color: rgb(174, 165, 165);
+  font-weight: 550;
+  color: white;
 }
-#to-paymentOut {
-  height: 50%;
-  margin-right: 1%;
+#from-inputType-paymentOut {
+  height: 100%;
+  /* margin-left: 0.1%; */
+}
+.to-paymentOut {
+  /* height: 50%; */
+}
+#to-inputType-paymentOut {
+  height: 100%;
+  /* margin-left: 0.1%; */
 }
 #firm-paymentOut {
   margin-left: 1%;

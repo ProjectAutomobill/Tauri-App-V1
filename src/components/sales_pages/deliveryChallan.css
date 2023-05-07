@@ -43,11 +43,34 @@
 }
 
 #business-entry-deliveryChallan {
-  font-size: 130%;
+  /* font-size: 130%;
   height: 150%;
+  width: 80%; */
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
 }
-
+#business-name-save-btn-deliveryChallan {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-deliveryChallan:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-deliveryChallan:focus
+  + #business-name-save-btn-deliveryChallan {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .marginDiv-deliveryChallan {
   display: flex;
   margin-left: auto;
@@ -160,7 +183,19 @@
   height: 70%;
   /* flex-basis: 60%; */
 }
-
+.heading-deliveryChallan {
+  font-size: 13;
+  font-weight: 550;
+  color: cornflowerblue;
+  /* margin-top: 2px; */
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  padding-bottom: 11px;
+}
+#blue-line-deliveryChallan {
+  background-color: cornflowerblue;
+  height: 2px;
+}
 .horizontal-line-deliveryChallan {
   width: 100%;
   height: 1%;
@@ -199,8 +234,8 @@
 }
 .image-deliveryChallan {
   margin-top: 15%;
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 25%;
 }
 .paragraph-deliveryChallan {
   text-align: center;
@@ -214,4 +249,6 @@
   font-weight: 700;
   background-color: orange;
   border-radius: 7px;
+  outline: none;
+  border: 1px solid rgb(147, 118, 63);
 }

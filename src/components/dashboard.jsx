@@ -2,13 +2,14 @@ import React from "react";
 import "./dashboard.css";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import { SalesGraph } from "./charts/SalesChart";
 import { PurchaseGraph } from "./charts/PurchaseChart";
 import { useState, useEffect } from "react";
 import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
+import { IoWalletOutline } from "react-icons/io5";
 import Dropdown from "react-bootstrap/Dropdown";
 import { invoke } from "@tauri-apps/api";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -265,28 +266,33 @@ export const DashBoard = (props) => {
             {/* <Link to="/sale"> */}
             <div className="saleBtnDiv-dashboard">
               <BsFillPlusCircleFill className="plusSale-dashboard" />
-
-              <button className="addBtnSale-dashboard" onClick={navigateToSale}>
+              <div className="addBtnSale-dashboard">Add Sale</div>
+              {/* <button className="addBtnSale-dashboard" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
             </div>
             {/* </Link> */}
             <div className="purchaseBtnDiv-dashboard">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-dashboard" />
-              <button
+              <BsFillPlusCircleFill className="plusSale-dashboard" />
+              <div
                 className="addBtnPurchase-dashboard"
-                onClick={navigateToPurchase}
+                // onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </div>
             </div>
             <div className="moreBtnDiv-dashboard">
               <BsFillPlusCircleFill className="plusSaleMore-dashboard" />
               <button className="addBtnMore-dashboard">Add More</button>
             </div>
-            <div className="settingBtnDiv-dashboard">
-              <AiFillSetting className="setting-dashboard" />
+            <div className="vertical-line-upperPart-dashboard"></div>
+
+            <div className="settingBtnDiv-upperPart-dashboard">
+              <AiFillSetting className="setting-upperPart-dashboard" />
+            </div>
+            <div className="printBtnDiv-upperPart-dashboard">
+              <AiFillPrinter className="print-upperPart-dashboard" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
@@ -308,7 +314,7 @@ export const DashBoard = (props) => {
             <div className="lower-part-sale-graph-dashboard">
               <div className="left-portion-dashboard">
                 <h4 className="sale-label-dashboard">${salesAmount}.00</h4>
-                <h6 style={{ color: "blue" }}>Total Sale</h6>
+                <h6 className="totalSalelabel-dashboard">Total Sale</h6>
 
                 <br />
                 <br />
@@ -335,7 +341,7 @@ export const DashBoard = (props) => {
           <div className="leftDiv-dashboardB-dashboard">
             {/* This is left section | part(b) */}
             <div className="top-header-sale-dashboard">
-              <FaFileInvoice className="invoice-dashboard" />
+              <IoWalletOutline className="invoice-expense-dashboard" />
               <h5 className="tag-header-dashboard">Expenses</h5>
               {/* <DropdownDashboard /> */}
             </div>
@@ -390,7 +396,7 @@ export const DashBoard = (props) => {
             ))}
           </div>
         </div>
-
+        <div className="vertical-line-dashboard"></div>
         <div className="rightDiv-dashboard">
           <div className="data-box-stock-dashboard-privacy">
             <div className="inner-element-data-box-dashboard">Privacy</div>
@@ -406,7 +412,7 @@ export const DashBoard = (props) => {
             />
           </div>
           <br />
-          <div className="tag-header-dashboard">Stock Inventory</div>
+          <div className="tag-header-right-dashboard">Stock Inventory</div>
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Stock Value</div>
             <div className="inner-element-val-data-box-dashboard">

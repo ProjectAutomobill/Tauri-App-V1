@@ -41,7 +41,7 @@
   position: absolute;
   width: 15vw;
   height: 100vh;
-  background-color: rgb(25, 29, 43);
+  background-color: rgba(33, 41, 52, 255);
 }
 
 .mainSection {

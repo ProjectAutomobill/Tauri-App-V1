@@ -106,16 +106,32 @@ export const PaymentIn = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-paymentIn">
+          {/* <div className="choose-dates-paymentIn">
             <label for="from-paymentIn">Betweeen :</label>
             <input type="date" id="from-paymentIn" name="from-paymentIn" />
 
             <label for="to-paymentIn">To :</label>
             <input type="date" id="to-paymentIn" name="to-paymentIn" />
+          </div> */}
+          <div className="choose-dates-paymentIn">
+            <div className="from-paymentIn">
+              Between :
+              <input
+                type="date"
+                id="from-inputType-paymentIn"
+                name="from-paymentIn"
+              />
+            </div>
+            <div className="to-paymentIn">
+              To :
+              <input
+                type="date"
+                id="to-inputType-paymentIn"
+                name="to-paymentIn"
+              />
+            </div>
           </div>
-
           <div className="options-middlepart1-paymentIn">
-            {/* <GoGraph className='graph-middlepart1-paymentIn'/> */}
             <HiDocumentReport className="report-middlepart1-paymentIn" />
             <AiFillPrinter className="print-middlepart1-paymentIn" />
           </div>
@@ -124,12 +140,12 @@ export const PaymentIn = (props) => {
           <div className="content-middleDiv-part2-paymentIn">
             <div className="choose-payment_in-paymentIn">
               <select id="payment_in-paymentIn">
+                <option value="paymentIn-paymentIn">Payment-In</option>
                 <option value="allTransactions-paymentIn">
                   All Transactions
                 </option>
                 <option value="sale-paymentIn">Sale</option>
                 <option value="purchase-paymentIn">Purchase</option>
-                <option value="paymentIn-paymentIn">Payment-In</option>
                 <option value="paymentOut-paymentIn">Payment-Out</option>
                 <option value="creditNote-paymentIn">Credit Note</option>
                 <option value="debittNote-paymentIn">Debit Note</option>

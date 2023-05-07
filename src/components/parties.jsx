@@ -4,7 +4,7 @@ import "./parties.css";
 import { PartiesTable } from "./tables/partiesTable";
 import { TransactionTable } from "./tables/transactionTable";
 import { FiSearch } from "react-icons/fi";
-import { AiFillSetting, AiOutlinePlus } from "react-icons/ai";
+import { AiFillSetting, AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
@@ -165,26 +165,44 @@ export const Parties = (props) => {
           <div className="marginDiv-parties">
             <div className="saleBtnDiv-parties">
               <BsFillPlusCircleFill className="plusSale-parties" />
-              <button className="addBtnSale-parties" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-parties" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-parties">Add Sale</div>
+              {/* <button className="addBtnSale-dashboard" onClick={navigateToSale}>
+                Add Sale
+              </button> */}
             </div>
             <div className="purchaseBtnDiv-parties">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-parties" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-parties" />
+              {/* <button
                 className="addBtnPurchase-parties"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-parties"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-parties">
               <BsFillPlusCircleFill className="plusSaleMore-parties" />
               <button className="addBtnMore-parties">Add More</button>
             </div>
-            <div className="settingBtnDiv-parties">
+            {/* <div className="settingBtnDiv-parties">
               <AiFillSetting className="setting-parties" />
+            </div> */}
+            <div className="vertical-line-upperPart-parties"></div>
+
+            <div className="settingBtnDiv-upperPart-parties">
+              <AiFillSetting className="setting-upperPart-parties" />
+            </div>
+            <div className="printBtnDiv-upperPart-parties">
+              <AiFillPrinter className="print-upperPart-parties" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
@@ -247,7 +265,7 @@ export const Parties = (props) => {
                   {/* <div className="upperDivRight2-part1-phoneNo-parties"> */}
                   <div className="label-upper-partyDetails-phoneNo-parties">
                     <div className="label-upper-partyDetails-parties">
-                      Phone no. :{partyNumber}
+                      Phone no. : <div className="blue-text">{partyNumber}</div>
                     </div>
                   </div>
                   {/* Phone no. :{""} */}
@@ -257,7 +275,7 @@ export const Parties = (props) => {
                   {/* </div> */}
                   <div className="label-upper-partyDetails-Email-parties">
                     <div className="label-upper-partyDetails-parties">
-                      Email : {partyEmail}
+                      Email : <div className="blue-text">{partyEmail}</div>
                     </div>
                   </div>
                   {/* Phone no. :{""} */}
@@ -266,7 +284,8 @@ export const Parties = (props) => {
                   </div> */}
                   <div className="label-upper-partyDetails-setCreditLimit-parties">
                     <div className="label-upper-partyDetails-parties">
-                      Set Credit Limit :{partyNumber}
+                      Set Credit Limit :
+                      <div className="blue-text">{partyNumber}</div>
                     </div>
                   </div>
                   {/* Phone no. :{""} */}
@@ -293,12 +312,12 @@ export const Parties = (props) => {
                   </div> */}
                   <div className="label-upper-partyDetails-address-parties">
                     <div className="label-upper-partyDetails-parties">
-                      Address :{partyAddress}
+                      Address : <div className="blue-text">{partyAddress}</div>
                     </div>
                   </div>
                   <div className="label-upper-partyDetails-GSTIN-parties">
                     <div className="label-upper-partyDetails-parties">
-                      GSTIN :{partyGSTIN}
+                      GSTIN : <div className="blue-text">{partyGSTIN}</div>
                     </div>
                   </div>
                   {/* </div> */}

@@ -13,6 +13,7 @@ import { getPartyDetails } from "../../api-firebase/firebase";
 import { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
 import { Link, useLocation } from "react-router-dom";
+import { BsFillCircleFill } from "react-icons/bs";
 
 var data = [];
 var dataTable1 = getPartyDetails().then((val) => {
@@ -73,18 +74,50 @@ export const TransactionTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NUMBER</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TOTAL</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            ></TableCell>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            >
+              TYPE
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            >
+              NUMBER
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            >
+              DATE
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            >
+              TOTAL
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12 }}
+              className="header-transaction-table"
+            >
               BALANCE
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataT?.map((row) => (
-            <TableRow>
+          {dataT?.map((row, index) => (
+            <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
+              <TableCell sx={{ fontSize: 12 }}>
+                <BsFillCircleFill
+                  className={row.Type == "Sale" ? "greenColor" : "orangeColor"}
+                />
+              </TableCell>
               <TableCell sx={{ fontSize: 12 }}>{row.Type}</TableCell>
               <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
               <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>

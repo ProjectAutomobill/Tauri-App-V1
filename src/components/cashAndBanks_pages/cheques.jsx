@@ -1,31 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import "./cheques.css";
 import { AiOutlinePlus } from "react-icons/ai";
 import { ChequesTable } from "../tables/chequesTable";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
-export const Cheques = () => {
+import { invoke } from "@tauri-apps/api";
+
+export const Cheques = (props) => {
+  const navigate = useNavigate();
+  const [b_name, setNewBName] = useState();
+  function navigateToSale() {
+    navigate("/sale");
+  }
+  function navigateToPurchase() {
+    navigate("/purchase");
+  }
+  function update_b_name_cheques() {
+    invoke("change_business_name", {
+      number: props.userNumber,
+      company: props.userCompany,
+      bNameVal: b_name.toString(),
+    });
+    // `invoke` returns a Promise
+    // .then((response) => setBalance(parseInt(response)));
+  }
   return (
     <div className="main-cheques">
       <div className="upperDiv-cheques">
         <div className="upperDivPart1-cheques">
           <div className="input-business-cheques">
-            <input
+            {/* <input
               type="text"
               placeholder="•Enter Business Name"
               id="business-entry-cheques"
+            ></input> */}
+            <input
+              type="text"
+              placeholder="• Enter Business Name"
+              id="business-entry-cheques"
+              onChange={(e) => setNewBName(e.target.value)}
             ></input>
+            <button
+              id="business-name-save-btn-cheques"
+              onClick={update_b_name_cheques}
+            >
+              Save
+            </button>
           </div>
 
           <div className="marginDiv-cheques">
             <div className="saleBtnDiv-cheques">
               <BsFillPlusCircleFill className="plusSale-cheques" />
-              <button className="addBtnSale-cheques">Add Sale</button>
+              <button className="addBtnSale-cheques" onClick={navigateToSale}>
+                Add Sale
+              </button>
             </div>
             <div className="purchaseBtnDiv-cheques">
               <BsFillPlusCircleFill className="plusSale-purchase-cheques" />
-              <button className="addBtnPurchase-cheques">Add Purchase</button>
+              <button
+                className="addBtnPurchase-cheques"
+                onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </button>
             </div>
             <div className="moreBtnDiv-cheques">
               <BsFillPlusCircleFill className="plusSaleMore-cheques" />

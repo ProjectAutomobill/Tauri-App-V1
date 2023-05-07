@@ -1,29 +1,67 @@
 import React from "react";
+import { useState } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 import { GiNotebook } from "react-icons/gi";
+import { useLocation, useNavigate } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
 import "./expenses.css";
-export const Expenses = () => {
+export const Expenses = (props) => {
+  const [b_name, setNewBName] = useState();
+  const navigate = useNavigate();
+
+  function navigateToSale() {
+    navigate("/sale");
+  }
+  function navigateToPurchase() {
+    navigate("/purchase");
+  }
+  function update_b_name_expenses() {
+    invoke("change_business_name", {
+      number: props.userNumber,
+      company: props.userCompany,
+      bNameVal: b_name.toString(),
+    });
+  }
   return (
     <div className="main-expenses">
       <div className="upperDiv-expenses">
         <div className="upperDivPart1-expenses">
           <div className="input-business-expenses">
-            <input
+            {/* <input
               type="text"
               placeholder="•Enter Business Name"
               id="business-entry-expenses"
+            ></input> */}
+            <input
+              type="text"
+              placeholder="• Enter Business Name"
+              id="business-entry-expenses"
+              onChange={(e) => setNewBName(e.target.value)}
             ></input>
+            <button
+              id="business-name-save-btn-expenses"
+              onClick={update_b_name_expenses}
+            >
+              Save
+            </button>
           </div>
 
           <div className="marginDiv-expenses">
             <div className="saleBtnDiv-expenses">
               <BsFillPlusCircleFill className="plusSale-expenses" />
-              <button className="addBtnSale-expenses">Add Sale</button>
+              <button className="addBtnSale-expenses" onClick={navigateToSale}>
+                Add Sale
+              </button>
             </div>
             <div className="purchaseBtnDiv-expenses">
               <BsFillPlusCircleFill className="plusSale-purchase-expenses" />
-              <button className="addBtnPurchase-expenses">Add Purchase</button>
+              <button
+                className="addBtnPurchase-expenses"
+                onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </button>
             </div>
             <div className="moreBtnDiv-expenses">
               <BsFillPlusCircleFill className="plusSaleMore-expenses" />

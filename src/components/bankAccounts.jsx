@@ -1,32 +1,72 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { FaShoppingCart } from "react-icons/fa";
 // import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { invoke } from "@tauri-apps/api";
 import "./bankAccounts.css";
-export const BankAccounts = () => {
+export const BankAccounts = (props) => {
+  const navigate = useNavigate();
+  const [b_name, setNewBName] = useState();
+
+  function navigateToSale() {
+    navigate("/sale");
+  }
+  function navigateToPurchase() {
+    navigate("/purchase");
+  }
+  function update_b_name_bankAccounts() {
+    invoke("change_business_name", {
+      number: props.userNumber,
+      company: props.userCompany,
+      bNameVal: b_name.toString(),
+    });
+    // `invoke` returns a Promise
+    // .then((response) => setBalance(parseInt(response)));
+  }
   return (
     <div className="main-bankAccounts">
       <div className="upperDiv-bankAccounts">
         <div className="upperDivPart1-bankAccounts">
           <div className="input-business-bankAccounts">
-            <input
+            {/* <input
               type="text"
               placeholder="•Enter Business Name"
               id="business-entry-bankAccounts"
+            ></input> */}
+            <input
+              type="text"
+              placeholder="• Enter Business Name"
+              id="business-entry-bankAccounts"
+              onChange={(e) => setNewBName(e.target.value)}
             ></input>
+            <button
+              id="business-name-save-btn-bankAccounts"
+              onClick={update_b_name_bankAccounts}
+            >
+              Save
+            </button>
           </div>
 
           <div className="marginDiv-bankAccounts">
             <div className="saleBtnDiv-bankAccounts">
               <BsFillPlusCircleFill className="plusSale-bankAccounts" />
-              <button className="addBtnSale-bankAccounts">Add Sale</button>
+              <button
+                className="addBtnSale-bankAccounts"
+                onClick={navigateToSale}
+              >
+                Add Sale
+              </button>
             </div>
             <div className="purchaseBtnDiv-bankAccounts">
               <BsFillPlusCircleFill className="plusSale-purchase-bankAccounts" />
-              <button className="addBtnPurchase-bankAccounts">
+              <button
+                className="addBtnPurchase-bankAccounts"
+                onClick={navigateToPurchase}
+              >
                 Add Purchase
               </button>
             </div>
@@ -40,7 +80,11 @@ export const BankAccounts = () => {
           </div>
         </div>
         <div className="horizontal-line-bankAccounts"></div>
-        <h3 className="heading-bankAccounts">BANKS</h3>
+        <div className="heading-bankAccounts">BANKS</div>
+        <div
+          className="horizontal-line-bankAccounts"
+          id="blue-line-bankAccounts"
+        ></div>
       </div>
 
       <div className="lowerBody-bankAccounts">

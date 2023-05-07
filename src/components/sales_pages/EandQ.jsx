@@ -26,6 +26,9 @@ export const EandQ = (props) => {
     // `invoke` returns a Promise
     // .then((response) => setBalance(parseInt(response)));
   }
+  function navigate_to_add_EandQ() {
+    navigate("/EandQ");
+  }
   return (
     <div className="main-saleEandQ">
       <div className="upperDiv-saleEandQ">
@@ -87,7 +90,10 @@ export const EandQ = (props) => {
             parties by WhatsApp, Email or Printed copies. You can convert them
             to Sale invoices later by just click of a button
           </p>
-          <button className="add-your-first-estimate-saleEandQ">
+          <button
+            className="add-your-first-estimate-saleEandQ"
+            onClick={navigate_to_add_EandQ}
+          >
             Add Your First Estimate
           </button>
         </div>

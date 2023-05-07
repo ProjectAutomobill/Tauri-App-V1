@@ -6,8 +6,8 @@
 .lowerDivSale-purchaseBills {
   position: absolute;
   width: 100%;
-  height: 82%;
-  top: 16%;
+  height: 73%;
+  top: 25%;
   overflow: auto;
   background-color: white;
 }
@@ -37,12 +37,12 @@
   margin-top: 0.5%;
   margin-left: 1%;
   width: 98%;
-  height: 9%;
+  height: 18%;
   background-color: white;
 }
 .middleDiv-part1-purchaseBills {
   display: flex;
-  height: 60%;
+  height: 50%;
   /* background-color: aqua; */
 }
 
@@ -51,22 +51,60 @@
   /* background-color: yellow; */
 }
 #months-purchaseBills {
-  border: none;
+  /* border: none;
   height: 100%;
+  width: 100%; */
+  border: none;
+  /* height: 100%; */
   width: 100%;
+  margin-top: 5px;
+  font-size: large;
+  color: rgb(45, 14, 117);
+  font-weight: 550;
 }
 .choose-dates-purchaseBills {
   /* margin-left: 1%; */
-  padding: 0.5%;
-  width: 40%;
+  /* padding: 0.5%;
+  width: 40%; */
   /* background-color: blue; */
+  padding: 0.5%;
+  /* width: fit-content + 50px; */
+  height: 50%;
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+  /* padding-right: 5px; */
+  border: 1px solid rgb(210, 208, 208);
+  border-radius: 4px;
 }
 #from-purchaseBills {
-  height: 50%;
+  height: 100%;
+  /* background-color: gainsboro; */
+  border: 0px;
+  font-size: small;
+}
+#between-label {
+  /* width: 2%; */
+  padding: 2px;
+  border-radius: 4px;
+  font-weight: 550;
+  font-size: small;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 5px;
+  background-color: rgb(227, 227, 228);
 }
 #to-purchaseBills {
-  height: 50%;
+  /* height: 50%;
+  margin-right: 1%; */
+  height: 100%;
   margin-right: 1%;
+  border: 0px;
+  font-size: small;
+}
+#to-label {
+  font-weight: 550;
+  /* font-size: small; */
 }
 #firm-purchaseBills {
   margin-left: 1%;
@@ -96,12 +134,49 @@
   /* display: flex; */
 }
 .content-middleDiv-part2-purchaseBills {
-  width: 12%;
+  width: 50%;
   height: 100%;
   margin-left: 0.5%;
+  display: flex;
+  gap: 10px;
   /* background-color: brown; */
 }
-
+#paid-block {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(143, 255, 120);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+#unpaid-block {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(140, 220, 255);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+#total-block {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(255, 226, 140);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+#plus,
+#equal {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+}
+.plus-purchaseBills {
+  font-weight: 550;
+}
 .marginDiv-purchaseBills {
   display: flex;
   margin-left: auto;
@@ -127,11 +202,30 @@
     
   } */
 #business-entry-purchaseBills {
-  font-size: 130%;
-  height: 50%;
+  font-size: 120%;
+  /* height: 60%; */
   width: 80%;
+  outline: none;
+  border: 0px;
 }
-
+#business-name-save-btn-purchaseBills {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-purchaseBills:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-purchaseBills:focus + #business-name-save-btn-purchaseBills {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
 .saleBtnDiv-purchaseBills {
   display: flex;
   /* margin-right: auto; */
@@ -236,13 +330,15 @@
 }
 .transaction-purchaseBills {
   text-align: left;
+  margin: 10px;
+  font-weight: 550;
 }
 .search-input-purchaseBills {
   height: 4vh;
   margin: 10px;
   margin-right: auto;
   border-radius: 5px;
-  border: 2%;
+  border: 1px solid rgb(188, 188, 188);
 }
 
 .addBtnSale-sale2-purchaseBills {

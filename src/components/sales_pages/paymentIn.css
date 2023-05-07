@@ -196,19 +196,34 @@
   border: none;
   height: 100%;
   width: 100%;
+  color: rgb(78, 78, 209);
+  font-weight: 550;
 }
 .choose-dates-paymentIn {
   /* margin-left: 1%; */
-  padding: 0.5%;
-  width: 30%;
+  /* padding: 0.5%;
+  width: 30%; */
   /* background-color: blue; */
+  padding: 0.5%;
+  width: 40%;
+  /* background-color: blue; */
+  display: flex;
 }
-#from-paymentIn {
-  height: 50%;
+.from-paymentIn {
+  background-color: rgb(174, 165, 165);
+  font-weight: 550;
+  color: white;
 }
-#to-paymentIn {
-  height: 50%;
-  margin-right: 1%;
+#from-inputType-paymentIn {
+  height: 100%;
+  /* margin-left: 0.1%; */
+}
+.to-paymentIn {
+  /* height: 50%; */
+}
+#to-inputType-paymentIn {
+  height: 100%;
+  /* margin-left: 0.1%; */
 }
 #firm-paymentIn {
   margin-left: 1%;

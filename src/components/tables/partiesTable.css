@@ -1,3 +1,23 @@
 .table-row:hover {
   background-color: rgb(242, 245, 245);
 }
+
+.table-header-parties {
+  font-weight: 550;
+  font-size: 12;
+  color: gray;
+}
+
+.table-cell-data-amount {
+  font-size: 12;
+  color: green;
+  font-weight: 600;
+  float: right;
+  margin-right: 10%;
+}
+
+.table-cell-data-names {
+  font-size: 14;
+  font-weight: 540;
+  color: rgb(65, 65, 65);
+}

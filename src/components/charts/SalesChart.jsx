@@ -21,7 +21,7 @@ export const SalesGraph = (props) => {
       show: false,
     },
 
-    colors: ["#00FF00"],
+    colors: ["#50B450"],
     chart: {
       toolbar: {
         show: false,
@@ -44,6 +44,15 @@ export const SalesGraph = (props) => {
     },
     stroke: {
       width: 1,
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.3,
+        opacityTo: 0.5,
+        stops: [0, 90, 100],
+      },
     },
   });
 
@@ -143,7 +152,7 @@ export const SalesGraph = (props) => {
       series={series}
       type="area"
       width={340}
-      height={220}
+      height={180}
     />
   );
   //   }

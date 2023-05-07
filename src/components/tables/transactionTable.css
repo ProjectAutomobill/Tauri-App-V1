@@ -1,0 +1,25 @@
+.grayColor {
+  background-color: rgb(245, 245, 245);
+}
+.whiteColor {
+  background-color: white;
+}
+
+.header-transaction-table {
+  font-weight: 570;
+  font-size: 12;
+  color: gray;
+}
+
+.orangeColor {
+  color: orange;
+  font-size: small;
+  height: 10px;
+}
+
+.greenColor {
+  color: rgb(6, 150, 6);
+  font-size: small;
+  /* background-color: aqua; */
+  height: 10px;
+}
