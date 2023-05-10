@@ -6,6 +6,7 @@ import { TransactionTable } from "./tables/transactionTable";
 import { FiSearch } from "react-icons/fi";
 import { AiFillSetting, AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
@@ -196,6 +197,7 @@ export const Parties = (props) => {
             {/* <div className="settingBtnDiv-parties">
               <AiFillSetting className="setting-parties" />
             </div> */}
+
             <div className="vertical-line-upperPart-parties"></div>
 
             <div className="settingBtnDiv-upperPart-parties">
@@ -216,7 +218,9 @@ export const Parties = (props) => {
         <div className="leftDiv-parties">
           {/* <Link style={{ textDecoration: "none" }} to="/addParty"> */}
           <div className="leftDivbtnSearch-parties">
-            <FiSearch className="searchIcon-parties" />
+            <div className="searchIcon-class-parties">
+              <BsSearch className="searchIcon-parties" />
+            </div>
             <button
               className="partyBtn-parties"
               onClick={() => setModalShow(true)}
@@ -247,7 +251,7 @@ export const Parties = (props) => {
                 <div className="upperDivRight1-name-parties">
                   <b>{partyTransaction}</b>
                 </div>
-                <div className="upperDivRight1-options-parties">
+                {/* <div className="upperDivRight1-options-parties">
                   <div className="upperDivRight1-message-parties">
                     <AiOutlineMessage />
                   </div>
@@ -257,7 +261,7 @@ export const Parties = (props) => {
                   <div className="upperDivRight1-alarm-parties">
                     <BiAlarm />
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="upperDivRight2-parties">
@@ -317,7 +321,7 @@ export const Parties = (props) => {
                   </div>
                   <div className="label-upper-partyDetails-GSTIN-parties">
                     <div className="label-upper-partyDetails-parties">
-                      GSTIN : <div className="blue-text">{partyGSTIN}</div>
+                      Gstin : <div className="blue-text">{partyGSTIN}</div>
                     </div>
                   </div>
                   {/* </div> */}
@@ -327,14 +331,14 @@ export const Parties = (props) => {
 
             <div className="lowerDivRight-parties">
               <div className="transaction-search-parties">
-                <h5>TRANSACTIONS</h5>
+                <h6 className="transaction-lowerDiv-parties">TRANSACTIONS</h6>
                 <input
                   type="search"
                   name="search"
                   id=""
                   className="search-input-parties"
-                  placeholder="Search..."
-                />
+                  placeholder="Search"
+                ></input>
               </div>
               <div className="Ttable-parties">
                 <TransactionTable

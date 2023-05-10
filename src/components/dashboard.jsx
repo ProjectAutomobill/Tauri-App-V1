@@ -308,8 +308,13 @@ export const DashBoard = (props) => {
             {/* <FaFileInvoice /> */}
             <div className="top-header-sale-dashboard">
               <FaFileInvoice className="invoice-dashboard" />
-              <h5 className="tag-header-dashboard">Sale</h5>
-              <DropdownDashboard />
+              <h5 className="tag-header-sale-dashboard">Sale</h5>
+              {/* <DropdownDashboard /> */}
+              <select name="" id="dropdown-dashboard" placeholder="Time Period">
+                <option value="">This Month</option>
+                <option value="">Previous Month</option>
+                <option value="">Lifetime</option>
+              </select>
             </div>
             <div className="lower-part-sale-graph-dashboard">
               <div className="left-portion-dashboard">
@@ -317,20 +322,21 @@ export const DashBoard = (props) => {
                 <h6 className="totalSalelabel-dashboard">Total Sale</h6>
 
                 <br />
-                <br />
+                {/* <br />
+                <br /> */}
                 {/* <br />
                 <br />
                 <br />
                 <br /> */}
                 {/* <br />
                 <br /> */}
-                <FaArrowUp />
+                <FaArrowUp className="Arrow-up-sale-dashboard" />
                 <div className="small-text-dashboard">This month Growth</div>
               </div>
               <div className="dotted-line-dashboard"></div>
               <div className="right-portion-dashboard">
                 <SalesGraph
-                  className="sale-graph-dashboard"
+                  className="sale-2ndComponent-graph-dashboard"
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />
@@ -342,7 +348,16 @@ export const DashBoard = (props) => {
             {/* This is left section | part(b) */}
             <div className="top-header-sale-dashboard">
               <IoWalletOutline className="invoice-expense-dashboard" />
-              <h5 className="tag-header-dashboard">Expenses</h5>
+              <h5 className="tag-header-expense-dashboard">Expenses</h5>
+              <select
+                name=""
+                id="dropdown-expense-dashboard"
+                placeholder="Time Period"
+              >
+                <option value="">This Month</option>
+                <option value="">Previous Month</option>
+                <option value="">Lifetime</option>
+              </select>
               {/* <DropdownDashboard /> */}
             </div>
             <PurchaseGraph
@@ -357,7 +372,7 @@ export const DashBoard = (props) => {
           <div className="leftDiv2A-dashboard">
             <div className="receive-div-dashboard">
               <FaArrowDown className="down-arrow-dashboard" />
-              <h5 className="gray-color">You'll Receive</h5>
+              <h5 className="gray-color-dashboard">You'll Receive</h5>
             </div>
             <h5 className="balance-tag-dashboard">${balance}.00</h5>
             {receiveList?.map((row) => (
@@ -372,7 +387,7 @@ export const DashBoard = (props) => {
           <div className="leftDiv2B-dashboard">
             <div className="receive-div-dashboard">
               <FaArrowUp className="up-arrow-dashboard" />
-              <h5 className="gray-color">You'll Pay</h5>
+              <h5 className="gray-color-dashboard">You'll Pay</h5>
             </div>
             <h5 className="balance-tag-dashboard">${purchaseBalance}.00</h5>
             {payList?.map((row) => (
@@ -384,10 +399,21 @@ export const DashBoard = (props) => {
           </div>
           <div className="leftDiv2C-dashboard">
             <div className="receive-div-dashboard">
-              <GrCart className="down-arrow-dashboard" />
-              <h5 className="gray-color">Purchase</h5>
+              <GrCart className="cart-purchase-dashboard" />
+              <h5 className="gray-color-dashboard">Purchase</h5>
+              <select
+                name=""
+                id="dropdown-expense-dashboard"
+                placeholder="Time Period"
+              >
+                <option value="">This Month</option>
+                <option value="">Previous Month</option>
+                <option value="">Lifetime</option>
+              </select>
             </div>
-            <h5 className="balance-tag-dashboard">${purchaseAmount}.00</h5>
+            <h5 className="balance-tag-purchase-dashboard">
+              ${purchaseAmount}.00
+            </h5>
             {purchaseItemList?.map((row) => (
               <div className="receiveInfo-dashboard">
                 <div className="receiveInfoName-dashboard">{row.Item}</div>
@@ -416,7 +442,10 @@ export const DashBoard = (props) => {
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Stock Value</div>
             <div className="inner-element-val-data-box-dashboard">
-              <b>${stockValue}.00</b>
+              <div className="inner-text-right-panel">
+                ${stockValue}
+                <div className="smaller-appended-zeros">.00</div>
+              </div>
             </div>
           </div>
           <div className="data-box-stock-dashboard">
@@ -428,29 +457,35 @@ export const DashBoard = (props) => {
               </div>
             ))}
           </div>
-          <div className="tag-header-cashAndBank-dashboard">Cash & Bank</div>
+          <div className="tag-header-right-dashboard">Cash & Bank</div>
           <div className="data-box-stock-dashboard">
-            <div style={{ margin: "0 0 0 -66%" }}>Cash in hand</div>
-            <div style={{ margin: "0 0 0 -80%" }}>
-              <b>$0.00</b>
+            <div className="inner-element-data-box-dashboard">Cash in hand</div>
+            <div className="inner-element-val-data-box-dashboard">
+              <div className="inner-text-right-panel-cashInHand">
+                $ 00<div className="smaller-appended-zeros">.00</div>
+              </div>
             </div>
           </div>
           <div className="data-box-stock-dashboard">
-            <div style={{ margin: "0 0 0 -63%" }}>Bank Accounts</div>
-            <div style={{ margin: "0 0 0 -80%" }}>
-              <b>$0.00</b>
+            <div className="inner-element-data-box-dashboard">
+              Bank Accounts
+            </div>
+            <div className="inner-element-val-data-box-dashboard">
+              <div className="inner-text-right-panel">
+                $ 00<div className="smaller-appended-zeros">.00</div>
+              </div>
             </div>
           </div>
           <div className="data-box-stock-openCheques-dashboard">
-            <div style={{ margin: "0 0 0 -63%" }}>Open Cheques</div>
+            <div className="inner-element-data-box-dashboard">Open Cheques</div>
             <div
-              style={{ margin: "0 0 0 -73%" }}
+              // style={{ margin: "0 0 0 -73%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               Received(1)
             </div>
             <div
-              style={{ margin: "0 0 0 -80%" }}
+              // style={{ margin: "0 0 0 -80%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               Paid(0)
@@ -458,30 +493,32 @@ export const DashBoard = (props) => {
           </div>
           <div className="tag-header-sales-dashboard">Sales</div>
           <div className="data-box-stock-sales-dashboard">
-            <div style={{ margin: "0 0 0 -70%" }}>Sales Order</div>
+            <div className="inner-element-data-box-dashboard">Sales Order</div>
             <div
-              style={{ margin: "0 0 0 -60%" }}
+              // style={{ margin: "0 0 0 -60%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               No. of Open Orders
             </div>
             <div
-              style={{ margin: "0 0 0 -50%" }}
+              // style={{ margin: "0 0 0 -50%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               Open Sales Order Amount
             </div>
           </div>
           <div className="data-box-stock-sales-dashboard">
-            <div style={{ margin: "0 0 0 -60%" }}>Delivery Challans</div>
+            <div className="inner-element-data-box-dashboard">
+              Delivery Challans
+            </div>
             <div
-              style={{ margin: "0 0 0 -58%" }}
+              // style={{ margin: "0 0 0 -58%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               No. of Open Challans
             </div>
             <div
-              style={{ margin: "0 0 0 -53%" }}
+              // style={{ margin: "0 0 0 -53%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               Delivery Challan Amount
@@ -489,15 +526,17 @@ export const DashBoard = (props) => {
           </div>
           <div className="tag-header-purchase-dashboard">Purchase</div>
           <div className="data-box-stock-purchase-dashboard">
-            <div style={{ margin: "0 0 0 -63%" }}>Purchase Order</div>
+            <div className="inner-element-data-box-dashboard">
+              Purchase Order
+            </div>
             <div
-              style={{ margin: "0 0 0 -55%" }}
+              // style={{ margin: "0 0 0 -55%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               No. of Purchase Orders
             </div>
             <div
-              style={{ margin: "0 0 0 -53%" }}
+              // style={{ margin: "0 0 0 -53%" }}
               className="sampleItem-stockInventory-dashboard"
             >
               Purchase Order Amount

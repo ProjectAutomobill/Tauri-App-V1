@@ -60,107 +60,124 @@ export const SaleInvoice = (props) => {
           <div className="marginDiv-saleInvoice">
             <div className="saleBtnDiv-saleInvoice">
               <BsFillPlusCircleFill className="plusSale-saleInvoice" />
-              <button className="addBtnSale-saleInvoice" onClick={goToSale}>
+              {/* <button className="addBtnSale-saleInvoice" onClick={goToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-saleInvoice">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-saleInvoice">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-saleInvoice" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-saleInvoice" />
+              {/* <button
                 className="addBtnPurchase-saleInvoice"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-saleInvoice"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-saleInvoice">
               <BsFillPlusCircleFill className="plusSaleMore-saleInvoice" />
               <button className="addBtnMore-saleInvoice">Add More</button>
             </div>
-            <div className="settingBtnDiv-saleInvoice">
-              <AiFillSetting className="setting-saleInvoice" />
+            <div className="vertical-line-upperPart-saleInvoice"></div>
+
+            <div className="settingBtnDiv-upperPart-saleInvoice">
+              <AiFillSetting className="setting-upperPart-saleInvoice" />
+            </div>
+            <div className="printBtnDiv-upperPart-saleInvoice">
+              <AiFillPrinter className="print-upperPart-saleInvoice" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
-        </div>
-        {/* <div className='horizontal-line-saleInvoice'></div>
+
+          {/* <div className='horizontal-line-saleInvoice'></div>
         <h3 className='heading-saleInvoice'>SALE INVOICES</h3> */}
-      </div>
+        </div>
 
-      <div className="middleDiv-saleInvoice">
-        <div className="middleDiv-part1-saleInvoice">
-          <div className="choose-months-saleInvoice">
-            <select id="months-saleInvoice">
-              <option value="allSaleInvoice-saleInvoice">
-                All Sale Invoices
-              </option>
-              <option value="thisMonth-saleInvoice">This Month</option>
-              <option value="lastMonth-saleInvoice">Last Month</option>
-              <option value="thisQuater-saleInvoice">This Quater</option>
-              <option value="thisYear-saleInvoice">This Year</option>
-              <option value="custom-saleInvoice">Custom</option>
-            </select>
-          </div>
-
-          <div className="choose-dates-saleInvoice">
-            <div id="between-label">
-              <label for="from-saleInvoice">Between </label>
+        <div className="middleDiv-saleInvoice">
+          <div className="middleDiv-part1-saleInvoice">
+            <div className="choose-months-saleInvoice">
+              <select id="months-saleInvoice">
+                <option value="allSaleInvoice-saleInvoice">
+                  All Sale Invoices
+                </option>
+                <option value="thisMonth-saleInvoice">This Month</option>
+                <option value="lastMonth-saleInvoice">Last Month</option>
+                <option value="thisQuater-saleInvoice">This Quater</option>
+                <option value="thisYear-saleInvoice">This Year</option>
+                <option value="custom-saleInvoice">Custom</option>
+              </select>
             </div>
-            <input type="date" id="from-saleInvoice" name="from-saleInvoice" />
 
-            <label for="to-saleInvoice" id="to-label">
-              To
-            </label>
-            <input type="date" id="to-saleInvoice" name="to-saleInvoice" />
+            <div className="choose-dates-saleInvoice">
+              <div id="between-label">
+                <label for="from-saleInvoice">Between </label>
+              </div>
+              <input
+                type="date"
+                id="from-saleInvoice"
+                name="from-saleInvoice"
+              />
 
-            <select id="firm-saleInvoice">
-              <option value="allFirms-saleInvoice">All Firm</option>
-              <option value="myCompany-saleInvoice">My Company</option>
-            </select>
+              <label for="to-saleInvoice" id="to-label">
+                To
+              </label>
+              <input type="date" id="to-saleInvoice" name="to-saleInvoice" />
+
+              <select id="firm-saleInvoice">
+                <option value="allFirms-saleInvoice">All Firm</option>
+                <option value="myCompany-saleInvoice">My Company</option>
+              </select>
+            </div>
+
+            <div className="options-middlepart1-saleInvoice">
+              <GoGraph className="graph-middlepart1-saleInvoice" />
+              <HiDocumentReport className="report-middlepart1-saleInvoice" />
+              <AiFillPrinter className="print-middlepart1-saleInvoice" />
+            </div>
           </div>
-
-          <div className="options-middlepart1-saleInvoice">
-            <GoGraph className="graph-middlepart1-saleInvoice" />
-            <HiDocumentReport className="report-middlepart1-saleInvoice" />
-            <AiFillPrinter className="print-middlepart1-saleInvoice" />
+          <div className="middleDiv-part2-saleInvoice">
+            <div className="content-middleDiv-part2-saleInvoice">
+              <div id="paid-block">Paid</div>
+              <div id="plus">+</div>
+              <div id="unpaid-block">Unpaid</div>
+              <div id="equal">=</div>
+              <div id="total-block">Total</div>
+            </div>
           </div>
         </div>
-        <div className="middleDiv-part2-saleInvoice">
-          <div className="content-middleDiv-part2-saleInvoice">
-            <div id="paid-block">Paid</div>
-            <div id="plus">+</div>
-            <div id="unpaid-block">Unpaid</div>
-            <div id="equal">=</div>
-            <div id="total-block">Total</div>
+        <div className="lowerDivSale-saleInvoice">
+          <div className="transaction-saleInvoice">TRANSACTIONS</div>
+          <div className="top-part-A-saleInvoice">
+            {/* <h3>TRANSACTIONS</h3> */}
+            <input
+              type="search"
+              name=""
+              className="search-input-saleInvoice"
+              placeholder="Search ..."
+            />
+            {/* <Link to="/sale"> */}
+            <button
+              className="addBtnSale-sale2-saleInvoice"
+              // onClick={<Navigate to="/purchase" />}
+              onClick={goToSale}
+            >
+              <AiOutlinePlus className="plus-saleInvoice" />
+              Add Sale
+            </button>
+            {/* </Link> */}
           </div>
-        </div>
-      </div>
-      <div className="lowerDivSale-saleInvoice">
-        <div className="transaction-saleInvoice">TRANSACTIONS</div>
-        <div className="top-part-A-saleInvoice">
-          {/* <h3>TRANSACTIONS</h3> */}
-          <input
-            type="search"
-            name=""
-            className="search-input-saleInvoice"
-            placeholder="Search ..."
+          <SaleInvoiceTable
+            userNumber={props.userNumber}
+            userCompany={props.userCompany}
           />
-          {/* <Link to="/sale"> */}
-          <button
-            className="addBtnSale-sale2-saleInvoice"
-            // onClick={<Navigate to="/purchase" />}
-            onClick={goToSale}
-          >
-            <AiOutlinePlus className="plus-saleInvoice" />
-            Add Sale
-          </button>
-          {/* </Link> */}
         </div>
-        <SaleInvoiceTable
-          userNumber={props.userNumber}
-          userCompany={props.userCompany}
-        />
       </div>
     </div>
   );

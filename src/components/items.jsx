@@ -4,8 +4,8 @@ import "./items.css";
 import { ItemsTable } from "./tables/itemsTable";
 import { TransactionTableItems } from "./tables/transactionTable-items";
 import { FiSearch } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { BsFillPlusCircleFill } from "react-icons/bs";
+import { AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
+import { BsFillPlusCircleFill, BsSearch } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
@@ -93,26 +93,38 @@ export const Items = (props) => {
           <div className="marginDiv-items">
             <div className="saleBtnDiv-items">
               <BsFillPlusCircleFill className="plusSale-items" />
-              <button className="addBtnSale-items" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-items" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-items">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-items">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-items" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-items" />
+              {/* <button
                 className="addBtnPurchase-items"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-items"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-items">
               <BsFillPlusCircleFill className="plusSaleMore-items" />
               <button className="addBtnMore-items">Add More</button>
             </div>
-            <div className="settingBtnDiv-items">
-              <AiFillSetting className="setting-items" />
+            <div className="vertical-line-upperPart-items"></div>
+
+            <div className="settingBtnDiv-upperPart-items">
+              <AiFillSetting className="setting-upperPart-items" />
+            </div>
+            <div className="printBtnDiv-upperPart-items">
+              <AiFillPrinter className="print-upperPart-items" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
@@ -125,7 +137,9 @@ export const Items = (props) => {
       <div className="lowerBody-items">
         <div className="leftDiv-items">
           <div className="leftDivbtnSearch-items">
-            <FiSearch className="searchIcon-items" />
+            <div className="searchIcon-class-items">
+              <BsSearch className="searchIcon-items" />
+            </div>
             <button
               className="partyBtn-items"
               onClick={() => setModalShowItem(true)}
@@ -161,13 +175,13 @@ export const Items = (props) => {
                   <div className="upperDivRight2-part1-purchasePrice-items">
                     {" "}
                     <div className="label-upper-partyDetails-items">
-                      Purchase Price :{" "}
+                      PURCHASE PRICE :{" "}
                     </div>
                   </div>
                   <div className="upperDivRight2-part1-salePrice-items">
                     {" "}
                     <div className="label-upper-partyDetails-items">
-                      Sale Price: :{" "}
+                      SALE PRICE :{" "}
                     </div>
                   </div>
                 </div>
@@ -175,29 +189,28 @@ export const Items = (props) => {
                 <div className="upperDivRight2-part2-items">
                   <div className="upperDivRight2-part1-stockQuantity-items">
                     <div className="label-upper-partyDetails-items">
-                      Stock Quantity :{" "}
+                      STOCK QUANTITY :{" "}
                     </div>
                   </div>
                   <div className="upperDivRight2-part1-stockValue-items">
                     {" "}
                     <div className="label-upper-partyDetails-items">
-                      Stock Value :{" "}
+                      STOCK VALUE :{" "}
                     </div>
                   </div>
                 </div>
-              </div>
-              \{" "}
+              </div>{" "}
             </div>
 
             <div className="lowerDivRight-items">
               <div className="transaction-search-items">
-                <h3>Transaction</h3>
+                <h6 className="transaction-lowerDiv-items">TRANSACTIONS</h6>
                 <input
                   type="search"
                   name="search"
                   id=""
                   className="search-input-items"
-                  placeholder="Search..."
+                  placeholder="Search"
                 />
               </div>
               <div className="Ttable-items">
