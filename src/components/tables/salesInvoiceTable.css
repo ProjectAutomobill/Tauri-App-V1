@@ -1,0 +1,9 @@
+.table-row:hover {
+  background-color: rgb(242, 245, 245);
+}
+
+.table-header-saleInvoice {
+  font-weight: 550;
+  font-size: 12;
+  color: gray;
+}

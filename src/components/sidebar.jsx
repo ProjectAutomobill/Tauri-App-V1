@@ -21,14 +21,14 @@ import { CgProfile } from "react-icons/cg";
 import { Rotate90DegreesCcw, RotateLeft } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import { CompanyModal } from "./modals/companyModal";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Navigate, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 
 export function SideBar(props) {
   const [companyName, setCompanyName] = useState("Your Company");
   const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
   // const location = document.getElementById("useLocation()");
-
+  const navigate = useNavigate();
   const location = useLocation();
   // const location2 = location.value;
   // const [cName, setCName] = useState(location.state.company);
@@ -38,6 +38,11 @@ export function SideBar(props) {
   function print(val) {
     props.val2(val);
   }
+
+  function navigateToSetting() {
+    navigate("/setting");
+  }
+
   function dropdown_option(val) {
     print(val);
     var dropdown = document.getElementById("sale-dropdown");
@@ -167,48 +172,50 @@ export function SideBar(props) {
       </div>
 
       <div class="dropdown-container" id="sale-dropdown">
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("sales")}
-        >
-          Sale Invoices
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("estimateAndquotation")}
-        >
-          Estimate/Quotation
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("paymentIn")}
-        >
-          Payment In
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("saleOrder")}
-        >
-          Sale Order
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("deliveryChallan")}
-        >
-          Delivery Challan
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("saleReturn")}
-        >
-          Sale return/ Cr. Note
-        </a>
+        <div id="options-container">
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("sales")}
+          >
+            Sale Invoices
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("estimateAndquotation")}
+          >
+            Estimate/Quotation
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("paymentIn")}
+          >
+            Payment In
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("saleOrder")}
+          >
+            Sale Order
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("deliveryChallan")}
+          >
+            Delivery Challan
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("saleReturn")}
+          >
+            Sale return/ Cr. Note
+          </a>
+        </div>
       </div>
 
       <div className="sidebar-Component">
@@ -222,34 +229,36 @@ export function SideBar(props) {
         <FaAngleDown className="downArrow" id="sale-arrow" />
       </div>
       <div class="dropdown-container" id="purchase-dropdown">
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("purchases")}
-        >
-          Purchase Bills
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("paymentOut")}
-        >
-          Payment Out
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("purchaseOrder")}
-        >
-          Purchase Order
-        </a>
-        <a
-          href="#"
-          className="sideBarText-dropdown"
-          onClick={() => print("purchaseReturn")}
-        >
-          Purchase return/ Dr. note
-        </a>
+        <div id="options-container">
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("purchases")}
+          >
+            Purchase Bills
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("paymentOut")}
+          >
+            Payment Out
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("purchaseOrder")}
+          >
+            Purchase Order
+          </a>
+          <a
+            href="#"
+            className="sideBarText-dropdown"
+            onClick={() => print("purchaseReturn")}
+          >
+            Purchase return/ Dr. note
+          </a>
+        </div>
       </div>
       <div className="sidebar-Component">
         <AiFillWallet className="icons" />
@@ -333,7 +342,7 @@ export function SideBar(props) {
       </div>
       <div className="sidebar-Component">
         <IoIosSettings className="icons" />
-        <h3 className="sideBarText" onClick={() => print("purchases")}>
+        <h3 className="sideBarText" onClick={navigateToSetting}>
           Settings
         </h3>
       </div>

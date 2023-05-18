@@ -65,26 +65,39 @@ export const PaymentIn = (props) => {
           <div className="marginDiv-paymentIn">
             <div className="saleBtnDiv-paymentIn">
               <BsFillPlusCircleFill className="plusSale-paymentIn" />
-              <button className="addBtnSale-paymentIn" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-paymentIn" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-paymentIn">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-paymentIn">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-paymentIn" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-paymentIn" />
+              {/* <button
                 className="addBtnPurchase-paymentIn"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-paymentIn"
+                // onClick={navigateToPurchase}
+              >
+                {" "}
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-paymentIn">
               <BsFillPlusCircleFill className="plusSaleMore-paymentIn" />
               <button className="addBtnMore-paymentIn">Add More</button>
             </div>
-            <div className="settingBtnDiv-paymentIn">
-              <AiFillSetting className="setting-paymentIn" />
+            <div className="vertical-line-upperPart-paymentIn"></div>
+
+            <div className="settingBtnDiv-upperPart-paymentIn">
+              <AiFillSetting className="setting-upperPart-paymentIn" />
+            </div>
+            <div className="printBtnDiv-upperPart-paymentIn">
+              <AiFillPrinter className="print-upperPart-paymentIn" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
@@ -97,7 +110,7 @@ export const PaymentIn = (props) => {
         <div className="middleDiv-part1-paymentIn">
           <div className="choose-months-paymentIn">
             <select id="months-paymentIn">
-              <option value="allpaymentIn-paymentIn">All Sale Invoices</option>
+              {/* <option value="allpaymentIn-paymentIn">All Sale Invoices</option> */}
               <option value="thisMonth-paymentIn">This Month</option>
               <option value="lastMonth-paymentIn">Last Month</option>
               <option value="thisQuater-paymentIn">This Quater</option>
@@ -114,7 +127,7 @@ export const PaymentIn = (props) => {
             <input type="date" id="to-paymentIn" name="to-paymentIn" />
           </div> */}
           <div className="choose-dates-paymentIn">
-            <div className="from-paymentIn">
+            {/* <div className="from-paymentIn">
               Between :
               <input
                 type="date"
@@ -129,7 +142,16 @@ export const PaymentIn = (props) => {
                 id="to-inputType-paymentIn"
                 name="to-paymentIn"
               />
+            </div> */}
+            <div className="between-label">
+              <label for="from-paymentIn">Between </label>
             </div>
+            <input type="date" id="from-paymentIn" name="from-paymentIn" />
+
+            <label for="to-paymentIn" id="to-label">
+              To
+            </label>
+            <input type="date" id="to-paymentIn" name="to-paymentIn" />
           </div>
           <div className="options-middlepart1-paymentIn">
             <HiDocumentReport className="report-middlepart1-paymentIn" />
@@ -179,7 +201,7 @@ export const PaymentIn = (props) => {
             name=""
             id=""
             className="search-input-paymentIn"
-            placeholder="Search ..."
+            placeholder="Search "
           />
           {/* <Link to="/purchase"> */}
           <button

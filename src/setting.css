@@ -1,0 +1,17 @@
+.body-setting {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+#setting-sidebar {
+  width: 17%;
+  height: 100%;
+  background-color: rgba(28, 32, 48, 255);
+}
+
+#mainsection-setting {
+  width: 83%;
+  right: 17%;
+  /* background-color: antiquewhite; */
+}

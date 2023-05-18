@@ -144,31 +144,31 @@ export const SaleInvoice = (props) => {
           </div>
           <div className="middleDiv-part2-saleInvoice">
             <div className="content-middleDiv-part2-saleInvoice">
-              <div id="paid-block">Paid</div>
-              <div id="plus">+</div>
-              <div id="unpaid-block">Unpaid</div>
-              <div id="equal">=</div>
-              <div id="total-block">Total</div>
+              <div className="paid-block">Paid</div>
+              <div className="plus-anotherOne-saleInvoice">+</div>
+              <div className="unpaid-block">Unpaid</div>
+              <div className="equal">=</div>
+              <div className="total-block">Total</div>
             </div>
           </div>
         </div>
         <div className="lowerDivSale-saleInvoice">
           <div className="transaction-saleInvoice">TRANSACTIONS</div>
           <div className="top-part-A-saleInvoice">
-            {/* <h3>TRANSACTIONS</h3> */}
             <input
               type="search"
               name=""
               className="search-input-saleInvoice"
-              placeholder="Search ..."
+              placeholder="Search"
             />
-            {/* <Link to="/sale"> */}
+
             <button
               className="addBtnSale-sale2-saleInvoice"
               // onClick={<Navigate to="/purchase" />}
               onClick={goToSale}
             >
-              <AiOutlinePlus className="plus-saleInvoice" />
+              <BsFillPlusCircleFill className="plus-saleInvoice" />
+              {/* <AiOutlinePlus className="plus-saleInvoice" /> */}
               Add Sale
             </button>
             {/* </Link> */}

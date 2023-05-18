@@ -1,6 +1,9 @@
 import { React, useState, useEffect } from "react";
-import { BsFillPlusCircleFill } from "react-icons/bs";
+// import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
+import { AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
+import { BsFillPlusCircleFill, BsSearch } from "react-icons/bs";
+// import { AiFillSetting } from "react-icons/ai";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { TbReport } from "react-icons/tb";
@@ -52,25 +55,37 @@ export const EandQ = (props) => {
           <div className="marginDiv-saleEandQ">
             <div className="saleBtnDiv-saleEandQ">
               <BsFillPlusCircleFill className="plusSale-saleEandQ" />
-              <button className="addBtnSale-saleEandQ" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-saleEandQ" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-saleEandQ">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-saleEandQ">
-              <BsFillPlusCircleFill className="plusSale-purchase-saleEandQ" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-saleEandQ" />
+              {/* <button
                 className="addBtnPurchase-saleEandQ"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-saleEandQ"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-saleEandQ">
               <BsFillPlusCircleFill className="plusSaleMore-saleEandQ" />
               <button className="addBtnMore-saleEandQ">Add More</button>
             </div>
-            <div className="settingBtnDiv-saleEandQ">
-              <AiFillSetting className="setting-saleEandQ" />
+            <div className="vertical-line-upperPart-saleEandQ"></div>
+
+            <div className="settingBtnDiv-upperPart-saleEandQ">
+              <AiFillSetting className="setting-upperPart-saleEandQ" />
+            </div>
+            <div className="printBtnDiv-upperPart-saleEandQ">
+              <AiFillPrinter className="print-upperPart-saleEandQ" />
             </div>
           </div>
         </div>

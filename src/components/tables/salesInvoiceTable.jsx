@@ -8,7 +8,7 @@ import {
   TableCell,
   Paper,
 } from "@mui/material";
-import "./transactionTable.css";
+import "./salesInvoiceTable.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
@@ -37,16 +37,51 @@ export const SaleInvoiceTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>INVOICE NO.</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>PARTY NAME</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>TRANSACTION TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>PAYMENT TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>AMOUNT</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>BALANCE DUE</TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              DATE
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              INVOICE NO.
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              PARTY NAME
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              TRANSACTION TYPE
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              PAYMENT TYPE
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              AMOUNT
+            </TableCell>
+            <TableCell
+              sx={{ fontWeight: 600 }}
+              className="table-header-saleInvoice"
+            >
+              BALANCE DUE
+            </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className="table-row-saleInvoice">
           {dataSales?.map((row) => (
             <TableRow>
               <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>

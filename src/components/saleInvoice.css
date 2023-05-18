@@ -5,7 +5,8 @@
 }
 .lowerDivSale-saleInvoice {
   position: absolute;
-  width: 100%;
+  width: 98%;
+  margin-left: 1%;
   height: 70%;
   top: 29%;
   overflow: auto;
@@ -53,6 +54,8 @@
 .choose-months-saleInvoice {
   padding: 0.5%;
   /* background-color: yellow; */
+  margin-bottom: auto;
+  margin-top: auto;
 }
 #months-saleInvoice {
   border: none;
@@ -117,74 +120,80 @@
 }
 .options-middlepart1-saleInvoice {
   /* background-color: blanchedalmond; */
-  margin-top: 0.5%;
-  width: 10%;
+  margin-top: 1%;
+  width: 12%;
   margin-left: auto;
 }
 
 .graph-middlepart1-saleInvoice {
-  height: 50%;
+  height: 35%;
   width: 30%;
 }
 .report-middlepart1-saleInvoice {
-  height: 50%;
+  height: 35%;
   width: 30%;
 }
 .print-middlepart1-saleInvoice {
-  height: 50%;
+  height: 35%;
   width: 30%;
 }
 .middleDiv-part2-saleInvoice {
-  margin-top: 1%;
+  margin-top: 0.5%;
   height: 50%;
   /* background-color: rgb(39, 179, 17); */
   /* text-align: left; */
   /* display: flex; */
 }
 .content-middleDiv-part2-saleInvoice {
-  width: 50%;
+  width: 40%;
   height: 100%;
-  margin-left: 0.5%;
+  margin-left: 2%;
   display: flex;
   gap: 10px;
   /* background-color: brown; */
 }
-#paid-block {
-  width: 20%;
-  height: 100%;
-  background-color: rgb(143, 255, 120);
+.paid-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(185, 243, 231);
   opacity: 0.8;
   border-radius: 10px;
   /* margin-top: auto; */
   /* margin-bottom: auto; */
 }
-#unpaid-block {
-  width: 20%;
-  height: 100%;
-  background-color: rgb(140, 220, 255);
+.unpaid-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(207, 230, 254);
   opacity: 0.8;
   border-radius: 10px;
   /* margin-top: auto; */
   /* margin-bottom: auto; */
 }
-#total-block {
-  width: 20%;
-  height: 100%;
-  background-color: rgb(255, 226, 140);
+.total-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(248, 200, 136);
   opacity: 0.8;
   border-radius: 10px;
   /* margin-top: auto; */
   /* margin-bottom: auto; */
 }
-#plus,
-#equal {
+.plus-anotherOne-saleInvoice,
+.equal {
   margin-top: auto;
   margin-bottom: auto;
   font-size: large;
-}
-.plus-saleInvoice {
+  color: black;
   font-weight: 550;
 }
+
 .marginDiv-saleInvoice {
   display: flex;
   margin-left: auto;
@@ -442,10 +451,14 @@
   text-align: left;
   margin: 10px;
   font-weight: 550;
+  font-size: medium;
+  color: rgb(75, 70, 70);
 }
+
 .search-input-saleInvoice {
   height: 4vh;
-  margin: 10px;
+  /* margin: 10px; */
+  /* height: ; */
   margin-right: auto;
   border-radius: 5px;
   /* outline: 0px; */
@@ -453,15 +466,25 @@
   border: 1px solid rgb(188, 188, 188);
 }
 
+.plus-saleInvoice {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2%;
+  font-size: medium;
+}
 .addBtnSale-sale2-saleInvoice {
   height: 4vh;
   width: 8vw;
-  margin: auto;
+  /* margin: auto; */
   margin-right: 2%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* margin-left: 1%; */
   color: white;
   font-weight: 545;
-  font-size: small;
-  background-color: red;
+  font-size: medium;
+  background-color: rgb(41, 155, 236);
   border: 0;
-  border-radius: 24px;
+  border-radius: 10px;
 }

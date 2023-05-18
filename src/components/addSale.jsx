@@ -164,7 +164,7 @@ export const AddSale = (props) => {
     // console.log("Party Names List : " + partyNames);
   }, []);
   return (
-    <div>
+    <div id="main-background-body">
       {/* action="/addSaleData" */}
       <form
         className="form-purchase-addSale"
@@ -172,13 +172,16 @@ export const AddSale = (props) => {
         id="myForm-addSale"
         onSubmit={handleSubmit}
       >
-        <div className="purchaseTag-addSale">
+        {/* <div className="purchaseTag-addSale">
           <h3>Sale</h3>
-        </div>
+        </div> */}
         <div className="top-bar-addSale">
           <AiFillCalculator className="icn-addSale" />
           <AiFillSetting className="icn-addSale" />
           <RxCrossCircled className="icn-addSale" />
+        </div>
+        <div className="purchaseTag-addSale">
+          <h4 className="headingTag-addSale">Sale</h4>
         </div>
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase-addSale">
@@ -246,25 +249,46 @@ export const AddSale = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1" id="td-addSale">
+                  <td className="col col-1" id="td-addSale-heading">
+                    #
+                  </td>
+                  <td className="col col-1" id="td-addSale-heading">
                     ITEM
                   </td>
-                  <td className="col col-2" id="td-addSale">
+                  <td className="col col-2" id="td-addSale-heading">
                     QTY
                   </td>
-                  <td className="col col-3" id="td-addSale">
+                  <td className="col col-3" id="td-addSale-heading">
                     PRICE
                   </td>
-                  <td className="col col-4" id="td-addSale">
+                  <td className="col col-4" id="td-addSale-heading">
                     AMOUNT
                   </td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
-                      <td className="col col-1" id="td-addSale">
+                      <td
+                        className="col col-1"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
+                        {index}
+                      </td>
+                      <td
+                        className="col col-1"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="text"
                           name="item"
                           id="item"
@@ -272,9 +296,19 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-2" id="td-addSale">
+                      <td
+                        className="col col-2"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="qty"
                           id="qty"
@@ -282,9 +316,19 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-3" id="td-addSale">
+                      <td
+                        className="col col-3"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="price"
                           id="price"
@@ -292,9 +336,19 @@ export const AddSale = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-4" id="td-addSale">
+                      <td
+                        className="col col-4"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="amount"
                           id="amount"
@@ -305,6 +359,13 @@ export const AddSale = (props) => {
                     </tr>
                   );
                 })}
+                <tr>
+                  <td className="add-row-btn-row">
+                    <div onClick={addRow1} className="add-row-button-addSale">
+                      Add Row
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </table>
             <br />
@@ -330,12 +391,12 @@ export const AddSale = (props) => {
           </button> */}
           {/* <button onClick={clickTest}>Test Name</button> */}
         </div>
-        <div onClick={addRow1} id="add-row-button-addSale">
+        {/* <div onClick={addRow1} id="add-row-button-addSale">
           Add Row
-        </div>
+        </div> */}
         <br />
         <br />
-        <div onClick={handleRemoveLast} id="add-row-button-addSale">
+        <div onClick={handleRemoveLast} className="add-row-button-addSale">
           Remove Row
         </div>
         <div id="balance-box-addSale">

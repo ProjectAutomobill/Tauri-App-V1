@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
+import { BsFillCircleFill } from "react-icons/bs";
 
 export const TransactionTableItems = (props) => {
   const [dataT, setDataT] = useState();
@@ -47,17 +48,29 @@ export const TransactionTableItems = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>OUANTITY</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>PRICE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>STATUS</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}></TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+              OUANTITY
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>PRICE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>STATUS</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataT?.map((row) => (
-            <TableRow>
+          {dataT?.map((row, index) => (
+            <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
+              <TableCell sx={{ fontSize: 12 }}>
+                <BsFillCircleFill
+                  className={
+                    row.Transaction_Type == "Sale"
+                      ? "greenColor"
+                      : "orangeColor"
+                  }
+                />
+              </TableCell>
               <TableCell sx={{ fontSize: 12 }}>
                 {row.Transaction_Type}
               </TableCell>

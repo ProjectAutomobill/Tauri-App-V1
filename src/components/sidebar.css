@@ -54,13 +54,22 @@
   /* margin-left: 20%; */
   /* margin-right: auto; */
 }
+#options-container {
+  /* background-color: rgb(58, 77, 77); */
+  padding-left: 10%;
+}
 .sideBarText-dropdown {
   font-weight: 400;
-  font-size: medium;
+  font-size: small;
   color: rgb(221, 221, 221);
   /* align-content: left; */
   /* margin-left: 20%; */
   /* margin-right: auto; */
+  text-decoration: none;
+}
+.sideBarText-dropdown:hover {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 .sidebar-Component:hover {
@@ -86,7 +95,7 @@ h2 {
   /* position: static; */
   /* left: auto; */
   display: none;
-  background-color: #17173a;
+  background-color: rgba(33, 41, 52);
   /* width:100%; */
   /* padding-left: 8px; */
   /* justify-content: left; */

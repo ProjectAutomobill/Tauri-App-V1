@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { FaTruck } from "react-icons/fa";
@@ -49,28 +49,40 @@ export const DeliveryChallan = (props) => {
           <div className="marginDiv-deliveryChallan">
             <div className="saleBtnDiv-deliveryChallan">
               <BsFillPlusCircleFill className="plusSale-deliveryChallan" />
-              <button
+              {/* <button
                 className="addBtnSale-deliveryChallan"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-deliveryChallan">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-deliveryChallan">
-              <BsFillPlusCircleFill className="plusSale-purchase-deliveryChallan" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-deliveryChallan" />
+              {/* <button
                 className="addBtnPurchase-deliveryChallan"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-deliveryChallan"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-deliveryChallan">
               <BsFillPlusCircleFill className="plusSaleMore-deliveryChallan" />
               <button className="addBtnMore-deliveryChallan">Add More</button>
             </div>
-            <div className="settingBtnDiv-deliveryChallan">
-              <AiFillSetting className="setting-deliveryChallan" />
+            <div className="vertical-line-upperPart-deliveryChallan"></div>
+
+            <div className="settingBtnDiv-upperPart-deliveryChallan">
+              <AiFillSetting className="setting-upperPart-deliveryChallan" />
+            </div>
+            <div className="printBtnDiv-upperPart-deliveryChallan">
+              <AiFillPrinter className="print-upperPart-deliveryChallan" />
             </div>
           </div>
         </div>
