@@ -19,6 +19,7 @@ import { LoanAccounts } from "./cashAndBanks_pages/loanAccounts";
 import { CashInHand } from "./cashAndBanks_pages/cashInHand";
 import { Cheques } from "./cashAndBanks_pages/cheques";
 import { SaleOrderV2 } from "./sales_pages/saleOrderV2";
+import { Report } from "./report";
 export function MainSection(props) {
   return (
     <div className="main-section">
@@ -145,6 +146,13 @@ export function MainSection(props) {
         } else if (props.val1 === "cheques") {
           return (
             <Cheques
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+            />
+          );
+        } else if (props.val1 === "report") {
+          return (
+            <Report
               userNumber={props.userNumber}
               userCompany={props.userCompany}
             />

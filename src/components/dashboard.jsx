@@ -243,7 +243,7 @@ export const DashBoard = (props) => {
   }, []);
 
   return (
-    <div className="dashboard">
+    <div className="dashboard-dashboard">
       <div className="upperDiv-dashboard">
         <div className="upperDivPart1-dashboard">
           <div className="input-business-dashboard">
@@ -302,124 +302,136 @@ export const DashBoard = (props) => {
       </div>
 
       <div className="lowerBody-dashboard">
-        <div className="leftDiv1-dashboard">
-          <div className="leftDiv-dashboardA-dashboard">
-            {/* This is left section | part(a) */}
-            {/* <FaFileInvoice /> */}
-            <div className="top-header-sale-dashboard">
-              <FaFileInvoice className="invoice-dashboard" />
-              <h5 className="tag-header-sale-dashboard">Sale</h5>
-              {/* <DropdownDashboard /> */}
-              <select name="" id="dropdown-dashboard" placeholder="Time Period">
-                <option value="">This Month</option>
-                <option value="">Previous Month</option>
-                <option value="">Lifetime</option>
-              </select>
-            </div>
-            <div className="lower-part-sale-graph-dashboard">
-              <div className="left-portion-dashboard">
-                <h4 className="sale-label-dashboard">${salesAmount}.00</h4>
-                <h6 className="totalSalelabel-dashboard">Total Sale</h6>
-
-                <br />
-                {/* <br />
-                <br /> */}
-                {/* <br />
-                <br />
-                <br />
-                <br /> */}
-                {/* <br />
-                <br /> */}
-                <FaArrowUp className="Arrow-up-sale-dashboard" />
-                <div className="small-text-dashboard">This month Growth</div>
+        <div className="lower-body-left-dashboard">
+          <div className="leftDiv1-dashboard">
+            <div className="leftDiv-dashboardA-dashboard">
+              {/* This is left section | part(a) */}
+              {/* <FaFileInvoice /> */}
+              <div className="top-header-sale-dashboard">
+                <FaFileInvoice className="invoice-dashboard" />
+                <h5 className="tag-header-sale-dashboard">Sale</h5>
+                {/* <DropdownDashboard /> */}
+                <select
+                  name=""
+                  id="dropdown-dashboard"
+                  placeholder="Time Period"
+                >
+                  <option value="">This Month</option>
+                  <option value="">Previous Month</option>
+                  <option value="">Lifetime</option>
+                </select>
               </div>
-              <div className="dotted-line-dashboard"></div>
-              <div className="right-portion-dashboard">
-                <SalesGraph
-                  className="sale-2ndComponent-graph-dashboard"
-                  userNumber={props.userNumber}
-                  userCompany={props.userCompany}
-                />
-                <div className="small-text-dashboard">Report : Lifetime</div>
-              </div>
-            </div>
-          </div>
-          <div className="leftDiv-dashboardB-dashboard">
-            {/* This is left section | part(b) */}
-            <div className="top-header-sale-dashboard">
-              <IoWalletOutline className="invoice-expense-dashboard" />
-              <h5 className="tag-header-expense-dashboard">Expenses</h5>
-              <select
-                name=""
-                id="dropdown-expense-dashboard"
-                placeholder="Time Period"
-              >
-                <option value="">This Month</option>
-                <option value="">Previous Month</option>
-                <option value="">Lifetime</option>
-              </select>
-              {/* <DropdownDashboard /> */}
-            </div>
-            <PurchaseGraph
-              userNumber={props.userNumber}
-              userCompany={props.userCompany}
-            />
-            <div className="small-text-dashboard">Report : Lifetime</div>
-          </div>
-        </div>
+              <div className="lower-part-sale-graph-dashboard">
+                <div className="left-portion-dashboard">
+                  <h4 className="sale-label-dashboard">${salesAmount}.00</h4>
+                  <h6 className="totalSalelabel-dashboard">Total Sale</h6>
 
-        <div className="leftDiv2-dashboard">
-          <div className="leftDiv2A-dashboard">
-            <div className="receive-div-dashboard">
-              <FaArrowDown className="down-arrow-dashboard" />
-              <h5 className="gray-color-dashboard">You'll Receive</h5>
-            </div>
-            <h5 className="balance-tag-dashboard">${balance}.00</h5>
-            {receiveList?.map((row) => (
-              <div className="receiveInfo-dashboard">
-                <div className="receiveInfoName-dashboard">{row.PartyName}</div>
-                <div className="receiveInfoBalance-dashboard">
-                  {row.Balance}
+                  <br />
+                  {/* <br />
+                <br /> */}
+                  {/* <br />
+                <br />
+                <br />
+                <br /> */}
+                  {/* <br />
+                <br /> */}
+                  <FaArrowUp className="Arrow-up-sale-dashboard" />
+                  <div className="small-text-dashboard">This month Growth</div>
+                </div>
+                <div className="dotted-line-dashboard"></div>
+                <div className="right-portion-dashboard">
+                  <SalesGraph
+                    className="sale-2ndComponent-graph-dashboard"
+                    userNumber={props.userNumber}
+                    userCompany={props.userCompany}
+                  />
+                  <div className="small-text-dashboard">Report : Lifetime</div>
                 </div>
               </div>
-            ))}
-          </div>
-          <div className="leftDiv2B-dashboard">
-            <div className="receive-div-dashboard">
-              <FaArrowUp className="up-arrow-dashboard" />
-              <h5 className="gray-color-dashboard">You'll Pay</h5>
             </div>
-            <h5 className="balance-tag-dashboard">${purchaseBalance}.00</h5>
-            {payList?.map((row) => (
-              <div className="receiveInfo-dashboard">
-                <div className="receiveInfoName-dashboard">{row.PartyName}</div>
-                <div className="payInfoBalance-dashboard">{row.Balance}</div>
+            <div className="leftDiv-dashboardB-dashboard">
+              {/* This is left section | part(b) */}
+              <div className="top-header-sale-dashboard">
+                <IoWalletOutline className="invoice-expense-dashboard" />
+                <h5 className="tag-header-expense-dashboard">Expenses</h5>
+                <select
+                  name=""
+                  id="dropdown-expense-dashboard"
+                  placeholder="Time Period"
+                >
+                  <option value="">This Month</option>
+                  <option value="">Previous Month</option>
+                  <option value="">Lifetime</option>
+                </select>
+                {/* <DropdownDashboard /> */}
               </div>
-            ))}
-          </div>
-          <div className="leftDiv2C-dashboard">
-            <div className="receive-div-dashboard">
-              <GrCart className="cart-purchase-dashboard" />
-              <h5 className="gray-color-dashboard">Purchase</h5>
-              <select
-                name=""
-                id="dropdown-expense-dashboard"
-                placeholder="Time Period"
-              >
-                <option value="">This Month</option>
-                <option value="">Previous Month</option>
-                <option value="">Lifetime</option>
-              </select>
+              <PurchaseGraph
+                userNumber={props.userNumber}
+                userCompany={props.userCompany}
+              />
+              <div className="small-text-dashboard">Report : Lifetime</div>
             </div>
-            <h5 className="balance-tag-purchase-dashboard">
-              ${purchaseAmount}.00
-            </h5>
-            {purchaseItemList?.map((row) => (
-              <div className="receiveInfo-dashboard">
-                <div className="receiveInfoName-dashboard">{row.Item}</div>
-                <div className="receiveInfoBalance-dashboard">{row.Price}</div>
+          </div>
+
+          <div className="leftDiv2-dashboard">
+            <div className="leftDiv2A-dashboard">
+              <div className="receive-div-dashboard">
+                <FaArrowDown className="down-arrow-dashboard" />
+                <h5 className="gray-color-dashboard">You'll Receive</h5>
               </div>
-            ))}
+              <h5 className="balance-tag-dashboard">${balance}.00</h5>
+              {receiveList?.map((row) => (
+                <div className="receiveInfo-dashboard">
+                  <div className="receiveInfoName-dashboard">
+                    {row.PartyName}
+                  </div>
+                  <div className="receiveInfoBalance-dashboard">
+                    {row.Balance}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="leftDiv2B-dashboard">
+              <div className="receive-div-dashboard">
+                <FaArrowUp className="up-arrow-dashboard" />
+                <h5 className="gray-color-dashboard">You'll Pay</h5>
+              </div>
+              <h5 className="balance-tag-dashboard">${purchaseBalance}.00</h5>
+              {payList?.map((row) => (
+                <div className="receiveInfo-dashboard">
+                  <div className="receiveInfoName-dashboard">
+                    {row.PartyName}
+                  </div>
+                  <div className="payInfoBalance-dashboard">{row.Balance}</div>
+                </div>
+              ))}
+            </div>
+            <div className="leftDiv2C-dashboard">
+              <div className="receive-div-dashboard">
+                <GrCart className="cart-purchase-dashboard" />
+                <h5 className="gray-color-dashboard">Purchase</h5>
+                <select
+                  name=""
+                  id="dropdown-expense-dashboard"
+                  placeholder="Time Period"
+                >
+                  <option value="">This Month</option>
+                  <option value="">Previous Month</option>
+                  <option value="">Lifetime</option>
+                </select>
+              </div>
+              <h5 className="balance-tag-purchase-dashboard">
+                ${purchaseAmount}.00
+              </h5>
+              {purchaseItemList?.map((row) => (
+                <div className="receiveInfo-dashboard">
+                  <div className="receiveInfoName-dashboard">{row.Item}</div>
+                  <div className="receiveInfoBalance-dashboard">
+                    {row.Price}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="vertical-line-dashboard"></div>

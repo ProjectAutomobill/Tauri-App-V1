@@ -1,7 +1,7 @@
 .main-paymentIn {
   display: block;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .upperDiv-paymentIn {
@@ -131,7 +131,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 6px;
-  width: 16%;
+  width: 14%;
   height: 60%;
   background-color: white;
   border-radius: 24px;
@@ -143,7 +143,7 @@
   /* background-color: bisque; */
 }
 .moreBtnDiv-paymentIn:hover {
-  width: 18%;
+  width: 15%;
   height: 61%;
 }
 .addBtnSale-paymentIn {
@@ -392,19 +392,21 @@
   font-weight: bold;
 }
 .lowerDivSale-paymentIn {
-  position: absolute;
-  width: 100%;
-  height: 75%;
-  /* margin-left: 1%;
-  margin-right: 1%; */
-  top: 24%;
+  /* position: absolute; */
+  width: 98%;
+  margin-left: 1%;
+
+  height: 74%;
+  margin-top: 1%;
+
+  /* top: 24%; */
   overflow: auto;
   background-color: white;
 }
 
 .top-part-A-paymentIn {
   display: flex;
-  margin-left: 1%;
+  margin-left: 0.5%;
   /* background-color: green; */
 }
 .transaction-paymentIn {
@@ -413,10 +415,10 @@
   font-weight: 550;
 }
 .search-input-paymentIn {
-  height: 4vh;
-  margin: 10px;
+  /* height: 7%; */
+  margin: 9px;
   margin-right: auto;
-  border-radius: 5px;
+  border-radius: 3px;
   /* outline: 0px; */
   /* border: 0px; */
   border: 1px solid rgb(188, 188, 188);
@@ -429,7 +431,7 @@
   margin-right: 2%;
   color: white;
   font-weight: 545;
-  font-size: small;
+  font-size: medium;
   background-color: rgba(23, 137, 252, 255);
   border: 0;
   border-radius: 8px;
@@ -449,4 +451,11 @@
   /* flex-basis: 60%; */
 
   color: rgb(166, 163, 163);
+}
+.plus-paymentIn {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 4%;
+  font-size: medium;
 }

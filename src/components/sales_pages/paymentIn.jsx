@@ -110,7 +110,6 @@ export const PaymentIn = (props) => {
         <div className="middleDiv-part1-paymentIn">
           <div className="choose-months-paymentIn">
             <select id="months-paymentIn">
-              {/* <option value="allpaymentIn-paymentIn">All Sale Invoices</option> */}
               <option value="thisMonth-paymentIn">This Month</option>
               <option value="lastMonth-paymentIn">Last Month</option>
               <option value="thisQuater-paymentIn">This Quater</option>
@@ -208,7 +207,7 @@ export const PaymentIn = (props) => {
             className="addBtnSale-sale2-paymentIn"
             onClick={() => setModalShow(true)}
           >
-            <AiOutlinePlus className="plus-paymentIn" />
+            <BsFillPlusCircleFill className="plus-paymentIn" />
             Add Payment-In
           </button>
           {/* </Link> */}
@@ -225,22 +224,5 @@ export const PaymentIn = (props) => {
         userCompany={props.userCompany}
       />
     </div>
-
-    // <div>
-    //     <div className='upperDiv'>
-
-    //     </div>
-    //     <div className='lowerDivSale'>
-    //     <h3>TRANSACTIONS</h3>
-    //         <div className='top-part-A'>
-
-    //             <input type="search" name="" id="" className='search-input-sales' placeholder='Search ...'/>
-    //             <Link to="/purchase">
-    //               <button className='addBtnPurchase-purchase'><AiOutlinePlus className="plus" />Add Purchase</button>
-    //             </Link>
-    //         </div>
-    //     <PurchaseBillsTable/>
-    //     </div>
-    // </div>
   );
 };

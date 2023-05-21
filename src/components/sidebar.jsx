@@ -310,7 +310,7 @@ export function SideBar(props) {
 
       <div className="sidebar-Component">
         <BsFillBarChartFill className="icons" />
-        <h3 className="sideBarText" onClick={() => print("purchases")}>
+        <h3 className="sideBarText" onClick={() => print("report")}>
           Reports
         </h3>
       </div>

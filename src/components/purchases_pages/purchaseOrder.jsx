@@ -1,7 +1,7 @@
 // import React from 'react'
 import { React, useState, useEffect } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { FaShoppingCart } from "react-icons/fa";
@@ -51,28 +51,40 @@ export const PurchaseOrder = (props) => {
           <div className="marginDiv-purchaseOrder">
             <div className="saleBtnDiv-purchaseOrder">
               <BsFillPlusCircleFill className="plusSale-purchaseOrder" />
-              <button
+              {/* <button
                 className="addBtnSale-purchaseOrder"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-purchaseOrder">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-purchaseOrder">
-              <BsFillPlusCircleFill className="plusSale-purchase-purchaseOrder" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-purchaseOrder" />
+              {/* <button
                 className="addBtnPurchase-purchaseOrder"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-purchaseOrder"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-purchaseOrder">
               <BsFillPlusCircleFill className="plusSaleMore-purchaseOrder" />
               <button className="addBtnMore-purchaseOrder">Add More</button>
             </div>
-            <div className="settingBtnDiv-purchaseOrder">
-              <AiFillSetting className="setting-purchaseOrder" />
+            <div className="vertical-line-upperPart-purchaseOrder"></div>
+
+            <div className="settingBtnDiv-upperPart-purchaseOrder">
+              <AiFillSetting className="setting-upperPart-purchaseOrder" />
+            </div>
+            <div className="printBtnDiv-upperPart-purchaseOrder">
+              <AiFillPrinter className="print-upperPart-purchaseOrder" />
             </div>
           </div>
         </div>

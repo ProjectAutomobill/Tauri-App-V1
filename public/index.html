@@ -14,6 +14,7 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" href="styles.css" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -36,6 +37,31 @@
     <title>React App</title>
   </head>
   <body>
+    <div data-tauri-drag-region class="titlebar">
+      <div class="inside-titlebar-index">
+        <div class="content-titlebar-index">Company</div>
+        <div class="content-titlebar-index">Help</div>
+        <div class="content-titlebar-index">Shortcuts</div>
+        <div class="arrow-titlebar-index">
+          <img src="https://api.iconify.design/mdi:reload.svg" alt="minimize" />
+        </div>
+      </div>
+      <div class="titlebar-button" id="titlebar-minimize">
+        <img
+          src="https://api.iconify.design/mdi:window-minimize.svg"
+          alt="minimize"
+        />
+      </div>
+      <div class="titlebar-button" id="titlebar-maximize">
+        <img
+          src="https://api.iconify.design/mdi:window-maximize.svg"
+          alt="maximize"
+        />
+      </div>
+      <div class="titlebar-button" id="titlebar-close">
+        <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+      </div>
+    </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

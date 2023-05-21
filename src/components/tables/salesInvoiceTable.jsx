@@ -33,73 +33,77 @@ export const SaleInvoiceTable = (props) => {
     }).then((response) => setSalesData(JSON.parse(response)));
   }, []);
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              DATE
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              INVOICE NO.
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              PARTY NAME
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              TRANSACTION TYPE
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              PAYMENT TYPE
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              AMOUNT
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 600 }}
-              className="table-header-saleInvoice"
-            >
-              BALANCE DUE
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody className="table-row-saleInvoice">
-          {dataSales?.map((row) => (
+    <div className="saleInvoiceTable-table">
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Invoice_No}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>
-                {row.Transaction_Type}
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                DATE
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Payment_Type}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
-              <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                {row.Balance}
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                INVOICE NO.
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                PARTY NAME
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                TRANSACTION TYPE
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                PAYMENT TYPE
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                AMOUNT
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 600 }}
+                className="table-header-saleInvoice"
+              >
+                BALANCE DUE
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody className="table-row-saleInvoice">
+            {dataSales?.map((row) => (
+              <TableRow>
+                <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Invoice_No}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>
+                  {row.Transaction_Type}
+                </TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Payment_Type}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
+                <TableCell
+                  sx={{ fontSize: 12, color: "black", fontWeight: 100 }}
+                >
+                  {row.Balance}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 

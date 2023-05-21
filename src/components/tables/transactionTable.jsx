@@ -70,66 +70,72 @@ export const TransactionTable = (props) => {
       });
   }, []);
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            ></TableCell>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            >
-              TYPE
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            >
-              NUMBER
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            >
-              DATE
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            >
-              TOTAL
-            </TableCell>
-            <TableCell
-              sx={{ fontWeight: 570, fontSize: 12 }}
-              className="header-transaction-table"
-            >
-              BALANCE
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {dataT?.map((row, index) => (
-            <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
-              <TableCell sx={{ fontSize: 12 }}>
-                <BsFillCircleFill
-                  className={row.Type == "Sale" ? "greenColor" : "orangeColor"}
-                />
+    <div className="table-container">
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              ></TableCell>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              >
+                TYPE
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Type}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
-              <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                {row.Balance}
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              >
+                NUMBER
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              >
+                DATE
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              >
+                TOTAL
+              </TableCell>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12 }}
+                className="header-transaction-table"
+              >
+                BALANCE
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {dataT?.map((row, index) => (
+              <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
+                <TableCell sx={{ fontSize: 12 }}>
+                  <BsFillCircleFill
+                    className={
+                      row.Type == "Sale" ? "greenColor" : "orangeColor"
+                    }
+                  />
+                </TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Type}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
+                <TableCell
+                  sx={{ fontSize: 12, color: "black", fontWeight: 100 }}
+                >
+                  {row.Balance}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 

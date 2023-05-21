@@ -8,23 +8,21 @@ export const Home = (props) => {
   var [content, setContent] = useState("home");
 
   return (
-    <div>
-      <div className="App">
-        <div className="sideBar">
-          <SideBar
-            val1={content}
-            val2={setContent}
-            userNumber={props.userNumber.current}
-            userCompany={props.userCompany.current}
-          />
-        </div>
-        <div className="mainSection">
-          <MainSection
-            val1={content}
-            userNumber={props.userNumber.current}
-            userCompany={props.userCompany.current}
-          />
-        </div>
+    <div className="App-home">
+      <div className="sideBar">
+        <SideBar
+          val1={content}
+          val2={setContent}
+          userNumber={props.userNumber.current}
+          userCompany={props.userCompany.current}
+        />
+      </div>
+      <div className="mainSection-home">
+        <MainSection
+          val1={content}
+          userNumber={props.userNumber.current}
+          userCompany={props.userCompany.current}
+        />
       </div>
     </div>
   );

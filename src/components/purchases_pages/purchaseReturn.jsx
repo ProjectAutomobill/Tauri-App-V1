@@ -50,28 +50,41 @@ export const PurchaseReturn = (props) => {
           <div className="marginDiv-purchaseReturn">
             <div className="saleBtnDiv-purchaseReturn">
               <BsFillPlusCircleFill className="plusSale-purchaseReturn" />
-              <button
+              {/* <button
                 className="addBtnSale-purchaseReturn"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-purchaseReturn">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-purchaseReturn">
-              <BsFillPlusCircleFill className="plusSale-purchase-purchaseReturn" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-purchaseReturn" />
+              {/* <button
                 className="addBtnPurchase-purchaseReturn"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-purchaseReturn"
+                // onClick={navigateToPurchase}
+              >
+                {" "}
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-purchaseReturn">
               <BsFillPlusCircleFill className="plusSaleMore-purchaseReturn" />
               <button className="addBtnMore-purchaseReturn">Add More</button>
             </div>
-            <div className="settingBtnDiv-purchaseReturn">
-              <AiFillSetting className="setting-purchaseReturn" />
+            <div className="vertical-line-upperPart-purchaseReturn"></div>
+
+            <div className="settingBtnDiv-upperPart-purchaseReturn">
+              <AiFillSetting className="setting-upperPart-purchaseReturn" />
+            </div>
+            <div className="printBtnDiv-upperPart-purchaseReturn">
+              <AiFillPrinter className="print-upperPart-purchaseReturn" />
             </div>
           </div>
         </div>
@@ -104,7 +117,7 @@ export const PurchaseReturn = (props) => {
             </div> */}
 
           <div className="choose-dates-purchaseReturn">
-            <div className="from-purchaseReturn">
+            {/* <div className="from-purchaseReturn">
               Between :
               <input
                 type="date"
@@ -119,8 +132,26 @@ export const PurchaseReturn = (props) => {
                 id="to-inputType-purchaseReturn"
                 name="to-purchaseReturn"
               />
+            </div> */}
+            <div className="between-label">
+              <label for="from-purchaseReturn">Between </label>
             </div>
+            <input
+              type="date"
+              id="from-purchaseReturn"
+              name="from-purchaseReturn"
+            />
+
+            <label for="to-purchaseReturn" id="to-label">
+              To
+            </label>
+            <input
+              type="date"
+              id="to-purchaseReturn"
+              name="to-purchaseReturn"
+            />
           </div>
+
           <div className="options-middlepart1-purchaseReturn">
             <HiDocumentReport className="report-middlepart1-purchaseReturn" />
             <AiFillPrinter className="print-middlepart1-purchaseReturn" />
@@ -172,17 +203,17 @@ export const PurchaseReturn = (props) => {
             name=""
             id=""
             className="search-input-purchaseReturn"
-            placeholder="Search ..."
+            placeholder="Search"
           />
-          <Link to="/purchase">
-            <button
-              className="addBtnSale-sale2-purchaseReturn"
-              onClick={<Navigate to="/purchase" />}
-            >
-              <AiOutlinePlus className="plus-purchaseReturn" />
-              Add Debit Note
-            </button>
-          </Link>
+          {/* <Link to="/purchase"> */}
+          <button
+            className="addBtnSale-sale2-purchaseReturn"
+            onClick={<Navigate to="/purchase" />}
+          >
+            <BsFillPlusCircleFill className="plus-purchaseReturn" />
+            Add Debit Note
+          </button>
+          {/* </Link> */}
         </div>
         <PurchaseReturnTable />
       </div>

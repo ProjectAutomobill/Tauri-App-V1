@@ -1,0 +1,257 @@
+.mainBody-Print {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: block;
+}
+
+.upper-part-Print {
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid rgb(188, 188, 188);
+  /* background-color: aquamarine; */
+}
+
+.lower-part-Print {
+  width: 100%;
+  height: 90%;
+  margin-top: 1%;
+  display: flex;
+  /* background-color: aqua; */
+}
+
+.left-part-Print {
+  width: 42%;
+  height: 100%;
+  /* background-color: bisque; */
+}
+.right-part-Print {
+  margin-left: 1%;
+  width: 54%;
+  height: 100%;
+  padding-top: 0.5%;
+  display: block;
+  border: 1px solid rgb(205, 205, 205);
+  overflow: auto;
+  /* background-color: rgb(99, 80, 56); */
+}
+
+.company-logo-img {
+  width: 98%;
+  height: 10%;
+  margin-left: 1%;
+  display: flex;
+  border-bottom: 1px solid rgb(125, 12, 255);
+  /* background-color: blueviolet; */
+}
+
+.company-img {
+  width: 12%;
+  height: 80%;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: rgb(218, 218, 218);
+  text-align: center;
+}
+
+.company-name-no {
+  width: 20%;
+  height: 80%;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1%;
+  /* background-color: rgb(218, 218, 218); */
+  display: block;
+}
+
+.company-name {
+  font-size: large;
+  font-weight: bold;
+  /* margin-left: auto; */
+  /* background-color: aqua; */
+  text-align: end;
+}
+
+.phone-no-company {
+  font-size: 12px;
+  /* margin-left: auto; */
+  text-align: end;
+}
+.billing-details-text {
+  font-size: 12px;
+  text-align: start;
+}
+.sale-heading-Print {
+  width: 98%;
+  margin-left: 1%;
+  padding: 1%;
+  font-weight: 600;
+  color: rgb(148, 55, 255);
+  border-bottom: 1px solid rgb(125, 12, 255);
+  /* background-color: aqua; */
+}
+
+.below-sale-heading {
+  width: 98%;
+  margin-left: 1%;
+  height: 16%;
+  margin-top: 2%;
+  display: flex;
+  /* background-color: bisque; */
+}
+
+.partA-billTo-Print {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* background-color: aquamarine; */
+}
+
+.partB-shippingTo-Print {
+  width: 30%;
+  height: 100%;
+  margin-left: 4%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+}
+
+.partC-dateTime-Print {
+  width: 20%;
+  height: 100%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+}
+
+.heading-Print {
+  /* width: 100%; */
+  width: fit-content;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: auto;
+  float: left;
+  margin-bottom: 5px;
+  /* background-color: azure; */
+}
+
+.dateTime-detail-text {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: end;
+}
+
+.margin-top-div-PRINT {
+  margin-top: auto;
+}
+
+.margin-bottom-div-PRINT {
+  margin-bottom: 10%;
+}
+
+.table-part1-PRINT {
+  width: 98%;
+  margin-left: 1%;
+  height: 20%;
+  /* background-color: aqua; */
+}
+
+.below-table-div-PRINT {
+  width: 98%;
+  margin-left: 1%;
+  height: 66%;
+  margin-top: 4%;
+  display: flex;
+  /* background-color: antiquewhite; */
+}
+
+.invoice-detail-box_PRINT {
+  width: 45%;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+.tax-details-PRINT {
+  width: 50%;
+  height: 100%;
+  margin-left: 2.5%;
+  /* background-color: aqua; */
+}
+
+.invoice-bold-text-PRINT {
+  font-weight: 600;
+  font-size: 14px;
+  color: gray;
+  width: fit-content;
+  margin-bottom: 2%;
+  /* background-color: antiquewhite; */
+}
+
+.invoice-normal-text-PRINT {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 5%;
+  width: fit-content;
+}
+
+.barcode-box-PRINT {
+  width: 80px;
+  height: 80px;
+  margin-top: 55%;
+  margin-left: 2%;
+  background-color: rgb(214, 214, 214);
+}
+
+.tax-detail-flex-box-PRINT {
+  display: flex;
+  margin-bottom: 2.5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  /* background-color: beige; */
+}
+.tax-detail-flex-box-total-PRINT {
+  display: flex;
+  margin-bottom: 2.5%;
+  padding: 2%;
+  background-color: rgb(148, 55, 255);
+}
+
+.label-tax-PRINT {
+  font-size: 14px;
+  color: gray;
+}
+
+.tax-data-value-PRINT {
+  font-size: 14px;
+  margin-left: auto;
+  color: gray;
+}
+
+.label-tax-total-PRINT {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+.tax-data-value-total-PRINT {
+  font-size: 14px;
+  margin-left: auto;
+  color: white;
+  font-weight: bold;
+}
+
+.company-signature-PRINT {
+  width: 25%;
+  height: 12%;
+  background-color: rgb(215, 215, 215);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}

@@ -4,11 +4,11 @@
   display: block;
   /* background-color: chartreuse; */
 }
-.lowerDivSale-saleInvoice {
+.lowerDivSale-saleInvoice-forReport {
   /* position: absolute; */
   width: 98%;
   margin-left: 1%;
-  height: 68%;
+  height: 78%;
   margin-top: 1%;
   /* top: 29%; */
   overflow: auto;
@@ -33,9 +33,9 @@
   height: 100%;
   /* background-color: blueviolet; */
   /* ye yahan par saleInvoice
-    wale css se alg hai.. aur upar
-    upperDiv define kiya hua
-    ..kam toh ban gya par samajh nahi aya */
+      wale css se alg hai.. aur upar
+      upperDiv define kiya hua
+      ..kam toh ban gya par samajh nahi aya */
   /* background-color: brown; */
 }
 
@@ -217,8 +217,8 @@
 
 #business-entry-saleInvoice {
   /* font-size: 130%;
-  height: 50%;
-  width: 80%; */
+    height: 50%;
+    width: 80%; */
   font-size: 120%;
   /* height: 60%; */
   margin-left: 3%;
@@ -249,9 +249,9 @@
   display: flex;
   /* margin-right: auto; */
   /* margin-right: 10px;
-  width: 20%;
-  height: 100%;
-  margin-top: 0.5%; */
+    width: 20%;
+    height: 100%;
+    margin-top: 0.5%; */
   /* background-color: bisque; */
   /* display: flex; */
   /* margin-right: auto; */
@@ -298,9 +298,9 @@
   display: flex;
   /* margin-right: auto; */
   /* margin-right: 10px;
-  width: 20%;
-  height: 100%;
-  margin-top: 0.5%; */
+    width: 20%;
+    height: 100%;
+    margin-top: 0.5%; */
   /* background-color: bisque; */
   justify-content: center;
   align-items: center;
@@ -320,13 +320,13 @@
 }
 .addBtnSale-saleInvoice {
   /* height: 80%;
-  width: 100%;
-  color: white;
-  font-size: large;
-  font-weight: 700;
-  background-color: red;
-  border: 0;
-  border-radius: 24px; */
+    width: 100%;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    background-color: red;
+    border: 0;
+    border-radius: 24px; */
   color: red;
   font-size: small;
   font-weight: 550;
@@ -372,10 +372,10 @@
 }
 .plusSaleMore-saleInvoice {
   /* color: blue;
-  position: absolute;
-  margin-left: 0.8%;
-  margin-top: 0.6%;
-  margin-right: 10vw; */
+    position: absolute;
+    margin-left: 0.8%;
+    margin-top: 0.6%;
+    margin-right: 10vw; */
   color: rgb(0, 128, 255);
   margin-top: auto;
   margin-bottom: auto;
@@ -390,10 +390,10 @@
 }
 .plusSale-saleInvoice {
   /* color: white;
-  position: absolute;
-  margin-left: 0.8%;
-  margin-top: 0.6%;
-  margin-right: 10vw; */
+    position: absolute;
+    margin-left: 0.8%;
+    margin-top: 0.6%;
+    margin-right: 10vw; */
   /* margin-top: 1%; */
   /* font-weight: 900; */
   color: red;

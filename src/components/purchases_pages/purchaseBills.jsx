@@ -60,29 +60,41 @@ export const PurchaseBills = (props) => {
           <div className="marginDiv-purchaseBills">
             <div className="saleBtnDiv-purchaseBills">
               <BsFillPlusCircleFill className="plusSale-purchaseBills" />
-              <button
+              {/* <button
                 className="addBtnSale-purchaseBills"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-purchaseBills">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-purchaseBills">
               {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusSale-purchase-purchaseBills" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-purchaseBills" />
+              {/* <button
                 className="addBtnPurchase-purchaseBills"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-purchaseBills"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-purchaseBills">
               <BsFillPlusCircleFill className="plusSaleMore-purchaseBills" />
               <button className="addBtnMore-purchaseBills">Add More</button>
             </div>
-            <div className="settingBtnDiv-purchaseBills">
-              <AiFillSetting className="setting-purchaseBills" />
+            <div className="vertical-line-upperPart-purchaseBills"></div>
+
+            <div className="settingBtnDiv-upperPart-purchaseBills">
+              <AiFillSetting className="setting-upperPart-purchaseBills" />
+            </div>
+            <div className="printBtnDiv-upperPart-purchaseBills">
+              <AiFillPrinter className="print-upperPart-purchaseBills" />
             </div>
           </div>
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
@@ -151,31 +163,29 @@ export const PurchaseBills = (props) => {
         </div>
         <div className="middleDiv-part2-purchaseBills">
           <div className="content-middleDiv-part2-purchaseBills">
-            <div id="paid-block">Paid</div>
-            <div id="plus">+</div>
-            <div id="unpaid-block">Unpaid</div>
-            <div id="equal">=</div>
-            <div id="total-block">Total</div>
+            <div className="paid-block">Paid</div>
+            <div className="plus-anotherOne-purchaseBills">+</div>
+            <div className="unpaid-block">Unpaid</div>
+            <div className="equal">=</div>
+            <div className="total-block">Total</div>
           </div>
         </div>
       </div>
       <div className="lowerDivSale-purchaseBills">
         <h3 className="transaction-purchaseBills">TRANSACTIONS</h3>
         <div className="top-part-A-purchaseBills">
-          {/* <h3>TRANSACTIONS</h3> */}
           <input
             type="search"
             name=""
-            id=""
             className="search-input-purchaseBills"
-            placeholder="Search ..."
+            placeholder="Search"
           />
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-purchaseBills"
             onClick={navigateToPurchase}
           >
-            <AiOutlinePlus className="plus-purchaseBills" />
+            <BsFillPlusCircleFill className="plus-purchaseBills" />
             Add Purchase
           </button>
           {/* </Link> */}

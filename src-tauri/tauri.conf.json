@@ -12,11 +12,26 @@
     "version": "0.1.0"
   },
   "tauri": {
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
     "allowlist": {
       "all": true,
       "http": {
         "all": true,
         "request": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -58,7 +73,8 @@
         "height": 720,
         "resizable": true,
         "title": "Autotekk",
-        "width": 1280
+        "width": 1280,
+        "decorations": false
       }
     ]
   }

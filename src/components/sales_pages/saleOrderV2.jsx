@@ -64,34 +64,52 @@ export const SaleOrderV2 = (props) => {
           <div className="marginDiv-saleOrderV2">
             <div className="saleBtnDiv-saleOrderV2">
               <BsFillPlusCircleFill className="plusSale-saleOrderV2" />
-              <button
+              {/* <button
                 className="addBtnSale-saleOrderV2"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-saleOrderV2">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-saleOrderV2">
-              <BsFillPlusCircleFill className="plusSale-purchase-saleOrderV2" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-saleOrderV2" />
+              {/* <button
                 className="addBtnPurchase-saleOrderV2"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-saleOrderV2"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-saleOrderV2">
               <BsFillPlusCircleFill className="plusSaleMore-saleOrderV2" />
               <button className="addBtnMore-saleOrderV2">Add More</button>
             </div>
-            <div className="settingBtnDiv-saleOrderV2">
-              <AiFillSetting className="setting-saleOrderV2" />
+            <div className="vertical-line-upperPart-saleOrderV2"></div>
+
+            <div className="settingBtnDiv-upperPart-saleOrderV2">
+              <AiFillSetting className="setting-upperPart-saleOrderV2" />
+            </div>
+            <div className="printBtnDiv-upperPart-saleOrderV2">
+              <AiFillPrinter className="print-upperPart-saleOrderV2" />
             </div>
           </div>
         </div>
+        <div className="horizontal-line-saleOrderV2"></div>
+        <div className="heading-saleOrderV2">SALE ORDERS</div>
+        <div
+          className="horizontal-line-saleOrderV2"
+          id="blue-line-saleOrderV2"
+        ></div>
       </div>
 
-      <div className="middleDiv-saleOrderV2">
+      {/* <div className="middleDiv-saleOrderV2">
         <div className="middleDiv-part1-saleOrderV2">
           <div className="choose-months-saleOrderV2">
             <select id="months-saleOrderV2">
@@ -144,7 +162,6 @@ export const SaleOrderV2 = (props) => {
                 <option value="paymentOut-saleOrderV2">Payment-Out</option>
                 <option value="creditNote-saleOrderV2">Credit Note</option>
                 <option value="debittNote-saleOrderV2">Debit Note</option>
-                {/* <option value="saleOrder-saleOrderV2">Sale Order</option> */}
                 <option value="purchaseOrder-saleOrderV2">
                   Purchase Order
                 </option>
@@ -166,9 +183,9 @@ export const SaleOrderV2 = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="lowerDivSale-saleOrderV2">
-        {/* <h3 className='transaction-saleOrderV2'>TRANSACTIONS</h3> */}
+        <div className="transaction-text-saleOrderV2">TRANSACTIONS</div>
         <div className="top-part-A-saleOrderV2">
           {/* <h3>TRANSACTIONS</h3> */}
           <input
@@ -176,14 +193,14 @@ export const SaleOrderV2 = (props) => {
             name=""
             id=""
             className="search-input-saleOrderV2"
-            placeholder="Search ..."
+            placeholder="Search"
           />
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-saleOrderV2"
             onClick={navigateToSaleOrder}
           >
-            <AiOutlinePlus className="plus-saleOrderV2" />
+            <BsFillPlusCircleFill className="plus-saleOrderV2" />
             Add Sale Order
           </button>
           {/* </Link> */}
@@ -194,22 +211,5 @@ export const SaleOrderV2 = (props) => {
         />
       </div>
     </div>
-
-    // <div>
-    //     <div className='upperDiv'>
-
-    //     </div>
-    //     <div className='lowerDivSale'>
-    //     <h3>TRANSACTIONS</h3>
-    //         <div className='top-part-A'>
-
-    //             <input type="search" name="" id="" className='search-input-sales' placeholder='Search ...'/>
-    //             <Link to="/purchase">
-    //               <button className='addBtnPurchase-purchase'><AiOutlinePlus className="plus" />Add Purchase</button>
-    //             </Link>
-    //         </div>
-    //     <PurchaseBillsTable/>
-    //     </div>
-    // </div>
   );
 };

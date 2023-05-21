@@ -4,9 +4,23 @@
 )]
 
 use reqwest;
+use tauri::{CustomMenuItem, Menu, MenuItem, Submenu};
+
+
+
 
 fn main() {
+  //...................................
+  let quit = CustomMenuItem::new("quit".to_string(), "Quit");
+  let close = CustomMenuItem::new("close".to_string(), "Close");
+  let submenu = Submenu::new("File", Menu::new().add_item(quit).add_item(close));
+  let menu = Menu::new()
+    .add_native_item(MenuItem::Copy)
+    .add_item(CustomMenuItem::new("hide", "Hide"))
+    .add_submenu(submenu);
+  //...................................
   tauri::Builder::default()
+  .menu(menu)
     .invoke_handler(tauri::generate_handler![get_companies_name,component_did_mount,purchase_balance,purchase_amount,total_sales_amount,get_stock_value,get_stock_qty,get_receive_list,get_pay_list,get_purchase_item_list,get_purchase_graph_data,get_purchase_graph_date,get_sale_graph_data,get_sale_graph_date,get_parties_details,get_party_names,get_party_transactions,change_business_name,add_party_details,get_item_details,add_item_details,get_company_name,get_parties_name,new_sale_data,new_purchase_data,get_sales_transaction,get_low_stock_data,get_item_transactions,add_paymentin_details,get_paymentIn_data, new_sale_order_data, get_sale_order_data])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

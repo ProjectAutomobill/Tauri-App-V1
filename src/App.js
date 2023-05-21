@@ -38,7 +38,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ test, setTest }}>
-      <div className="App">
+      <div className="App-App">
         <Routes>
           <Route
             path="/"

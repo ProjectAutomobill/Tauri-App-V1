@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
-import "./saleInvoice.css";
+import "./saleInvoiceReport.css";
 import { AiOutlinePlus } from "react-icons/ai";
-import { SaleInvoiceTable } from "./tables/salesInvoiceTable";
+// import { SaleInvoiceTable } from "./tables/salesInvoiceTable";
+import { SaleInvoiceTable } from "../tables/salesInvoiceTable";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { AiFillSetting } from "react-icons/ai";
@@ -10,7 +11,7 @@ import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
 import { invoke } from "@tauri-apps/api";
 
-export const SaleInvoice = (props) => {
+export const SaleInvoiceReport = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
 
@@ -31,75 +32,6 @@ export const SaleInvoice = (props) => {
   }
   return (
     <div className="main-saleInvoice">
-      <div className="upperDiv-saleInvoice">
-        <div className="upperDivPart1-saleInvoice">
-          <div className="input-business-saleInvoice">
-            {/* <input
-              type="text"
-              placeholder="•Enter Business Name"
-              id="business-entry-saleInvoice"
-            ></input> */}
-            <input
-              type="text"
-              placeholder="• Enter Business Name"
-              id="business-entry-saleInvoice"
-              onChange={(e) => setNewBName(e.target.value)}
-            ></input>
-            <button
-              id="business-name-save-btn-saleInvoice"
-              onClick={update_b_name_saleInvoice}
-            >
-              Save
-            </button>
-          </div>
-
-          {/* <div className='middle-portion'>
-                PRODUCTS
-            </div> */}
-
-          <div className="marginDiv-saleInvoice">
-            <div className="saleBtnDiv-saleInvoice">
-              <BsFillPlusCircleFill className="plusSale-saleInvoice" />
-              {/* <button className="addBtnSale-saleInvoice" onClick={goToSale}>
-                Add Sale
-              </button> */}
-              <div className="addBtnSale-saleInvoice">Add Sale</div>
-            </div>
-            <div className="purchaseBtnDiv-saleInvoice">
-              {/* <AiOutlinePlus className="plusSale" /> */}
-              <BsFillPlusCircleFill className="plusPurchase-saleInvoice" />
-              {/* <button
-                className="addBtnPurchase-saleInvoice"
-                onClick={navigateToPurchase}
-              >
-                Add Purchase
-              </button> */}
-              <div
-                className="addBtnPurchase-saleInvoice"
-                // onClick={navigateToPurchase}
-              >
-                Add Purchase
-              </div>
-            </div>
-            <div className="moreBtnDiv-saleInvoice">
-              <BsFillPlusCircleFill className="plusSaleMore-saleInvoice" />
-              <button className="addBtnMore-saleInvoice">Add More</button>
-            </div>
-            <div className="vertical-line-upperPart-saleInvoice"></div>
-
-            <div className="settingBtnDiv-upperPart-saleInvoice">
-              <AiFillSetting className="setting-upperPart-saleInvoice" />
-            </div>
-            <div className="printBtnDiv-upperPart-saleInvoice">
-              <AiFillPrinter className="print-upperPart-saleInvoice" />
-            </div>
-          </div>
-          {/* <div className='horizontal-line'>fgyrfhj</div> */}
-
-          {/* <div className='horizontal-line-saleInvoice'></div>
-        <h3 className='heading-saleInvoice'>SALE INVOICES</h3> */}
-        </div>
-      </div>
       <div className="middleDiv-saleInvoice">
         <div className="middleDiv-part1-saleInvoice">
           <div className="choose-months-saleInvoice">
@@ -148,7 +80,7 @@ export const SaleInvoice = (props) => {
           </div>
         </div>
       </div>
-      <div className="lowerDivSale-saleInvoice">
+      <div className="lowerDivSale-saleInvoice-forReport">
         <div className="transaction-saleInvoice">TRANSACTIONS</div>
         <div className="top-part-A-saleInvoice">
           <input

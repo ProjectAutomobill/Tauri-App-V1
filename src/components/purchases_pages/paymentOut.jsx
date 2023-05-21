@@ -51,28 +51,41 @@ export const PaymentOut = (props) => {
           <div className="marginDiv-paymentOut">
             <div className="saleBtnDiv-paymentOut">
               <BsFillPlusCircleFill className="plusSale-paymentOut" />
-              <button
+              {/* <button
                 className="addBtnSale-paymentOut"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-paymentOut">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-paymentOut">
-              <BsFillPlusCircleFill className="plusSale-purchase-paymentOut" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-paymentOut" />
+              {/* <button
                 className="addBtnPurchase-paymentOut"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-paymentOut"
+                // onClick={navigateToPurchase}
+              >
+                {" "}
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-paymentOut">
               <BsFillPlusCircleFill className="plusSaleMore-paymentOut" />
               <button className="addBtnMore-paymentOut">Add More</button>
             </div>
-            <div className="settingBtnDiv-paymentOut">
-              <AiFillSetting className="setting-paymentOut" />
+            <div className="vertical-line-upperPart-paymentOut"></div>
+
+            <div className="settingBtnDiv-upperPart-paymentOut">
+              <AiFillSetting className="setting-upperPart-paymentOut" />
+            </div>
+            <div className="printBtnDiv-upperPart-paymentOut">
+              <AiFillPrinter className="print-upperPart-paymentOut" />
             </div>
           </div>
         </div>
@@ -82,10 +95,10 @@ export const PaymentOut = (props) => {
         <div className="middleDiv-part1-paymentOut">
           <div className="choose-months-paymentOut">
             <select id="months-paymentOut">
+              <option value="thisMonth-paymentOut">This Month</option>
               <option value="allpaymentOut-paymentOut">
                 All Sale Invoices
               </option>
-              <option value="thisMonth-paymentOut">This Month</option>
               <option value="lastMonth-paymentOut">Last Month</option>
               <option value="thisQuater-paymentOut">This Quater</option>
               <option value="thisYear-paymentOut">This Year</option>
@@ -104,7 +117,7 @@ export const PaymentOut = (props) => {
 
             </div> */}
           <div className="choose-dates-paymentOut">
-            <div className="from-paymentOut">
+            {/* <div className="from-paymentOut">
               Between :
               <input
                 type="date"
@@ -119,9 +132,17 @@ export const PaymentOut = (props) => {
                 id="to-inputType-paymentOut"
                 name="to-paymentOut"
               />
+            </div> */}
+            <div className="between-label">
+              <label for="from-paymentOut">Between </label>
             </div>
-          </div>
+            <input type="date" id="from-paymentOut" name="from-paymentOut" />
 
+            <label for="to-paymentOut" id="to-label">
+              To
+            </label>
+            <input type="date" id="to-paymentOut" name="to-paymentOut" />
+          </div>
           <div className="options-middlepart1-paymentOut">
             <HiDocumentReport className="report-middlepart1-paymentOut" />
             <AiFillPrinter className="print-middlepart1-paymentOut" />
@@ -129,8 +150,8 @@ export const PaymentOut = (props) => {
         </div>
         <div className="middleDiv-part2-paymentOut">
           <div className="content-middleDiv-part2-paymentOut">
-            <div className="choose-sale_return-paymentOut">
-              <select id="sale_return-paymentOut">
+            <div className="choose-payment_out-paymentOut">
+              <select id="payment_out-paymentOut">
                 <option value="paymentOut-paymentOut">Payment-Out</option>
                 <option value="allTransactions-paymentOut">
                   All Transactions
@@ -169,17 +190,17 @@ export const PaymentOut = (props) => {
             name=""
             id=""
             className="search-input-paymentOut"
-            placeholder="Search ..."
+            placeholder="Search"
           />
-          <Link to="/purchase">
-            <button
-              className="addBtnSale-sale2-paymentOut"
-              onClick={<Navigate to="/purchase" />}
-            >
-              <AiOutlinePlus className="plus-paymentOut" />
-              Add Payment-Out
-            </button>
-          </Link>
+          {/* <Link to="/purchase"> */}
+          <button
+            className="addBtnSale-sale2-paymentOut"
+            onClick={<Navigate to="/purchase" />}
+          >
+            <BsFillPlusCircleFill className="plus-paymentOut" />
+            Add Payment-Out
+          </button>
+          {/* </Link> */}
         </div>
         <PaymentOutTable />
       </div>

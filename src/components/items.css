@@ -1,7 +1,8 @@
 .parties-items-items {
-  position: absolute;
+  /* position: absolute; */
   height: 100%;
   width: 100%;
+  display: block;
   /* display: flex; */
   /* background-color: aqua; */
 }
@@ -64,26 +65,29 @@
 }
 .lowerBody-items {
   display: flex;
-  /* margin-top: 10%; */
+  width: 100%;
+  height: 83%;
+  margin-top: 1%;
+  /* background-color: #00a2ed; */
 }
 
 .leftDiv-items {
-  position: absolute;
-  top: 16%;
+  /* position: absolute; */
+  /* top: 16%; */
   width: 25%;
   /* commented 83 */
-  height: 82%;
+  height: 98%;
   overflow: auto;
   /* margin-top: 10%; */
   background-color: white;
 }
 
 .rightDiv-items {
-  position: absolute;
-  top: 16%;
-  margin-left: 25%;
-  width: 75%;
-  height: 83%;
+  /* position: absolute; */
+  /* top: 16%; */
+  /* margin-left: 2%; */
+  width: 73%;
+  height: 100%;
   /* margin-top: 10%; */
   /* background-color: purple; */
 }
@@ -110,19 +114,23 @@
   /* margin-top:7%; */
 }
 .innerRightDiv-items {
-  display: flex;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* background-color: black; */
 }
 
 .upperDivRight-items {
-  position: absolute;
-  margin: 2%;
-  width: 96%;
+  /* position: absolute; */
+  margin: 1%;
+  width: 100%;
   height: 19%;
   margin-top: 0;
   margin-bottom: 0;
   background-color: white;
   box-shadow: 0 4px 2px 0 rgba(134, 134, 134, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: aqua; */
 }
 
 .upperDivRight1-items {
@@ -264,10 +272,10 @@
   margin-top: 0;
   overflow: auto;
   background-color: white; */
-  position: absolute;
-  top: 20%;
-  margin: 2%;
-  width: 96%;
+  /* position: absolute; */
+  /* top: 20%; */
+  margin-left: 1%;
+  width: 100%;
   height: 79%;
   margin-top: 0;
   overflow: auto;
