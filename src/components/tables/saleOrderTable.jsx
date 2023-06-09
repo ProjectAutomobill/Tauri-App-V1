@@ -28,15 +28,21 @@ export const SaleOrderTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>PARTY</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>NO.</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>DUE DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>TOTAL AMOUNT</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>BALANCE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>STATUS</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>ACTION</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>PARTY</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NO.</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+              DUE DATE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+              TOTAL AMOUNT
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+              BALANCE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>STATUS</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>ACTION</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

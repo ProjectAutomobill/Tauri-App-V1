@@ -13,6 +13,8 @@ import "./report.css";
 import { Dashboard } from "@mui/icons-material";
 import { SideBarReport } from "./reportComponents/siderBar_report";
 import { SaleInvoiceReport } from "./report_pages/saleInvoiceReport";
+import { PurchaseBillsReport } from "./report_pages/purchaseBillReport";
+import { Daybook } from "./report_pages/daybook";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -108,6 +110,20 @@ export const Report = (props) => {
             if (sideBarFlg === "SaleInvoice") {
               return (
                 <SaleInvoiceReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "PurchaseBills") {
+              return (
+                <PurchaseBillsReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "DayBook") {
+              return (
+                <Daybook
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

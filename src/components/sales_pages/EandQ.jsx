@@ -7,7 +7,7 @@ import { BsFillPlusCircleFill, BsSearch } from "react-icons/bs";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { TbReport } from "react-icons/tb";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import "./EandQ.css";
 import { invoke } from "@tauri-apps/api";
 
@@ -19,6 +19,9 @@ export const EandQ = (props) => {
   }
   function navigateToPurchase() {
     navigate("/purchase");
+  }
+  function navigateToEQ() {
+    navigate("/addE&Q");
   }
   function update_b_name_saleEandQ() {
     invoke("change_business_name", {
@@ -107,7 +110,7 @@ export const EandQ = (props) => {
           </p>
           <button
             className="add-your-first-estimate-saleEandQ"
-            onClick={navigate_to_add_EandQ}
+            onClick={navigateToEQ}
           >
             Add Your First Estimate
           </button>

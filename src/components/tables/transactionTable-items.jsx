@@ -48,21 +48,38 @@ export const TransactionTableItems = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}></TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell
+              sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+            ></TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TYPE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              NAME
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              DATE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               OUANTITY
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>PRICE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>STATUS</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              PRICE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              STATUS
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {dataT?.map((row, index) => (
             <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
-              <TableCell sx={{ fontSize: 12 }}>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
                 <BsFillCircleFill
                   className={
                     row.Transaction_Type == "Sale"
@@ -71,14 +88,54 @@ export const TransactionTableItems = (props) => {
                   }
                 />
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
                 {row.Transaction_Type}
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
-              <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PartyName}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Date}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Number}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Total}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                  color: "black",
+                  fontWeight: 100,
+                }}
+              >
                 Paid
               </TableCell>
             </TableRow>

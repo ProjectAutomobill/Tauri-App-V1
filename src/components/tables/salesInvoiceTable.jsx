@@ -12,7 +12,7 @@ import "./salesInvoiceTable.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
-
+import LoadingSpinner from "../../loading";
 export const SaleInvoiceTable = (props) => {
   const [dataSales, setSalesData] = useState();
   async function getSaleTransactions() {
@@ -34,48 +34,50 @@ export const SaleInvoiceTable = (props) => {
   }, []);
   return (
     <div className="saleInvoiceTable-table">
+      {dataSales == null && <LoadingSpinner className="loading_spinner" />}
+
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 DATE
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 INVOICE NO.
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 PARTY NAME
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 TRANSACTION TYPE
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 PAYMENT TYPE
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 AMOUNT
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 600 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="table-header-saleInvoice"
               >
                 BALANCE DUE

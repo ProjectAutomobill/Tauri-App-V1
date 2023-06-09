@@ -17,7 +17,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { PartiesModal } from "./modals/partiesModal";
 import { invoke } from "@tauri-apps/api";
-
+import LoadingSpinner from "../loading";
 export const Parties = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [partyTransaction, setPartyTransaction] = useState();

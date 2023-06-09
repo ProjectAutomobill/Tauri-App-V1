@@ -4,7 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { ChequesTable } from "../tables/chequesTable";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 import { invoke } from "@tauri-apps/api";
 
 export const Cheques = (props) => {
@@ -52,42 +52,55 @@ export const Cheques = (props) => {
           <div className="marginDiv-cheques">
             <div className="saleBtnDiv-cheques">
               <BsFillPlusCircleFill className="plusSale-cheques" />
-              <button className="addBtnSale-cheques" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-cheques" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-loanAccounts">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-cheques">
-              <BsFillPlusCircleFill className="plusSale-purchase-cheques" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-cheques" />
+              {/* <button
                 className="addBtnPurchase-cheques"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-loanAccounts"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-cheques">
               <BsFillPlusCircleFill className="plusSaleMore-cheques" />
               <button className="addBtnMore-cheques">Add More</button>
             </div>
-            <div className="settingBtnDiv-cheques">
-              <AiFillSetting className="setting-cheques" />
+            <div className="vertical-line-upperPart-cheques"></div>
+
+            <div className="settingBtnDiv-upperPart-loanAccounts">
+              <AiFillSetting className="setting-upperPart-loanAccounts" />
+            </div>
+            <div className="printBtnDiv-upperPart-loanAccounts">
+              <AiFillPrinter className="print-upperPart-loanAccounts" />
             </div>
           </div>
         </div>
       </div>
 
       <div className="middleDiv-cheques">
-        <h4 className="text-cheques">CHEQUE DETAILS</h4>
+        <h6 className="text-cheques">CHEQUE DETAILS</h6>
       </div>
       <div className="lowerDivSale-cheques">
         <div className="top-part-A-cheques">
-          <p className="top-part-text-cheques">TRANSACTIONS</p>
+          <div className="transaction-cashInHand">TRANSACTIONS</div>
+
           <input
             type="search"
             name=""
             id=""
             className="search-input-cheques"
-            placeholder="Search ..."
+            placeholder="Search"
           />
         </div>
         <ChequesTable />

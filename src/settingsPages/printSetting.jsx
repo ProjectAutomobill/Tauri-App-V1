@@ -1,12 +1,197 @@
-import React from "react";
+import React, { useState } from "react";
 import "./printSetting.css";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { ImCross } from "react-icons/im";
 import { TableA } from "./tables/tableA";
 export const PrintSetting = () => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTabUpper, setSelectedTabUpper] = useState(0);
   return (
     <div className="mainBody-Print">
-      <div className="upper-part-Print"></div>
+      <div className="upper-part-Print">
+        <div
+          onClick={() => setSelectedTabUpper(0)}
+          className={
+            selectedTabUpper == 0
+              ? "options-upper-div-Print-Selected"
+              : "options-upper-div-Print"
+          }
+        >
+          REGULAR PRINTER
+        </div>
+        <div
+          onClick={() => setSelectedTabUpper(1)}
+          className={
+            selectedTabUpper == 1
+              ? "options-upper-div-Print-Selected"
+              : "options-upper-div-Print"
+          }
+        >
+          THERMAL PRINTER
+        </div>
+        <ImCross className="cross-Print"></ImCross>
+      </div>
       <div className="lower-part-Print">
-        <div className="left-part-Print"></div>
+        <div className="left-part-Print">
+          <div className="template-color-options-PRINT">
+            <div className="tab-layout-options">
+              <div
+                className="change-layout-color-btn-PRINT"
+                onClick={() => setSelectedTab(0)}
+              >
+                <div
+                  className={
+                    selectedTab == 0
+                      ? "inner-text-change-layout-color-btn-PRINT"
+                      : "inner-text-change-layout-color-btn-PRINT-WT"
+                  }
+                >
+                  CHANGE LAYOUT
+                </div>
+                {selectedTab == 0 && (
+                  <div className="horizontal-red-line-PRINT"></div>
+                )}
+              </div>
+              <div
+                className="change-layout-color-btn-PRINT"
+                onClick={() => setSelectedTab(1)}
+              >
+                <div
+                  className={
+                    selectedTab == 1
+                      ? "inner-text-change-layout-color-btn-PRINT"
+                      : "inner-text-change-layout-color-btn-PRINT-WT"
+                  }
+                >
+                  CHANGE COLOR
+                </div>
+                {selectedTab == 1 && (
+                  <div className="horizontal-red-line-PRINT"></div>
+                )}
+              </div>
+            </div>
+            <div className="data-options-PRINT">
+              <div className="color-box-PRINT">
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+              </div>
+              <div className="color-box-PRINT">
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+                <div className="color-data-box-PRINT"></div>
+              </div>
+            </div>
+          </div>
+          <div className="heading-print-setting">
+            <div className="heading-text-div-setting">
+              Print Company Info / Header
+            </div>
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <div className="checkbox-data-text">
+              Make Regular Printer Default
+            </div>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <div className="checkbox-data-text">
+              Print repeat headers in all pages
+            </div>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <input
+              type="text"
+              className="input-text-PRINT"
+              placeholder="Company"
+            />
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <div className="checkbox-data-text">Company Logo</div>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <input
+              type="text"
+              className="input-text-width100-PRINT"
+              placeholder="Address"
+            />
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <input
+              type="text"
+              className="input-text-width100-PRINT"
+              placeholder="Email"
+            />
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <input
+              type="text"
+              className="input-text-width100-PRINT"
+              placeholder="Phone Number"
+            />
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <input type="checkbox" name="" className="checkbox-input" />
+            <input
+              type="text"
+              className="input-text-width100-PRINT"
+              placeholder="GSTIN on Sale"
+            />
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <div className="checkbox-data-text">Paper Size</div>
+            <select className="dropdown-left-PRINT">
+              <option value="">A4</option>
+            </select>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <div className="checkbox-data-text">Company Name Text Size</div>
+            <select className="dropdown-left-PRINT">
+              <option value="">Large</option>
+            </select>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+          <div className="checkbox-data">
+            <div className="checkbox-data-text">Invoice Text Size</div>
+            <select className="dropdown-left-PRINT">
+              <option value="">Large</option>
+            </select>
+            <AiFillInfoCircle className="information-icon-general" />
+          </div>
+        </div>
         <div className="right-part-Print">
           <div className="company-logo-img">
             <div className="company-img"></div>

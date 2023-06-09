@@ -28,6 +28,7 @@ export const Items = (props) => {
   const [itemGSTIN, setItemGSTIN] = useState();
   const [stateChange, setStateChange] = useState(true);
   const [b_name, setNewBName] = useState();
+  const [itemPage, setItemPage] = useState(0);
   const navigate = useNavigate();
 
   function navigateToSale() {
@@ -130,101 +131,140 @@ export const Items = (props) => {
           {/* <div className='horizontal-line'>fgyrfhj</div> */}
         </div>
         <div className="horizontal-line-items"></div>
-        <div className="heading-items">PRODUCTS</div>
-        <div className="horizontal-line-items" id="blue-line-items"></div>
-      </div>
-
-      <div className="lowerBody-items">
-        <div className="leftDiv-items">
-          <div className="leftDivbtnSearch-items">
-            <div className="searchIcon-class-items">
-              <BsSearch className="searchIcon-items" />
-            </div>
-            <button
-              className="partyBtn-items"
-              onClick={() => setModalShowItem(true)}
-            >
-              <AiOutlinePlus className="plus-items" />
-              Add Item
-            </button>
+        <div className="heading-items">
+          <div
+            className={itemPage == 0 ? "item-page-1-selected" : "item-page-1"}
+            onClick={() => setItemPage(0)}
+          >
+            PRODUCTS
           </div>
-          <ItemsTable
-            userNumber={props.userNumber}
-            userCompany={props.userCompany}
-            setTrans={setItemTransaction}
-            itemName={itemTransaction}
-            setStateChange={setStateChange}
-            stateChange={stateChange}
-            getItemDetails={getItemDetails}
-          />
-        </div>
-
-        <div className="rightDiv-items">
-          <div className="innerRightDiv-items">
-            <div className="upperDivRight-items">
-              <div className="upperDivRight1-items">
-                <div className="upperDivRight1-name-items">
-                  <b>P_NAME</b>
-                </div>
-                <div className="upperDivRight1-button-items">
-                  <button className="button-items">Adjust Item</button>
-                </div>
-              </div>
-              <div className="upperDivRight2-items">
-                <div className="upperDivRight2-part1-items">
-                  <div className="upperDivRight2-part1-purchasePrice-items">
-                    {" "}
-                    <div className="label-upper-partyDetails-items">
-                      PURCHASE PRICE :{" "}
-                    </div>
-                  </div>
-                  <div className="upperDivRight2-part1-salePrice-items">
-                    {" "}
-                    <div className="label-upper-partyDetails-items">
-                      SALE PRICE :{" "}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="upperDivRight2-part2-items">
-                  <div className="upperDivRight2-part1-stockQuantity-items">
-                    <div className="label-upper-partyDetails-items">
-                      STOCK QUANTITY :{" "}
-                    </div>
-                  </div>
-                  <div className="upperDivRight2-part1-stockValue-items">
-                    {" "}
-                    <div className="label-upper-partyDetails-items">
-                      STOCK VALUE :{" "}
-                    </div>
-                  </div>
-                </div>
-              </div>{" "}
-            </div>
-
-            <div className="lowerDivRight-items">
-              <div className="transaction-search-items">
-                <h6 className="transaction-lowerDiv-items">TRANSACTIONS</h6>
-                <input
-                  type="search"
-                  name="search"
-                  id=""
-                  className="search-input-items"
-                  placeholder="Search"
-                />
-              </div>
-              <div className="Ttable-items">
-                <TransactionTableItems
-                  userNumber={props.userNumber}
-                  userCompany={props.userCompany}
-                  itemName={itemTransaction}
-                  // userCompany={cName}
-                />
-              </div>
-            </div>
+          <div
+            className={itemPage == 1 ? "item-page-1-selected" : "item-page-1"}
+            onClick={() => setItemPage(1)}
+          >
+            SERVICES
+          </div>
+          <div
+            className={itemPage == 2 ? "item-page-1-selected" : "item-page-1"}
+            onClick={() => setItemPage(2)}
+          >
+            CATEGORY
+          </div>
+          <div
+            className={itemPage == 3 ? "item-page-1-selected" : "item-page-1"}
+            onClick={() => setItemPage(3)}
+          >
+            UNITS
           </div>
         </div>
+        {itemPage == 0 && (
+          <div className="horizontal-line-items" id="blue-line-items"></div>
+        )}
+        {itemPage == 1 && (
+          <div className="horizontal-line-items" id="blue-line-items-25"></div>
+        )}
+        {itemPage == 2 && (
+          <div className="horizontal-line-items" id="blue-line-items-50"></div>
+        )}
+        {itemPage == 3 && (
+          <div className="horizontal-line-items" id="blue-line-items-75"></div>
+        )}
+        {/* <div className="horizontal-line-items" id="blue-line-items"></div> */}
       </div>
+
+      {itemPage == 0 && (
+        <div className="lowerBody-items">
+          <div className="leftDiv-items">
+            <div className="leftDivbtnSearch-items">
+              <div className="searchIcon-class-items">
+                <BsSearch className="searchIcon-items" />
+              </div>
+              <button
+                className="partyBtn-items"
+                onClick={() => setModalShowItem(true)}
+              >
+                <AiOutlinePlus className="plus-items" />
+                Add Item
+              </button>
+            </div>
+            <ItemsTable
+              userNumber={props.userNumber}
+              userCompany={props.userCompany}
+              setTrans={setItemTransaction}
+              itemName={itemTransaction}
+              setStateChange={setStateChange}
+              stateChange={stateChange}
+              getItemDetails={getItemDetails}
+            />
+          </div>
+
+          <div className="rightDiv-items">
+            <div className="innerRightDiv-items">
+              <div className="upperDivRight-items">
+                <div className="upperDivRight1-items">
+                  <div className="upperDivRight1-name-items">
+                    <b>P_NAME</b>
+                  </div>
+                  <div className="upperDivRight1-button-items">
+                    <button className="button-items">Adjust Item</button>
+                  </div>
+                </div>
+                <div className="upperDivRight2-items">
+                  <div className="upperDivRight2-part1-items">
+                    <div className="upperDivRight2-part1-purchasePrice-items">
+                      {" "}
+                      <div className="label-upper-partyDetails-items">
+                        PURCHASE PRICE :{" "}
+                      </div>
+                    </div>
+                    <div className="upperDivRight2-part1-salePrice-items">
+                      {" "}
+                      <div className="label-upper-partyDetails-items">
+                        SALE PRICE :{" "}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="upperDivRight2-part2-items">
+                    <div className="upperDivRight2-part1-stockQuantity-items">
+                      <div className="label-upper-partyDetails-items">
+                        STOCK QUANTITY :{" "}
+                      </div>
+                    </div>
+                    <div className="upperDivRight2-part1-stockValue-items">
+                      {" "}
+                      <div className="label-upper-partyDetails-items">
+                        STOCK VALUE :{" "}
+                      </div>
+                    </div>
+                  </div>
+                </div>{" "}
+              </div>
+
+              <div className="lowerDivRight-items">
+                <div className="transaction-search-items">
+                  <h6 className="transaction-lowerDiv-items">TRANSACTIONS</h6>
+                  <input
+                    type="search"
+                    name="search"
+                    id=""
+                    className="search-input-items"
+                    placeholder="Search"
+                  />
+                </div>
+                <div className="Ttable-items">
+                  <TransactionTableItems
+                    userNumber={props.userNumber}
+                    userCompany={props.userCompany}
+                    itemName={itemTransaction}
+                    // userCompany={cName}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <ItemsModal
         show={modalShowItem}
         onHide={() => setModalShowItem(false)}

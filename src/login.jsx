@@ -110,32 +110,58 @@ export const Login = (props) => {
   }
 
   return (
-    <div>
-      <div className="background-login"></div>
+    <div className="background-login">
+      <div className="left-upper-login">
+        <div className="left-side-login">
+          <input type="radio" name="position" checked />
+          <input type="radio" name="position" />
+          <input type="radio" name="position" />
+          <input type="radio" name="position" />
+          <input type="radio" name="position" />
+          <main id="carousel">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </main>
+        </div>
+      </div>
       <div className="container-login">
         {/* <img
           src="D://Autotekk/Tauri-App-V1/src/autotekk_logo.jpeg"
           id="logo"
         ></img> */}
-        <div className="logoV-login"></div>
-        <h5 className="h5-login">Autotekk</h5>
+        <div className="company-logo-name">
+          <div className="logoV-login"></div>
+          <h5 className="h5-login">AUTOTEKK</h5>
+        </div>
 
         {/* <p>We will send you a One Time Password (OTP)</p> */}
         <form className="form-login">
-          <input
-            type="tel"
-            placeholder="Enter mobile number"
-            id="mobile-login"
-            className="input-setting-login"
-            onChange={(e) => setNumber(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={byPass}
-            className="button-setting-login"
-          >
-            Send OTP
-          </button>
+          <div className="input-btn-login">
+            <div className="heading-one-login">
+              <b>Let's Login now !</b>
+            </div>
+
+            <input
+              type="tel"
+              placeholder="Enter mobile number"
+              id="mobile-login"
+              className="input-setting-login"
+              onChange={(e) => setNumber(e.target.value)}
+            />
+            <div className="heading-second-login">
+              <div>Have a Refferal/Partner Code ?</div>
+            </div>
+            <button
+              type="button"
+              onClick={byPass}
+              className="button-setting-login"
+            >
+              Send OTP
+            </button>
+          </div>
         </form>
         <div className="otp-container-login" id="otp-container-id-login">
           <p>Enter OTP:</p>

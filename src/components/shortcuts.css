@@ -1,0 +1,520 @@
+.shortcuts-items-shortcuts {
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-color: rgb(240, 245, 255);
+}
+
+.upperDiv-shortcuts {
+  /* position: absolute; */
+  width: 100%;
+  height: 15%;
+  display: block;
+  /* margin-bottom: 10%; */
+  background-color: whitesmoke;
+  /* background-color: #00a2ed; */
+}
+.upperDivPart1-shortcuts {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 60%;
+}
+.lowerBody-shortcuts {
+  display: flex;
+  /* margin-top: 10%; */
+  width: 100%;
+  height: 82%;
+  margin-top: 1%;
+  overflow: auto;
+  /* background-color: aqua; */
+}
+
+.heading-shortcuts {
+  font-size: 11;
+  font-weight: 550;
+  color: cornflowerblue;
+  /* margin-top: 2px; */
+  /* background-color: rgb(209, 26, 26); */
+  padding: 9px;
+  padding-bottom: 14px;
+}
+.horizontal-line-shortcuts {
+  width: 100%;
+  height: 1%;
+  background-color: rgb(173, 171, 171);
+  box-shadow: 0 4px 2px 0 rgba(134, 134, 134, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  /* margin-top:7%; */
+}
+#blue-line-shortcuts {
+  background-color: cornflowerblue;
+  height: 2px;
+}
+
+.upperDivRight-shortcuts {
+  /* position: absolute; */
+  margin: 2%;
+  width: 96%;
+  height: 19%;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 2px 0 rgba(134, 134, 134, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: blueviolet; */
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  background: rgb(66, 66, 94);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.plus-shortcuts {
+  font-weight: 800;
+}
+.input-business-shortcuts {
+  /* margin-left: 2%; */
+  padding: 01%;
+  /* background-color: yellow; */
+  width: 30%;
+  height: 60%;
+}
+
+#business-entry-shortcuts {
+  font-size: 120%;
+  /* height: 60%; */
+  width: 80%;
+  outline: none;
+  border: 0px;
+}
+#business-name-save-btn-shortcuts {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-shortcuts:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-shortcuts:focus + #business-name-save-btn-shortcuts {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
+.saleBtnDiv-shortcuts {
+  /* display: flex;
+    margin-right: auto;
+    margin-right: 10px;
+    width: 20%;
+    height: 100%; */
+  display: flex;
+  /* margin-right: auto; */
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 15%;
+  height: 60%;
+  background-color: rgba(255, 229, 233, 255);
+  border-radius: 24px;
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: bisque; */
+}
+.saleBtnDiv-shortcuts:hover {
+  /* background-color: rgb(242, 110, 110); */
+  width: 16%;
+  height: 61%;
+}
+.purchaseBtnDiv-shortcuts {
+  /* display: flex;
+    margin-right: 10px;
+    width: 24%;
+    height: 100%; */
+  display: flex;
+  /* margin-right: auto; */
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 18%;
+  height: 60%;
+  background-color: rgba(210, 233, 255, 255);
+  border-radius: 24px;
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: bisque; */
+}
+.purchaseBtnDiv-shortcuts:hover {
+  /* background-color: rgb(124, 124, 248); */
+
+  width: 20%;
+  height: 61%;
+}
+
+.moreBtnDiv-shortcuts {
+  /* display: flex; */
+  /* margin-right: auto; */
+  /* margin-right: 10px;
+    width: 20%;
+    height: 100%; */
+  display: flex;
+  /* margin-right: auto; */
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+  width: 16%;
+  height: 60%;
+  background-color: white;
+  border-radius: 24px;
+  border: 1px solid rgb(0, 128, 255);
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: bisque; */
+}
+.moreBtnDiv-shortcuts:hover {
+  width: 18%;
+  height: 61%;
+}
+.addBtnSale-shortcuts {
+  /* height: 80%;
+    width: 100%;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    background-color: red;
+    border: 0;
+    border-radius: 24px; */
+  color: red;
+  font-size: small;
+  font-weight: 550;
+  font-family: "Cosmic", sans-serif;
+  /* position: absolute; */
+  /* background-color: red; */
+  /* border: 0; */
+  /* border-radius: 24px; */
+  /* margin: auto; */
+  margin-top: auto;
+  /* transform: translate(-50%, -50%); */
+  margin-bottom: auto;
+}
+.addBtnPurchase-shortcuts {
+  color: rgb(41, 155, 236);
+  font-size: small;
+  font-weight: 700;
+  background-color: rgba(210, 233, 255, 255);
+  border: 0;
+  border-radius: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* height: 80%;
+    width: 100%;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    background-color: blue;
+    border: 0;
+    border-radius: 24px; */
+}
+.addBtnMore-shortcuts {
+  /* height: 80%;
+    width: 100%;
+    color: blue;
+    font-weight: 700;
+    
+    font-size: large;
+    background-color: white;
+    border: 1;
+    border-radius: 24px;
+    border-color: blue; */
+  color: rgb(0, 128, 255);
+  font-size: small;
+  font-weight: 700;
+  background-color: white;
+  border: 0;
+  border-radius: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* .addBtnMore-shortcuts:hover {
+    background-color: rgb(223, 223, 247);
+  } */
+.vertical-line-upperPart-shortcuts {
+  /* width: 1%; */
+  height: 40%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* color: black; */
+  border: 0.5px solid rgb(205, 198, 198);
+}
+.plusSaleMore-shortcuts {
+  color: rgb(0, 128, 255);
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+  /* color: blue;
+    position: absolute;
+    margin-left: 0.8%;
+    margin-top: 0.6%;
+    margin-right: 10vw; */
+}
+.plusSale-purchase-shortcuts {
+  color: white;
+  position: absolute;
+  margin-left: 0.6%;
+  margin-top: 0.6%;
+  margin-right: 10%;
+  /* color: white;
+    position: absolute;
+    margin-left: 0.6%;
+    margin-top: 0.6%;
+    margin-right: 10vw; */
+}
+.plusSale-shortcuts {
+  color: red;
+  /* position: absolute; */
+  /* background-color: #00a2ed; */
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+  /* color: white;
+    position: absolute;
+    margin-left: 0.8%;
+    margin-top: 0.6%;
+    margin-right: 10vw; */
+  /* margin-top: 1%; */
+  /* font-weight: 900; */
+}
+
+.plusPurchase-shortcuts {
+  color: rgb(41, 155, 236);
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+}
+.settingBtnDiv-upperPart-shortcuts {
+  width: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2.5%;
+  /* background-color: beige; */
+  /* margin-top: 2%; */
+}
+.setting-upperPart-shortcuts {
+  /* margin-top: 0%; */
+  /* margin-left: 2%; */
+  width: 100%;
+  height: 70%;
+  /* flex-basis: 60%; */
+
+  color: rgb(166, 163, 163);
+}
+
+.setting-shortcuts:hover {
+  color: #00a2ed;
+  cursor: pointer;
+}
+.printBtnDiv-upperPart-shortcuts {
+  width: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2%;
+  /* background-color: blanchedalmond; */
+}
+.print-upperPart-shortcuts {
+  width: 100%;
+  height: 70%;
+  /* background-color: #ed1a3b; */
+  /* flex-basis: 60%; */
+
+  color: rgb(166, 163, 163);
+}
+.marginDiv-shortcuts {
+  display: flex;
+  margin-left: auto;
+  /* margin mene upar  wala change kiya hai */
+  /* padding: 1%; */
+  /* margin-right:1%; */
+  width: 60%;
+  justify-content: right;
+  /* background-color: aqua; */
+}
+
+.part-one-lower-body-shortcuts {
+  width: 33%;
+  height: 100%;
+  margin-left: 1%;
+  border-left: 1px solid rgb(195, 195, 195);
+  /* background-color: #00a2ed; */
+}
+.part-two-lower-body-shortcuts {
+  width: 33%;
+  height: 100%;
+  border-left: 1px solid rgb(195, 195, 195);
+  /* background-color: #31aae2; */
+}
+.part-three-lower-body-shortcuts {
+  width: 33%;
+  height: 100%;
+  border-left: 1px solid rgb(195, 195, 195);
+  /* background-color: #90b4c5; */
+}
+
+.heading-lowerbody-shortcuts {
+  width: 100%;
+  height: 7%;
+  /* background-color: #555; */
+  display: flex;
+  margin-bottom: 4%;
+}
+
+.action-marker-shortcuts {
+  width: 2%;
+  height: 100%;
+  background-color: orange;
+}
+.navigation-marker-shortcuts {
+  width: 2%;
+  height: 100%;
+  background-color: rgb(0, 189, 0);
+}
+.activity-marker-shortcuts {
+  width: 2%;
+  height: 100%;
+  background-color: rgb(0, 133, 242);
+}
+
+.heading-text-lower-shortcuts {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5%;
+  font-size: 16px;
+  /* background-color: #31aae2; */
+}
+
+.data-div-shortcuts {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #00a2ed; */
+}
+
+.data-text-shortcuts {
+  width: 40%;
+  /* margin-top: auto;
+  margin-bottom: auto; */
+  /* margin-right: auto; */
+  margin-left: 8%;
+  font-size: 12px;
+  text-align: start;
+  /* background-color: #555; */
+}
+
+.box1-data-div-shortcuts {
+  display: table;
+  width: 16%;
+  height: 40%;
+  border-radius: 4px;
+  /* margin-right: auto; */
+  margin-right: 1%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background-color: orange;
+}
+
+.box2-data-div-shortcuts {
+  display: table;
+  width: 6%;
+  height: 40%;
+  border-radius: 4px;
+  margin-right: auto;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  /* vertical-align: middle; */
+  background-color: orange;
+}
+
+.box1-data-div-G-shortcuts {
+  display: table;
+  width: 16%;
+  height: 40%;
+  border-radius: 4px;
+  /* margin-right: auto; */
+  margin-right: 1%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background-color: rgb(0, 189, 0);
+}
+
+.box2-data-div-G-shortcuts {
+  display: table;
+  width: 6%;
+  height: 40%;
+  border-radius: 4px;
+  margin-right: auto;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  /* vertical-align: middle; */
+  background-color: rgb(0, 189, 0);
+}
+
+.box1-data-div-B-shortcuts {
+  display: table;
+  width: 16%;
+  height: 40%;
+  border-radius: 4px;
+  /* margin-right: auto; */
+  margin-right: 1%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background-color: rgb(0, 133, 242);
+}
+
+.box2-data-div-B-shortcuts {
+  display: table;
+  width: 6%;
+  height: 40%;
+  border-radius: 4px;
+  margin-right: auto;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  /* vertical-align: middle; */
+  background-color: rgb(0, 133, 242);
+}

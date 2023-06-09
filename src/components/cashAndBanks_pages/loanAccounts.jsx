@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
@@ -54,28 +54,40 @@ export const LoanAccounts = (props) => {
           <div className="marginDiv-loanAccounts">
             <div className="saleBtnDiv-loanAccounts">
               <BsFillPlusCircleFill className="plusSale-loanAccounts" />
-              <button
+              {/* <button
                 className="addBtnSale-loanAccounts"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-loanAccounts">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-loanAccounts">
-              <BsFillPlusCircleFill className="plusSale-purchase-loanAccounts" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-loanAccounts" />
+              {/* <button
                 className="addBtnPurchase-loanAccounts"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-loanAccounts"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-loanAccounts">
               <BsFillPlusCircleFill className="plusSaleMore-loanAccounts" />
               <button className="addBtnMore-loanAccounts">Add More</button>
             </div>
-            <div className="settingBtnDiv-loanAccounts">
-              <AiFillSetting className="setting-loanAccounts" />
+            <div className="vertical-line-upperPart-loanAccounts"></div>
+
+            <div className="settingBtnDiv-upperPart-loanAccounts">
+              <AiFillSetting className="setting-upperPart-loanAccounts" />
+            </div>
+            <div className="printBtnDiv-upperPart-loanAccounts">
+              <AiFillPrinter className="print-upperPart-loanAccounts" />
             </div>
           </div>
         </div>

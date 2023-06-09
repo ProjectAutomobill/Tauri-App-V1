@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./addSale.css";
+import "../addSale.css";
 import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import { useState, useEffect } from "react";
@@ -8,15 +8,14 @@ import { Link, useLocation } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
-import { store } from "../state_manager";
-import { AppContext } from "../App";
 
-export const AddSale = (props) => {
+import "./addE&Q.css";
+export const AddEQ = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
   const [invoiceNo, setInvoiceNo] = useState();
-  const { test } = useContext(AppContext);
+  //   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
   const [rows, setRows] = useState([
@@ -170,7 +169,7 @@ export const AddSale = (props) => {
         className="form-purchase-addSale"
         // method="post"
         id="myForm-addSale"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
       >
         {/* <div className="purchaseTag-addSale">
           <h3>Sale</h3>
@@ -181,7 +180,7 @@ export const AddSale = (props) => {
           <RxCrossCircled className="icn-addSale" />
         </div>
         <div className="purchaseTag-addSale">
-          <h4 className="headingTag-addSale">Sale</h4>
+          <h4 className="headingTag-addSale">Estimate/Quotation</h4>
         </div>
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase-addSale">
@@ -189,7 +188,7 @@ export const AddSale = (props) => {
             <select
               id="dropdown-party-addPurchase-addSale"
               name="party_name_dropdown"
-              onChange={testFunction}
+              //   onChange={testFunction}
             >
               {/* <option value="volvo">Party 1</option>
           <option value="saab">Party 2</option>

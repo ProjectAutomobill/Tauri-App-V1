@@ -14,7 +14,7 @@ import { getValue } from "@mui/system";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
-
+import LoadingSpinner from "../../loading";
 import "./partiesTable.css";
 
 export const PartiesTable = (props) => {
@@ -52,17 +52,24 @@ export const PartiesTable = (props) => {
 
   return (
     <TableContainer component={Paper}>
+      {data == null && <LoadingSpinner className="loading_spinner" />}
+
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell
-              sx={{ fontWeight: 550, fontSize: 11 }}
+              sx={{ fontWeight: 550, fontSize: 11, color: "gray" }}
               className="table-header-parties"
             >
               PARTY
             </TableCell>
             <TableCell
-              sx={{ fontWeight: 550, fontSize: 11, float: "right" }}
+              sx={{
+                fontWeight: 550,
+                fontSize: 11,
+                float: "right",
+                color: "gray",
+              }}
               className="table-header-parties"
             >
               AMOUNT

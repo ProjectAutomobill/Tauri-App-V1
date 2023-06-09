@@ -14,7 +14,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { invoke } from "@tauri-apps/api";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import ToggleButton from "react-toggle-button";
-
+import LoadingSpinner from "../loading";
 export const DashBoard = (props) => {
   const [balance, setBalance] = useState(0);
   const [purchaseBalance, setPurchaseBalance] = useState(0);
@@ -31,6 +31,7 @@ export const DashBoard = (props) => {
   const [blur, setBlur] = useState(false);
   const [b_name, setNewBName] = useState();
   const [lowStockData, setLowStockData] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   // console.log(cName);
 
@@ -40,8 +41,12 @@ export const DashBoard = (props) => {
   function navigateToPurchase() {
     navigate("/purchase");
   }
+  function navigateToSettings() {
+    navigate("/setting");
+  }
 
   async function componentDidMount() {
+    setIsLoading(true);
     await fetch(
       "/getBalance?number=" + props.userNumber + "&company=" + cName.toString()
     )
@@ -158,8 +163,9 @@ export const DashBoard = (props) => {
   }
 
   function blurScreen() {
-    document.getElementsByClassName("dashboard").style.backdropFilter =
-      "blur(10px)";
+    console.log("In Blur Function   " + blur);
+
+    setBlur(!blur);
   }
 
   function update_b_name() {
@@ -173,6 +179,7 @@ export const DashBoard = (props) => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     console.log(
       "USER NUMBER : " +
         props.userNumber +
@@ -240,10 +247,14 @@ export const DashBoard = (props) => {
       number: props.userNumber,
       company: props.userCompany,
     }).then((response) => setLowStockData(JSON.parse(response)));
+    setIsLoading(false);
   }, []);
 
   return (
-    <div className="dashboard-dashboard">
+    <div
+      className={blur ? "dashboard-dashboard-blurred" : "dashboard-dashboard"}
+    >
+      {receiveList == null && <LoadingSpinner className="loading_spinner" />}
       <div className="upperDiv-dashboard">
         <div className="upperDivPart1-dashboard">
           <div className="input-business-dashboard">
@@ -264,7 +275,7 @@ export const DashBoard = (props) => {
 
           <div className="marginDiv-dashboard">
             {/* <Link to="/sale"> */}
-            <div className="saleBtnDiv-dashboard">
+            <div className="saleBtnDiv-dashboard" onClick={navigateToSale}>
               <BsFillPlusCircleFill className="plusSale-dashboard" />
               <div className="addBtnSale-dashboard">Add Sale</div>
               {/* <button className="addBtnSale-dashboard" onClick={navigateToSale}>
@@ -272,7 +283,10 @@ export const DashBoard = (props) => {
               </button> */}
             </div>
             {/* </Link> */}
-            <div className="purchaseBtnDiv-dashboard">
+            <div
+              className="purchaseBtnDiv-dashboard"
+              onClick={navigateToPurchase}
+            >
               {/* <AiOutlinePlus className="plusSale" /> */}
               <BsFillPlusCircleFill className="plusSale-dashboard" />
               <div
@@ -288,7 +302,10 @@ export const DashBoard = (props) => {
             </div>
             <div className="vertical-line-upperPart-dashboard"></div>
 
-            <div className="settingBtnDiv-upperPart-dashboard">
+            <div
+              className="settingBtnDiv-upperPart-dashboard"
+              onClick={navigateToSettings}
+            >
               <AiFillSetting className="setting-upperPart-dashboard" />
             </div>
             <div className="printBtnDiv-upperPart-dashboard">
@@ -323,7 +340,7 @@ export const DashBoard = (props) => {
               </div>
               <div className="lower-part-sale-graph-dashboard">
                 <div className="left-portion-dashboard">
-                  <h4 className="sale-label-dashboard">${salesAmount}.00</h4>
+                  <h4 className="sale-label-dashboard">₹ {salesAmount}.00</h4>
                   <h6 className="totalSalelabel-dashboard">Total Sale</h6>
 
                   <br />
@@ -379,7 +396,7 @@ export const DashBoard = (props) => {
                 <FaArrowDown className="down-arrow-dashboard" />
                 <h5 className="gray-color-dashboard">You'll Receive</h5>
               </div>
-              <h5 className="balance-tag-dashboard">${balance}.00</h5>
+              <h5 className="balance-tag-dashboard">₹ {balance}.00</h5>
               {receiveList?.map((row) => (
                 <div className="receiveInfo-dashboard">
                   <div className="receiveInfoName-dashboard">
@@ -390,21 +407,33 @@ export const DashBoard = (props) => {
                   </div>
                 </div>
               ))}
+              {receiveList?.length > 0 ? (
+                <div></div>
+              ) : (
+                <div className="receiveInfoName-dashboard">
+                  You don't have any pending amount to be received.
+                </div>
+              )}
             </div>
             <div className="leftDiv2B-dashboard">
               <div className="receive-div-dashboard">
                 <FaArrowUp className="up-arrow-dashboard" />
                 <h5 className="gray-color-dashboard">You'll Pay</h5>
               </div>
-              <h5 className="balance-tag-dashboard">${purchaseBalance}.00</h5>
-              {payList?.map((row) => (
-                <div className="receiveInfo-dashboard">
-                  <div className="receiveInfoName-dashboard">
-                    {row.PartyName}
-                  </div>
-                  <div className="payInfoBalance-dashboard">{row.Balance}</div>
+              <h5 className="balance-tag-dashboard">₹ {purchaseBalance}.00</h5>
+              {payList?.length > 0 ? (
+                <div></div>
+              ) : (
+                <div className="receiveInfoName-dashboard">
+                  You don't have any pending amount to be Paid.
                 </div>
-              ))}
+              )}
+
+              {/* {payList.length == 0 && (
+                <div className="receiveInfoName-dashboard">
+                  You don't have any pending amount to be received.
+                </div>
+              )} */}
             </div>
             <div className="leftDiv2C-dashboard">
               <div className="receive-div-dashboard">
@@ -421,7 +450,7 @@ export const DashBoard = (props) => {
                 </select>
               </div>
               <h5 className="balance-tag-purchase-dashboard">
-                ${purchaseAmount}.00
+                ₹ {purchaseAmount}.00
               </h5>
               {purchaseItemList?.map((row) => (
                 <div className="receiveInfo-dashboard">
@@ -431,6 +460,13 @@ export const DashBoard = (props) => {
                   </div>
                 </div>
               ))}
+              {purchaseItemList?.length > 0 ? (
+                <div></div>
+              ) : (
+                <div className="receiveInfoName-dashboard">
+                  You have no purchase items entered for selected time.
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -441,13 +477,27 @@ export const DashBoard = (props) => {
             {/* <div className="inner-element-val-data-box-dashboard">
               <b>${stockValue}.00</b>
             </div> */}
-            <ToggleButton
+            {/* <ToggleButton
+              className="toggleBtn-dashboard"
               value={blur}
               onToggle={(value) => {
-                // setBlur(!value);
-                blurScreen(true);
+                setBlur(!value);
+                // blurScreen(true);
               }}
-            />
+            /> */}
+            <label className="label">
+              <div className="toggle">
+                <input
+                  className="toggle-state"
+                  type="checkbox"
+                  name="check"
+                  value="check"
+                  onClick={() => blurScreen()}
+                />
+                <div className="indicator"></div>
+              </div>
+              {/* <div className="label-text">no more emails plz</div> */}
+            </label>
           </div>
           <br />
           <div className="tag-header-right-dashboard">Stock Inventory</div>
@@ -455,7 +505,7 @@ export const DashBoard = (props) => {
             <div className="inner-element-data-box-dashboard">Stock Value</div>
             <div className="inner-element-val-data-box-dashboard">
               <div className="inner-text-right-panel">
-                ${stockValue}
+                ₹ {stockValue}
                 <div className="smaller-appended-zeros">.00</div>
               </div>
             </div>
@@ -474,7 +524,7 @@ export const DashBoard = (props) => {
             <div className="inner-element-data-box-dashboard">Cash in hand</div>
             <div className="inner-element-val-data-box-dashboard">
               <div className="inner-text-right-panel-cashInHand">
-                $ 00<div className="smaller-appended-zeros">.00</div>
+                ₹ 00<div className="smaller-appended-zeros">.00</div>
               </div>
             </div>
           </div>
@@ -484,7 +534,7 @@ export const DashBoard = (props) => {
             </div>
             <div className="inner-element-val-data-box-dashboard">
               <div className="inner-text-right-panel">
-                $ 00<div className="smaller-appended-zeros">.00</div>
+                ₹ 00<div className="smaller-appended-zeros">.00</div>
               </div>
             </div>
           </div>

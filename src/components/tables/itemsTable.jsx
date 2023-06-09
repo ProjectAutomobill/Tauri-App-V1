@@ -12,7 +12,8 @@ import { green } from "@mui/material/colors";
 import { useState } from "react";
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
-
+import LoadingSpinner from "../../loading";
+import { BsThreeDotsVertical } from "react-icons/bs";
 export const ItemsTable = (props) => {
   const [itemData, setItemData] = useState();
 
@@ -38,11 +39,17 @@ export const ItemsTable = (props) => {
   }, []);
   return (
     <TableContainer component={Paper}>
+      {itemData == null && <LoadingSpinner className="loading_spinner" />}
+
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>Item</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>Quantity</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              ITEM
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              QUANTITY
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,9 +64,21 @@ export const ItemsTable = (props) => {
               >
                 {row.Name}
               </TableCell>
-              <TableCell sx={{ fontSize: 12, color: "green", fontWeight: 600 }}>
-                {row.Units}
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  color: "green",
+                  fontWeight: 600,
+                  justifyContent: "right",
+                  alignItems: "right",
+                  alignContent: "right",
+                }}
+              >
+                {row.Units} <BsThreeDotsVertical />
               </TableCell>
+              {/* <TableCell sx={{ fontSize: 12, color: "gray", fontWeight: 600 }}>
+                <BsThreeDotsVertical />
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>

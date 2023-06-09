@@ -2,7 +2,7 @@
   width: 100%;
 }
 .grayColor {
-  background-color: rgb(245, 245, 245);
+  background-color: rgba(247, 247, 247, 255);
 }
 .whiteColor {
   background-color: white;
@@ -12,6 +12,7 @@
   font-weight: 570;
   font-size: 12;
   color: gray;
+  /* border-right: 1px solid rgb(234, 234, 234); */
 }
 
 .orangeColor {

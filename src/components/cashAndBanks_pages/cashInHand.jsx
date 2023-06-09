@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./cashInHand.css";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
 import { CashInHandTable } from "../tables/cashInHandTable";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
@@ -52,56 +52,71 @@ export const CashInHand = (props) => {
           <div className="marginDiv-cashInHand">
             <div className="saleBtnDiv-cashInHand">
               <BsFillPlusCircleFill className="plusSale-cashInHand" />
-              <button
+              {/* <button
                 className="addBtnSale-cashInHand"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-cashInHand">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-cashInHand">
-              <BsFillPlusCircleFill className="plusSale-purchase-cashInHand" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-cashInHand" />
+              {/* <button
                 className="addBtnPurchase-cashInHand"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-cashInHand"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-cashInHand">
               <BsFillPlusCircleFill className="plusSaleMore-cashInHand" />
               <button className="addBtnMore-cashInHand">Add More</button>
             </div>
-            <div className="settingBtnDiv-cashInHand">
-              <AiFillSetting className="setting-cashInHand" />
+            <div className="vertical-line-upperPart-cashInHand"></div>
+
+            <div className="settingBtnDiv-upperPart-cashInHand">
+              <AiFillSetting className="setting-upperPart-cashInHand" />
+            </div>
+            <div className="printBtnDiv-upperPart-cashInHand">
+              <AiFillPrinter className="print-upperPart-cashInHand" />
             </div>
           </div>
         </div>
       </div>
 
       <div className="middleDiv-cashInHand">
-        <h4 className="text-cashInHand">
-          CASH IN HAND: <span className="text-value-cashInHand">$0.00</span>
-        </h4>
+        <h5 className="text-cashInHand">
+          CASH IN HAND <span className="text-value-cashInHand">$0.00</span>
+        </h5>
       </div>
+
       <div className="lowerDivSale-cashInHand">
+        <div className="transaction-cashInHand">TRANSACTIONS</div>
+
         <div className="top-part-A-cashInHand">
           <input
             type="search"
             name=""
             id=""
             className="search-input-cashInHand"
-            placeholder="Search ..."
+            placeholder="Search"
           />
-          <Link to="/purchase">
-            <button
-              className="addBtnSale-sale2-cashInHand"
-              onClick={<Navigate to="/purchase" />}
-            >
-              <AiOutlinePlus className="plus-cashInHand" />
-              Adjust Cash
-            </button>
-          </Link>
+          {/* <Link to="/purchase"> */}
+          <button
+            className="addBtnSale-sale2-cashInHand"
+            onClick={<Navigate to="/purchase" />}
+          >
+            <BsFillPlusCircleFill className="plus-cashInHand" />
+            Adjust Cash
+          </button>
+          {/* </Link> */}
         </div>
         <CashInHandTable />
       </div>

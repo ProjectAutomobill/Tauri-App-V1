@@ -4,7 +4,7 @@ import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
@@ -30,11 +30,14 @@ export const EandQV2 = (props) => {
       balance: "",
     },
   ]);
-
+  const navigate = useNavigate();
   const handleRemoveLast = () => {
     setRows(rows.slice(0, -1));
   };
 
+  function goToAddEQ() {
+    navigate("/addE&Q");
+  }
   // const calcBalance = () => {
   //   for (var i = 0; i < rows.length; i++) {
   //     setBalance(balance + parseInt(rows[i]["amount"]));

@@ -16,14 +16,17 @@ export const SideBarReport = (props) => {
       </div>
       <div
         className="component-sidebar-report"
-        onClick={() => props.setSideBarFlg("PurchaseInvoice")}
+        onClick={() => props.setSideBarFlg("PurchaseBills")}
       >
         <div className="heading-inner-text-component-sidebar-report">
           Purchase
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("DayBook")}
+        >
           Day book
         </div>
       </div>

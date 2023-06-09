@@ -17,9 +17,12 @@ import { Provider } from "react-redux";
 import { store } from "./state_manager";
 import { useEffect } from "react";
 import { AddPurchaseV3 } from "./addPurchaseV3";
-import { AddSaleOrder } from "./components/addSaleOrder";
+import { AddSaleOrder } from "./components/sales_pages/addSaleOrder";
 import { EandQV2 } from "./components/sales_pages/EandQV2";
 import { Setting } from "./setting";
+import { AddEQ } from "./components/sales_pages/addE&Q";
+import { Loading } from "./loading";
+import { AddCreditNote } from "./components/sales_pages/addCreditNote";
 export const AppContext = createContext(null);
 
 function App() {
@@ -31,6 +34,17 @@ function App() {
   // var [userNumber, setUserNumber] = useState(0);
   const userNumber1 = useRef();
   const userCompany = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Function to show the loading animation
+  const showLoading = () => {
+    setIsLoading(true);
+  };
+
+  // Function to hide the loading animation
+  const hideLoading = () => {
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     console.log("In App : " + userNumber1.current);
@@ -105,6 +119,30 @@ function App() {
             path="setting"
             element={
               <Setting userNumber={userNumber1} userCompany={userCompany} />
+            }
+          />
+          <Route
+            path="/addE&Q"
+            element={
+              <AddEQ userNumber={userNumber1} userCompany={userCompany} />
+            }
+          />
+          <Route
+            path="/addSaleOrder"
+            element={
+              <addSaleOrder
+                userNumber={userNumber1}
+                userCompany={userCompany}
+              />
+            }
+          />
+          <Route
+            path="/addCreditNote"
+            element={
+              <AddCreditNote
+                userNumber={userNumber1}
+                userCompany={userCompany}
+              />
             }
           />
 

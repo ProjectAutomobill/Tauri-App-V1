@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./addSale.css";
+import "../addSale.css";
 import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import { useState, useEffect } from "react";
@@ -8,19 +8,15 @@ import { Link, useLocation } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
-import { store } from "../state_manager";
-import { AppContext } from "../App";
 
 export const AddSaleOrder = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
   const [invoiceNo, setInvoiceNo] = useState();
-  const { test } = useContext(AppContext);
+  //   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
-  const [currDate, setCurrDate] = useState();
-  const [dueDate, setDueDate] = useState();
   const [rows, setRows] = useState([
     {
       party_name_dropdown: "",
@@ -30,8 +26,6 @@ export const AddSaleOrder = (props) => {
       price: "",
       amount: "",
       balance: "",
-      Date: "",
-      Due_Date: "",
     },
   ]);
 
@@ -57,8 +51,6 @@ export const AddSaleOrder = (props) => {
         price: "",
         amount: "",
         balance: "",
-        Date: "",
-        Due_Date: "",
       },
     ]);
     // console.log("Length : " + rows.length);
@@ -116,7 +108,7 @@ export const AddSaleOrder = (props) => {
     const formData = JSON.stringify(rows);
     console.log(formData);
 
-    invoke("new_sale_order_data", {
+    invoke("new_sale_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
@@ -145,8 +137,6 @@ export const AddSaleOrder = (props) => {
     newRows[index]["party_name_dropdown"] = currParty;
     newRows[index]["Invoice_no"] = invoiceNo;
     newRows[index]["balance"] = calcBalance();
-    newRows[index]["Date"] = currDate;
-    newRows[index]["Due_Date"] = dueDate;
     setRows(newRows);
     // console.log("Balance : " + balance);
     document.getElementById("total-value-input").value = balance;
@@ -161,7 +151,7 @@ export const AddSaleOrder = (props) => {
     // console.log(
     //   "FROM ADD SALES : " + props.userNumber + "\t\t" + props.userCompany
     // );
-    console.log("In addSaleOrder : " + props.userNumber.current);
+    console.log("In addSale : " + props.userNumber.current);
     invoke("get_parties_name", {
       number: props.userNumber.current,
       company: props.userCompany.current,
@@ -172,29 +162,32 @@ export const AddSaleOrder = (props) => {
     // console.log("Party Names List : " + partyNames);
   }, []);
   return (
-    <div>
+    <div id="main-background-body">
       {/* action="/addSaleData" */}
       <form
         className="form-purchase-addSale"
         // method="post"
         id="myForm-addSale"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
       >
-        <div className="purchaseTag-addSale">
-          <h3>Sale Order</h3>
-        </div>
+        {/* <div className="purchaseTag-addSale">
+          <h3>Sale</h3>
+        </div> */}
         <div className="top-bar-addSale">
           <AiFillCalculator className="icn-addSale" />
           <AiFillSetting className="icn-addSale" />
           <RxCrossCircled className="icn-addSale" />
         </div>
-        {/* <div className="line"></div>*/}
+        <div className="purchaseTag-addSale">
+          <h4 className="headingTag-addSale">Sale Order</h4>
+        </div>
+        {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase-addSale">
           <div className="party-detail-part1-addPurchase-addSale">
             <select
               id="dropdown-party-addPurchase-addSale"
               name="party_name_dropdown"
-              onChange={testFunction}
+              //   onChange={testFunction}
             >
               {/* <option value="volvo">Party 1</option>
           <option value="saab">Party 2</option>
@@ -220,34 +213,35 @@ export const AddSaleOrder = (props) => {
 
           <div className="party-detail-part2-addPurchase-addSale">
             <div className="party-detail-part2-insideDiv-addPurchase-addSale">
-              <label className="balance-box-label-addSale">Invoice no.</label>
-              <input
-                type="text"
-                className="upperButton-addPurchase-addSale"
-                name="invoice_no"
-                onChange={(e) => setInvoiceNo(e.target.value)}
-              ></input>
-
-              <label className="balance-box-label-addSale">Invoice Date</label>
-              <input
-                type="date"
-                className="upperButton-addPurchase-addSale"
-                onChange={(e) => setCurrDate(e.target.value)}
-              ></input>
-              <label className="balance-box-label-addSale">Due Date</label>
-              <input
-                type="date"
-                className="upperButton-addPurchase-addSale"
-                onChange={(e) => setDueDate(e.target.value)}
-              ></input>
-
-              <label className="balance-box-label-addSale">
-                State of supply{" "}
-              </label>
-              <input
-                type="text"
-                className="upperButton-addPurchase-addSale"
-              ></input>
+              <div className="invoice-info-box-Sale">
+                <label className="balance-box-label-addSale">
+                  Invoice Number
+                </label>
+                <input
+                  type="text"
+                  className="upperButton-addPurchase-addSale"
+                  name="invoice_no"
+                  onChange={(e) => setInvoiceNo(e.target.value)}
+                ></input>
+              </div>
+              <div className="invoice-info-box-Sale">
+                <label className="balance-box-label-addSale">
+                  Invoice Date
+                </label>
+                <input
+                  type="date"
+                  className="upperButton-addPurchase-addSale"
+                ></input>
+              </div>
+              <div className="invoice-info-box-Sale">
+                <label className="balance-box-label-addSale">
+                  State of supply{" "}
+                </label>
+                <input
+                  type="text"
+                  className="upperButton-addPurchase-addSale"
+                ></input>
+              </div>
             </div>
           </div>
         </div>
@@ -261,25 +255,46 @@ export const AddSaleOrder = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1" id="td-addSale">
+                  <td className="col col-1" id="td-addSale-heading">
+                    #
+                  </td>
+                  <td className="col col-1" id="td-addSale-heading">
                     ITEM
                   </td>
-                  <td className="col col-2" id="td-addSale">
+                  <td className="col col-2" id="td-addSale-heading">
                     QTY
                   </td>
-                  <td className="col col-3" id="td-addSale">
+                  <td className="col col-3" id="td-addSale-heading">
                     PRICE
                   </td>
-                  <td className="col col-4" id="td-addSale">
+                  <td className="col col-4" id="td-addSale-heading">
                     AMOUNT
                   </td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
-                      <td className="col col-1" id="td-addSale">
+                      <td
+                        className="col col-1"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
+                        {index}
+                      </td>
+                      <td
+                        className="col col-1"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="text"
                           name="item"
                           id="item"
@@ -287,9 +302,19 @@ export const AddSaleOrder = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-2" id="td-addSale">
+                      <td
+                        className="col col-2"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="qty"
                           id="qty"
@@ -297,9 +322,19 @@ export const AddSaleOrder = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-3" id="td-addSale">
+                      <td
+                        className="col col-3"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="price"
                           id="price"
@@ -307,9 +342,19 @@ export const AddSaleOrder = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-4" id="td-addSale">
+                      <td
+                        className="col col-4"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
                         <input
-                          className="table-2nd-input-addpurchase-addSale"
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
                           type="number"
                           name="amount"
                           id="amount"
@@ -320,9 +365,21 @@ export const AddSaleOrder = (props) => {
                     </tr>
                   );
                 })}
+                {/* <tr>
+                  <td className="add-row-btn-row">
+                    <div onClick={addRow1} className="add-row-button-addSale">
+                      Add Row
+                    </div>
+                  </td>
+                </tr> */}
               </tbody>
             </table>
-            <br />
+            {/* <br /> */}
+            <div className="white-strip-AddRow-Btn">
+              <div onClick={addRow1} className="add-row-button-addSale">
+                Add Row
+              </div>
+            </div>
             {/* <button type="submit" id="submit-button-addPurchase">
               Save
             </button> */}
@@ -332,6 +389,7 @@ export const AddSaleOrder = (props) => {
             {/* <button onClick={addRow}>Add Row</button> */}
           </div>
 
+          <div className="white-strip-bottom-Sale"></div>
           <button
             type="submit"
             id="submit-button-addPurchase-addSale"
@@ -345,29 +403,33 @@ export const AddSaleOrder = (props) => {
           </button> */}
           {/* <button onClick={clickTest}>Test Name</button> */}
         </div>
-        <div onClick={addRow1} id="add-row-button-addSale">
+        {/* <div onClick={addRow1} id="add-row-button-addSale">
           Add Row
-        </div>
+        </div> */}
         <br />
         <br />
-        <div onClick={handleRemoveLast} id="add-row-button-addSale">
+        <div onClick={handleRemoveLast} className="add-row-button-addSale">
           Remove Row
         </div>
         <div id="balance-box-addSale">
-          <label className="balance-box-label-addSale">Total</label>
-          <input
-            type="text"
-            className="balance-box-input-addSale"
-            id="total-value-input"
-          />
+          <div className="balance-box-data-Sale">
+            <label className="balance-box-label-addSale">Total</label>
+            <input
+              type="text"
+              className="balance-box-input-addSale"
+              id="total-value-input"
+            />
+          </div>
           {/* <br /> */}
-          <label className="balance-box-label-addSale">Received</label>
-          <input
-            type="text"
-            className="balance-box-input-addSale"
-            id="received-amount"
-            onChange={(e) => setReceivedAmount(e.target.value)}
-          />
+          <div className="balance-box-data-Sale">
+            <label className="balance-box-label-addSale">Received</label>
+            <input
+              type="text"
+              className="balance-box-input-addSale"
+              id="received-amount"
+              onChange={(e) => setReceivedAmount(e.target.value)}
+            />
+          </div>
         </div>
       </form>
       {/* <button onClick={() => addRow(i)} id="add-row-button">

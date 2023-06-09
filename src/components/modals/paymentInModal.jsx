@@ -15,7 +15,7 @@ export function PaymentInModal(props) {
   const [date, setDate] = useState("");
   const [transactionType, setTransactionType] = useState("Cash");
   const [dropdownOptions, setDropdownOptions] = useState([
-    { name: "Gaurav" },
+    { name: "Autotekk" },
     { name: "Jatin" },
   ]);
   function addPaymentInDetails() {
@@ -102,25 +102,30 @@ export function PaymentInModal(props) {
           </div>
           <div id="rightside-paymentInModal">
             <div id="upper-block">
-              <div className="small-text">Receipt No</div>
-              <input
-                type="text"
-                className="receipt-no-paymentInModal"
-                onChange={(e) => setReceiptNo(e.target.value)}
-              />
-              <div className="small-text">Date</div>
-              <input
-                type="date"
-                className="date-paymentInModal"
-                onChange={(e) => setDate(e.target.value)}
-              />
-
-              <div className="small-text">Received</div>
-              <input
-                type="text"
-                className="received-paymentInModal"
-                onChange={(e) => setReceivedAmount(e.target.value)}
-              />
+              <div className="flex-paymentIn-Modal">
+                <div className="small-text">Receipt No</div>
+                <input
+                  type="text"
+                  className="receipt-no-paymentInModal"
+                  onChange={(e) => setReceiptNo(e.target.value)}
+                />
+              </div>
+              <div className="flex-paymentIn-Modal">
+                <div className="small-text">Date</div>
+                <input
+                  type="date"
+                  className="date-paymentInModal"
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </div>
+              <div className="flex-paymentIn-Modal">
+                <div className="small-text">Received</div>
+                <input
+                  type="text"
+                  className="received-paymentInModal"
+                  onChange={(e) => setReceivedAmount(e.target.value)}
+                />
+              </div>
             </div>
           </div>
         </div>

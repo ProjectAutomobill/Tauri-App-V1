@@ -13,7 +13,7 @@ import { getPartyDetails } from "../../api-firebase/firebase";
 import { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
 import { Link, useLocation } from "react-router-dom";
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
 
 var data = [];
 var dataTable1 = getPartyDetails().then((val) => {
@@ -80,55 +80,105 @@ export const TransactionTable = (props) => {
                 className="header-transaction-table"
               ></TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="header-transaction-table"
               >
                 TYPE
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="header-transaction-table"
               >
                 NUMBER
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="header-transaction-table"
               >
                 DATE
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="header-transaction-table"
               >
                 TOTAL
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
                 className="header-transaction-table"
               >
                 BALANCE
               </TableCell>
+              <TableCell
+                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                className="header-transaction-table"
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {dataT?.map((row, index) => (
               <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
-                <TableCell sx={{ fontSize: 12 }}>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
                   <BsFillCircleFill
                     className={
                       row.Type == "Sale" ? "greenColor" : "orangeColor"
                     }
                   />
                 </TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Type}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Number}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
                 <TableCell
-                  sx={{ fontSize: 12, color: "black", fontWeight: 100 }}
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Type}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Number}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Number}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Total}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    color: "black",
+                    fontWeight: 100,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
                 >
                   {row.Balance}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  <BsThreeDotsVertical />
                 </TableCell>
               </TableRow>
             ))}

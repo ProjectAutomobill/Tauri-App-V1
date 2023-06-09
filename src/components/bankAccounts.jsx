@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 // import {FiSearch} from 'react-icons/fi';
 // import {AiOutlinePlus} from 'react-icons/ai';
 import { FaShoppingCart } from "react-icons/fa";
@@ -54,28 +54,40 @@ export const BankAccounts = (props) => {
           <div className="marginDiv-bankAccounts">
             <div className="saleBtnDiv-bankAccounts">
               <BsFillPlusCircleFill className="plusSale-bankAccounts" />
-              <button
+              {/* <button
                 className="addBtnSale-bankAccounts"
                 onClick={navigateToSale}
               >
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-bankAccounts">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-bankAccounts">
-              <BsFillPlusCircleFill className="plusSale-purchase-bankAccounts" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-bankAccounts" />
+              {/* <button
                 className="addBtnPurchase-bankAccounts"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-bankAccounts"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-bankAccounts">
               <BsFillPlusCircleFill className="plusSaleMore-bankAccounts" />
               <button className="addBtnMore-bankAccounts">Add More</button>
             </div>
-            <div className="settingBtnDiv-bankAccounts">
-              <AiFillSetting className="setting-bankAccounts" />
+            <div className="vertical-line-upperPart-bankAccounts"></div>
+
+            <div className="settingBtnDiv-upperPart-bankAccounts">
+              <AiFillSetting className="setting-upperPart-bankAccounts" />
+            </div>
+            <div className="printBtnDiv-upperPart-bankAccounts">
+              <AiFillPrinter className="print-upperPart-bankAccounts" />
             </div>
           </div>
         </div>

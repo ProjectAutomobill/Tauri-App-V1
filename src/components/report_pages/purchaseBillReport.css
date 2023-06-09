@@ -1,0 +1,442 @@
+.main-purchaseBills {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.lowerDivSale-purchaseBills-Report {
+  width: 98%;
+  margin-left: 1%;
+  height: 80%;
+  margin-top: 1%;
+  /* top: 29%; */
+  overflow: auto;
+  background-color: white;
+}
+.upperDiv-purchaseBills {
+  /* same as dashboar,see later */
+  /* position: absolute; */
+  width: 100%;
+  height: 9%;
+  background-color: white;
+}
+
+.upperDivPart1-purchaseBills {
+  display: flex;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  /* ye yahan par parties
+      wale css se alg hai.. aur upar
+      upperDiv define kiya hua
+      ..kam toh ban gya par samajh nahi aya */
+  /* background-color: brown; */
+}
+
+.middleDiv-purchaseBills {
+  margin-top: 0.5%;
+  margin-left: 1%;
+  width: 98%;
+  height: 18%;
+  background-color: white;
+}
+.middleDiv-part1-purchaseBills {
+  display: flex;
+  height: 40%;
+  /* background-color: aqua; */
+}
+
+.choose-months-purchaseBills {
+  padding: 0.5%;
+  margin-bottom: auto;
+  margin-top: auto;
+  /* background-color: yellow; */
+}
+#months-purchaseBills {
+  /* border: none;
+    height: 100%;
+    width: 100%; */
+  border: none;
+  /* height: 100%; */
+  width: 100%;
+  margin-top: 5px;
+  font-size: large;
+  color: rgb(45, 14, 117);
+  font-weight: 550;
+}
+.choose-dates-purchaseBills {
+  /* margin-left: 1%; */
+  /* padding: 0.5%;
+    width: 40%; */
+  /* background-color: blue; */
+  padding: 0.5%;
+  /* width: fit-content + 50px; */
+  height: 75%;
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+  /* padding-right: 5px; */
+  border: 1px solid rgb(210, 208, 208);
+  border-radius: 4px;
+}
+#from-purchaseBills {
+  height: 100%;
+  /* background-color: gainsboro; */
+  border: 0px;
+  font-size: small;
+}
+#between-label {
+  /* width: 2%; */
+  padding: 2px;
+  border-radius: 4px;
+  font-weight: 550;
+  font-size: small;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 5px;
+  background-color: rgb(227, 227, 228);
+}
+#to-purchaseBills {
+  /* height: 50%;
+    margin-right: 1%; */
+  height: 100%;
+  margin-right: 1%;
+  border: 0px;
+  font-size: small;
+}
+#to-label {
+  font-weight: 550;
+  /* font-size: small; */
+}
+#firm-purchaseBills {
+  margin-left: 1%;
+  height: 100%;
+  width: 20%;
+  font-size: small;
+  border: 1px solid rgb(217, 217, 217);
+}
+.options-middlepart1-purchaseBills {
+  /* background-color: blanchedalmond; */
+  margin-top: 1%;
+  width: 12%;
+  margin-left: auto;
+}
+.graph-middlepart1-purchaseBills {
+  height: 50%;
+  width: 30%;
+}
+.report-middlepart1-purchaseBills {
+  height: 45%;
+  width: 30%;
+}
+.print-middlepart1-purchaseBills {
+  height: 45%;
+  width: 30%;
+}
+.middleDiv-part2-purchaseBills {
+  height: 50%;
+  margin-top: 0.5%;
+  /* background-color: rgb(39, 179, 17); */
+  /* text-align: left; */
+  /* display: flex; */
+}
+.content-middleDiv-part2-purchaseBills {
+  width: 40%;
+  height: 100%;
+  margin-left: 2%;
+  display: flex;
+  gap: 10px;
+  /* background-color: brown; */
+}
+.paid-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(185, 243, 231);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+.unpaid-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(207, 230, 254);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+.total-block {
+  width: 40%;
+  height: 85%;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: rgba(248, 200, 136);
+  opacity: 0.8;
+  border-radius: 10px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+}
+.plus-anotherOne-purchaseBills,
+.equal {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+  color: black;
+  font-weight: 550;
+}
+
+.marginDiv-purchaseBills {
+  display: flex;
+  margin-left: auto;
+  /* margin mene upar  wala change kiya hai */
+  /* padding: 1%; */
+  /* margin-right:1%; */
+  width: 60%;
+  justify-content: right;
+  /* background-color: aqua; */
+}
+.input-business-purchaseBills {
+  /* margin-left: 2%; */
+  /* padding:01%; */
+  /* background-color: yellow; */
+  margin-top: 1%;
+  width: 30%;
+  height: 60%;
+}
+/* .horizontal-line-purchaseBills{
+      width:100%;
+      height: 1%;
+      background-color: rgb(173, 171, 171);
+      
+    } */
+#business-entry-purchaseBills {
+  font-size: 120%;
+  /* height: 60%; */
+  margin-left: 3%;
+  /* background-color: aqua; */
+  width: 80%;
+  outline: none;
+  border: 0px;
+}
+#business-name-save-btn-purchaseBills {
+  opacity: 0;
+  background-color: #00a2ed;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  padding: 2px 6px 2px 6px;
+  border-radius: 4px;
+  border: 0px;
+  margin-left: 6px;
+}
+#business-entry-purchaseBills:focus {
+  border-bottom: 1px solid black;
+}
+#business-entry-purchaseBills:focus + #business-name-save-btn-purchaseBills {
+  border-bottom: 1px solid black;
+  opacity: 1;
+}
+.saleBtnDiv-purchaseBills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 15%;
+  height: 60%;
+  background-color: rgba(255, 229, 233, 255);
+  border-radius: 24px;
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: bisque; */
+}
+.saleBtnDiv-purchaseBills:hover {
+  /* background-color: rgb(242, 110, 110); */
+  width: 16%;
+  height: 61%;
+}
+.purchaseBtnDiv-purchaseBills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 18%;
+  height: 60%;
+  background-color: rgba(210, 233, 255, 255);
+  border-radius: 24px;
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.purchaseBtnDiv-purchaseBills:hover {
+  /* background-color: rgb(124, 124, 248); */
+
+  width: 20%;
+  height: 61%;
+}
+.moreBtnDiv-purchaseBills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+  width: 16%;
+  height: 60%;
+  background-color: white;
+  border-radius: 24px;
+  border: 1px solid rgb(0, 128, 255);
+  gap: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.moreBtnDiv-purchaseBills:hover {
+  width: 18%;
+  height: 61%;
+}
+.addBtnSale-purchaseBills {
+  color: red;
+  font-size: small;
+  font-weight: 550;
+  font-family: "Cosmic", sans-serif;
+
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.addBtnPurchase-purchaseBills {
+  color: rgb(41, 155, 236);
+  font-size: small;
+  font-weight: 700;
+  background-color: rgba(210, 233, 255, 255);
+  border: 0;
+  border-radius: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.addBtnMore-purchaseBills {
+  color: rgb(0, 128, 255);
+  font-size: small;
+  font-weight: 700;
+  background-color: white;
+  border: 0;
+  border-radius: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.vertical-line-upperPart-purchaseBills {
+  /* width: 1%; */
+  height: 40%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* color: black; */
+  border: 0.5px solid rgb(205, 198, 198);
+}
+.plusSaleMore-purchaseBills {
+  color: rgb(0, 128, 255);
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+}
+.plusSale-purchase-purchaseBills {
+  color: white;
+  position: absolute;
+  margin-left: 0.6%;
+  margin-top: 0.6%;
+  margin-right: 10%;
+}
+.plusSale-purchaseBills {
+  color: red;
+  /* position: absolute; */
+  /* background-color: #00a2ed; */
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+  /* margin-top: 1%; */
+  /* font-weight: 900; */
+}
+.plusPurchase-purchaseBills {
+  color: rgb(41, 155, 236);
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: large;
+}
+.settingBtnDiv-upperPart-purchaseBills {
+  width: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2.5%;
+  /* background-color: beige; */
+  /* margin-top: 2%; */
+}
+.setting-upperPart-purchaseBills {
+  /* margin-top: 0%; */
+  /* margin-left: 2%; */
+  width: 100%;
+  height: 70%;
+  /* flex-basis: 60%; */
+  color: rgb(166, 163, 163);
+  /* flex-basis: 60%; */
+}
+.setting-purchaseBills:hover {
+  color: #00a2ed;
+  cursor: pointer;
+}
+.printBtnDiv-upperPart-purchaseBills {
+  width: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2%;
+  /* background-color: blanchedalmond; */
+}
+.print-upperPart-purchaseBills {
+  width: 100%;
+  height: 70%;
+  /* background-color: #ed1a3b; */
+  /* flex-basis: 60%; */
+
+  color: rgb(166, 163, 163);
+}
+.top-part-A-purchaseBills {
+  display: flex;
+  margin-left: 1%;
+  /* background-color: green; */
+}
+.transaction-purchaseBills {
+  text-align: left;
+  margin: 10px;
+  font-weight: 550;
+  font-size: medium;
+  color: rgb(75, 70, 70);
+}
+.search-input-purchaseBills {
+  height: 4vh;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(188, 188, 188);
+}
+.plus-purchaseBills {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2%;
+  font-size: medium;
+}
+.addBtnSale-sale2-purchaseBills {
+  height: 4vh;
+  width: 10vw;
+  /* margin: auto; */
+  margin-right: 2%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* margin-left: 1%; */
+  color: white;
+  font-weight: 545;
+  font-size: medium;
+  background-color: rgb(41, 155, 236);
+  border: 0;
+  border-radius: 10px;
+}

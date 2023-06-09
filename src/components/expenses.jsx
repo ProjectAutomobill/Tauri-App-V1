@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillPrinter } from "react-icons/ai";
 import { GiNotebook } from "react-icons/gi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
@@ -50,25 +50,37 @@ export const Expenses = (props) => {
           <div className="marginDiv-expenses">
             <div className="saleBtnDiv-expenses">
               <BsFillPlusCircleFill className="plusSale-expenses" />
-              <button className="addBtnSale-expenses" onClick={navigateToSale}>
+              {/* <button className="addBtnSale-expenses" onClick={navigateToSale}>
                 Add Sale
-              </button>
+              </button> */}
+              <div className="addBtnSale-expenses">Add Sale</div>
             </div>
             <div className="purchaseBtnDiv-expenses">
-              <BsFillPlusCircleFill className="plusSale-purchase-expenses" />
-              <button
+              <BsFillPlusCircleFill className="plusPurchase-expenses" />
+              {/* <button
                 className="addBtnPurchase-expenses"
                 onClick={navigateToPurchase}
               >
                 Add Purchase
-              </button>
+              </button> */}
+              <div
+                className="addBtnPurchase-expenses"
+                // onClick={navigateToPurchase}
+              >
+                Add Purchase
+              </div>
             </div>
             <div className="moreBtnDiv-expenses">
               <BsFillPlusCircleFill className="plusSaleMore-expenses" />
               <button className="addBtnMore-expenses">Add More</button>
             </div>
-            <div className="settingBtnDiv-expenses">
-              <AiFillSetting className="setting-expenses" />
+            <div className="vertical-line-upperPart-expenses"></div>
+
+            <div className="settingBtnDiv-upperPart-expenses">
+              <AiFillSetting className="setting-upperPart-expenses" />
+            </div>
+            <div className="printBtnDiv-upperPart-expenses">
+              <AiFillPrinter className="print-upperPart-expenses" />
             </div>
           </div>
         </div>

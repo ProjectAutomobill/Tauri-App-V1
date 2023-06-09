@@ -26,21 +26,50 @@
   margin-right: 1%;
   font-size: xx-large;
 }
+.companyName-sidebar {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: medium;
+  font-weight: bold;
+  /* background-color: aliceblue; */
+}
 .sidebar-Component {
   /* padding:0vmin; */
   /* margin: 0%; */
-  position: relative;
+  /* position: relative; */
+  width: 100%;
   display: flex;
   margin: 0;
-  padding: 1%;
+  padding: 4px;
+  padding-left: 5%;
+  padding-top: 4%;
+  padding-bottom: 4%;
   /* background-color: aliceblue; */
-  margin-top: 4%;
-  margin-left: 5%;
+  /* margin-top: 4%; */
+  /* margin-left: 5%; */
+  cursor: pointer;
+}
+
+.selected-sidebar-Component {
+  /* padding:0vmin; */
+  /* margin: 0%; */
+  /* position: relative; */
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 4px;
+  padding-left: 5%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  /* background-color: aliceblue; */
+  /* margin-top: 4%; */
+  /* margin-left: 5%; */
+  background-color: rgba(24, 31, 39, 255);
   cursor: pointer;
 }
 
 .icons {
-  color: white;
+  color: rgb(197, 197, 197);
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 5%;
@@ -48,12 +77,33 @@
 
 .sideBarText {
   font-weight: 400;
-  font-size: medium;
-  color: rgb(221, 221, 221);
+  font-size: 14px;
+  /* color: rgb(221, 221, 221); */
+  color: rgb(197, 197, 197);
   /* align-content: left; */
   /* margin-left: 20%; */
   /* margin-right: auto; */
 }
+
+.selected-redBox {
+  /* position: relative;
+  width: 10%;
+  height: 100%;
+  background-color: red; */
+  position: absolute;
+  background-color: red;
+  width: 5px;
+  height: 4%;
+  left: -0.01%;
+}
+
+.selected-sideBarText {
+  font-weight: 550;
+  font-size: 14px;
+  /* color: rgb(221, 221, 221); */
+  color: rgb(255, 255, 255);
+}
+
 #options-container {
   /* background-color: rgb(58, 77, 77); */
   padding-left: 10%;
@@ -73,7 +123,7 @@
 }
 
 .sidebar-Component:hover {
-  background-color: rgb(9, 1, 39);
+  background-color: rgba(24, 31, 39, 255);
 }
 
 h3 {
@@ -134,4 +184,47 @@ a {
 .sale-dropdown .sideBarText {
   /* color: red; */
   margin-left: 40%;
+}
+
+.plan-renew-Sidebar {
+  position: fixed;
+  bottom: 0;
+  width: 14%;
+  height: 10%;
+  margin-left: 0.5%;
+  margin-bottom: 1%;
+  border-radius: 4px;
+  background-color: rgba(34, 67, 170, 255);
+  cursor: pointer;
+}
+
+.upper-plan-Sidebar {
+  display: flex;
+  margin-top: 5%;
+}
+
+.crown {
+  height: 16%;
+  width: 16%;
+  margin-left: 4%;
+  margin-right: 2%;
+  float: left;
+  color: gold;
+}
+
+.text-plan {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1%;
+  margin-right: 3%;
+  font-size: 14px;
+  text-align: left;
+}
+
+.see-plan-div {
+  font-size: 16px;
+  color: gold;
+  margin-top: 5px;
+  cursor: pointer;
 }

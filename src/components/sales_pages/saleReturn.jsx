@@ -13,8 +13,12 @@ export const SaleReturn = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
 
+  // /addCreditNote
   function navigateToSale() {
     navigate("/sale");
+  }
+  function navigateToAddCreditNote() {
+    navigate("/addCreditNote");
   }
   function navigateToPurchase() {
     navigate("/purchase");
@@ -183,7 +187,7 @@ export const SaleReturn = (props) => {
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-saleReturn"
-            onClick={<Navigate to="/purchase" />}
+            onClick={navigateToAddCreditNote}
           >
             <BsFillPlusCircleFill className="plus-saleReturn" />
             Add Credit Note

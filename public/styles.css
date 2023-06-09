@@ -1,7 +1,7 @@
 .titlebar {
   height: 30px;
-  /* background: #329ea3; */
   background-color: white;
+  border-bottom: 1px solid gray;
   user-select: none;
   display: flex;
   justify-content: flex-end;

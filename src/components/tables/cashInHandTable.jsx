@@ -16,10 +16,10 @@ export const CashInHandTable = () => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 600 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 600 }}>AMOUNT</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>AMOUNT</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
