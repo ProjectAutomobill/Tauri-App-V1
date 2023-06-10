@@ -159,7 +159,7 @@ export function MainSection(props) {
               userCompany={props.userCompany}
             />
           );
-        } else if (props.val1 === "otherProducts") {
+        } else if (props.val1 === "shortcuts") {
           return (
             <Shortcuts
               userNumber={props.userNumber}

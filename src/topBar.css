@@ -1,0 +1,51 @@
+.topBar-container {
+  width: 100vw;
+  height: 3.5vh;
+  background-color: white;
+  border-bottom: 1px solid gray;
+  display: flex;
+}
+#Logo-topbar {
+  float: left;
+  margin-left: 1%;
+}
+
+.top-bar-content {
+  /* background-color: aqua; */
+  width: fit-content;
+  height: fit-content;
+  font-size: 14px;
+  color: rgb(55, 55, 55);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.top-bar-content-options {
+  /* background-color: aqua; */
+  width: fit-content;
+  height: fit-content;
+  font-size: 14px;
+  color: rgb(55, 55, 55);
+  margin-top: auto;
+  margin-bottom: auto;
+  /* margin-left: auto; */
+  cursor: pointer;
+}
+
+.top-bar-content-options-box {
+  /* background-color: aqua; */
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: 1%;
+}
+
+#Logo-topbar {
+  width: 1.3%;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 4px;
+}

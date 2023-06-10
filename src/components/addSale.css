@@ -18,8 +18,11 @@
 }
 
 .icn-addSale {
-  height: 3vh;
+  height: 2.5vh;
   width: 2.5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: aqua; */
 }
 
 .form-purchase-addSale {
@@ -38,6 +41,12 @@
   box-shadow: 0px 8px 3px -8px #393939;
 }
 
+#toggle-switch-add-sale {
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 80%;
+  /* background-color: antiquewhite; */
+}
 .headingTag-addSale {
   margin-top: auto;
   margin-bottom: auto;
@@ -244,27 +253,92 @@
   /* background-color: aqua; */
 }
 #td-addSale-heading {
-  padding: 8px;
+  /* padding: 8px;
+  padding-left: 0px;
+  padding-right: 0px; */
+
+  padding: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  border: 1pt solid rgb(201, 201, 201);
+  background-color: rgb(255, 255, 255);
+  color: rgb(79, 79, 108);
+  white-space: nowrap;
+}
+#td-addSale-heading-tax {
+  /* padding: 8px;
+  padding-left: 0px;
+  padding-right: 0px; */
+
+  padding: 0px;
   font-size: 12px;
   font-weight: bold;
   text-align: left;
   outline: none;
   border: 1pt solid rgb(201, 201, 201);
+  /* border-right: 1px solid rgb(255, 255, 255); */
   background-color: rgb(255, 255, 255);
-  color: rgb(62, 62, 78);
+  color: rgb(91, 91, 99);
+  white-space: nowrap;
+  display: flex;
 }
 #td-addSale {
   outline: none;
   border: 1pt solid rgb(201, 201, 201);
+  border-bottom: 0px;
+  border-top: 0px;
   /* background-color: rgb(237, 237, 249); */
   background-color: rgba(243, 244, 248, 255);
   font-size: 12px;
   padding: 6px;
 }
 
+.addSale-heading-tax {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid rgb(218, 218, 218);
+  /* background-color: #393939; */
+}
+
+.tax-dropdown-addSale {
+  width: 100%;
+  /* height: 50%; */
+  /* background-color: antiquewhite; */
+  display: flex;
+  flex-direction: row;
+}
+
+.p-per-u-box {
+  display: flex;
+  /* width: 100%; */
+  height: 100%;
+  flex-direction: column;
+  /* border-bottom: 1pt solid rgb(201, 201, 201); */
+  /* background-color: rgb(162, 162, 162); */
+}
+
+.dropdown-addSale {
+  outline: 0px;
+  border: 0px;
+}
+#dropdown-addSale-tax {
+  outline: 0px;
+  border: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #td-addSale-diffColor {
   outline: none;
   border: 1pt solid rgb(201, 201, 201);
+  border-bottom: 0px;
+  border-top: 0px;
   /* background-color: rgb(235, 235, 235); */
   background-color: white;
   font-size: 12px;
@@ -300,7 +374,7 @@
 }
 
 .table-2nd-input-addpurchase-addSale:focus {
-  border: solid 1px rgb(30, 144, 255);
+  border: solid 1px rgba(243, 244, 248, 255);
 }
 
 .add-row-button-addSale {
@@ -326,6 +400,7 @@
   vertical-align: middle;
   background-color: white;
   border-bottom: 1px solid rgb(218, 218, 218);
+  border-top: 1px solid rgb(218, 218, 218);
 }
 
 #submit-button-addPurchase-addSale {

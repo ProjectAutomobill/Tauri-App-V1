@@ -182,6 +182,19 @@ export const AddSale = (props) => {
         </div>
         <div className="purchaseTag-addSale">
           <h4 className="headingTag-addSale">Sale</h4>
+          <div
+            className="custom-control custom-switch"
+            id="toggle-switch-add-sale"
+          >
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customSwitches"
+            />
+            {/* <label class="custom-control-label" for="customSwitches">
+              Cash
+            </label> */}
+          </div>
         </div>
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase-addSale">
@@ -257,27 +270,36 @@ export const AddSale = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1" id="td-addSale-heading">
-                    #
-                  </td>
-                  <td className="col col-1" id="td-addSale-heading">
+                  <td id="td-addSale-heading">#</td>
+                  <td className="col col-4" id="td-addSale-heading">
                     ITEM
                   </td>
-                  <td className="col col-2" id="td-addSale-heading">
-                    QTY
+                  <td id="td-addSale-heading">QTY</td>
+                  <td id="td-addSale-heading">UNIT</td>
+                  <td id="td-addSale-heading">
+                    <div className="p-per-u-box">
+                      <div className="addSale-heading-tax">PRICE/UNIT</div>
+                      <select name="" id="" className="dropdown-addSale">
+                        <option value="">With Tax</option>
+                        <option value="">Without Tax</option>
+                      </select>
+                    </div>
                   </td>
-                  <td className="col col-3" id="td-addSale-heading">
-                    PRICE
+                  <td colSpan={2} id="td-addSale-heading">
+                    <div className="addSale-heading-tax">TAX</div>
+                    <div className="tax-dropdown-addSale">
+                      <div id="dropdown-addSale-tax">%</div>
+                      <div id="dropdown-addSale-tax">Amount</div>
+                    </div>
                   </td>
-                  <td className="col col-4" id="td-addSale-heading">
-                    AMOUNT
-                  </td>
+                  {/* <td id="td-addSale-heading-tax">Tax</td> */}
+                  <td id="td-addSale-heading">AMOUNT</td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
                       <td
-                        className="col col-1"
+                        // className="col col-1"
                         id={
                           index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
                         }
@@ -285,7 +307,7 @@ export const AddSale = (props) => {
                         {index}
                       </td>
                       <td
-                        className="col col-1"
+                        // className="col col-1"
                         id={
                           index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
                         }
@@ -305,7 +327,7 @@ export const AddSale = (props) => {
                         />
                       </td>
                       <td
-                        className="col col-2"
+                        // className="col col-2"
                         id={
                           index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
                         }
@@ -325,7 +347,7 @@ export const AddSale = (props) => {
                         />
                       </td>
                       <td
-                        className="col col-3"
+                        // className="col col-3"
                         id={
                           index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
                         }
@@ -345,7 +367,67 @@ export const AddSale = (props) => {
                         />
                       </td>
                       <td
-                        className="col col-4"
+                        // className="col col-4"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        // className="col col-4"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        // className="col col-4"
+                        id={
+                          index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-2nd-input-addpurchase-addSale"
+                              : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                          }
+                          // className="table-2nd-input-addpurchase-addSale"
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        // className="col col-4"
                         id={
                           index % 2 == 0 ? "td-addSale" : "td-addSale-diffColor"
                         }

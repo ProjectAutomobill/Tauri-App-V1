@@ -23,6 +23,7 @@ import { Setting } from "./setting";
 import { AddEQ } from "./components/sales_pages/addE&Q";
 import { Loading } from "./loading";
 import { AddCreditNote } from "./components/sales_pages/addCreditNote";
+import { TopBar } from "./topBar";
 export const AppContext = createContext(null);
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   // if(userNumber!=""){
 
   // }
+  var [content, setContent] = useState("home");
   const [test, setTest] = useState();
   // var [userNumber, setUserNumber] = useState(0);
   const userNumber1 = useRef();
@@ -53,102 +55,110 @@ function App() {
   return (
     <AppContext.Provider value={{ test, setTest }}>
       <div className="App-App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Login
-                // setUserNumber={setUserNumber}
-                // userNumber={userNumber}
-                userNumber1={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
+        <TopBar className="Top-bar-App" setContent={setContent} />
+        <div className="lower-section-App">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Login
+                  // setUserNumber={setUserNumber}
+                  // userNumber={userNumber}
+                  userNumber1={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
 
-          <Route
-            path="/loggedIn"
-            element={
-              <Home userNumber={userNumber1} userCompany={userCompany} />
-            }
-          />
-          <Route
-            path="/purchase"
-            element={
-              <AddPurchaseV3
-                userNumber={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
-          <Route
-            path="/sale"
-            element={
-              <AddSale userNumber={userNumber1} userCompany={userCompany} />
-            }
-          />
-          <Route
-            path="/saleOrder"
-            element={
-              <AddSaleOrder
-                userNumber={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
-          <Route
-            path="/addParty"
-            element={<AddParty userNumber={userNumber1} />}
-          />
-          <Route
-            path="/yourCompanies"
-            element={
-              <YourCompanies
-                userNumber={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
-          <Route
-            path="/EandQ"
-            element={
-              <EandQV2 userNumber={userNumber1} userCompany={userCompany} />
-            }
-          />
-          <Route
-            path="setting"
-            element={
-              <Setting userNumber={userNumber1} userCompany={userCompany} />
-            }
-          />
-          <Route
-            path="/addE&Q"
-            element={
-              <AddEQ userNumber={userNumber1} userCompany={userCompany} />
-            }
-          />
-          <Route
-            path="/addSaleOrder"
-            element={
-              <addSaleOrder
-                userNumber={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
-          <Route
-            path="/addCreditNote"
-            element={
-              <AddCreditNote
-                userNumber={userNumber1}
-                userCompany={userCompany}
-              />
-            }
-          />
+            <Route
+              path="/loggedIn"
+              element={
+                <Home
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                  content={content}
+                  setContent={setContent}
+                />
+              }
+            />
+            <Route
+              path="/purchase"
+              element={
+                <AddPurchaseV3
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/sale"
+              element={
+                <AddSale userNumber={userNumber1} userCompany={userCompany} />
+              }
+            />
+            <Route
+              path="/saleOrder"
+              element={
+                <AddSaleOrder
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/addParty"
+              element={<AddParty userNumber={userNumber1} />}
+            />
+            <Route
+              path="/yourCompanies"
+              element={
+                <YourCompanies
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/EandQ"
+              element={
+                <EandQV2 userNumber={userNumber1} userCompany={userCompany} />
+              }
+            />
+            <Route
+              path="setting"
+              element={
+                <Setting userNumber={userNumber1} userCompany={userCompany} />
+              }
+            />
+            <Route
+              path="/addE&Q"
+              element={
+                <AddEQ userNumber={userNumber1} userCompany={userCompany} />
+              }
+            />
+            <Route
+              path="/addSaleOrder"
+              element={
+                <addSaleOrder
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/addCreditNote"
+              element={
+                <AddCreditNote
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
 
-          {/* <AddPurchase/> */}
-          {/* </Route> */}
-        </Routes>
+            {/* <AddPurchase/> */}
+            {/* </Route> */}
+          </Routes>
+        </div>
       </div>
     </AppContext.Provider>
   );
