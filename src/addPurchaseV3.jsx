@@ -159,7 +159,7 @@ export const AddPurchaseV3 = (props) => {
     // console.log("Party Names List : " + partyNames);
   }, []);
   return (
-    <div>
+    <div id="main-background-body">
       {/* action="/addSaleData" */}
       <form
         className="form-purchase-addPurchaseV3"
@@ -167,20 +167,20 @@ export const AddPurchaseV3 = (props) => {
         id="myForm"
         onSubmit={handleSubmit}
       >
-        <div className="purchaseTag-addPurchaseV3">
-          <h3>Purchase</h3>
+        <div className="top-bar-addSale">
+          <AiFillCalculator className="icn-addSale" />
+          <AiFillSetting className="icn-addSale" />
+          <RxCrossCircled className="icn-addSale" />
         </div>
-        <div className="top-bar-addPurchaseV3">
-          <AiFillCalculator className="icn-addPurchaseV3" />
-          <AiFillSetting className="icn-addPurchaseV3" />
-          <RxCrossCircled className="icn-addPurchaseV3" />
+        <div className="purchaseTag-addSale">
+          <h4 className="headingTag-addSale">Purchase</h4>
         </div>
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase-addPurchaseV3">
           <div className="party-detail-part1-addPurchase-addPurchaseV3">
             <select
               id="dropdown-party-addPurchase-addPurchaseV3"
-              name="party_name_dropdown-addPurchaseV3"
+              name="party_name_dropdown"
               onChange={testFunction}
             >
               {/* <option value="volvo">Party 1</option>
@@ -207,31 +207,35 @@ export const AddPurchaseV3 = (props) => {
 
           <div className="party-detail-part2-addPurchase-addPurchaseV3">
             <div className="party-detail-part2-insideDiv-addPurchase-addPurchaseV3">
-              <label className="balance-box-label-addPurchaseV3">
-                Invoice no.
-              </label>
-              <input
-                type="text"
-                className="upperButton-addPurchase-addPurchaseV3"
-                name="invoice_no"
-                onChange={(e) => setInvoiceNo(e.target.value)}
-              ></input>
-
-              <label className="balance-box-label-addPurchaseV3">
-                Invoice Date
-              </label>
-              <input
-                type="date"
-                className="upperButton-addPurchase-addPurchaseV3"
-              ></input>
-
-              <label className="balance-box-label-addPurchaseV3">
-                State of supply{" "}
-              </label>
-              <input
-                type="text"
-                className="upperButton-addPurchase-addPurchaseV3"
-              ></input>
+              <div className="invoice-info-box-Purchase">
+                <label className="balance-box-label-addPurchaseV3">
+                  Invoice no.
+                </label>
+                <input
+                  type="text"
+                  className="upperButton-addPurchase-addPurchaseV3"
+                  name="invoice_no"
+                  onChange={(e) => setInvoiceNo(e.target.value)}
+                ></input>
+              </div>
+              <div className="invoice-info-box-Purchase">
+                <label className="balance-box-label-addPurchaseV3">
+                  Invoice Date
+                </label>
+                <input
+                  type="date"
+                  className="upperButton-addPurchase-addPurchaseV3"
+                ></input>
+              </div>
+              <div className="invoice-info-box-Purchase">
+                <label className="balance-box-label-addPurchaseV3">
+                  State of supply{" "}
+                </label>
+                <input
+                  type="text"
+                  className="upperButton-addPurchase-addPurchaseV3"
+                ></input>
+              </div>
             </div>
           </div>
         </div>
@@ -245,25 +249,56 @@ export const AddPurchaseV3 = (props) => {
               {/* <form action="/addPurchaseData" method="get"> */}
               <tbody>
                 <tr>
-                  <td className="col col-1" id="td-addPurchase">
+                  <td id="td-addSale-heading">#</td>
+                  <td className="col col-4" id="td-addSale-heading">
                     ITEM
                   </td>
-                  <td className="col col-2" id="td-addPurchase">
-                    QTY
+                  <td id="td-addSale-heading">QTY</td>
+                  <td id="td-addSale-heading">UNIT</td>
+                  <td id="td-addSale-heading">
+                    <div className="p-per-u-box">
+                      <div className="addSale-heading-tax">PRICE/UNIT</div>
+                      <select name="" id="" className="dropdown-addSale">
+                        <option value="">With Tax</option>
+                        <option value="">Without Tax</option>
+                      </select>
+                    </div>
                   </td>
-                  <td className="col col-3" id="td-addPurchase">
-                    PRICE
+                  <td colSpan={2} id="td-addSale-heading">
+                    <div className="addSale-heading-tax">TAX</div>
+                    <div className="tax-dropdown-addSale">
+                      <div id="dropdown-addSale-tax">%</div>
+                      <div id="dropdown-addSale-tax">Amount</div>
+                    </div>
                   </td>
-                  <td className="col col-4" id="td-addPurchase">
-                    AMOUNT
-                  </td>
+                  {/* <td id="td-addSale-heading-tax">Tax</td> */}
+                  <td id="td-addSale-heading">AMOUNT</td>
                 </tr>
                 {rows.map((row, index) => {
                   return (
                     <tr key={index}>
-                      <td className="col col-1" id="td-addPurchase">
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
+                        {index}
+                      </td>
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
                         <input
-                          className="table-input-addpurchase-addPurchaseV3"
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
                           type="text"
                           name="item"
                           id="item"
@@ -271,9 +306,19 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-2" id="td-addPurchase">
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
                         <input
-                          className="table-input-addpurchase-addPurchaseV3"
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
                           type="number"
                           name="qty"
                           id="qty"
@@ -281,9 +326,19 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-3" id="td-addPurchase">
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
                         <input
-                          className="table-input-addpurchase-addPurchaseV3"
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
                           type="number"
                           name="price"
                           id="price"
@@ -291,9 +346,79 @@ export const AddPurchaseV3 = (props) => {
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
-                      <td className="col col-4" id="td-addPurchase">
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
                         <input
-                          className="table-input-addpurchase-addPurchaseV3"
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
+                          type="number"
+                          name="amount"
+                          id="amount"
+                          value={row.amount}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
                           type="number"
                           name="amount"
                           id="amount"
@@ -306,7 +431,6 @@ export const AddPurchaseV3 = (props) => {
                 })}
               </tbody>
             </table>
-            <br />
             {/* <button type="submit" id="submit-button-addPurchase">
               Save
             </button> */}
@@ -315,7 +439,7 @@ export const AddPurchaseV3 = (props) => {
             {/* </form> */}
             {/* <button onClick={addRow}>Add Row</button> */}
           </div>
-
+          <div className="white-strip-bottom-Sale"></div>
           <button
             type="submit"
             id="submit-button-addPurchase-addPurchaseV3"
@@ -329,8 +453,10 @@ export const AddPurchaseV3 = (props) => {
           </button> */}
           {/* <button onClick={clickTest}>Test Name</button> */}
         </div>
-        <div onClick={addRow1} id="add-row-button-addPurchaseV3">
-          Add Row
+        <div className="white-strip-AddRow-Btn">
+          <div onClick={addRow1} className="add-row-button-addSale">
+            Add Row
+          </div>
         </div>
         <br />
         <br />
@@ -338,19 +464,23 @@ export const AddPurchaseV3 = (props) => {
           Remove Row
         </div>
         <div id="balance-box-addPurchaseV3">
-          <label className="balance-box-label-addPurchaseV3">Total</label>
-          <input
-            type="text"
-            className="balance-box-input-addPurchaseV3"
-            id="total-value-input-addPurchaseV3"
-          />
+          <div className="balance-box-data-Sale">
+            <label className="balance-box-label-addPurchaseV3">Total</label>
+            <input
+              type="text"
+              className="balance-box-input-addPurchaseV3"
+              id="total-value-input-addPurchaseV3"
+            />
+          </div>
           {/* <br /> */}
-          <label className="balance-box-label-addPurchaseV3">Received</label>
-          <input
-            type="text"
-            className="balance-box-input-addPurchaseV3"
-            id="received-amount-addPurchaseV3"
-          />
+          <div className="balance-box-data-Sale">
+            <label className="balance-box-label-addPurchaseV3">Received</label>
+            <input
+              type="text"
+              className="balance-box-input-addPurchaseV3"
+              id="received-amount-addPurchaseV3"
+            />
+          </div>
         </div>
       </form>
       {/* <button onClick={() => addRow(i)} id="add-row-button">

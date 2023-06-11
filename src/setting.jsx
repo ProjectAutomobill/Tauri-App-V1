@@ -6,6 +6,7 @@ import { Transaction } from "./settingsPages/transaction";
 import { TandG } from "./settingsPages/tandg";
 import { TransactionMessage } from "./settingsPages/transactionMessage";
 import { PrintSetting } from "./settingsPages/printSetting";
+import { ItemSetting } from "./settingsPages/itemSetting";
 export const Setting = () => {
   const [selectedSetting, setSelectedSetting] = useState("General");
 
@@ -27,6 +28,8 @@ export const Setting = () => {
             return <TransactionMessage />;
           } else if (selectedSetting === "Print") {
             return <PrintSetting />;
+          } else if (selectedSetting === "itemSetting") {
+            return <ItemSetting />;
           }
         })()}
       </div>

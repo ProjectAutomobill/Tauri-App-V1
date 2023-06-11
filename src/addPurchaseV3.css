@@ -45,10 +45,8 @@
   display: flex;
 }
 #dropdown-party-addPurchase-addPurchaseV3 {
-  /* position: absolute; */
-  /* background-color: yellow; */
-  width: 20%;
-  height: 15%;
+  width: 25%;
+  height: 17%;
   margin-top: 5%;
   /* margin-bottom: auto; */
   /* margin-right: auto; */
@@ -56,7 +54,10 @@
   /* border: 0; */
   margin-left: 3%;
   border-width: 1px;
-  border-radius: 2px;
+  border-radius: 4px;
+  font-size: small;
+  padding-left: 1%;
+  padding-right: 1%;
   /* border-color: black; */
   cursor: pointer;
   border: 1px solid #ccc;
@@ -64,18 +65,20 @@
 }
 .number-addPurchase-addPurchaseV3 {
   width: 20%;
-  height: 14%;
+  height: 17%;
   margin-top: 5%;
   /* margin-top: auto;
-          margin-bottom: auto; */
+      margin-bottom: auto; */
   /* margin-right: auto; */
   margin-left: 2%;
+  font-size: small;
   /* border: 1%; */
   border-width: 1px;
   /* border-color: black; */
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #ccc;
   outline: none;
+  padding-left: 1%;
 }
 .party-detail-part2-addPurchase-addPurchaseV3 {
   /* background-color: rgb(151, 151, 239); */
@@ -94,19 +97,29 @@
   /* background-color: yellow; */
   /* position: relative; */
   margin-right: 40px;
+  height: 50%;
   /* width: 40%; */
   /* height: 60%; */
   margin-top: 5%;
-  display: grid;
-  grid-template-columns: auto auto;
+  display: block;
   /* gap: 2%; */
   /* margin: 0 auto; */
 }
 
+.invoice-info-box-Purchase {
+  display: flex;
+  /* background-color: greenyellow; */
+}
 .upperButton-addPurchase-addPurchaseV3 {
-  /* width: 30%; */
+  height: 60%;
+  width: 60%;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+
+  margin-left: auto;
+  border: none;
+  border-bottom: 1px solid #a7a7a7;
+  background-color: rgb(236, 236, 236);
   outline: none;
 }
 
@@ -206,19 +219,49 @@
 }
 
 #td-addPurchase {
-  border: 1pt solid rgb(169, 169, 169);
+  outline: none;
+  border: 1pt solid rgb(201, 201, 201);
+  border-bottom: 0px;
+  border-top: 0px;
+  /* background-color: rgb(237, 237, 249); */
+  background-color: rgba(243, 244, 248, 255);
+  font-size: 12px;
+  padding: 6px;
 }
-
+#td-addPurchase-diffColor {
+  outline: none;
+  border: 1pt solid rgb(201, 201, 201);
+  border-bottom: 0px;
+  border-top: 0px;
+  /* background-color: rgb(235, 235, 235); */
+  background-color: white;
+  font-size: 12px;
+  padding: 6px;
+}
 .table-input-addpurchase-addPurchaseV3 {
   width: 100%;
   /* background-color: rgb(243, 238, 238); */
-  background-color: rgb(242, 242, 242);
+  /* background-color: rgb(235, 235, 255); */
+  border: 0ch;
+  outline: none;
+  /* background-color: rgb(237, 237, 249); */
+  background-color: rgba(243, 244, 248, 255);
+}
+.table-input-addpurchase-addPurchaseV3-DifferentColor {
+  width: 100%;
+  /* background-color: rgb(243, 238, 238); */
+  /* background-color: rgb(235, 235, 235); */
+  background-color: white;
   border: 0ch;
   outline: none;
 }
-
 .table-input-addpurchase-addPurchaseV3:focus {
-  border: solid 1px rgb(30, 144, 255);
+  width: 100%;
+  /* background-color: rgb(243, 238, 238); */
+  /* background-color: rgb(235, 235, 235); */
+  background-color: white;
+  border: 0ch;
+  outline: none;
 }
 
 #add-row-button-addPurchaseV3 {
@@ -261,9 +304,8 @@
   margin-right: 40px;
   width: fit-content;
   /* background-color: green; */
-  display: grid;
-  grid-template-columns: auto auto;
-  margin-top: 50px;
+  display: block;
+  margin-top: 3%;
 }
 
 .balance-box-input-addPurchaseV3 {
@@ -273,6 +315,7 @@
   padding: 2px;
   border: 1px solid #ccc;
   outline: none;
+  margin-left: auto;
 }
 
 .balance-box-input-addPurchaseV3:focus {
@@ -282,7 +325,8 @@
 
 .balance-box-label-addPurchaseV3 {
   margin-right: 10px;
-  font-size: small;
-  font-weight: 600;
+  height: 60%;
+  font-size: 12px;
+  /* font-weight: 600; */
   color: rgb(122, 122, 122);
 }

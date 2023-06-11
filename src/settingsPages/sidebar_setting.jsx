@@ -161,7 +161,7 @@ export const SidebarSetting = (props) => {
             selectedOption == 8 ? "heading-selected-setting" : "heading-setting"
           }
           onClick={() => {
-            setProp("Item");
+            setProp("itemSetting");
             setSelectedOption(8);
           }}
         >
