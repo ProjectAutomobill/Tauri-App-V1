@@ -116,6 +116,26 @@ class UserData:
                             purchase_amount = 0
                             pendingBalance = 0
                             pendingBalancePurchase = 0
+
+                            if doc_P.to_dict()["Balance"] > 0:
+                                self.receive_list.append(
+                                    {
+                                        "Balance": doc_P.to_dict()["Balance"],
+                                        "PartyName": doc_P.to_dict()["PartyName"],
+                                    }
+                                )
+                                self.Balance = self.Balance + doc_P.to_dict()["Balance"]
+                            if doc_P.to_dict()["Balance"] < 0:
+                                self.pay_list.append(
+                                    {
+                                        "Balance": doc_P.to_dict()["Balance"],
+                                        "PartyName": doc_P.to_dict()["PartyName"],
+                                    }
+                                )
+                                self.purchaseBalance = (
+                                    self.purchaseBalance + doc_P.to_dict()["Balance"]
+                                )
+
                             for doc_T in partyTransactionsDocs:
                                 # print('{} => {} '.format(doc_T.id, doc_T.to_dict()))
                                 temp.append(doc_T.to_dict())
@@ -142,9 +162,9 @@ class UserData:
                                     self.salesData.append(int(doc_T.to_dict()["Total"]))
                                     self.date_data_Sale.append(i)
 
-                                    self.Balance = (
-                                        self.Balance + doc_T.to_dict()["Balance"]
-                                    )
+                                    # self.Balance = (
+                                    #     self.Balance + doc_T.to_dict()["Balance"]
+                                    # )
                                     i = i + 1
 
                                     self.SaleTransactions.append(
@@ -174,10 +194,10 @@ class UserData:
                                     )
                                     self.purchase_data.append(doc_T.to_dict()["Total"])
                                     self.date_data_purchase.append(j)
-                                    self.purchaseBalance = (
-                                        self.purchaseBalance
-                                        + doc_T.to_dict()["Balance"]
-                                    )
+                                    # self.purchaseBalance = (
+                                    #     self.purchaseBalance
+                                    #     + doc_T.to_dict()["Balance"]
+                                    # )
                                     j = j + 1
                                     self.PurchaseTransactions.append(
                                         {
@@ -203,20 +223,20 @@ class UserData:
                                             "Price": doc_T.to_dict()["Total"],
                                         }
                                     )
-                            if pendingBalance != 0:
-                                self.receive_list.append(
-                                    {
-                                        "Balance": pendingBalance,
-                                        "PartyName": doc_P.to_dict()["PartyName"],
-                                    }
-                                )
-                            if pendingBalancePurchase != 0:
-                                self.pay_list.append(
-                                    {
-                                        "Balance": pendingBalance,
-                                        "PartyName": doc_P.to_dict()["PartyName"],
-                                    }
-                                )
+                            # if pendingBalance != 0:
+                            #     self.receive_list.append(
+                            #         {
+                            #             "Balance": pendingBalance,
+                            #             "PartyName": doc_P.to_dict()["PartyName"],
+                            #         }
+                            #     )
+                            # if pendingBalancePurchase != 0:
+                            #     self.pay_list.append(
+                            #         {
+                            #             "Balance": pendingBalance,
+                            #             "PartyName": doc_P.to_dict()["PartyName"],
+                            #         }
+                            #     )
                             total_amount = sales_amount - purchase_amount
                             self.party_transaction_Dict.append(
                                 [doc_P.to_dict()["PartyName"], temp]
@@ -788,7 +808,9 @@ def getJsonData():
         print(str(data[0]["party_name_dropdown"]))
         if (str(doc.to_dict()["PartyName"]), "==", str(data[0]["party_name_dropdown"])):
             print("condition Satisfied")
+            amount = 0
             for i in range(len(data)):
+                amount = amount + int(data[i]["amount"])
                 db.collection(
                     "users",
                     userData.doc_id,
@@ -813,6 +835,11 @@ def getJsonData():
                         "Invoice_no": int(data[i]["Invoice_no"]),
                     }
                 )
+            #############################################
+            db.collection(
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(doc.id).update({"Balance": firestore.Increment(amount)})
+            #############################################
     for i in range(len(data)):
         item_ref = db.collection(
             "users", userData.doc_id, "company", userData.companyID, "items"
@@ -985,6 +1012,22 @@ def addPaymentInData():
             "PartyName": jsonData["party"],
         }
     )
+    ###########################################################
+    partyRef = db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "parties"
+    ).where("PartyName", "==", str(jsonData["party"]))
+
+    partydocs = partyRef.get()
+
+    for doc in partydocs:
+        key = doc.id
+        if doc.to_dict()["PartyName"] == str(jsonData["party"]):
+            db.collection(
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(key).update(
+                {"Balance": firestore.Increment(-int(jsonData["received"]))}
+            )
+    ##############################################################
 
     return "true"
 

@@ -74,7 +74,8 @@ export const ItemsTable = (props) => {
                   alignContent: "right",
                 }}
               >
-                {row.Units} <BsThreeDotsVertical />
+                {row.Units}
+                {/* <BsThreeDotsVertical /> */}
               </TableCell>
               {/* <TableCell sx={{ fontSize: 12, color: "gray", fontWeight: 600 }}>
                 <BsThreeDotsVertical />
