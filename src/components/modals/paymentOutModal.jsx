@@ -7,7 +7,7 @@ import "./paymentInModal.css";
 import { GstPage } from "./gstPage";
 import { invoke } from "@tauri-apps/api";
 
-export function PaymentInModal(props) {
+export function PaymentOutModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
   const [partyName, setPartyName] = useState("");
   const [receivedAmount, setReceivedAmount] = useState("");
@@ -18,7 +18,7 @@ export function PaymentInModal(props) {
     { name: "Autotekk" },
     { name: "Jatin" },
   ]);
-  function addPaymentInDetails() {
+  function addPaymentOutDetails() {
     var jsondata = {
       received: receivedAmount,
       receiptno: receiptNo,
@@ -29,7 +29,7 @@ export function PaymentInModal(props) {
     var stringData = JSON.stringify(jsondata);
     console.log(stringData);
 
-    invoke("add_paymentin_details", {
+    invoke("add_paymentOut_details", {
       number: props.userNumber,
       company: props.userCompany,
 
@@ -113,7 +113,7 @@ export function PaymentInModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button onClick={addPaymentInDetails}>Add</Button>
+        <Button onClick={addPaymentOutDetails}>Add</Button>
       </Modal.Footer>
     </Modal>
   );

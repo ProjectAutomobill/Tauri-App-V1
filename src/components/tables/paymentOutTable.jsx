@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   TableContainer,
   Table,
@@ -9,8 +9,22 @@ import {
   Paper,
 } from "@mui/material";
 import "./transactionTable.css";
+import { invoke } from "@tauri-apps/api";
 
-export const PaymentOutTable = () => {
+export const PaymentOutTable = (props) => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    // componentDidMount1();
+    invoke("get_paymentOut_data", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setData(JSON.parse(response));
+      });
+  }, []);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -38,18 +52,18 @@ export const PaymentOutTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataTable.map((row) => (
+          {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.DATE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.REF_NO}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PARTY_NAME}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.CATEGORY}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.TYPE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.TOTAL}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.RECEIVED}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.BALANCE}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>{row.ReceiptNo}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>Cash</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>{row.TransactionType}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>100</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>{row.Sent}</TableCell>
+              <TableCell sx={{ fontSize: 12 }}>100</TableCell>
               <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                {row.PRINT}
+                Print
               </TableCell>
             </TableRow>
           ))}

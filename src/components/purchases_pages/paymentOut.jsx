@@ -9,10 +9,11 @@ import { AiFillSetting } from "react-icons/ai";
 import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
 import { invoke } from "@tauri-apps/api";
-
+import { PaymentOutModal } from "../modals/paymentOutModal";
 export const PaymentOut = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
+  const [modalShow, setModalShow] = useState(false);
   function navigateToSale() {
     navigate("/sale");
   }
@@ -195,15 +196,25 @@ export const PaymentOut = (props) => {
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-paymentOut"
-            onClick={<Navigate to="/purchase" />}
+            // onClick={<Navigate to="/purchase" />}
+            onClick={() => setModalShow(true)}
           >
             <BsFillPlusCircleFill className="plus-paymentOut" />
             Add Payment-Out
           </button>
           {/* </Link> */}
         </div>
-        <PaymentOutTable />
+        <PaymentOutTable
+          userNumber={props.userNumber}
+          userCompany={props.userCompany}
+        />
       </div>
+      <PaymentOutModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        userNumber={props.userNumber}
+        userCompany={props.userCompany}
+      />
     </div>
   );
 };

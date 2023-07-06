@@ -51,6 +51,7 @@ class UserData:
         self.purchase_item_list = []
         self.low_stock_item_list = []
         self.paymentInData = []
+        self.paymentOutData = []
         self.sale_order_data = []
         self.getCompanyNames()
         self.getData()
@@ -131,6 +132,10 @@ class UserData:
                                         "Balance": doc_P.to_dict()["Balance"],
                                         "PartyName": doc_P.to_dict()["PartyName"],
                                     }
+                                )
+                                print(
+                                    ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\t\t"
+                                    + str(doc_P.to_dict()["PartyName"])
                                 )
                                 self.purchaseBalance = (
                                     self.purchaseBalance + doc_P.to_dict()["Balance"]
@@ -297,6 +302,14 @@ class UserData:
 
                         for doc_PI in paymentInDocs:
                             self.paymentInData.append(doc_PI.to_dict())
+
+                        paymentOutDetails = db.collection(
+                            "users", doc.id, "company", doc_C.id, "paymentOut"
+                        )
+                        paymentOutDocs = paymentOutDetails.stream()
+
+                        for doc_PO in paymentOutDocs:
+                            self.paymentOutData.append(doc_PO.to_dict())
                         ######################################################################################
                         saleOrderDetails = db.collection(
                             "users", doc.id, "company", doc_C.id, "SaleOrder"
@@ -645,41 +658,53 @@ def addPurchaseData():
         print(str(data["party-name-dropdown"][0]))
         if (str(doc.to_dict()["PartyName"]), "==", str(data["party-name-dropdown"][0])):
             print("condition Satisfied")
+            amount = 0
+            for i in range(len(data)):
+                amount = amount + int(data["amount"][i])
+                db.collection(
+                    "users",
+                    userData.doc_id,
+                    "company",
+                    userData.companyID,
+                    "parties",
+                    str(doc.id),
+                    "PartyDetails",
+                ).add(
+                    {
+                        # "Item": data["item"][0],
+                        # "Quantity": data["qty"][0],
+                        # "Price": data["price"][0],
+                        # "Amount": data["amount"][0],
+                        "Item": data["item"][i],
+                        "Number": int(data["qty"][i]),
+                        "Price": int(data["price"][i]),
+                        "Total": int(data["amount"][i]),
+                        "Type": "Purchase",
+                        "Balance": 100,
+                        "Date": firestore.SERVER_TIMESTAMP,
+                        "Invoice_no": int(data[i]["Invoice_no"]),
+                    }
+                )
+            #############################################
+            print("Amount : " + str(amount) + "\t\t" + str(int(data["amount"][i])))
             db.collection(
-                "users",
-                userData.doc_id,
-                "company",
-                userData.companyID,
-                "parties",
-                str(doc.id),
-                "PartyDetails",
-            ).add(
-                {
-                    # "Item": data["item"][0],
-                    # "Quantity": data["qty"][0],
-                    # "Price": data["price"][0],
-                    # "Amount": data["amount"][0],
-                    "Item": data["item"][0],
-                    "Number": int(data["qty"][0]),
-                    "Price": int(data["price"][0]),
-                    "Total": int(data["amount"][0]),
-                    "Type": "Purchase",
-                    "Balance": 100,
-                    "Date": firestore.SERVER_TIMESTAMP,
-                }
-            )
-
-    item_ref = db.collection(
-        "users", userData.doc_id, "company", userData.companyID, "items"
-    ).where("ItemName", "==", str(data["item"][0]))
-    # item_ref.update({"Units": 10})
-    items = item_ref.get()
-    for doc in items:
-        key = doc.id
-        if doc.to_dict()["ItemName"] == str(data["item"][0]):
-            db.collection(
-                "users", userData.doc_id, "company", userData.companyID, "items"
-            ).document(key).update({"Units": firestore.Increment(int(data["qty"][0]))})
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(doc.id).update({"Balance": firestore.Increment(-amount)})
+            #############################################
+    for i in range(len(data)):
+        item_ref = db.collection(
+            "users", userData.doc_id, "company", userData.companyID, "items"
+        ).where("ItemName", "==", str(data["item"][i]))
+        # item_ref.update({"Units": 10})
+        items = item_ref.get()
+        for doc in items:
+            key = doc.id
+            if doc.to_dict()["ItemName"] == str(data["item"][i]):
+                db.collection(
+                    "users", userData.doc_id, "company", userData.companyID, "items"
+                ).document(key).update(
+                    {"Units": firestore.Increment(int(data["qty"][i]))}
+                )
 
     return jsonify(data)
 
@@ -943,7 +968,9 @@ def uploadNewPurchaseData():
         print(str(data[0]["party_name_dropdown"]))
         if (str(doc.to_dict()["PartyName"]), "==", str(data[0]["party_name_dropdown"])):
             print("condition Satisfied")
+            amount = 0
             for i in range(len(data)):
+                amount = amount + int(data[i]["amount"])
                 db.collection(
                     "users",
                     userData.doc_id,
@@ -967,6 +994,12 @@ def uploadNewPurchaseData():
                         "Date": firestore.SERVER_TIMESTAMP,
                     }
                 )
+            #############################################
+            print("Amount : " + str(amount) + "\t\t" + str(int(data[i]["amount"])))
+            db.collection(
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(doc.id).update({"Balance": firestore.Increment(-amount)})
+            #############################################
     for i in range(len(data)):
         item_ref = db.collection(
             "users", userData.doc_id, "company", userData.companyID, "items"
@@ -1032,6 +1065,45 @@ def addPaymentInData():
     return "true"
 
 
+@app.route("/addPaymentOutData")
+def addPaymentOutData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    jsonData = request.args.get("json_data")
+    jsonData = json.loads(jsonData)
+
+    userData = UserData(number, company)
+    db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "paymentOut"
+    ).add(
+        {
+            "Sent": jsonData["received"],
+            "ReceiptNo": jsonData["receiptno"],
+            "Date": jsonData["Date"],
+            "TransactionType": jsonData["transactiontype"],
+            "PartyName": jsonData["party"],
+        }
+    )
+    ###########################################################
+    partyRef = db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "parties"
+    ).where("PartyName", "==", str(jsonData["party"]))
+
+    partydocs = partyRef.get()
+
+    for doc in partydocs:
+        key = doc.id
+        if doc.to_dict()["PartyName"] == str(jsonData["party"]):
+            db.collection(
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(key).update(
+                {"Balance": firestore.Increment(int(jsonData["received"]))}
+            )
+    ##############################################################
+
+    return "true"
+
+
 @app.route("/getPaymentInData")
 def GetPaymentInData():
     number = request.args.get("number")
@@ -1039,6 +1111,15 @@ def GetPaymentInData():
     userData = UserData(number, company)
 
     return userData.paymentInData
+
+
+@app.route("/getPaymentOutData")
+def GetPaymentOutData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+
+    return userData.paymentOutData
 
 
 if __name__ == "__main__":
