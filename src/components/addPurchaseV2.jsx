@@ -1,7 +1,13 @@
 import React from "react";
 import "./addPurchaseV2.css";
-import { AiFillCalculator, AiFillSetting } from "react-icons/ai";
-import { RxCrossCircled } from "react-icons/rx";
+import {
+  AiFillCalculator,
+  AiFillSetting,
+  AiOutlineDownload,
+  AiFillPrinter,
+  AiFillPlusCircle,
+} from "react-icons/ai";
+import { RxCrossCircled, RxCross2 } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
 
@@ -51,10 +57,17 @@ export const AddPurchaseV2 = (props) => {
         <div className="purchaseTag">
           <h3>Purchase</h3>
         </div>
-        <div className="top-bar">
-          <AiFillCalculator className="icn" />
-          <AiFillSetting className="icn" />
-          <RxCrossCircled className="icn" />
+        <div className="top-bar-addSale">
+          <div className="window-addSale">
+            <div className="window-inner-text">Purchase #1</div>
+            <RxCross2 className="cross-without-circle" />
+          </div>
+          <AiFillPlusCircle className="plus-addSalePage" />
+          <div className="page-options-addSale">
+            <AiFillCalculator className="icn-addSale" />
+            <AiFillSetting className="icn-addSale" />
+            <RxCrossCircled className="icn-addSale" />
+          </div>
         </div>
         {/* <div className="line"></div> */}
         <div className="party-detail-addPurchase">

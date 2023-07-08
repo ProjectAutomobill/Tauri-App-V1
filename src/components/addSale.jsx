@@ -21,24 +21,32 @@ import { BiLogoGmail, BiSolidMessageDots } from "react-icons/bi";
 import { MdMessage } from "react-icons/md";
 import { GrMail } from "react-icons/gr";
 import { TableA } from "../settingsPages/tables/tableA";
+// import { A } from "@tauri-apps/api/path-e12e0e34";
 export const AddSale = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
   const [invoiceNo, setInvoiceNo] = useState();
+  const [invoiceDate, setInvoiceDate] = useState();
   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [stateofsupply, setStateOfSupply] = useState("");
   const [receivedAmount, setReceivedAmount] = useState(0);
   const [afterSale, setAfterSale] = useState(false);
   const [rows, setRows] = useState([
     {
       party_name_dropdown: "",
       Invoice_no: "",
+      Invoice_date: "",
+      State_of_supply: "",
       item: "",
       qty: "",
+      unit: "Bags",
       price: "",
       amount: "",
-      balance: "",
+      tax: "",
+      tax_amount: "",
     },
   ]);
 
@@ -46,27 +54,23 @@ export const AddSale = (props) => {
     setRows(rows.slice(0, -1));
   };
 
-  // const calcBalance = () => {
-  //   for (var i = 0; i < rows.length; i++) {
-  //     setBalance(balance + parseInt(rows[i]["amount"]));
-  //   }
-  // };
-
   const addRow1 = () => {
-    // console.log("ADDING ROWS");
     setRows([
       ...rows,
       {
         party_name_dropdown: "",
         Invoice_no: "",
+        Invoice_date: "",
+        State_of_supply: "",
         item: "",
         qty: "",
+        unit: "Bags",
         price: "",
         amount: "",
-        balance: "",
+        tax: "",
+        tax_amount: "",
       },
     ]);
-    // console.log("Length : " + rows.length);
   };
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
@@ -93,28 +97,6 @@ export const AddSale = (props) => {
   </td></tr>`;
     table.innerHTML += template;
   }
-  async function getPartyNames() {
-    // console.log("ADD SALE PAGE : " + props.userNumber);
-    await fetch("/getPartyNames?number=" + props.userNumber.current)
-      .then((val) => val.json())
-      .then((value) => {
-        setPartyNames(value);
-        console.log(value);
-      });
-  }
-  function getFormData() {
-    const form = document.querySelector("#myForm");
-
-    // form.addEventListener("submit", async (event) => {
-    //   event.preventDefault();
-
-    const formData = new FormData(form);
-    const formDataJSON = Object.fromEntries(formData);
-    // console.log(formDataJSON);
-
-    // ... Do something with the form data ...
-    // });
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -125,34 +107,71 @@ export const AddSale = (props) => {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
+      totalPrice: totalAmount.toString(),
+      recievedPrice: receivedAmount.toString(),
     });
   };
 
-  function calcBalance() {
-    var balance = 0;
+  async function calcTotal() {
     var temp = 0;
     for (var i = 0; i < rows.length; i++) {
-      temp = temp + parseInt(rows[i]["amount"]);
+      temp = temp + parseFloat(rows[i]["amount"]);
     }
-    console.log(
-      "IN calBalance : temp :  " + temp + "\treceivedAmount : " + receivedAmount
+    await setTotalAmount(temp);
+    var recieved_amount = parseFloat(
+      document.getElementById("received-amount").value
     );
-    balance = temp - parseInt(receivedAmount);
+    if (recieved_amount === NaN) {
+      recieved_amount = 0;
+    }
+    var a = temp - recieved_amount ? receivedAmount : 0;
+    // await setBalance(a);
+    console.log("TEMP>>>>>>>>>>>>>>>>>>>>>>" + a);
+    // // console.log(totalAmount);
+
+    document.getElementById("total-value-input").value = temp;
+    await setBalance(temp);
     console.log(balance);
-    return balance;
+    console.log(temp);
+    console.log(recieved_amount);
+    // if (a != null) {
+    //   document.getElementById("balance-amount").value = a.toString();
+    // }
+  }
+
+  async function calcBalance() {
+    console.log("In calc Balance");
+    var recieved_amount = parseFloat(
+      document.getElementById("received-amount").value
+    );
+    setReceivedAmount(recieved_amount);
+    var balance_amount = balance - recieved_amount;
+    console.log(balance + "\t\t" + recieved_amount);
+    document.getElementById("balance-amount").value = balance_amount;
   }
 
   const handleChange = (event, index) => {
     const { name, value } = event.target;
     const newRows = [...rows];
     newRows[index][name] = value;
-    // console.log(newRows[index]);
     newRows[index]["party_name_dropdown"] = currParty;
     newRows[index]["Invoice_no"] = invoiceNo;
-    newRows[index]["balance"] = calcBalance();
+    newRows[index]["Invoice_date"] = invoiceDate;
+    newRows[index]["State_of_supply"] = stateofsupply;
+    // newRows[index]["balance"] = "0";
+    newRows[index]["tax_amount"] =
+      newRows[index]["price"] *
+      newRows[index]["tax"] *
+      newRows[index]["qty"] *
+      0.01;
+
+    newRows[index]["amount"] =
+      newRows[index]["price"] * newRows[index]["qty"] +
+      newRows[index]["tax_amount"];
     setRows(newRows);
+    calcTotal();
     // console.log("Balance : " + balance);
-    document.getElementById("total-value-input").value = balance;
+    // document.getElementById("total-value-input").value = totalAmount;
   };
 
   const testFunction = (event) => {
@@ -270,6 +289,7 @@ export const AddSale = (props) => {
                   <input
                     type="date"
                     className="upperButton-addPurchase-addSale"
+                    onChange={(e) => setInvoiceDate(e.target.value)}
                   ></input>
                 </div>
                 <div className="invoice-info-box-Sale">
@@ -279,6 +299,7 @@ export const AddSale = (props) => {
                   <input
                     type="text"
                     className="upperButton-addPurchase-addSale"
+                    onChange={(e) => setStateOfSupply(e.target.value)}
                   ></input>
                 </div>
               </div>
@@ -392,9 +413,31 @@ export const AddSale = (props) => {
                             }
                             // className="table-2nd-input-addpurchase-addSale"
                             type="number"
+                            name="unit"
+                            id="unit"
+                            // value={row.price}
+                            onChange={(event) => handleChange(event, index)}
+                          />
+                        </td>
+                        <td
+                          // className="col col-4"
+                          id={
+                            index % 2 == 0
+                              ? "td-addSale"
+                              : "td-addSale-diffColor"
+                          }
+                        >
+                          <input
+                            className={
+                              index % 2 == 0
+                                ? "table-2nd-input-addpurchase-addSale"
+                                : "table-2nd-input-addpurchase-addSale-DifferentColor"
+                            }
+                            // className="table-2nd-input-addpurchase-addSale"
+                            type="number"
                             name="price"
                             id="price"
-                            value={row.price}
+                            // value={row.amount}
                             onChange={(event) => handleChange(event, index)}
                           />
                         </td>
@@ -414,9 +457,9 @@ export const AddSale = (props) => {
                             }
                             // className="table-2nd-input-addpurchase-addSale"
                             type="number"
-                            name="amount"
-                            id="amount"
-                            value={row.amount}
+                            name="tax"
+                            id="tax"
+                            value={row.tax}
                             onChange={(event) => handleChange(event, index)}
                           />
                         </td>
@@ -436,31 +479,9 @@ export const AddSale = (props) => {
                             }
                             // className="table-2nd-input-addpurchase-addSale"
                             type="number"
-                            name="amount"
-                            id="amount"
-                            value={row.amount}
-                            onChange={(event) => handleChange(event, index)}
-                          />
-                        </td>
-                        <td
-                          // className="col col-4"
-                          id={
-                            index % 2 == 0
-                              ? "td-addSale"
-                              : "td-addSale-diffColor"
-                          }
-                        >
-                          <input
-                            className={
-                              index % 2 == 0
-                                ? "table-2nd-input-addpurchase-addSale"
-                                : "table-2nd-input-addpurchase-addSale-DifferentColor"
-                            }
-                            // className="table-2nd-input-addpurchase-addSale"
-                            type="number"
-                            name="amount"
-                            id="amount"
-                            value={row.amount}
+                            name="tax-amount"
+                            id="tax-amount"
+                            value={row.tax_amount}
                             onChange={(event) => handleChange(event, index)}
                           />
                         </td>
@@ -551,9 +572,23 @@ export const AddSale = (props) => {
                 type="text"
                 className="balance-box-input-addSale"
                 id="received-amount"
-                onChange={(e) => setReceivedAmount(e.target.value)}
+                onChange={(e) => calcBalance()}
+                // onChange={(e) => setReceivedAmount(e.target.value)}
               />
             </div>
+            {totalAmount != 0 && totalAmount != NaN && (
+              <div className="balance-box-data-Sale">
+                <label className="balance-box-label-addSale">Balance</label>
+                <input
+                  type="text"
+                  className="balance-box-input-addSale"
+                  id="balance-amount"
+
+                  // value={balance}
+                  // onChange={(e) => setReceivedAmount(e.target.value)}
+                />
+              </div>
+            )}
           </div>
         </form>
       )}
