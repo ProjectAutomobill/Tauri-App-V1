@@ -606,6 +606,7 @@ def addPartyData():
             "PhoneNumber": str(pnumber),
             "Email": str(email),
             "Address": str(address),
+            "Balance": 0,
         }
     )
     print("ADDED NEW PARTY DETAILS...")
@@ -818,7 +819,7 @@ def getJsonData():
     data = request.args.get("json_data")
     number = request.args.get("number")
     company = request.args.get("company")
-    balance_amount = request.args.get("totalAmount")
+    total_amount = request.args.get("totalAmount")
     received_amount = request.args.get("receivedAmount")
     data = json.loads(data)
     print(data[0]["item"])
@@ -848,10 +849,6 @@ def getJsonData():
                     "PartyDetails",
                 ).add(
                     {
-                        # "Item": data["item"][0],
-                        # "Quantity": data["qty"][0],
-                        # "Price": data["price"][0],
-                        # "Amount": data["amount"][0],
                         "Item": data[i]["item"],
                         "Number": int(data[i]["qty"]),
                         "Price": int(data[i]["price"]),
@@ -869,7 +866,13 @@ def getJsonData():
             #############################################
             db.collection(
                 "users", userData.doc_id, "company", userData.companyID, "parties"
-            ).document(doc.id).update({"Balance": firestore.Increment(amount)})
+            ).document(doc.id).update(
+                {
+                    "Balance": firestore.Increment(
+                        (float(total_amount) - float(received_amount))
+                    )
+                }
+            )
             #############################################
     for i in range(len(data)):
         item_ref = db.collection(
@@ -959,6 +962,8 @@ def uploadNewPurchaseData():
     data = request.args.get("json_data")
     number = request.args.get("number")
     company = request.args.get("company")
+    total_amount = request.args.get("totalAmount")
+    received_amount = request.args.get("receivedAmount")
     data = json.loads(data)
     print(data[0]["item"])
     ##Data Upload Code
@@ -994,17 +999,28 @@ def uploadNewPurchaseData():
                         "Item": data[i]["item"],
                         "Number": int(data[i]["qty"]),
                         "Price": int(data[i]["price"]),
-                        "Total": int(data[i]["amount"]),
-                        "Type": "Purchase",
-                        "Balance": 100,
-                        "Date": firestore.SERVER_TIMESTAMP,
+                        "Total": float(data[i]["amount"]),
+                        "Type": "Sale",
+                        "Balance": float(data[i]["amount"]) - float(received_amount),
+                        "Date": data[i]["Invoice_date"],
+                        "Invoice_no": int(data[i]["Invoice_no"]),
+                        "tax": data[i]["tax"],
+                        "tax_amount": data[i]["tax_amount"],
+                        "unit": data[i]["unit"],
+                        "StateOfSupply": data[i]["State_of_supply"],
                     }
                 )
             #############################################
             print("Amount : " + str(amount) + "\t\t" + str(int(data[i]["amount"])))
             db.collection(
                 "users", userData.doc_id, "company", userData.companyID, "parties"
-            ).document(doc.id).update({"Balance": firestore.Increment(-amount)})
+            ).document(doc.id).update(
+                {
+                    "Balance": firestore.Increment(
+                        -(float(total_amount) - float(received_amount))
+                    )
+                }
+            )
             #############################################
     for i in range(len(data)):
         item_ref = db.collection(

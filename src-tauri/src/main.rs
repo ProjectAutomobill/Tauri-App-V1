@@ -575,18 +575,24 @@ println!("{}", jsonData);
 
 
 #[tauri::command]
-async fn new_purchase_data(number : String, company : String, jsonData : String){
+async fn new_purchase_data(number : String, company : String, jsonData : String, totalPrice : String, recievedPrice : String){
  
   let mut a = String::from(url.to_owned() + &"uploadNewPurchaseData?json_data=");
   let mut b = String::from("&company=");
   let mut c = String::from("&number=");
+  let mut d = String::from("&totalAmount=");
+  let mut e = String::from("&receivedAmount=");
    
   a.push_str(&jsonData);
   b.push_str(&company);
   c.push_str(&number);
+  d.push_str(&totalPrice);
+  e.push_str(&recievedPrice);
 
   a.push_str(&b);
   a.push_str(&c);
+  a.push_str(&d);
+  a.push_str(&e);
   let resp = match reqwest::get(a).await {
     Ok(resp) => resp.text().await.unwrap(),
     Err(err) => panic!("Error: {}", err)
