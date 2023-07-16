@@ -26,6 +26,30 @@ export const ItemsTable = (props) => {
       });
   }
 
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
+
+  if (props.refresh == 1) {
+    // console.log("HHHHEEEEEERRRRRRRREEEEEEE");
+    wait(2000);
+    console.log("Invoking Function...");
+    invoke("get_item_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setItemData(JSON.parse(response));
+      });
+
+    props.setrefresh(0);
+  }
+
   useEffect(() => {
     // getItemDetails();
     invoke("get_item_details", {

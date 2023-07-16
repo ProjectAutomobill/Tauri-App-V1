@@ -7,20 +7,28 @@ import {
   signInWithPhoneNumber,
   RecaptchaVerifier,
 } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useState } from "react";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 import { auth } from "./api-firebase/firebase-config";
 import OTPInput, { ResendOTP } from "otp-input-react";
 // import Spinner from "react-bootstrap/Spinner";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { UserData } from "./state_manager";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 import { AppContext } from "./App";
 export const Login = (props) => {
   const [number, setNumber] = useState();
   const [otp, setOTP] = useState();
   const { setTest } = useContext(AppContext);
 
+  const showToastMessage = () => {
+    toast.success("Logged In !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   const navigate = useNavigate();
   async function sendNumber() {
     var numberSliced = String(number).slice(3);
@@ -96,6 +104,7 @@ export const Login = (props) => {
         // console.log("OTP Verified");
         toast.success("Login successful");
         navigate("/yourCompanies");
+        showToastMessage();
         // {
         //   <Navigate to="/yourCompanies" state={{ number }} />;
         // }
@@ -111,6 +120,7 @@ export const Login = (props) => {
 
   return (
     <div className="background-login">
+      <ToastContainer />
       <div className="left-upper-login">
         <div className="left-side-login">
           <input type="radio" name="position" checked />

@@ -621,13 +621,14 @@ def addItemData():
     name = request.args.get("name")
     sale_price = request.args.get("SalePrice")
     wholesale_price = request.args.get("WholesalePrice")
+    stock_qty = request.args.get("stockQuantity")
 
     db.collection("users", userData.doc_id, "company", userData.companyID, "items").add(
         {
             "ItemName": str(name),
             "Sale_Price": str(sale_price),
             "Wholesale_Price": str(wholesale_price),
-            "Units": 0,
+            "Units": int(stock_qty),
         }
     )
     print("ADDED NEW Item DETAILS...")
@@ -1000,7 +1001,7 @@ def uploadNewPurchaseData():
                         "Number": int(data[i]["qty"]),
                         "Price": int(data[i]["price"]),
                         "Total": float(data[i]["amount"]),
-                        "Type": "Sale",
+                        "Type": "Purchase",
                         "Balance": float(data[i]["amount"]) - float(received_amount),
                         "Date": data[i]["Invoice_date"],
                         "Invoice_no": int(data[i]["Invoice_no"]),

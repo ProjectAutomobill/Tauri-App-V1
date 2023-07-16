@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Table } from "@mui/material";
 import "./items.css";
 import { ItemsTable } from "./tables/itemsTable";
@@ -14,8 +14,15 @@ import { ItemsModal } from "./modals/itemsModal";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Items = (props) => {
+  const showToastMessage = () => {
+    toast.success("Item Added !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   const [modalShowItem, setModalShowItem] = useState(false);
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
@@ -29,6 +36,7 @@ export const Items = (props) => {
   const [stateChange, setStateChange] = useState(true);
   const [b_name, setNewBName] = useState();
   const [itemPage, setItemPage] = useState(0);
+  const [refresh, setrefresh] = useState(0);
   const navigate = useNavigate();
 
   function navigateToSale() {
@@ -63,8 +71,13 @@ export const Items = (props) => {
       bNameVal: b_name.toString(),
     });
   }
+
+  // useEffect((()=>{
+  //   getItemDetails();
+  // }),[]);
   return (
     <div className="parties-items-items">
+      <ToastContainer />
       <div className="upperDiv-items">
         <div className="upperDivPart1-items">
           <div className="input-business-items">
@@ -195,6 +208,8 @@ export const Items = (props) => {
               setStateChange={setStateChange}
               stateChange={stateChange}
               getItemDetails={getItemDetails}
+              refresh={refresh}
+              setrefresh={setrefresh}
             />
           </div>
 
@@ -270,6 +285,9 @@ export const Items = (props) => {
         onHide={() => setModalShowItem(false)}
         userNumber={props.userNumber}
         userCompany={props.userCompany}
+        getItemDetails={getItemDetails}
+        setrefresh={setrefresh}
+        toastMessage={showToastMessage}
       />
     </div>
   );

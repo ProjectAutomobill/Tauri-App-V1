@@ -152,7 +152,7 @@ export const TransactionTable = (props) => {
                     borderRight: "1px solid rgb(230, 230, 230)",
                   }}
                 >
-                  {row.Number}
+                  {row.Date}
                 </TableCell>
                 <TableCell
                   sx={{

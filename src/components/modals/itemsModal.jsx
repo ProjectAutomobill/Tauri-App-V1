@@ -14,26 +14,21 @@ export function ItemsModal(props) {
   const [wholesalePrice, setWholesalePrice] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
+  const [stockQuantity, setStockQuantity] = useState(0);
 
   async function addItemDetails() {
-    // await fetch(
-    //   "/addItem?number=" +
-    //     props.userNumber +
-    //     "name=" +
-    //     itemName +
-    //     "&SalePrice=" +
-    //     salePrice +
-    //     "&WholesalePrice=" +
-    //     wholesalePrice
-    // ).then((val) => console.log(val));
     invoke("add_item_details", {
       number: props.userNumber,
       company: props.userCompany,
       name: itemName,
       salePrice: salePrice,
       wholesalePrice: wholesalePrice,
+      stockQuantity: stockQuantity.toString(),
     });
     props.onHide();
+    // props.getItemDetails();
+    props.toastMessage();
+    props.setrefresh(1);
   }
 
   return (
@@ -83,7 +78,13 @@ export function ItemsModal(props) {
               Tab 1
             </Tab>
             <Tab eventKey="profile" title="Stock">
-              Tab 2
+              <input
+                type="number"
+                name=""
+                id="stock_quantity"
+                placeholder="Stock Quantiy"
+                onChange={(v) => setStockQuantity(v.target.value)}
+              />
             </Tab>
           </Tabs>
           {/* <ul className="nav nav-tabs">

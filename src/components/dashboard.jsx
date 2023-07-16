@@ -421,6 +421,16 @@ export const DashBoard = (props) => {
                 <h5 className="gray-color-dashboard">You'll Pay</h5>
               </div>
               <h5 className="balance-tag-dashboard">₹ {purchaseBalance}.00</h5>
+              {payList?.map((row) => (
+                <div className="receiveInfo-dashboard">
+                  <div className="receiveInfoName-dashboard">
+                    {row.PartyName}
+                  </div>
+                  <div className="receiveInfoBalance-dashboard">
+                    {row.Balance}
+                  </div>
+                </div>
+              ))}
               {payList?.length > 0 ? (
                 <div></div>
               ) : (

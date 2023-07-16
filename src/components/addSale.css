@@ -391,6 +391,18 @@
   border: 0ch;
   outline: none;
 }
+.totalAmountText {
+  /* background-color: yellow; */
+  width: fit-content;
+  height: 100%;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 3%;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+}
 
 .table-2nd-input-addpurchase-addSale:focus {
   border: solid 1px rgba(243, 244, 248, 255);
@@ -476,6 +488,8 @@
   border: 1px solid #ccc;
   outline: none;
   margin-left: auto;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 .balance-box-input-addSale:focus {

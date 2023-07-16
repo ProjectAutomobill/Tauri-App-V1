@@ -21,8 +21,44 @@ import { BiLogoGmail, BiSolidMessageDots } from "react-icons/bi";
 import { MdMessage } from "react-icons/md";
 import { GrMail } from "react-icons/gr";
 import { TableA } from "../settingsPages/tables/tableA";
-// import { A } from "@tauri-apps/api/path-e12e0e34";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const AddSale = (props) => {
+  const showToastMessage = () => {
+    toast.success("Invoice Generated !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+  const createNotification = (type) => {
+    return () => {
+      switch (type) {
+        case "info":
+          NotificationManager.info("Info message");
+          break;
+        case "success":
+          NotificationManager.success("Success message", "Invoice Generated !");
+          break;
+        case "warning":
+          NotificationManager.warning(
+            "Warning message",
+            "Close after 3000ms",
+            3000
+          );
+          break;
+        case "error":
+          NotificationManager.error("Error message", "Click me!", 5000, () => {
+            alert("callback");
+          });
+          break;
+      }
+    };
+  };
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
@@ -102,7 +138,7 @@ export const AddSale = (props) => {
     event.preventDefault();
     const formData = JSON.stringify(rows);
     console.log(formData);
-
+    showToastMessage();
     invoke("new_sale_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
@@ -195,6 +231,7 @@ export const AddSale = (props) => {
   }, []);
   return (
     <div id="main-background-body">
+      <ToastContainer />
       {/* action="/addSaleData" */}
       {afterSale == false && (
         <form
@@ -524,6 +561,9 @@ export const AddSale = (props) => {
                 <div onClick={addRow1} className="add-row-button-addSale">
                   Add Row
                 </div>
+                {totalAmount != 0 && (
+                  <div className="totalAmountText">{totalAmount}</div>
+                )}
               </div>
               {/* <button type="submit" id="submit-button-addPurchase">
               Save
@@ -538,7 +578,7 @@ export const AddSale = (props) => {
             <button
               type="submit"
               id="submit-button-addPurchase-addSale"
-              // onClick={getFormData}
+              // onClick={showToastMessage}
             >
               Save
             </button>

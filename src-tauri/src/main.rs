@@ -450,7 +450,7 @@ resp.into()
 
 
 #[tauri::command]
-async fn add_item_details(number : String, company : String, name : String, salePrice : String, wholesalePrice : String) -> String{
+async fn add_item_details(number : String, company : String, name : String, salePrice : String, wholesalePrice : String, stockQuantity : String) -> String{
   let mut a = String::from(url.to_owned() + &"addItem?number=");
   a.push_str(&number);
   
@@ -465,6 +465,9 @@ async fn add_item_details(number : String, company : String, name : String, sale
 
   let mut e = String::from("&WholesalePrice=");
   e.push_str(&wholesalePrice);
+  
+  let mut f = String::from("&stockQuantity=");
+  f.push_str(&stockQuantity);
 
   // let mut f = String::from("&email=");
   // f.push_str(&email);
@@ -476,6 +479,7 @@ async fn add_item_details(number : String, company : String, name : String, sale
   a.push_str(&c);
   a.push_str(&d);
   a.push_str(&e);
+  a.push_str(&f);
   // a.push_str(&f);
   // a.push_str(&g);
 
