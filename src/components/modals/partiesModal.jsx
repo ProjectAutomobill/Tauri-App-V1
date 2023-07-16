@@ -16,21 +16,6 @@ export function PartiesModal(props) {
   const [address, setAddress] = useState("");
 
   function addPartyDetails() {
-    // await fetch(
-    //   "/addParty?number=" +
-    //     props.userNumber +
-    //     "name=" +
-    //     partyName +
-    //     "&gstin=" +
-    //     gstin +
-    //     "&pnumber=" +
-    //     phone_no +
-    //     "&email=" +
-    //     email +
-    //     "&address=" +
-    //     address
-    // ).then((val) => console.log(val));
-
     invoke("add_party_details", {
       number: props.userNumber,
       company: props.userCompany,
@@ -41,6 +26,8 @@ export function PartiesModal(props) {
       address: address,
     });
     props.onHide();
+    props.toastMessage();
+    props.setrefresh(1);
   }
 
   // useEffect(() => {

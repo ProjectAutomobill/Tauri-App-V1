@@ -35,7 +35,30 @@ export const PartiesTable = (props) => {
         console.log("Data : " + data);
       });
   }
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
 
+  if (props.refresh == 1) {
+    // console.log("HHHHEEEEEERRRRRRRREEEEEEE");
+    wait(2000);
+    console.log("Invoking Function Party...");
+    invoke("get_party_names", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      // `invoke` returns a Promise
+      .then((response) => {
+        setData(JSON.parse(response));
+      });
+    props.setStateChange(!props.stateChange);
+
+    props.setrefresh(0);
+  }
   // getData();
   useEffect(() => {
     // componentDidMount1();

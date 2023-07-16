@@ -11,6 +11,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BiAlarm } from "react-icons/bi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // const [b_name, setNewBName] = useState();
 
 import Button from "react-bootstrap/Button";
@@ -19,6 +22,11 @@ import { PartiesModal } from "./modals/partiesModal";
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../loading";
 export const Parties = (props) => {
+  const showToastMessage = () => {
+    toast.success("Party Added !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   const [modalShow, setModalShow] = useState(false);
   const [partyTransaction, setPartyTransaction] = useState();
   const [partyDetails, setPartyDetails] = useState();
@@ -27,6 +35,8 @@ export const Parties = (props) => {
   const [partyAddress, setPartyAddress] = useState();
   const [partyGSTIN, setPartyGSTIN] = useState();
   const [stateChange, setStateChange] = useState(true);
+  const [refresh, setrefresh] = useState(0);
+
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
   const [cName, setCName] = useState();
@@ -137,6 +147,7 @@ export const Parties = (props) => {
   // }
   return (
     <div className="parties-items-parties">
+      <ToastContainer />
       <div className="upperDiv-parties">
         <div className="upperDivPart1-parties">
           <div className="input-business-parties">
@@ -241,6 +252,8 @@ export const Parties = (props) => {
             stateChange={stateChange}
             getPartyDetails={getPartyDetails}
             userCompany={props.userCompany}
+            refresh={refresh}
+            setrefresh={setrefresh}
           />
         </div>
 
@@ -356,6 +369,8 @@ export const Parties = (props) => {
         onHide={() => setModalShow(false)}
         userNumber={props.userNumber}
         userCompany={props.userCompany}
+        setrefresh={setrefresh}
+        toastMessage={showToastMessage}
       />
     </div>
   );
