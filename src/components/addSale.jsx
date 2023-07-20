@@ -10,7 +10,7 @@ import {
 import { RxCrossCircled, RxCross2 } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
@@ -85,6 +85,11 @@ export const AddSale = (props) => {
       tax_amount: "",
     },
   ]);
+  const navigate = useNavigate();
+
+  function navigateToDashboard() {
+    navigate("/loggedIn");
+  }
 
   const handleRemoveLast = () => {
     setRows(rows.slice(0, -1));
@@ -133,12 +138,18 @@ export const AddSale = (props) => {
   </td></tr>`;
     table.innerHTML += template;
   }
-
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = JSON.stringify(rows);
     console.log(formData);
-    showToastMessage();
+
     invoke("new_sale_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
@@ -146,6 +157,9 @@ export const AddSale = (props) => {
       totalPrice: totalAmount.toString(),
       recievedPrice: receivedAmount.toString(),
     });
+    props.showToastMessage();
+    // wait(2000);
+    navigateToDashboard();
   };
 
   async function calcTotal() {

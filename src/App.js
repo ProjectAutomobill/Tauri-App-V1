@@ -24,6 +24,8 @@ import { AddEQ } from "./components/sales_pages/addE&Q";
 import { Loading } from "./loading";
 import { AddCreditNote } from "./components/sales_pages/addCreditNote";
 import { TopBar } from "./topBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const AppContext = createContext(null);
 
 function App() {
@@ -31,6 +33,19 @@ function App() {
   // if(userNumber!=""){
 
   // }
+  const showToastMessage = () => {
+    console.log("Toast Function Called");
+    toast.success("Logged In !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+  const showToastMessageInvoice = () => {
+    console.log("Toast Function Called");
+    toast.success("Invoice Generated !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
   var [content, setContent] = useState("home");
   const [test, setTest] = useState();
   // var [userNumber, setUserNumber] = useState(0);
@@ -55,6 +70,7 @@ function App() {
   return (
     <AppContext.Provider value={{ test, setTest }}>
       <div className="App-App">
+        <ToastContainer />
         <TopBar className="Top-bar-App" setContent={setContent} />
         <div className="lower-section-App">
           <Routes>
@@ -66,6 +82,7 @@ function App() {
                   // userNumber={userNumber}
                   userNumber1={userNumber1}
                   userCompany={userCompany}
+                  showToastMessage={showToastMessage}
                 />
               }
             />
@@ -93,7 +110,11 @@ function App() {
             <Route
               path="/sale"
               element={
-                <AddSale userNumber={userNumber1} userCompany={userCompany} />
+                <AddSale
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                  showToastMessage={showToastMessageInvoice}
+                />
               }
             />
             <Route

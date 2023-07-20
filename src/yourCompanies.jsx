@@ -13,11 +13,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const YourCompanies = (props) => {
-  const showToastMessage = () => {
-    toast.success("Logged In !", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
+  // const showToastMessage = () => {
+  //   toast.success("Logged In !", {
+  //     position: toast.POSITION.TOP_RIGHT,
+  //   });
+  // };
   const [companyNames, setCompanyNames] = useState();
   const navigate = useNavigate();
   //   const { state } = useLocation();
@@ -47,7 +47,7 @@ export const YourCompanies = (props) => {
   }
   useEffect(() => {
     // getCompaniesNames();
-    showToastMessage();
+    // showToastMessage();
     invoke("get_companies_name", { number: props.userNumber.current })
       // `invoke` returns a Promise
       .then((response) => setCompanyNames(JSON.parse(response)));

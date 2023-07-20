@@ -102,9 +102,10 @@ export const Login = (props) => {
       .confirm(otp)
       .then(async (res) => {
         // console.log("OTP Verified");
-        toast.success("Login successful");
+        // toast.success("Login successful");
+        props.showToastMessage();
         navigate("/yourCompanies");
-        showToastMessage();
+        // showToastMessage();
         // {
         //   <Navigate to="/yourCompanies" state={{ number }} />;
         // }
@@ -115,6 +116,8 @@ export const Login = (props) => {
   }
   function byPass() {
     sendNumber();
+    console.log("By Passing OTP...");
+    props.showToastMessage();
     navigate("/yourCompanies");
   }
 
