@@ -18,6 +18,9 @@ export const PurchaseReturn = (props) => {
   function navigateToPurchase() {
     navigate("/purchase");
   }
+  function navigateToaddDebitNote() {
+    navigate("/addDebitNote");
+  }
   function update_b_name_purchaseReturn() {
     invoke("change_business_name", {
       number: props.userNumber,
@@ -208,9 +211,12 @@ export const PurchaseReturn = (props) => {
           {/* <Link to="/purchase"> */}
           <button
             className="addBtnSale-sale2-purchaseReturn"
-            onClick={<Navigate to="/purchase" />}
+            onClick={() => navigateToaddDebitNote()}
           >
-            <BsFillPlusCircleFill className="plus-purchaseReturn" />
+            <BsFillPlusCircleFill
+              className="plus-purchaseReturn"
+              
+            />
             Add Debit Note
           </button>
           {/* </Link> */}

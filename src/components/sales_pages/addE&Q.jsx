@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 // import "./addPurchaseV3.css";
+import "./addE&Q.css";
 import {
   AiFillCalculator,
   AiFillSetting,
@@ -10,7 +11,7 @@ import {
 import { RxCrossCircled, RxCross2 } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 // import { useSelector } from "react-redux";
 // import { Provider } from "react-redux";
@@ -23,28 +24,36 @@ export const AddEQ = (props) => {
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
   const [invoiceNo, setInvoiceNo] = useState();
+  const [invoiceDate, setInvoiceDate] = useState();
   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [stateofsupply, setStateOfSupply] = useState("");
+  const [receivedAmount, setReceivedAmount] = useState(0);
+  const [afterSale, setAfterSale] = useState(false);
+
   const [rows, setRows] = useState([
     {
       party_name_dropdown: "",
-      invoice_no: "",
+      Invoice_no: "",
+      Invoice_date: "",
+      State_of_supply: "",
       item: "",
       qty: "",
+      unit: "Bags",
       price: "",
       amount: "",
-      balance: "",
+      tax: "",
+      tax_amount: "",
     },
   ]);
+  const navigate = useNavigate();
 
+  function navigateToDashBoard() {
+    console.log("hello");
+  }
   const handleRemoveLast = () => {
     setRows(rows.slice(0, -1));
-  };
-
-  const calcBalance = () => {
-    for (var i = 0; i < rows.length; i++) {
-      setBalance(balance + parseInt(rows[i]["amount"]));
-    }
   };
 
   const addRow1 = () => {
@@ -53,12 +62,16 @@ export const AddEQ = (props) => {
       ...rows,
       {
         party_name_dropdown: "",
-        invoice_no: "",
+        Invoice_no: "",
+        Invoice_date: "",
+        State_of_supply: "",
         item: "",
         qty: "",
+        unit: "Bags",
         price: "",
         amount: "",
-        balance: "",
+        tax: "",
+        tax_amount: "",
       },
     ]);
     // console.log("Length : " + rows.length);
@@ -88,61 +101,89 @@ export const AddEQ = (props) => {
   </td></tr>`;
     table.innerHTML += template;
   }
-  async function getPartyNames() {
-    // console.log("ADD SALE PAGE : " + props.userNumber);
-    await fetch("/getPartyNames?number=" + props.userNumber.current)
-      .then((val) => val.json())
-      .then((value) => {
-        setPartyNames(value);
-        console.log(value);
-      });
-  }
-  function getFormData() {
-    const form = document.querySelector("#myForm");
-
-    // form.addEventListener("submit", async (event) => {
-    //   event.preventDefault();
-
-    const formData = new FormData(form);
-    const formDataJSON = Object.fromEntries(formData);
-    // console.log(formDataJSON);
-
-    // ... Do something with the form data ...
-    // });
+  function navigateToDashboard() {
+    navigate("/loggedIn");
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = JSON.stringify(rows);
     console.log(formData);
-    // console.log(currParty);
-
-    // console.log(
-    //   "NUMBER FROM SALE : " +
-    //     props.userNumber.current +
-    //     "\t\tCOMPANY : " +
-    //     props.userCompany.current
-    // );
 
     invoke("new_eq_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
+      totalPrice: totalAmount.toString(),
+      recievedPrice: receivedAmount.toString(),
     });
+    props.showToastMessage();
+    // wait(2000);
+    navigateToDashboard();
     // `invoke` returns a Promise
     // .then((response) => setBalance(parseInt(response)));
   };
+  //.......................................................................
 
+  async function calcTotal() {
+    var temp = 0;
+    for (var i = 0; i < rows.length; i++) {
+      temp = temp + parseFloat(rows[i]["amount"]);
+    }
+    await setTotalAmount(temp);
+    var recieved_amount = parseFloat(
+      document.getElementById("received-amount").value
+    );
+    if (recieved_amount === NaN) {
+      recieved_amount = 0;
+    }
+    var a = temp - recieved_amount ? receivedAmount : 0;
+    // await setBalance(a);
+    console.log("TEMP>>>>>>>>>>>>>>>>>>>>>>" + a);
+    // // console.log(totalAmount);
+
+    document.getElementById("total-value-input").value = temp;
+    await setBalance(temp);
+    console.log(balance);
+    console.log(temp);
+    console.log(recieved_amount);
+    // if (a != null) {
+    //   document.getElementById("balance-amount").value = a.toString();
+    // }
+  }
+
+  async function calcBalance() {
+    console.log("In calc Balance");
+    var recieved_amount = parseFloat(
+      document.getElementById("received-amount").value
+    );
+    setReceivedAmount(recieved_amount);
+    var balance_amount = balance - recieved_amount;
+    console.log(balance + "\t\t" + recieved_amount);
+    document.getElementById("balance-amount").value = balance_amount;
+  }
+
+  //.......................................................................
   const handleChange = (event, index) => {
     const { name, value } = event.target;
     const newRows = [...rows];
     newRows[index][name] = value;
-    // console.log(newRows[index]);
     newRows[index]["party_name_dropdown"] = currParty;
-    newRows[index]["invoice_no"] = invoiceNo;
+    newRows[index]["Invoice_no"] = invoiceNo;
+    newRows[index]["Invoice_date"] = invoiceDate;
+    newRows[index]["State_of_supply"] = stateofsupply;
+    // newRows[index]["balance"] = "0";
+    newRows[index]["tax_amount"] =
+      newRows[index]["price"] *
+      newRows[index]["tax"] *
+      newRows[index]["qty"] *
+      0.01;
+
+    newRows[index]["amount"] =
+      newRows[index]["price"] * newRows[index]["qty"] +
+      newRows[index]["tax_amount"];
     setRows(newRows);
-    // console.log("Balance : " + balance);
-    document.getElementById("total-value-input").value = balance;
+    calcTotal();
   };
 
   const testFunction = (event) => {
@@ -238,6 +279,7 @@ export const AddEQ = (props) => {
                 <input
                   type="date"
                   className="upperButton-addPurchase-addPurchaseV3"
+                  onChange={(e) => setInvoiceDate(e.target.value)}
                 ></input>
               </div>
               <div className="invoice-info-box-Purchase">
@@ -247,6 +289,7 @@ export const AddEQ = (props) => {
                 <input
                   type="text"
                   className="upperButton-addPurchase-addPurchaseV3"
+                  onChange={(e) => setStateOfSupply(e.target.value)}
                 ></input>
               </div>
             </div>
@@ -353,9 +396,29 @@ export const AddEQ = (props) => {
                               : "table-input-addpurchase-addPurchaseV3-DifferentColor"
                           }
                           type="number"
+                          name="unit"
+                          id="unit"
+                          // value={row.price}
+                          onChange={(event) => handleChange(event, index)}
+                        />
+                      </td>
+                      <td
+                        id={
+                          index % 2 == 0
+                            ? "td-addPurchase"
+                            : "td-addPurchase-diffColor"
+                        }
+                      >
+                        <input
+                          className={
+                            index % 2 == 0
+                              ? "table-input-addpurchase-addPurchaseV3"
+                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
+                          }
+                          type="number"
                           name="price"
                           id="price"
-                          value={row.price}
+                          // value={row.amount}
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
@@ -373,9 +436,9 @@ export const AddEQ = (props) => {
                               : "table-input-addpurchase-addPurchaseV3-DifferentColor"
                           }
                           type="number"
-                          name="amount"
-                          id="amount"
-                          value={row.amount}
+                          name="tax"
+                          id="tax"
+                          value={row.tax}
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
@@ -393,29 +456,9 @@ export const AddEQ = (props) => {
                               : "table-input-addpurchase-addPurchaseV3-DifferentColor"
                           }
                           type="number"
-                          name="amount"
-                          id="amount"
-                          value={row.amount}
-                          onChange={(event) => handleChange(event, index)}
-                        />
-                      </td>
-                      <td
-                        id={
-                          index % 2 == 0
-                            ? "td-addPurchase"
-                            : "td-addPurchase-diffColor"
-                        }
-                      >
-                        <input
-                          className={
-                            index % 2 == 0
-                              ? "table-input-addpurchase-addPurchaseV3"
-                              : "table-input-addpurchase-addPurchaseV3-DifferentColor"
-                          }
-                          type="number"
-                          name="amount"
-                          id="amount"
-                          value={row.amount}
+                          name="tax-amount"
+                          id="tax-amount"
+                          value={row.tax_amount}
                           onChange={(event) => handleChange(event, index)}
                         />
                       </td>
@@ -482,7 +525,7 @@ export const AddEQ = (props) => {
             <input
               type="text"
               className="balance-box-input-addPurchaseV3"
-              id="total-value-input-addPurchaseV3"
+              id="total-value-input"
             />
           </div>
           {/* <br /> */}
@@ -491,9 +534,23 @@ export const AddEQ = (props) => {
             <input
               type="text"
               className="balance-box-input-addPurchaseV3"
-              id="received-amount-addPurchaseV3"
+              id="received-amount"
+              onChange={(e) => calcBalance()}
             />
           </div>
+          {totalAmount != 0 && totalAmount != NaN && (
+            <div className="balance-box-data-Sale">
+              <label className="balance-box-label-addSale">Balance</label>
+              <input
+                type="text"
+                className="balance-box-input-addSale"
+                id="balance-amount"
+
+                // value={balance}
+                // onChange={(e) => setReceivedAmount(e.target.value)}
+              />
+            </div>
+          )}
         </div>
       </form>
       {/* <button onClick={() => addRow(i)} id="add-row-button">

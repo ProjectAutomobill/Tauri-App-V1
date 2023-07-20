@@ -28,6 +28,7 @@ import { TopBar } from "./topBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AddPurchaseOrder } from "./components/purchases_pages/addPurchaseOrder";
+import { AddDebitNote } from "./components/purchases_pages/addPurchaseReturn";
 export const AppContext = createContext(null);
 
 function App() {
@@ -44,6 +45,12 @@ function App() {
   const showToastMessageInvoice = () => {
     console.log("Toast Function Called");
     toast.success("Invoice Generated !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+  const showToastMessageEQ = () => {
+    console.log("Toast Function Called");
+    toast.success("E&Q Invoice Generated !", {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
@@ -156,7 +163,11 @@ function App() {
             <Route
               path="/addE&Q"
               element={
-                <AddEQ userNumber={userNumber1} userCompany={userCompany} />
+                <AddEQ
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                  showToastMessage={showToastMessageEQ}
+                />
               }
             />
             <Route
@@ -172,6 +183,15 @@ function App() {
               path="/addCreditNote"
               element={
                 <AddCreditNote
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/addDebitNote"
+              element={
+                <AddDebitNote
                   userNumber={userNumber1}
                   userCompany={userCompany}
                 />
