@@ -16,6 +16,9 @@ export const DeliveryChallan = (props) => {
   function navigateToSale() {
     navigate("/sale");
   }
+  function navigateToDC() {
+    navigate("/addDeliveryChallan");
+  }
   function navigateToPurchase() {
     navigate("/purchase");
   }
@@ -101,7 +104,10 @@ export const DeliveryChallan = (props) => {
             Make & share delivery challan with your customers & convert it to
             sale whenever you want.
           </p>
-          <button className="add-your-first-estimate-deliveryChallan">
+          <button
+            className="add-your-first-estimate-deliveryChallan"
+            onClick={() => navigateToDC()}
+          >
             Add Your First Delivery Challan
           </button>
         </div>

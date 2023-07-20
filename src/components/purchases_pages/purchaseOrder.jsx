@@ -19,6 +19,9 @@ export const PurchaseOrder = (props) => {
   function navigateToPurchase() {
     navigate("/purchase");
   }
+  function navigateToaddPurchaseOrder() {
+    navigate("/addPurchaseOrder");
+  }
   function update_b_name_purchaseOrder() {
     invoke("change_business_name", {
       number: props.userNumber,
@@ -103,7 +106,10 @@ export const PurchaseOrder = (props) => {
             Make & share purchase orders & convert them to purchase invoice
             instantly.
           </p>
-          <button className="add-your-first-estimate-purchaseOrder">
+          <button
+            className="add-your-first-estimate-purchaseOrder"
+            onClick={() => navigateToaddPurchaseOrder()}
+          >
             Add Your First Purchase Order
           </button>
         </div>

@@ -23,9 +23,11 @@ import { Setting } from "./setting";
 import { AddEQ } from "./components/sales_pages/addE&Q";
 import { Loading } from "./loading";
 import { AddCreditNote } from "./components/sales_pages/addCreditNote";
+import { AddDeliveryChallan } from "./components/sales_pages/addDeliveryChallan";
 import { TopBar } from "./topBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AddPurchaseOrder } from "./components/purchases_pages/addPurchaseOrder";
 export const AppContext = createContext(null);
 
 function App() {
@@ -170,6 +172,24 @@ function App() {
               path="/addCreditNote"
               element={
                 <AddCreditNote
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/addDeliveryChallan"
+              element={
+                <AddDeliveryChallan
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/addPurchaseOrder"
+              element={
+                <AddPurchaseOrder
                   userNumber={userNumber1}
                   userCompany={userCompany}
                 />

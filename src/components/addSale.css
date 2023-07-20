@@ -511,6 +511,10 @@
   /* background-color: antiquewhite; */
 }
 
+input[type="date"] {
+  font-size: small;
+}
+
 .afterSale-mainBody {
   /* background-color: antiquewhite; */
   width: 100%;
