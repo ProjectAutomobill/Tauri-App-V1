@@ -53,6 +53,7 @@ class UserData:
         self.paymentInData = []
         self.paymentOutData = []
         self.sale_order_data = []
+        self.e_q_flg = []
         self.getCompanyNames()
         self.getData()
 
@@ -160,6 +161,9 @@ class UserData:
                                 )
                                 # print(str(i) + "  " + str(doc_T.to_dict()["Type"]))
                                 # Balance = Balance + doc_T.to_dict()["Balance"]
+                                if doc_T.to_dict()["Type"] == "EQ":
+                                    self.e_q_flg.append(1)
+
                                 if doc_T.to_dict()["Type"] == "Sale":
                                     sales_amount = (
                                         sales_amount + doc_T.to_dict()["Total"]
@@ -1292,6 +1296,14 @@ def addSaleOrderData():
     #             )
 
     return "True"
+
+
+@app.route("/checkEQData")
+def checkEQData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    return str(userData.e_q_flg)
 
 
 if __name__ == "__main__":

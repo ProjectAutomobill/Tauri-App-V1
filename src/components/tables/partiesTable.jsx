@@ -69,6 +69,7 @@ export const PartiesTable = (props) => {
       // `invoke` returns a Promise
       .then((response) => {
         setData(JSON.parse(response));
+        props.setTrans(JSON.parse(response)[0].Name);
       });
     props.setStateChange(!props.stateChange);
   }, []);

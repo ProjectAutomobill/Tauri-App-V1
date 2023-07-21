@@ -10,9 +10,11 @@ import { TbReport } from "react-icons/tb";
 import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import "./EandQ.css";
 import { invoke } from "@tauri-apps/api";
+import { EandQV2 } from "./EandQV2";
 
 export const EandQ = (props) => {
   const [b_name, setNewBName] = useState();
+  const [flg, setFlg] = useState();
   const navigate = useNavigate();
   function navigateToSale() {
     navigate("/sale");
@@ -35,6 +37,19 @@ export const EandQ = (props) => {
   function navigate_to_add_EandQ() {
     navigate("/EandQ");
   }
+
+  useEffect(() => {
+    invoke("check_eq_data", {
+      number: props.userNumber,
+      company: props.userCompany,
+    })
+      .then((val) => val.json())
+      .then((value) => {
+        setFlg(value);
+      });
+    // console.log(parseInt(response) + "/////////////////////////////");
+  }, []);
+
   return (
     <div className="main-saleEandQ">
       <div className="upperDiv-saleEandQ">

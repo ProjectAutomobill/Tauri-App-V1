@@ -19,7 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { PartiesModal } from "./modals/partiesModal";
-import { invoke } from "@tauri-apps/api";
+import { event, invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../loading";
 export const Parties = (props) => {
   const showToastMessage = () => {
@@ -29,6 +29,7 @@ export const Parties = (props) => {
   };
   const [modalShow, setModalShow] = useState(false);
   const [partyTransaction, setPartyTransaction] = useState();
+  const [prevParty, setPrevParty] = useState("");
   const [partyDetails, setPartyDetails] = useState();
   const [partyNumber, setPartyNumber] = useState();
   const [partyEmail, setPartyEmail] = useState();
@@ -44,6 +45,29 @@ export const Parties = (props) => {
   const navigate = useNavigate();
   // const [dataParty, setDataParty] = useState();
 
+  if (prevParty != partyTransaction) {
+    console.log(partyTransaction + "------------------");
+    setPrevParty(partyTransaction);
+    invoke("get_parties_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+      partyName: partyTransaction,
+    })
+      // `invoke` returns a Promise
+      .then(async (response) => {
+        setPartyDetails(JSON.parse(response));
+        // console.log("Party Data : " + partyDetails["Number"]);
+        // setPartyNumber(partyDetails["Number"]);
+        // setPartyEmail(partyDetails["Email"]);
+        // setPartyAddress(partyDetails["Address"]);
+        // setPartyGSTIN(partyDetails["GSTIN"]);
+
+        await setPartyNumber(JSON.parse(response).Number);
+        await setPartyEmail(JSON.parse(response).Email);
+        await setPartyAddress(JSON.parse(response).Address);
+        await setPartyGSTIN(JSON.parse(response).GSTIN);
+      });
+  }
   // async function getPartyDetailsUpper() {
   //   await fetch("/getTransactions?partyName=" + partyTransaction)
   //     .then((val) => val.json())
@@ -64,6 +88,13 @@ export const Parties = (props) => {
     navigate("/purchase");
   }
 
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
   async function getPartyDetails() {
     // console.log("???????????????????????????????????????????????????????");
     // console.log(partyTransaction);
@@ -73,13 +104,18 @@ export const Parties = (props) => {
       partyName: partyTransaction,
     })
       // `invoke` returns a Promise
-      .then((response) => {
+      .then(async (response) => {
         setPartyDetails(JSON.parse(response));
         // console.log("Party Data : " + partyDetails["Number"]);
-        setPartyNumber(partyDetails["Number"]);
-        setPartyEmail(partyDetails["Email"]);
-        setPartyAddress(partyDetails["Address"]);
-        setPartyGSTIN(partyDetails["GSTIN"]);
+        // setPartyNumber(partyDetails["Number"]);
+        // setPartyEmail(partyDetails["Email"]);
+        // setPartyAddress(partyDetails["Address"]);
+        // setPartyGSTIN(partyDetails["GSTIN"]);
+
+        await setPartyNumber(JSON.parse(response).Number);
+        await setPartyEmail(JSON.parse(response).Email);
+        await setPartyAddress(JSON.parse(response).Address);
+        await setPartyGSTIN(JSON.parse(response).GSTIN);
       });
     // await fetch(
     //   "/getPartyDetails?number=" +
@@ -135,10 +171,14 @@ export const Parties = (props) => {
       .then((response) => {
         setPartyDetails(JSON.parse(response));
         // console.log("Party Data : " + partyDetails["Number"]);
-        setPartyNumber(partyDetails["Number"]);
-        setPartyEmail(partyDetails["Email"]);
-        setPartyAddress(partyDetails["Address"]);
-        setPartyGSTIN(partyDetails["GSTIN"]);
+        // setPartyNumber(partyDetails["Number"]);
+        // setPartyEmail(partyDetails["Email"]);
+        // setPartyAddress(partyDetails["Address"]);
+        // setPartyGSTIN(partyDetails["GSTIN"]);
+        setPartyNumber(JSON.parse(response).Number);
+        setPartyEmail(JSON.parse(response).Email);
+        setPartyAddress(JSON.parse(response).Address);
+        setPartyGSTIN(JSON.parse(response).GSTIN);
       });
   }, []);
   // function test() {

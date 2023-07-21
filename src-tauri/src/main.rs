@@ -632,6 +632,27 @@ println!("{}", jsonData);
 // resp.into()
 }
 
+async fn check_eq_data(number : String, company : String) -> String{
+  let mut a = String::from(url.to_owned() + &"checkEQData?number=");
+  let mut b = String::from("&company=");
+  // let mut c = String::from("&partyName=");
+  
+  a.push_str(&number);
+  b.push_str(&company);
+  // c.push_str(&partyName);
+
+  a.push_str(&b);
+  // a.push_str(&c);
+  // println!("{}", &a);
+  let resp = match reqwest::get(a).await {
+    Ok(resp) => resp.text().await.unwrap(),
+    Err(err) => panic!("Error: {}", err)
+};
+println!("{}", resp);
+resp.into()
+}
+
+
 #[tauri::command]
 async fn get_sales_transaction(number : String, company : String) -> String{
   let mut a = String::from(url.to_owned() + &"getSalesTransactions?number=");
