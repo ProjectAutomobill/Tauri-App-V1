@@ -47,6 +47,7 @@ class UserData:
         self.companies_list = []
         self.company = company
         self.receive_list = []
+        self.general_settings = []
         self.pay_list = []
         self.purchase_item_list = []
         self.low_stock_item_list = []
@@ -54,13 +55,13 @@ class UserData:
         self.paymentOutData = []
         self.sale_order_data = []
         self.e_q_flg = []
+        self.settingID = None
         self.getCompanyNames()
         self.getData()
 
     def getCompanyNames(self):
         global users
         docs = users.stream()
-        print("GETCOMPANYFUNCTION" + str(self.number))
         for doc in docs:
             # print("In the Loop")
             if doc.to_dict()["number"] == str(self.number):
@@ -98,6 +99,18 @@ class UserData:
                         partiesDocs = parties.stream()
                         i = 0
                         j = 0
+
+                        # =================SETTINGS===========================
+                        settings = db.collection(
+                            "users", doc.id, "company", doc_C.id, "settings"
+                        )
+                        settingsDocs = settings.stream()
+
+                        for doc_S in settingsDocs:
+                            self.settingID = doc_S.id
+                            self.general_settings.append({"settings": doc_S.to_dict()})
+                        # =====================================================
+
                         for doc_P in partiesDocs:
                             # print('{} => {} '.format(doc_P.id, doc_P.to_dict()))
                             self.partyID = doc_P.id
@@ -327,6 +340,33 @@ class UserData:
 
                 else:
                     print("Record Not found...")
+
+
+@app.route("/settings/general")
+def getGeneralSettings():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    return {"eq": userData.general_settings[0]["settings"]["eq"]}
+
+
+@app.route("/settings/general/Update/eq")
+def updateGeneralEQSettings():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    value = request.args.get("value")
+
+    boolVal = False
+    print(str(int(value)) + str(">>>>>>>>>>>>>>>>>>>>>>>>>"))
+    if int(value) == 1:
+        boolVal = True
+
+    userData = UserData(number, company)
+    db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "settings"
+    ).document(userData.settingID).update({"eq": boolVal})
+
+    return "true"
 
 
 @app.route("/getTransactions")

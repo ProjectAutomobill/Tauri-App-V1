@@ -1,7 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "./general.css";
 import { AiFillInfoCircle } from "react-icons/ai";
-export const General = () => {
+import { invoke } from "@tauri-apps/api";
+import { useEffect } from "react";
+
+export const General = (props) => {
+  const [eq, setEQ] = useState(false);
+  const [generalSetting, setGeneralSetting] = useState();
+  const [prev, setPrev] = useState(false);
+  const [reloadFlg, setReloadFlg] = useState(false);
+  // const [eqState, setEQState] = useState(false);
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const formData = JSON.stringify(rows);
+  //   console.log(formData);
+  // };
+
+  // if (prev != generalSetting["eq"]) {
+  //   setReloadFlg(!reloadFlg);
+  //   setPrev(generalSetting);
+  // }
+  function handleChange() {
+    var a = 0;
+    console.log(eq + ">>>>>>>>>>>>>>>");
+    if (eq) {
+      a = 1;
+    }
+
+    invoke("update_eq", {
+      number: "789456123",
+      company: "AutotekkV2",
+      value: a.toString(),
+    }).then((response) => console.log(JSON.parse(response)));
+
+    invoke("general_setting", {
+      number: "789456123",
+      company: "AutotekkV2",
+    }).then((response) => setGeneralSetting(JSON.parse(response)));
+  }
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
+  useEffect(() => {
+    invoke("general_setting", {
+      number: "789456123",
+      company: "AutotekkV2",
+    }).then((response) => {
+      setGeneralSetting(JSON.parse(response));
+      wait(2000);
+    });
+  }, []);
   return (
     <div className="mainBody-general">
       <div className="partA-general">
@@ -30,7 +83,19 @@ export const General = () => {
           <div className="heading-text-div-setting">More Transactions</div>
         </div>
         <div className="checkbox-data">
-          <input type="checkbox" name="" className="checkbox-input" />
+          <input
+            type="checkbox"
+            name=""
+            className="checkbox-input"
+            // value={generalSetting["eq"]}
+            checked={generalSetting ? generalSetting["eq"] : false}
+            onClick={(e) => {
+              setEQ(!generalSetting["eq"]);
+              wait(2000);
+              handleChange();
+            }}
+            onChange={() => handleChange()}
+          />
           <div className="checkbox-data-text">Estimate/Quotation</div>
           <AiFillInfoCircle className="information-icon-general" />
         </div>

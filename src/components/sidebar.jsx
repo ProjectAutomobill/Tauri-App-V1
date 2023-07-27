@@ -30,6 +30,7 @@ export function SideBar(props) {
   const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
   const [selectedSidebarOption, setSelectedSidebarOption] =
     useState("dashboard");
+  const [generalSetting, setGeneralSetting] = useState(false);
   // const location = document.getElementById("useLocation()");
   const navigate = useNavigate();
   const location = useLocation();
@@ -121,14 +122,19 @@ export function SideBar(props) {
       });
   }
 
+  console.log(generalSetting["eq"]);
   useEffect(() => {
     // getCompanyName();
     invoke("get_company_name", {
       number: props.userNumber,
-      // company: cName.toString(),
       company: props.userCompany,
-      // party_name: partyTransaction,
     }).then((response) => setCompanyName(JSON.parse(response)["name"]));
+
+    invoke("general_setting", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => setGeneralSetting(JSON.parse(response)));
+    // .then((data) => setGeneralSetting(data));
   }, []);
   // console.log(props.val1);
   return (
@@ -238,13 +244,15 @@ export function SideBar(props) {
           >
             Sale Invoices
           </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("estimateAndquotation")}
-          >
-            Estimate/Quotation
-          </a>
+          {generalSetting["eq"] && (
+            <a
+              href="#"
+              className="sideBarText-dropdown"
+              onClick={() => print("estimateAndquotation")}
+            >
+              Estimate/Quotation
+            </a>
+          )}
           <a
             href="#"
             className="sideBarText-dropdown"

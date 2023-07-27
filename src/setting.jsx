@@ -7,6 +7,7 @@ import { TandG } from "./settingsPages/tandg";
 import { TransactionMessage } from "./settingsPages/transactionMessage";
 import { PrintSetting } from "./settingsPages/printSetting";
 import { ItemSetting } from "./settingsPages/itemSetting";
+import { UserManagement } from "./settingsPages/userManagement";
 export const Setting = () => {
   const [selectedSetting, setSelectedSetting] = useState("General");
 
@@ -30,6 +31,8 @@ export const Setting = () => {
             return <PrintSetting />;
           } else if (selectedSetting === "itemSetting") {
             return <ItemSetting />;
+          } else if (selectedSetting === "userManagement") {
+            return <UserManagement />;
           }
         })()}
       </div>

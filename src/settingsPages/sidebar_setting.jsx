@@ -104,7 +104,7 @@ export const SidebarSetting = (props) => {
             selectedOption == 5 ? "heading-selected-setting" : "heading-setting"
           }
           onClick={() => {
-            setProp("UserManagement");
+            setProp("userManagement");
             setSelectedOption(5);
           }}
         >

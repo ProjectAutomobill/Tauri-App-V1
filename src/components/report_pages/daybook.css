@@ -1,0 +1,112 @@
+.main-dayBook {
+  width: 100%;
+  height: 100%;
+  /* background-color: aqua; */
+}
+.middleDiv-dayBook {
+  margin-top: 0.1%;
+  margin-left: 1%;
+  width: 99%;
+  height: 7%;
+  background-color: white;
+}
+.middleDiv-part1-dayBook {
+  display: flex;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+.choose-dates-dayBook {
+  padding: 0.5%;
+  /* width: fit-content + 50px; */
+  height: 75%;
+  display: flex;
+  gap: 8px;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* padding-right: 5px; */
+  border: 1px solid rgb(210, 208, 208);
+  border-radius: 4px;
+}
+#from-dayBook {
+  height: 100%;
+  /* background-color: gainsboro; */
+  border: 0px;
+  font-size: small;
+}
+
+#to-label {
+  font-weight: 550;
+  /* font-size: small; */
+}
+#firm-dayBook {
+  margin-left: 1%;
+  height: 100%;
+  width: 20%;
+  font-size: small;
+  border: 1px solid rgb(217, 217, 217);
+}
+.options-middlepart1-dayBook {
+  /* background-color: blanchedalmond; */
+  margin-top: 1%;
+  width: 10%;
+  margin-left: auto;
+}
+
+.report-middlepart1-dayBook {
+  height: 50%;
+  width: 35%;
+}
+.print-middlepart1-dayBook {
+  height: 50%;
+  width: 35%;
+}
+
+.lowerDivSale-dayBook-Report {
+  width: 99%;
+  margin-left: 1%;
+  height: 87%;
+  /* margin-top: 1%; */
+  /* top: 29%; */
+  overflow: auto;
+  background-color: white;
+}
+.top-part-A-dayBook {
+  display: flex;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* background-color: green; */
+}
+.search-input-dayBook {
+  height: 4vh;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(188, 188, 188);
+}
+/* .table-dayBook {
+  margin-left: 2%;
+} */
+.atTheEndDiv-dayBook {
+  display: flex;
+  width: 99%;
+  margin-left: 1%;
+  height: 6%;
+  background-color: white;
+}
+.text1-dayBook {
+  color: rgb(111, 212, 111);
+  margin-top: 1%;
+  margin-left: 2%;
+}
+.text2-dayBook {
+  color: rgb(238, 67, 67);
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-right: 10%;
+}
+.text3-dayBook {
+  color: rgb(111, 212, 111);
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: 1%;
+}

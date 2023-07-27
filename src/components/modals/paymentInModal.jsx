@@ -16,7 +16,7 @@ export function PaymentInModal(props) {
   const [transactionType, setTransactionType] = useState("Cash");
   const [dropdownOptions, setDropdownOptions] = useState([
     { name: "Autotekk" },
-    { name: "Jatin" },
+    { name: "Party 1" },
   ]);
   function addPaymentInDetails() {
     var jsondata = {
