@@ -30,13 +30,15 @@ export const General = (props) => {
 
     invoke("update_eq", {
       number: "789456123",
-      company: "AutotekkV2",
+      company: "Autotekk",
       value: a.toString(),
     }).then((response) => console.log(JSON.parse(response)));
 
+    wait(2000);
+
     invoke("general_setting", {
       number: "789456123",
-      company: "AutotekkV2",
+      company: "Autotekk",
     }).then((response) => setGeneralSetting(JSON.parse(response)));
   }
   function wait(ms) {
@@ -49,7 +51,7 @@ export const General = (props) => {
   useEffect(() => {
     invoke("general_setting", {
       number: "789456123",
-      company: "AutotekkV2",
+      company: "Autotekk",
     }).then((response) => {
       setGeneralSetting(JSON.parse(response));
       wait(2000);
@@ -87,14 +89,15 @@ export const General = (props) => {
             type="checkbox"
             name=""
             className="checkbox-input"
-            // value={generalSetting["eq"]}
-            checked={generalSetting ? generalSetting["eq"] : false}
+            value={generalSetting["eq"]}
+            // checked={generalSetting["eq"]}
             onClick={(e) => {
               setEQ(!generalSetting["eq"]);
               wait(2000);
+              // console.log("E value : " + e.target.value);
               handleChange();
             }}
-            onChange={() => handleChange()}
+            // onChange={(e) => handleChange()}
           />
           <div className="checkbox-data-text">Estimate/Quotation</div>
           <AiFillInfoCircle className="information-icon-general" />

@@ -16,19 +16,25 @@ export const DayBookTable = () => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              NAME
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               REF NO.
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TOTAL</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TYPE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TOTAL
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               MONEY IN
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               MONEY OUT
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               PRINT/SHARE
             </TableCell>
           </TableRow>

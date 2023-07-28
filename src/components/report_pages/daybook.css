@@ -97,16 +97,22 @@
   color: rgb(111, 212, 111);
   margin-top: 1%;
   margin-left: 2%;
+  font-size: 14px;
+  font-weight: bold;
 }
 .text2-dayBook {
   color: rgb(238, 67, 67);
   margin-top: 1%;
   margin-left: 20%;
   margin-right: 10%;
+  font-size: 14px;
+  font-weight: bold;
 }
 .text3-dayBook {
   color: rgb(111, 212, 111);
   margin-top: 1%;
   margin-left: auto;
   margin-right: 1%;
+  font-size: 14px;
+  font-weight: bold;
 }

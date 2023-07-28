@@ -64,8 +64,9 @@ export const AddSaleOrder = (props) => {
   const [partyNames, setPartyNames] = useState();
   const [currSelectedPartyName, setCurrParty] = useState();
   const [currParty, setSelectedPartyName] = useState();
-  const [invoiceNo, setInvoiceNo] = useState();
+  const [orderNo, setOrderNo] = useState();
   const [invoiceDate, setInvoiceDate] = useState();
+  const [dueDate, setDueDate] = useState();
   const { test } = useContext(AppContext);
   const [balance, setBalance] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -75,8 +76,9 @@ export const AddSaleOrder = (props) => {
   const [rows, setRows] = useState([
     {
       party_name_dropdown: "",
-      Invoice_no: "",
-      Invoice_date: "",
+      order_no: "",
+      order_date: "",
+      due_date: "",
       State_of_supply: "",
       item: "",
       qty: "",
@@ -90,6 +92,7 @@ export const AddSaleOrder = (props) => {
   const navigate = useNavigate();
 
   function navigateToDashboard() {
+    console.log("Navigating To Dashboard");
     navigate("/loggedIn");
   }
 
@@ -102,8 +105,9 @@ export const AddSaleOrder = (props) => {
       ...rows,
       {
         party_name_dropdown: "",
-        Invoice_no: "",
-        Invoice_date: "",
+        order_no: "",
+        order_date: "",
+        due_date: "",
         State_of_supply: "",
         item: "",
         qty: "",
@@ -152,7 +156,7 @@ export const AddSaleOrder = (props) => {
     const formData = JSON.stringify(rows);
     console.log(formData);
 
-    invoke("new_sale_data", {
+    invoke("new_sale_order_data", {
       number: props.userNumber.current,
       company: props.userCompany.current,
       jsonData: formData,
@@ -207,8 +211,9 @@ export const AddSaleOrder = (props) => {
     const newRows = [...rows];
     newRows[index][name] = value;
     newRows[index]["party_name_dropdown"] = currParty;
-    newRows[index]["Invoice_no"] = invoiceNo;
-    newRows[index]["Invoice_date"] = invoiceDate;
+    newRows[index]["order_no"] = orderNo;
+    newRows[index]["order_date"] = invoiceDate;
+    newRows[index]["due_date"] = dueDate;
     newRows[index]["State_of_supply"] = stateofsupply;
     // newRows[index]["balance"] = "0";
     newRows[index]["tax_amount"] =
@@ -309,7 +314,7 @@ export const AddSaleOrder = (props) => {
                   type="text"
                   className="upperButton-addPurchase-addPurchaseV3"
                   name="order_no"
-                  onChange={(e) => setInvoiceNo(e.target.value)}
+                  onChange={(e) => setOrderNo(e.target.value)}
                 ></input>
               </div>
               <div className="invoice-info-box-Purchase">
@@ -320,6 +325,7 @@ export const AddSaleOrder = (props) => {
                   type="date"
                   name="order_date"
                   className="upperButton-addPurchase-addPurchaseV3"
+                  onChange={(e) => setInvoiceDate(e.target.value)}
                 ></input>
               </div>
               <div className="invoice-info-box-Purchase">
@@ -330,6 +336,7 @@ export const AddSaleOrder = (props) => {
                   type="date"
                   name="due_date"
                   className="upperButton-addPurchase-addPurchaseV3"
+                  onChange={(e) => setDueDate(e.target.value)}
                 ></input>
               </div>
               <div className="invoice-info-box-Purchase">
@@ -340,6 +347,7 @@ export const AddSaleOrder = (props) => {
                   type="text"
                   name="state_of_supply"
                   className="upperButton-addPurchase-addPurchaseV3"
+                  onChange={(e) => setStateOfSupply(e.target.value)}
                 ></input>
               </div>
             </div>

@@ -88,10 +88,11 @@ class UserData:
 
                 for doc_C in companyDocs:
                     # print('{} => {} '.format(doc_C.id, doc_C.to_dict()))
-                    self.companyID = doc_C.id
+
                     self.company_name = str(doc_C.to_dict()["name"])
                     # print("Setting company name :  " + str(doc_C.to_dict()["name"]))
                     if self.company_name == self.company:
+                        self.companyID = doc_C.id
                         print("Company Found")
                         parties = db.collection(
                             "users", doc.id, "company", doc_C.id, "parties"
@@ -105,8 +106,9 @@ class UserData:
                             "users", doc.id, "company", doc_C.id, "settings"
                         )
                         settingsDocs = settings.stream()
-
+                        print("In Settings......")
                         for doc_S in settingsDocs:
+                            print("@@@@@@@@@@@@@@@@@@@" + str(doc_S.id))
                             self.settingID = doc_S.id
                             self.general_settings.append({"settings": doc_S.to_dict()})
                         # =====================================================
@@ -206,7 +208,7 @@ class UserData:
                                         doc_T.to_dict()["Balance"]
                                     )
 
-                                else:
+                                elif doc_T.to_dict()["Type"] == "Purchase":
                                     purchase_amount = (
                                         purchase_amount + doc_T.to_dict()["Total"]
                                     )
@@ -347,6 +349,8 @@ def getGeneralSettings():
     number = request.args.get("number")
     company = request.args.get("company")
     userData = UserData(number, company)
+    print("#####################################################")
+    print(userData.general_settings)
     return {"eq": userData.general_settings[0]["settings"]["eq"]}
 
 
@@ -358,10 +362,13 @@ def updateGeneralEQSettings():
 
     boolVal = False
     print(str(int(value)) + str(">>>>>>>>>>>>>>>>>>>>>>>>>"))
+
     if int(value) == 1:
         boolVal = True
 
     userData = UserData(number, company)
+    print(userData.settingID)
+    print("<<<<<<<<<<<<<<<<<<<<<<<")
     db.collection(
         "users", userData.doc_id, "company", userData.companyID, "settings"
     ).document(userData.settingID).update({"eq": boolVal})
@@ -942,6 +949,8 @@ def AddSaleOrderData():
     data = request.args.get("json_data")
     number = request.args.get("number")
     company = request.args.get("company")
+    total_amount = request.args.get("totalAmount")
+    received_amount = request.args.get("receivedAmount")
     data = json.loads(data)
     print(data[0]["item"])
     ##Data Upload Code
@@ -957,33 +966,45 @@ def AddSaleOrderData():
         print(str(data[0]["party_name_dropdown"]))
         if (str(doc.to_dict()["PartyName"]), "==", str(data[0]["party_name_dropdown"])):
             print("condition Satisfied")
+            amount = 0
             for i in range(len(data)):
+                amount = amount + int(data[i]["amount"])
                 db.collection(
                     "users",
                     userData.doc_id,
                     "company",
                     userData.companyID,
-                    "SaleOrder",
-                    # str(doc.id),
-                    # "PartyDetails",
+                    "parties",
+                    str(doc.id),
+                    "PartyDetails",
                 ).add(
                     {
-                        # "Item": data["item"][0],
-                        # "Quantity": data["qty"][0],
-                        # "Price": data["price"][0],
-                        # "Amount": data["amount"][0],
                         "Item": data[i]["item"],
                         "Number": int(data[i]["qty"]),
                         "Price": int(data[i]["price"]),
-                        "Total": int(data[i]["amount"]),
-                        "Type": "Sale",
-                        "Balance": int(data[i]["balance"]),
-                        "Date": str(data[i]["Date"]),
-                        "Due_Date": str(data[i]["Due_Date"]),
-                        "Invoice_no": int(data[i]["Invoice_no"]),
-                        "Party": str(data[i]["party_name_dropdown"]),
+                        "Total": float(data[i]["amount"]),
+                        "Type": "SaleOrder",
+                        "Balance": float(data[i]["amount"]) - float(received_amount),
+                        "Date": data[i]["order_date"],
+                        "Due_Date": data[i]["due_date"],
+                        "order_no": int(data[i]["order_no"]),
+                        "tax": data[i]["tax"],
+                        "tax_amount": data[i]["tax_amount"],
+                        "unit": data[i]["unit"],
+                        "StateOfSupply": data[i]["State_of_supply"],
                     }
                 )
+            #############################################
+            db.collection(
+                "users", userData.doc_id, "company", userData.companyID, "parties"
+            ).document(doc.id).update(
+                {
+                    "Balance": firestore.Increment(
+                        (float(total_amount) - float(received_amount))
+                    )
+                }
+            )
+            #############################################
     # for i in range(len(data)):
     #     item_ref = db.collection(
     #         "users", userData.doc_id, "company", userData.companyID, "items"

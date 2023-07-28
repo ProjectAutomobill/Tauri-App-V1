@@ -132,6 +132,7 @@ function App() {
                 <AddSaleOrder
                   userNumber={userNumber1}
                   userCompany={userCompany}
+                  showToastMessage={showToastMessageInvoice}
                 />
               }
             />
@@ -176,6 +177,7 @@ function App() {
                 <addSaleOrder
                   userNumber={userNumber1}
                   userCompany={userCompany}
+                  showToastMessage={showToastMessageInvoice}
                 />
               }
             />
