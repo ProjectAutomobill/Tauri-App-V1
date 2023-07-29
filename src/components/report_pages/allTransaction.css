@@ -1,0 +1,172 @@
+.main-allTransaction {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.middleDiv-allTransaction {
+  margin-top: 0.5%;
+  margin-left: 1%;
+  width: 99%;
+  height: 14%;
+  background-color: white;
+}
+.middleDiv-part1-allTransaction {
+  display: flex;
+  height: 60%;
+  /* background-color: aqua; */
+}
+
+.choose-months-allTransaction {
+  padding: 0.5%;
+  /* background-color: yellow; */
+}
+#months-allTransaction {
+  border: none;
+  /* height: 100%; */
+  width: 100%;
+  margin-top: 5px;
+  font-size: larger;
+  color: rgb(45, 14, 117);
+  font-weight: 550;
+}
+.choose-dates-allTransaction {
+  /* margin-left: 1%; */
+  /* padding: 0.5%;
+    width: 30%; */
+  /* margin-left: 1%; */
+  padding: 0.5%;
+  /* width: fit-content + 50px; */
+  height: 50%;
+  display: flex;
+  gap: 8px;
+  margin-left: 1%;
+  margin-top: 10px;
+  /* padding-right: 5px; */
+  border: 1px solid rgb(210, 208, 208);
+  border-radius: 4px;
+  /* background-color: bisque; */
+}
+
+#from-allTransaction {
+  height: 100%;
+  /* background-color: gainsboro; */
+  border: 0px;
+  font-size: small;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+  /* margin-top: auto;
+    margin-left: auto; */
+}
+.between-label {
+  /* width: 2%; */
+  height: 100%;
+  /* padding: 2px; */
+  /* margin-top: auto; */
+  /* margin-left: auto;
+    margin-bottom: auto; */
+  border-radius: 4px;
+  font-weight: 550;
+  font-size: small;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  /* padding: 5px; */
+  background-color: rgb(227, 227, 228);
+}
+#to-allTransaction {
+  /* height: 100%; */
+  margin-right: 1%;
+  border: 0px;
+  font-size: small;
+  /* font-weight: 550; */
+}
+#to-inputType-allTransaction {
+  height: 100%;
+  /* margin-left: 0.1%; */
+}
+#to-label {
+  font-weight: 550;
+  /* font-size: small; */
+}
+
+.options-middlepart1-allTransaction {
+  /* background-color: blanchedalmond; */
+  margin-top: 0.5%;
+  width: 8%;
+  /* margin-left: 1%; */
+  margin-bottom: 1%;
+  margin-left: auto;
+}
+
+.report-middlepart1-allTransaction {
+  height: 50%;
+  width: 40%;
+  margin-right: 4%;
+  /* background-color: rgb(141, 128, 36); */
+}
+.print-middlepart1-allTransaction {
+  height: 50%;
+  width: 40%;
+}
+.middleDiv-part2-allTransaction {
+  /* margin-top: 1%; */
+  height: 40%;
+  /* background-color: rgb(39, 179, 17); */
+  /* text-align: left; */
+  /* display: flex; */
+}
+.content-middleDiv-part2-allTransaction {
+  width: 50%;
+  height: 100%;
+  margin-left: 0.5%;
+  display: flex;
+  gap: 10px;
+  /* background-color: brown; */
+}
+.choose-payment_in-allTransaction {
+  padding: 0.5%;
+  /* background-color: yellow; */
+}
+
+#payment_in-allTransaction {
+  padding: 3%;
+  width: 90%;
+  border: 1px solid rgb(170, 170, 170);
+  outline: none;
+  border-radius: 4px;
+  font-size: small;
+  color: rgb(28, 28, 39);
+  font-weight: bold;
+}
+.lowerDivSale-allTransaction {
+  /* position: absolute; */
+  width: 99%;
+  margin-left: 1%;
+
+  height: 82%;
+  margin-top: 1%;
+
+  /* top: 24%; */
+  overflow: auto;
+  background-color: white;
+}
+
+.top-part-A-allTransaction {
+  display: flex;
+  margin-left: 0.5%;
+  /* background-color: green; */
+}
+.transaction-allTransaction {
+  text-align: left;
+  margin: 10px;
+  font-weight: 550;
+}
+.search-input-allTransaction {
+  /* height: 7%; */
+  margin: 9px;
+  margin-right: auto;
+  border-radius: 3px;
+  /* outline: 0px; */
+  /* border: 0px; */
+  border: 1px solid rgb(188, 188, 188);
+}

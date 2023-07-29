@@ -247,6 +247,32 @@ class UserData:
                                             "Price": doc_T.to_dict()["Total"],
                                         }
                                     )
+                                elif doc_T.to_dict()["Type"] == "SaleOrder":
+                                    self.sale_order_data.append(
+                                        {
+                                            "PartyName": doc_P.to_dict()["PartyName"],
+                                            "Item": doc_T.to_dict()["Item"],
+                                            "Number": int(doc_T.to_dict()["Number"]),
+                                            "Price": int(doc_T.to_dict()["Price"]),
+                                            "Total": float(doc_T.to_dict()["Total"]),
+                                            "Type": "SaleOrder",
+                                            "Balance": float(
+                                                doc_T.to_dict()["Balance"]
+                                            ),
+                                            "Date": doc_T.to_dict()["Date"],
+                                            "Due_Date": doc_T.to_dict()["Due_Date"],
+                                            "order_no": int(
+                                                doc_T.to_dict()["order_no"]
+                                            ),
+                                            "tax": doc_T.to_dict()["tax"],
+                                            "tax_amount": doc_T.to_dict()["tax_amount"],
+                                            "unit": doc_T.to_dict()["unit"],
+                                            "StateOfSupply": doc_T.to_dict()[
+                                                "StateOfSupply"
+                                            ],
+                                        }
+                                    )
+
                             # if pendingBalance != 0:
                             #     self.receive_list.append(
                             #         {
@@ -335,8 +361,8 @@ class UserData:
                         )
                         saleOrderDocs = saleOrderDetails.stream()
 
-                        for doc_SO in saleOrderDocs:
-                            self.sale_order_data.append(doc_SO.to_dict())
+                        # for doc_SO in saleOrderDocs:
+                        #     self.sale_order_data.append(doc_SO.to_dict())
 
                         break
 

@@ -10,7 +10,8 @@ import {
 } from "@mui/material";
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
-
+import LoadingSpinner from "../../loading";
+import "./saleOrderTable.css";
 export const SaleOrderTable = (props) => {
   const [data, setData] = useState();
 
@@ -28,36 +29,104 @@ export const SaleOrderTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>PARTY</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NO.</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              PARTY
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              NO.
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              DATE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               DUE DATE
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               TOTAL AMOUNT
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               BALANCE
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>STATUS</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>ACTION</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TYPE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              STATUS
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              ACTION
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.Party}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Invoice_no}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Due_Date}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Balance}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>Sale Order</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>Order Due</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PartyName}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.order_no}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Date}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Due_Date}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Total}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Balance}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                Sale Order
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                Order Due
+              </TableCell>
               <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                Convert to Sale
+                <div className="cvt_2_sale_btn">Convert to Sale</div>
               </TableCell>
             </TableRow>
           ))}

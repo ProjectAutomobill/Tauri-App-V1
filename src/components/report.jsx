@@ -15,6 +15,8 @@ import { SideBarReport } from "./reportComponents/siderBar_report";
 import { SaleInvoiceReport } from "./report_pages/saleInvoiceReport";
 import { PurchaseBillsReport } from "./report_pages/purchaseBillReport";
 import { Daybook } from "./report_pages/daybook";
+import { AllTransaction } from "./report_pages/allTransaction";
+import { CashFlowReport } from "./report_pages/cashFlowReport";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -124,6 +126,20 @@ export const Report = (props) => {
             } else if (sideBarFlg === "DayBook") {
               return (
                 <Daybook
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "AllTransaction") {
+              return (
+                <AllTransaction
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "CashFlowReport") {
+              return (
+                <CashFlowReport
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

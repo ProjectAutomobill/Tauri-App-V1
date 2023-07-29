@@ -49,13 +49,13 @@ export const General = (props) => {
     }
   }
   useEffect(() => {
-    invoke("general_setting", {
-      number: "789456123",
-      company: "Autotekk",
-    }).then((response) => {
-      setGeneralSetting(JSON.parse(response));
-      wait(2000);
-    });
+    // invoke("general_setting", {
+    //   number: "789456123",
+    //   company: "Autotekk",
+    // }).then((response) => {
+    //   setGeneralSetting(JSON.parse(response));
+    //   wait(2000);
+    // });
   }, []);
   return (
     <div className="mainBody-general">
@@ -89,10 +89,10 @@ export const General = (props) => {
             type="checkbox"
             name=""
             className="checkbox-input"
-            value={generalSetting["eq"]}
+            // value={generalSetting["eq"]}
             // checked={generalSetting["eq"]}
             onClick={(e) => {
-              setEQ(!generalSetting["eq"]);
+              // setEQ(!generalSetting["eq"]);
               wait(2000);
               // console.log("E value : " + e.target.value);
               handleChange();
