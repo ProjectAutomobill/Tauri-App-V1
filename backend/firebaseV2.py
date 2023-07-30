@@ -54,6 +54,7 @@ class UserData:
         self.paymentInData = []
         self.paymentOutData = []
         self.sale_order_data = []
+        self.eq_data = []
         self.e_q_flg = []
         self.settingID = None
         self.getCompanyNames()
@@ -233,7 +234,7 @@ class UserData:
                                             "Payment_Type": "Cash",
                                             "Transaction_Type": doc_T.to_dict()["Type"],
                                             "PartyName": doc_P.to_dict()["PartyName"],
-                                            "Invoice_No": 0,
+                                            "Invoice_No": doc_T.to_dict()["Invoice_no"],
                                         }
                                     )
                                     pendingBalancePurchase = (
@@ -272,7 +273,26 @@ class UserData:
                                             ],
                                         }
                                     )
-
+                                elif doc_T.to_dict()["Type"] == "EQ":
+                                    self.eq_data.append(
+                                        {
+                                            "Balance": doc_T.to_dict()["Balance"],
+                                            "Total": doc_T.to_dict()["Total"],
+                                            "Date": doc_T.to_dict()["Date"],
+                                            "Item": doc_T.to_dict()["Item"],
+                                            "Number": doc_T.to_dict()["Number"],
+                                            "Payment_Type": "Cash",
+                                            "Transaction_Type": doc_T.to_dict()["Type"],
+                                            "PartyName": doc_P.to_dict()["PartyName"],
+                                            "Invoice_No": doc_T.to_dict()["Invoice_no"],
+                                            "tax": doc_T.to_dict()["tax"],
+                                            "tax_amount": doc_T.to_dict()["tax_amount"],
+                                            "unit": doc_T.to_dict()["unit"],
+                                            "StateOfSupply": doc_T.to_dict()[
+                                                "StateOfSupply"
+                                            ],
+                                        }
+                                    )
                             # if pendingBalance != 0:
                             #     self.receive_list.append(
                             #         {
@@ -307,6 +327,11 @@ class UserData:
                             self.itemNames.append(
                                 {
                                     "Name": doc_I.to_dict()["ItemName"],
+                                    "Units": doc_I.to_dict()["Units"],
+                                    "Sale_Price": doc_I.to_dict()["Sale_Price"],
+                                    "Wholesale_Price": doc_I.to_dict()[
+                                        "Wholesale_Price"
+                                    ],
                                     "Units": doc_I.to_dict()["Units"],
                                 }
                             )
@@ -466,6 +491,15 @@ def GetSaleOrderData():
     return userData.sale_order_data
 
 
+@app.route("/getEQData")
+def GetEQData():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    print(userData.eq_data)
+    return userData.eq_data
+
+
 @app.route("/getReceiveList")
 def getReceiveList():
     number = request.args.get("number")
@@ -497,6 +531,16 @@ def getSaleTransactions():
     company = request.args.get("company")
     userData = UserData(number, company)
     data = userData.SaleTransactions
+    return data
+
+
+@app.route("/getPurchaseTransactions")
+def getPurchaseTransactions():
+    number = request.args.get("number")
+    # global party_transaction_Dict
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    data = userData.PurchaseTransactions
     return data
 
 
@@ -556,8 +600,13 @@ def getItemNames():
     number = request.args.get("number")
     # global party_transaction_Dict
     company = request.args.get("company")
+    # itemName = request.args.get("itemName")
     userData = UserData(number, company)
     itemNames = userData.itemNames
+
+    # for i in itemNames:
+    #     if(i.Name == itemName):
+    #         return jsonify(i)
     # source = request.args.get('partyName')
     # party_transaction_Dict = jsonify(party_transaction_Dict[str(source)])
     temp = None
@@ -568,6 +617,27 @@ def getItemNames():
     print("Temp  : " + str(temp))
     return temp
 
+
+@app.route("/getItemDetails")
+def getItemDetails():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    userData = UserData(number, company)
+    item_name = request.args.get("itemName")
+    item_ref = db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "items"
+    ).where("ItemName", "==", str(item_name))
+
+    itemDoc = item_ref.get()
+    for doc in itemDoc:
+        json_data = {
+            "itemName": doc.to_dict()["ItemName"],
+            "SalePrice": doc.to_dict()["Sale_Price"],
+            "WholesalePrice": doc.to_dict()["Wholesale_Price"],
+            "Units": doc.to_dict()["Units"],
+        }
+    print(json_data)
+    return json_data
 
 @app.route("/getSalesData")
 def getSalesData():

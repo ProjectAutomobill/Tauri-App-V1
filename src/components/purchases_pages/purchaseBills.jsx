@@ -190,7 +190,10 @@ export const PurchaseBills = (props) => {
           </button>
           {/* </Link> */}
         </div>
-        <PurchaseBillsTable />
+        <PurchaseBillsTable
+          userNumber={props.userNumber}
+          userCompany={props.userCompany}
+        />
       </div>
     </div>
   );

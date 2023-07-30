@@ -1,4 +1,8 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { invoke } from "@tauri-apps/api";
+
 import {
   TableContainer,
   Table,
@@ -9,45 +13,67 @@ import {
   Paper,
 } from "@mui/material";
 import "./transactionTable.css";
+import LoadingSpinner from "../../loading";
 
-export const PurchaseBillsTable = () => {
+export const PurchaseBillsTable = (props) => {
+  const [dataPurchase, setPurchaseData] = useState();
+
+  useEffect(() => {
+    // getSaleTransactions();
+    invoke("get_purchase_transaction", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => setPurchaseData(JSON.parse(response)));
+  }, []);
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              INVOICE NO.
-            </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              PARTY NAME
-            </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              PAYMENT TYPE
-            </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>AMOUNT</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              BALANCE DUE
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {dataTable.map((row) => (
+    <div className="saleInvoiceTable-table">
+      {dataPurchase == null && <LoadingSpinner className="loading_spinner" />}
+
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.DATE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.INVOICE_NUMBER}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PARTY_NAME}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PAYMENT_TYPE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.AMOUNT}</TableCell>
-              <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                {row.BALANCE_DUE}
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                DATE
+              </TableCell>
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                INVOICE NO.
+              </TableCell>
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                PARTY NAME
+              </TableCell>
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                PAYMENT TYPE
+              </TableCell>
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                AMOUNT
+              </TableCell>
+              <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+                BALANCE DUE
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {dataPurchase?.map((row) => (
+              <TableRow>
+                <TableCell sx={{ fontSize: 12 }}>{row.DATE}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>
+                  {row.INVOICE_NUMBER}
+                </TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.PARTY_NAME}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.PAYMENT_TYPE}</TableCell>
+                <TableCell sx={{ fontSize: 12 }}>{row.AMOUNT}</TableCell>
+                <TableCell
+                  sx={{ fontSize: 12, color: "black", fontWeight: 100 }}
+                >
+                  {row.BALANCE_DUE}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 const dataTable = [

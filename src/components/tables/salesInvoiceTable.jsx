@@ -15,15 +15,6 @@ import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
 export const SaleInvoiceTable = (props) => {
   const [dataSales, setSalesData] = useState();
-  async function getSaleTransactions() {
-    await fetch("/getSalesTransactions?number=" + props.userNumber)
-      .then((val) => val.json())
-      .then((value) => {
-        setSalesData(value);
-
-        // console.log(data);
-      });
-  }
 
   useEffect(() => {
     // getSaleTransactions();
@@ -87,16 +78,61 @@ export const SaleInvoiceTable = (props) => {
           <TableBody className="table-row-saleInvoice">
             {dataSales?.map((row) => (
               <TableRow>
-                <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Invoice_No}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Date}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Invoice_No}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.PartyName}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
                   {row.Transaction_Type}
                 </TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Payment_Type}</TableCell>
-                <TableCell sx={{ fontSize: 12 }}>{row.Total}</TableCell>
                 <TableCell
-                  sx={{ fontSize: 12, color: "black", fontWeight: 100 }}
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Payment_Type}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                  }}
+                >
+                  {row.Total}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: 12,
+                    borderRight: "1px solid rgb(230, 230, 230)",
+                    color: "black",
+                    fontWeight: 100,
+                  }}
                 >
                   {row.Balance}
                 </TableCell>

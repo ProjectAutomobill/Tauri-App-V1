@@ -22,6 +22,7 @@ import { SaleOrderV2 } from "./sales_pages/saleOrderV2";
 import { Report } from "./report";
 import { Shortcuts } from "./shortcuts";
 import { Plan } from "./plan";
+import { EandQV2 } from "./sales_pages/EandQV2";
 export function MainSection(props) {
   return (
     <div className="main-section">

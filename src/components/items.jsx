@@ -27,12 +27,19 @@ export const Items = (props) => {
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
   const [cName, setCName] = useState();
-  const [itemTransaction, setItemTransaction] = useState();
+  const [itemTransaction, setItemTransaction] = useState("");
   const [itemDetails, setItemDetails] = useState();
   const [itemNumber, setItemNumber] = useState();
   const [itemEmail, setItemEmail] = useState();
   const [itemAddress, setItemAddress] = useState();
   const [itemGSTIN, setItemGSTIN] = useState();
+
+  const [wholesalePrice, setWholesalePrice] = useState(0);
+  const [retailPrice, setRetailPrice] = useState(0);
+  const [stock, setStock] = useState(0);
+  const [stockValue, setStockValue] = useState(0);
+  const [prevItem, setPrevItem] = useState("");
+
   const [stateChange, setStateChange] = useState(true);
   const [b_name, setNewBName] = useState();
   const [itemPage, setItemPage] = useState(0);
@@ -45,23 +52,52 @@ export const Items = (props) => {
   function navigateToPurchase() {
     navigate("/purchase");
   }
+  if (prevItem != itemTransaction) {
+    // console.log(partyTransaction + "------------------");
+    setPrevItem(itemTransaction);
+    invoke("get_item_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+      item_name: itemTransaction,
+    })
+      // `invoke` returns a Promise
+      .then(async (response) => {
+        setItemDetails(JSON.parse(response));
+        // setPartyDetails(JSON.parse(response));
+        // console.log("Party Data : " + partyDetails["Number"]);
+        // setPartyNumber(partyDetails["Number"]);
+        // setPartyEmail(partyDetails["Email"]);
+        // setPartyAddress(partyDetails["Address"]);
+        // setPartyGSTIN(partyDetails["GSTIN"]);
 
+        await setWholesalePrice(JSON.parse(response).WholesalePrice);
+        await setRetailPrice(JSON.parse(response).SalePrice);
+        await setStock(JSON.parse(response).Units);
+        await setStockValue(
+          parseInt(JSON.parse(response).Units) *
+            parseInt(JSON.parse(response).SalePrice)
+        );
+      });
+  }
   async function getItemDetails() {
     // console.log("???????????????????????????????????????????????????????");
     // console.log(partyTransaction);
     invoke("get_item_details", {
       number: props.userNumber,
       company: props.userCompany,
-      itemName: itemTransaction,
+      item_name: itemTransaction,
     })
       // `invoke` returns a Promise
-      .then((response) => {
+      .then(async (response) => {
         setItemDetails(JSON.parse(response));
         // console.log("Party Data : " + partyDetails["Number"]);
-        setItemNumber(itemDetails["Number"]);
-        setItemEmail(itemDetails["Email"]);
-        setItemAddress(itemDetails["Address"]);
-        setItemGSTIN(itemDetails["GSTIN"]);
+        await setWholesalePrice(JSON.parse(response).WholesalePrice);
+        await setRetailPrice(JSON.parse(response).SalePrice);
+        await setStock(JSON.parse(response).Units);
+        await setStockValue(
+          parseInt(JSON.parse(response).Units) *
+            parseInt(JSON.parse(response).SalePrice)
+        );
       });
   }
   function update_b_name_items() {
@@ -218,7 +254,7 @@ export const Items = (props) => {
               <div className="upperDivRight-items">
                 <div className="upperDivRight1-items">
                   <div className="upperDivRight1-name-items">
-                    <b>P_NAME</b>
+                    <b>s{itemTransaction}</b>
                   </div>
                   <div className="upperDivRight1-button-items">
                     <button className="button-items">Adjust Item</button>
@@ -229,13 +265,15 @@ export const Items = (props) => {
                     <div className="upperDivRight2-part1-purchasePrice-items">
                       {" "}
                       <div className="label-upper-partyDetails-items">
-                        PURCHASE PRICE :{" "}
+                        PURCHASE PRICE :
+                        <div className="blue-text">{wholesalePrice}</div>
                       </div>
                     </div>
                     <div className="upperDivRight2-part1-salePrice-items">
                       {" "}
                       <div className="label-upper-partyDetails-items">
-                        SALE PRICE :{" "}
+                        SALE PRICE :
+                        <div className="blue-text">{retailPrice}</div>
                       </div>
                     </div>
                   </div>
@@ -243,13 +281,14 @@ export const Items = (props) => {
                   <div className="upperDivRight2-part2-items">
                     <div className="upperDivRight2-part1-stockQuantity-items">
                       <div className="label-upper-partyDetails-items">
-                        STOCK QUANTITY :{" "}
+                        STOCK QUANTITY :<div className="blue-text">{stock}</div>
                       </div>
                     </div>
                     <div className="upperDivRight2-part1-stockValue-items">
                       {" "}
                       <div className="label-upper-partyDetails-items">
-                        STOCK VALUE :{" "}
+                        STOCK VALUE :
+                        <div className="blue-text">{stockValue}</div>
                       </div>
                     </div>
                   </div>

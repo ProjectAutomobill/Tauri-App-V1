@@ -158,7 +158,7 @@ export const AddSale = (props) => {
       recievedPrice: receivedAmount.toString(),
     });
     props.showToastMessage();
-    // wait(2000);
+    wait(2000);
     navigateToDashboard();
   };
 

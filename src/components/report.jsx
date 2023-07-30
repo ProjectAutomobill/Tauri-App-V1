@@ -17,6 +17,10 @@ import { PurchaseBillsReport } from "./report_pages/purchaseBillReport";
 import { Daybook } from "./report_pages/daybook";
 import { AllTransaction } from "./report_pages/allTransaction";
 import { CashFlowReport } from "./report_pages/cashFlowReport";
+import { PartyWiseProfitAndLossReport } from "./report_pages/partyWiseProfitAndLossReport";
+import { AllPartiesReport } from "./report_pages/allPartiesReport";
+import { PartyReportByItemReport } from "./report_pages/partyReportbyItemReport";
+import { SalePurchaseByPartyReport } from "./report_pages/salePurchaseByPartyReport";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -140,6 +144,34 @@ export const Report = (props) => {
             } else if (sideBarFlg === "CashFlowReport") {
               return (
                 <CashFlowReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "PartyWiseProfitAndLossReport") {
+              return (
+                <PartyWiseProfitAndLossReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "AllPartiesReport") {
+              return (
+                <AllPartiesReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "PartyReportByItemReport") {
+              return (
+                <PartyReportByItemReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "SalePurchaseByPartyReport") {
+              return (
+                <SalePurchaseByPartyReport
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

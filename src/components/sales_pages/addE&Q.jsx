@@ -105,6 +105,13 @@ export const AddEQ = (props) => {
     navigate("/loggedIn");
   }
 
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = JSON.stringify(rows);
@@ -118,7 +125,7 @@ export const AddEQ = (props) => {
       recievedPrice: receivedAmount.toString(),
     });
     props.showToastMessage();
-    // wait(2000);
+    wait(2000);
     navigateToDashboard();
     // `invoke` returns a Promise
     // .then((response) => setBalance(parseInt(response)));

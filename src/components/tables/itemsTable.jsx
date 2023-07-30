@@ -41,6 +41,7 @@ export const ItemsTable = (props) => {
     invoke("get_item_details", {
       number: props.userNumber,
       company: props.userCompany,
+      item_name: props.itemName,
     })
       // `invoke` returns a Promise
       .then((response) => {
@@ -52,9 +53,10 @@ export const ItemsTable = (props) => {
 
   useEffect(() => {
     // getItemDetails();
-    invoke("get_item_details", {
+    invoke("get_item_names", {
       number: props.userNumber,
       company: props.userCompany,
+      // itemName: props.itemName,
     })
       // `invoke` returns a Promise
       .then((response) => {

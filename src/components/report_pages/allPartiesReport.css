@@ -1,0 +1,134 @@
+.main-allPartiesReport {
+  width: 100%;
+  height: 100%;
+  /* background-color: aqua; */
+}
+.middleDiv-allPartiesReport {
+  margin-top: 0.1%;
+  margin-left: 1%;
+  width: 99%;
+  height: 7%;
+  background-color: white;
+}
+.middleDiv-part1-allPartiesReport {
+  display: flex;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+.choose-dates-allPartiesReport {
+  padding: 0.5%;
+  /* width: fit-content + 50px; */
+  height: 75%;
+  display: flex;
+  gap: 8px;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* padding-right: 5px; */
+  border: 1px solid rgb(210, 208, 208);
+  border-radius: 4px;
+}
+#from-allPartiesReport {
+  height: 100%;
+  /* background-color: gainsboro; */
+  border: 0px;
+  font-size: small;
+}
+
+#to-label {
+  font-weight: 550;
+  /* font-size: small; */
+}
+#firm-allPartiesReport {
+  margin-left: 1%;
+  height: 100%;
+  width: 20%;
+  font-size: small;
+  border: 1px solid rgb(217, 217, 217);
+}
+.options-middlepart1-allPartiesReport {
+  /* background-color: blanchedalmond; */
+  margin-top: 1%;
+  width: 10%;
+  margin-left: auto;
+}
+
+.report-middlepart1-allPartiesReport {
+  height: 50%;
+  width: 35%;
+}
+.print-middlepart1-allPartiesReport {
+  height: 50%;
+  width: 35%;
+}
+.content-middleDiv-part2-allPartiesReport {
+  width: 30%;
+  height: 100%;
+  margin-top: 1%;
+  margin-left: 2%;
+  display: flex;
+  /* gap: 10px; */
+  /* background-color: brown; */
+}
+.choose-payment_in-allPartiesReport {
+  padding: 1%;
+  /* width: 50%; */
+  height: 100%;
+  font-size: small;
+  /* color: lightslategray; */
+  /* font-weight: 550; */
+  /* background-color: yellow; */
+}
+/* .payment_in-allPartiesReport {
+  width: 30%;
+  height: 100%;
+  font-weight: 550;
+} */
+.lowerDivSale-allPartiesReport-Report {
+  width: 99%;
+  margin-left: 1%;
+  height: 87%;
+  /* margin-top: 1%; */
+  /* top: 29%; */
+  overflow: auto;
+  background-color: white;
+}
+.top-part-A-allPartiesReport {
+  display: flex;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* background-color: green; */
+}
+.search-input-allPartiesReport {
+  height: 4vh;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(188, 188, 188);
+}
+/* .table-allPartiesReport {
+    margin-left: 2%;
+  } */
+.atTheEndDiv-allPartiesReport {
+  display: flex;
+  width: 99%;
+  margin-top: 0.2%;
+  margin-left: 1%;
+  height: 5%;
+  background-color: white;
+}
+.text1-allPartiesReport {
+  color: black;
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.text3-allPartiesReport {
+  color: black;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: 1%;
+  font-size: 14px;
+  font-weight: bold;
+}

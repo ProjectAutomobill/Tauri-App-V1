@@ -70,23 +70,35 @@ export const SideBarReport = (props) => {
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("PartyWiseProfitAndLossReport")}
+        >
           Party wise Profit & Loss
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("AllPartiesReport")}
+        >
           All parties
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("PartyReportByItemReport")}
+        >
           Party Report By Item
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
-          Sale Purchase By Party
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("SalePurchaseByPartyReport")}
+        >
+          Sale PurchaseBy Party
         </div>
       </div>
       <div className="component-sidebar-report">

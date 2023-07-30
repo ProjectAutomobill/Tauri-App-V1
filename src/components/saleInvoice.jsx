@@ -9,10 +9,11 @@ import { GoGraph } from "react-icons/go";
 import { HiDocumentReport } from "react-icons/hi";
 import { AiFillPrinter } from "react-icons/ai";
 import { invoke } from "@tauri-apps/api";
-
+import { EandQ } from "./sales_pages/EandQ";
 export const SaleInvoice = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
+  const [dataSales, setSalesData] = useState();
 
   function goToSale() {
     navigate("/sale");
@@ -28,6 +29,17 @@ export const SaleInvoice = (props) => {
     });
     // `invoke` returns a Promise
     // .then((response) => setBalance(parseInt(response)));
+  }
+  useEffect(() => {
+    // getSaleTransactions();
+    invoke("get_sales_transaction", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => setSalesData(JSON.parse(response)));
+  }, []);
+
+  if (dataSales != null && dataSales.length == 0) {
+    return <EandQ />;
   }
   return (
     <div className="main-saleInvoice">
