@@ -13,6 +13,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
+import { FiFilter } from "react-icons/fi";
+import { AiFillPrinter } from "react-icons/ai";
+import { TiArrowForward } from "react-icons/ti";
 export const SaleInvoiceTable = (props) => {
   const [dataSales, setSalesData] = useState();
 
@@ -21,7 +24,21 @@ export const SaleInvoiceTable = (props) => {
     invoke("get_sales_transaction", {
       number: props.userNumber,
       company: props.userCompany,
-    }).then((response) => setSalesData(JSON.parse(response)));
+    }).then((response) => {
+      setSalesData(JSON.parse(response));
+      var totalPaid = 0;
+      var totalAmount = 0;
+      for (var i = 0; i < JSON.parse(response).length; i++) {
+        totalPaid =
+          totalPaid +
+          JSON.parse(response)[i].Total -
+          JSON.parse(response)[i].Balance;
+        totalAmount += JSON.parse(response)[i].Total;
+        console.log("Total Paid : " + totalPaid);
+      }
+      props.setTotalPaid(totalPaid);
+      props.setTotalAmount(totalAmount);
+    });
   }, []);
   return (
     <div className="saleInvoiceTable-table">
@@ -32,112 +49,234 @@ export const SaleInvoiceTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                  // display: "flex",
+                }}
                 className="table-header-saleInvoice"
               >
-                DATE
+                <div className="table-header-box-sale">
+                  DATE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="table-header-saleInvoice"
               >
-                INVOICE NO.
+                <div className="table-header-box-sale">
+                  INVOICE NO.
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="table-header-saleInvoice"
               >
-                PARTY NAME
+                <div className="table-header-box-sale">
+                  PARTY NAME
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="table-header-saleInvoice"
               >
-                TRANSACTION TYPE
+                <div className="table-header-box-sale">
+                  TRANSACTION TYPE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="table-header-saleInvoice"
               >
-                PAYMENT TYPE
+                <div className="table-header-box-sale">
+                  PAYMENT TYPE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="table-header-saleInvoice"
               >
-                AMOUNT
+                <div className="table-header-box-sale">
+                  AMOUNT
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                }}
                 className="table-header-saleInvoice"
               >
-                BALANCE DUE
+                <div className="table-header-box-sale">
+                  BALANCE DUE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  // display: "flex",
+                }}
+                className="table-header-saleInvoice"
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody className="table-row-saleInvoice">
-            {dataSales?.map((row) => (
-              <TableRow>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Date}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Invoice_No}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.PartyName}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Transaction_Type}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Payment_Type}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Total}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                    color: "black",
-                    fontWeight: 100,
-                  }}
-                >
-                  {row.Balance}
-                </TableCell>
-              </TableRow>
-            ))}
+            {dataSales?.map(
+              (row) =>
+                (row.PartyName.includes(props.searchText) ||
+                  props.searchText.length == 0) && (
+                  <TableRow>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Date}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        textAlign: "right",
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Invoice_No}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.PartyName}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Transaction_Type}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Payment_Type}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        textAlign: "right",
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Total}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                        color: "black",
+                        fontWeight: 100,
+                        textAlign: "right",
+                      }}
+                    >
+                      {row.Balance}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                        color: "black",
+                        fontWeight: 100,
+                      }}
+                    >
+                      {/* {row.Balance} */}
+                      <div className="table-header-box-sale ">
+                        <AiFillPrinter className="print-icon-sale-invoice" />
+                        <TiArrowForward className="share-icon" />
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                )
+            )}
           </TableBody>
         </Table>
       </TableContainer>

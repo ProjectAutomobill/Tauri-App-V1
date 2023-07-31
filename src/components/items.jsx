@@ -254,7 +254,7 @@ export const Items = (props) => {
               <div className="upperDivRight-items">
                 <div className="upperDivRight1-items">
                   <div className="upperDivRight1-name-items">
-                    <b>s{itemTransaction}</b>
+                    <b>{itemTransaction}</b>
                   </div>
                   <div className="upperDivRight1-button-items">
                     <button className="button-items">Adjust Item</button>

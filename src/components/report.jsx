@@ -21,6 +21,8 @@ import { PartyWiseProfitAndLossReport } from "./report_pages/partyWiseProfitAndL
 import { AllPartiesReport } from "./report_pages/allPartiesReport";
 import { PartyReportByItemReport } from "./report_pages/partyReportbyItemReport";
 import { SalePurchaseByPartyReport } from "./report_pages/salePurchaseByPartyReport";
+import { SalePurchaseByPartyGroupReport } from "./report_pages/salePurchaseByPartyGroupReport";
+import { PartyStatementReport } from "./report_pages/partyStatementReport";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -148,6 +150,13 @@ export const Report = (props) => {
                   userCompany={props.userCompany}
                 />
               );
+            } else if (sideBarFlg === "PartyStatementReport") {
+              return (
+                <PartyStatementReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
             } else if (sideBarFlg === "PartyWiseProfitAndLossReport") {
               return (
                 <PartyWiseProfitAndLossReport
@@ -172,6 +181,13 @@ export const Report = (props) => {
             } else if (sideBarFlg === "SalePurchaseByPartyReport") {
               return (
                 <SalePurchaseByPartyReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "SalePurchaseByPartyGroupReport") {
+              return (
+                <SalePurchaseByPartyGroupReport
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

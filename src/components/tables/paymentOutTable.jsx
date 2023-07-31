@@ -30,25 +30,33 @@ export const PaymentOutTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              DATE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               REF NO.
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               PARTY NAME
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               CATEGORY
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TOTAL</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TYPE
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              TOTAL
+            </TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               RECEIVED/PAID
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               BALANCE
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>PRINT</TableCell>
+            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+              PRINT
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

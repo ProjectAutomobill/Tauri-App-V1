@@ -65,7 +65,10 @@ export const SideBarReport = (props) => {
         <div className="heading-inner-text-sidebar-report">Party Report</div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("PartyStatementReport")}
+        >
           Party Statement
         </div>
       </div>
@@ -98,11 +101,14 @@ export const SideBarReport = (props) => {
           className="heading-inner-text-component-sidebar-report"
           onClick={() => props.setSideBarFlg("SalePurchaseByPartyReport")}
         >
-          Sale PurchaseBy Party
+          Sale Purchase By Party
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("SalePurchaseByPartyGroupReport")}
+        >
           Sale Purchase By Party Group
         </div>
       </div>

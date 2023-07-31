@@ -14,7 +14,9 @@ export const SaleInvoice = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
   const [dataSales, setSalesData] = useState();
-
+  const [totalPaid, setTotalPaid] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [searchText, setSearchText] = useState("");
   function goToSale() {
     navigate("/sale");
   }
@@ -152,11 +154,23 @@ export const SaleInvoice = (props) => {
         </div>
         <div className="middleDiv-part2-saleInvoice">
           <div className="content-middleDiv-part2-saleInvoice">
-            <div className="paid-block">Paid</div>
+            <div className="paid-block">
+              Paid
+              <br />
+              <div className="amount-text-sale">₹{totalPaid}</div>
+            </div>
             <div className="plus-anotherOne-saleInvoice">+</div>
-            <div className="unpaid-block">Unpaid</div>
+            <div className="unpaid-block">
+              Unpaid
+              <br />
+              <div className="amount-text-sale">₹{totalAmount - totalPaid}</div>
+            </div>
             <div className="equal">=</div>
-            <div className="total-block">Total</div>
+            <div className="total-block">
+              Total
+              <br />
+              <div className="amount-text-sale">₹{totalAmount}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -168,6 +182,7 @@ export const SaleInvoice = (props) => {
             name=""
             className="search-input-saleInvoice"
             placeholder="Search"
+            onChange={(e) => setSearchText(e.target.value)}
           />
 
           <button
@@ -184,6 +199,9 @@ export const SaleInvoice = (props) => {
         <SaleInvoiceTable
           userNumber={props.userNumber}
           userCompany={props.userCompany}
+          setTotalPaid={setTotalPaid}
+          setTotalAmount={setTotalAmount}
+          searchText={searchText}
         />
       </div>
     </div>
