@@ -136,7 +136,10 @@ export const SideBarReport = (props) => {
         </div>
       </div>
       <div className="component-sidebar-report">
-        <div className="heading-inner-text-component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("SaleSummaryByHSNReport")}
+        >
           Sale Summary By HSN
         </div>
       </div>

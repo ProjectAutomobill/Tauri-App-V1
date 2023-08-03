@@ -2,7 +2,8 @@
   background-color: orange;
   color: white;
   font-weight: bold;
-  width: 60%;
+  /* width: 60%; */
+  width: fit-content;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;

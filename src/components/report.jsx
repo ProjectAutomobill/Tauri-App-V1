@@ -23,6 +23,7 @@ import { PartyReportByItemReport } from "./report_pages/partyReportbyItemReport"
 import { SalePurchaseByPartyReport } from "./report_pages/salePurchaseByPartyReport";
 import { SalePurchaseByPartyGroupReport } from "./report_pages/salePurchaseByPartyGroupReport";
 import { PartyStatementReport } from "./report_pages/partyStatementReport";
+import { SaleSummaryByHSNReport } from "./report_pages/saleSummaryByHSNReport";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -188,6 +189,13 @@ export const Report = (props) => {
             } else if (sideBarFlg === "SalePurchaseByPartyGroupReport") {
               return (
                 <SalePurchaseByPartyGroupReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "SaleSummaryByHSNReport") {
+              return (
+                <SaleSummaryByHSNReport
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
+import { FiFilter } from "react-icons/fi";
 
 export const PaymentOutTable = (props) => {
   const [data, setData] = useState();
@@ -30,47 +31,218 @@ export const PaymentOutTable = (props) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              DATE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                DATE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              REF NO.
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                REF NO.
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PARTY NAME
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                PARTY NAME
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              CATEGORY
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                CATEGORY
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              TYPE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                TYPE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              TOTAL
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                TOTAL
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              RECEIVED/PAID
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                RECEIVED/PAID
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              BALANCE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                BALANCE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PRINT
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                PRINT
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.Date}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.ReceiptNo}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PartyName}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>Cash</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.TransactionType}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>100</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.Sent}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>100</TableCell>
-              <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Date}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.ReceiptNo}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PartyName}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                Cash
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.TransactionType}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                100
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.Sent}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                100
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  color: "black",
+                  fontWeight: 100,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
                 Print
               </TableCell>
             </TableRow>

@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
 import { Link, useLocation } from "react-router-dom";
 import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
+import { FiFilter } from "react-icons/fi";
 
 var data = [];
 var dataTable1 = getPartyDetails().then((val) => {
@@ -76,41 +77,100 @@ export const TransactionTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12 }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               ></TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               >
-                TYPE
+                <div className="table-header-box-sale">
+                  TYPE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               >
-                NUMBER
+                <div className="table-header-box-sale">
+                  NUMBER
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               >
-                DATE
+                <div className="table-header-box-sale">
+                  DATE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               >
-                TOTAL
+                <div className="table-header-box-sale">
+                  TOTAL
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               >
-                BALANCE
+                <div className="table-header-box-sale">
+                  BALANCE
+                  <div className="filter-div">
+                    <FiFilter className="filter-icon-sale" />
+                  </div>
+                </div>
               </TableCell>
               <TableCell
-                sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
                 className="header-transaction-table"
               ></TableCell>
             </TableRow>

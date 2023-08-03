@@ -12,6 +12,8 @@ import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
 import "./saleOrderTable.css";
+import { FiFilter } from "react-icons/fi";
+
 export const EQTable = (props) => {
   const [data, setData] = useState();
 
@@ -30,25 +32,102 @@ export const EQTable = (props) => {
         <TableHead>
           <TableRow>
             <TableCell
-              sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
             ></TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              NAME
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                NAME
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              DATE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                DATE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              TOTAL AMOUNT
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                TOTAL AMOUNT
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              BALANCE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                BALANCE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              STATUS
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                STATUS
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              ACTION
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                ACTION
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -102,7 +181,7 @@ export const EQTable = (props) => {
                 Open
               </TableCell>
               <TableCell sx={{ fontSize: 12, color: "black", fontWeight: 100 }}>
-                Convert
+                <div className="cvt_2_sale_btn">Convert</div>
               </TableCell>
             </TableRow>
           ))}

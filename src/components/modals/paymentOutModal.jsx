@@ -14,10 +14,7 @@ export function PaymentOutModal(props) {
   const [receiptNo, setReceiptNo] = useState("");
   const [date, setDate] = useState("");
   const [transactionType, setTransactionType] = useState("Cash");
-  const [dropdownOptions, setDropdownOptions] = useState([
-    { name: "Autotekk" },
-    { name: "Jatin" },
-  ]);
+  const [dropdownOptions, setDropdownOptions] = useState([]);
   function addPaymentOutDetails() {
     var jsondata = {
       received: receivedAmount,
@@ -38,17 +35,14 @@ export function PaymentOutModal(props) {
     props.onHide();
   }
 
-  // useEffect(() => {
-  // invoke("add_party_details", {
-  //   number: props.userNumber,
-  //   company: props.userCompany,
-  //   name: partyName,
-  //   gstin: gstin,
-  //   pnumber: phone_no,
-  //   email: email,
-  //   address: address,
-  // });
-  // }, []);
+  useEffect(() => {
+    invoke("get_party_names", {
+      number: props.userNumber,
+      company: props.userCompany,
+    }).then((response) => {
+      setDropdownOptions(JSON.parse(response));
+    });
+  }, []);
   return (
     <Modal
       {...props}
@@ -67,7 +61,7 @@ export function PaymentOutModal(props) {
               onChange={(e) => setPartyName(e.target.value)}
             >
               {dropdownOptions?.map((row, index) => (
-                <option value={row.name}>{row.name}</option>
+                <option value={row.Name}>{row.Name}</option>
               ))}
             </select>
             <br />

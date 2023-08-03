@@ -155,6 +155,7 @@ export const SaleInvoiceTable = (props) => {
                   fontWeight: 570,
                   fontSize: 12,
                   color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
                   // display: "flex",
                 }}
                 className="table-header-saleInvoice"
@@ -171,6 +172,7 @@ export const SaleInvoiceTable = (props) => {
                   fontWeight: 570,
                   fontSize: 12,
                   color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
                   // display: "flex",
                 }}
                 className="table-header-saleInvoice"
@@ -181,7 +183,8 @@ export const SaleInvoiceTable = (props) => {
             {dataSales?.map(
               (row) =>
                 (row.PartyName.includes(props.searchText) ||
-                  props.searchText.length == 0) && (
+                  (props.searchText != null &&
+                    props.searchText.length == 0)) && (
                   <TableRow>
                     <TableCell
                       sx={{

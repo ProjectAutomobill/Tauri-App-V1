@@ -61,6 +61,7 @@ export const ItemsTable = (props) => {
       // `invoke` returns a Promise
       .then((response) => {
         setItemData(JSON.parse(response));
+        props.setTrans(JSON.parse(response)[0].Name);
       });
   }, []);
   return (
@@ -93,7 +94,7 @@ export const ItemsTable = (props) => {
               <TableCell
                 sx={{
                   fontSize: 12,
-                  color: "green",
+                  color: row.Units > 5 ? "green" : "red",
                   fontWeight: 600,
                   justifyContent: "right",
                   alignItems: "right",

@@ -11,6 +11,7 @@ import {
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
 import { BsFillCircleFill } from "react-icons/bs";
+import { FiFilter } from "react-icons/fi";
 
 export const TransactionTableItems = (props) => {
   const [dataT, setDataT] = useState();
@@ -49,25 +50,102 @@ export const TransactionTableItems = (props) => {
         <TableHead>
           <TableRow>
             <TableCell
-              sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
             ></TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              TYPE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                TYPE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              NAME
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                NAME
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              DATE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                DATE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              OUANTITY
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                QUANTITY
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PRICE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                PRICE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              STATUS
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            >
+              <div className="table-header-box-sale">
+                STATUS
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
           </TableRow>
         </TableHead>

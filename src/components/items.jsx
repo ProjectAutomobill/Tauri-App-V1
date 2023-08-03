@@ -34,10 +34,10 @@ export const Items = (props) => {
   const [itemAddress, setItemAddress] = useState();
   const [itemGSTIN, setItemGSTIN] = useState();
 
-  const [wholesalePrice, setWholesalePrice] = useState(0);
-  const [retailPrice, setRetailPrice] = useState(0);
-  const [stock, setStock] = useState(0);
-  const [stockValue, setStockValue] = useState(0);
+  const [wholesalePrice, setWholesalePrice] = useState();
+  const [retailPrice, setRetailPrice] = useState();
+  const [stock, setStock] = useState();
+  const [stockValue, setStockValue] = useState();
   const [prevItem, setPrevItem] = useState("");
 
   const [stateChange, setStateChange] = useState(true);
@@ -107,10 +107,25 @@ export const Items = (props) => {
       bNameVal: b_name.toString(),
     });
   }
-
-  // useEffect((()=>{
-  //   getItemDetails();
-  // }),[]);
+  useEffect(() => {
+    invoke("get_item_details", {
+      number: props.userNumber,
+      company: props.userCompany,
+      item_name: itemTransaction,
+    })
+      // `invoke` returns a Promise
+      .then(async (response) => {
+        setItemDetails(JSON.parse(response));
+        // console.log("Party Data : " + partyDetails["Number"]);
+        await setWholesalePrice(JSON.parse(response).WholesalePrice);
+        await setRetailPrice(JSON.parse(response).SalePrice);
+        await setStock(JSON.parse(response).Units);
+        await setStockValue(
+          parseInt(JSON.parse(response).Units) *
+            parseInt(JSON.parse(response).SalePrice)
+        );
+      });
+  }, []);
   return (
     <div className="parties-items-items">
       <ToastContainer />

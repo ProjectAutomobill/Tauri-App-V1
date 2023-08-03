@@ -42,41 +42,51 @@ export const SalePurchaseByPartyReport = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-salePurchaseByPartyReport">
-            <div className="between-label">
-              <label for="from-salePurchaseByPartyReport">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-salePurchaseByPartyReport"
-              name="from-salePurchaseByPartyReport"
-            />
+          {/* this month+ dates filter start */}
 
-            <label for="to-salePurchaseByPartyReport" id="to-label">
-              To
-            </label>
-            <input
-              type="date"
-              id="to-salePurchaseByPartyReport"
-              name="to-salePurchaseByPartyReport"
-            />
+          <div className="choose-dates-salePurchaseByPartyReport">
+            <div className="between-label-salePurchaseByPartyReport">
+              Between
+            </div>
+
+            <div className="date1-salePurchaseByPartyReport">
+              <input
+                type="date"
+                className="from-salePurchaseByPartyReport"
+                name="from-salePurchaseByPartyReport"
+              />
+            </div>
+            <div className="to-choose-dates-salePurchaseByPartyReport">To</div>
+            <div className="date1-salePurchaseByPartyReport">
+              <input
+                type="date"
+                className="from-salePurchaseByPartyReport"
+                name="from-salePurchaseByPartyReport"
+              />
+            </div>
           </div>
+
+          {/*  options buttons start */}
           <div className="options-middlepart1-salePurchaseByPartyReport">
-            <HiDocumentReport className="report-middlepart1-salePurchaseByPartyReport" />
-            <AiFillPrinter className="print-middlepart1-salePurchaseByPartyReport" />
+            <div className="option1-salePurchaseByPartyReport">
+              <div className="image-option1-salePurchaseByPartyReport">
+                <HiDocumentReport className="report-middlepart1-salePurchaseByPartyReport" />
+              </div>
+              <div className="text1-option1-salePurchaseByPartyReport">
+                Excel Report
+              </div>
+            </div>
+
+            <div className="option2-salePurchaseByPartyReport">
+              <div className="image-option2-salePurchaseByPartyReport">
+                <AiFillPrinter className="print-middlepart1-salePurchaseByPartyReport" />
+              </div>
+              <div className="text1-option2-salePurchaseByPartyReport">
+                Print
+              </div>
+            </div>
           </div>
         </div>
-        {/* <div className="middleDiv-part2-salePurchaseByPartyReport">
-          <div className="content-middleDiv-part2-salePurchaseByPartyReport">
-            <div className="choose-payment_in-salePurchaseByPartyReport">
-              <select id="payment_in-salePurchaseByPartyReport">
-                <option value="salePurchaseByPartyReports-salePurchaseByPartyReport">
-                  All Parties
-                </option>
-              </select>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="lowerDivSale-salePurchaseByPartyReport">
         <div className="top-part-A-salePurchaseByPartyReport">
@@ -92,10 +102,12 @@ export const SalePurchaseByPartyReport = (props) => {
       </div>
       <div className="atTheEndDiv-salePurchaseByPartyReport">
         <div className="text1-salePurchaseByPartyReport">
-          Total Sale Amount: $ 0.00
+          Total Sale Amount:
+          <div className="valueOf-text1-salePurchaseByPartyReport">$ 0.00</div>
         </div>
         <div className="text3-salePurchaseByPartyReport">
-          Total Purchase Amount:$ 0.00
+          Total Purchase Amount:
+          <div className="valueOf-text2-salePurchaseByPartyReport">$ 0.00</div>
         </div>
       </div>
     </div>

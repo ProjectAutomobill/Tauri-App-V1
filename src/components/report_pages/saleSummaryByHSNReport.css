@@ -1,29 +1,29 @@
-.main-salePurchaseByPartyGroupReport {
+.main-saleSummaryByHSNReport {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.middleDiv-salePurchaseByPartyGroupReport {
+.middleDiv-saleSummaryByHSNReport {
   margin-top: 0.5%;
   margin-left: 1%;
   width: 99%;
   height: 9%;
   background-color: white;
 }
-.middleDiv-part1-salePurchaseByPartyGroupReport {
+.middleDiv-part1-saleSummaryByHSNReport {
   display: flex;
   height: 100%;
   padding: 1%;
   /* background-color: aqua; */
 }
 
-.choose-months-salePurchaseByPartyGroupReport {
+.choose-months-saleSummaryByHSNReport {
   padding: 0.5%;
   height: 100%;
   /* background-color: yellow; */
 }
-#months-salePurchaseByPartyGroupReport {
+#months-saleSummaryByHSNReport {
   border: none;
   /* height: 100%; */
   width: 100%;
@@ -32,7 +32,7 @@
   color: rgb(45, 14, 117);
   font-weight: 550;
 }
-.choose-dates-salePurchaseByPartyGroupReport {
+.choose-dates-saleSummaryByHSNReport {
   margin-top: 5px;
   height: 70%;
   width: 35%;
@@ -45,7 +45,7 @@
   /* border-radius: 4px; */
   /* background-color: bisque; */
 }
-.between-label-salePurchaseByPartyGroupReport {
+.between-label-saleSummaryByHSNReport {
   /* width: 2%; */
   height: 100%;
   width: 20%;
@@ -61,14 +61,14 @@
   background-color: gray;
 }
 
-.date1-salePurchaseByPartyGroupReport {
+.date1-saleSummaryByHSNReport {
   /* background-color: aqua; */
   margin-left: 3%;
   padding: 0.5%;
   /* width: 30%; */
   color: rgb(45, 14, 117);
 }
-.from-salePurchaseByPartyGroupReport {
+.from-saleSummaryByHSNReport {
   height: 50%;
   /* background-color: gainsboro; */
   border: 0px;
@@ -80,7 +80,7 @@
   /* margin-top: auto;
           margin-left: auto; */
 }
-.to-choose-dates-salePurchaseByPartyGroupReport {
+.to-choose-dates-saleSummaryByHSNReport {
   /* background-color: rgb(253, 155, 36); */
   font-size: 12px;
   margin-left: 3%;
@@ -88,7 +88,29 @@
   padding: 1.5%;
 }
 
-.options-middlepart1-salePurchaseByPartyGroupReport {
+/* #to-inputType-saleSummaryByHSNReport {
+  height: 100%;
+  margin-left: 0.1%;
+} */
+.allFirms-middleDiv-saleSummaryByHSNReport {
+  /* background-color: chartreuse; */
+  /* width: 10%; */
+  margin-left: 1%;
+  margin-top: 5px;
+  height: 70%;
+}
+#firm-saleSummaryByHSNReport {
+  margin-left: 1%;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
+  color: rgb(45, 14, 117);
+
+  font-size: small;
+  border: 1px solid rgb(217, 217, 217);
+  /* background-color: rgb(48, 121, 185); */
+}
+.options-middlepart1-saleSummaryByHSNReport {
   /* background-color: blanchedalmond; */
   margin-top: 0.5%;
   width: 10%;
@@ -98,53 +120,53 @@
   /* margin-bottom: 1%; */
   margin-left: auto;
 }
-.option1-salePurchaseByPartyGroupReport {
+.option1-saleSummaryByHSNReport {
   /* background-color: chartreuse; */
   width: 60%;
   margin-right: 7%;
 }
-.image-option1-salePurchaseByPartyGroupReport {
+.image-option1-saleSummaryByHSNReport {
   /* background-color: blue; */
   height: 60%;
 }
-.text1-option1-salePurchaseByPartyGroupReport {
+.text1-option1-saleSummaryByHSNReport {
   /* background-color: rgb(42, 165, 52); */
   margin-top: 5%;
   font-size: x-small;
   font-weight: bold;
 }
-.option2-salePurchaseByPartyGroupReport {
+.option2-saleSummaryByHSNReport {
   /* background-color: rgb(215, 220, 209); */
   width: 35%;
 }
-.image-option2-salePurchaseByPartyGroupReport {
+.image-option2-saleSummaryByHSNReport {
   /* background-color: rgb(255, 0, 0); */
   height: 60%;
 }
-.text1-option2-salePurchaseByPartyGroupReport {
+.text1-option2-saleSummaryByHSNReport {
   /* background-color: rgb(42, 165, 52); */
   margin-top: 10%;
   font-size: x-small;
   font-weight: bold;
 }
-.report-middlepart1-salePurchaseByPartyGroupReport {
+.report-middlepart1-saleSummaryByHSNReport {
   height: 80%;
   width: 80%;
   /* margin-right: 4%; */
   /* background-color: rgb(141, 128, 36); */
 }
-.print-middlepart1-salePurchaseByPartyGroupReport {
+.print-middlepart1-saleSummaryByHSNReport {
   height: 80%;
   width: 80%;
 }
-.middleDiv-part2-salePurchaseByPartyGroupReport {
+.middleDiv-part2-saleSummaryByHSNReport {
   /* margin-top: 1%; */
   height: 40%;
   /* background-color: rgb(39, 179, 17); */
   /* text-align: left; */
   /* display: flex; */
 }
-.content-middleDiv-part2-salePurchaseByPartyGroupReport {
+.content-middleDiv-part2-saleSummaryByHSNReport {
   width: 50%;
   height: 100%;
   margin-left: 0.5%;
@@ -152,13 +174,13 @@
   gap: 10px;
   /* background-color: brown; */
 }
-.choose-payment_in-salePurchaseByPartyGroupReport {
+.choose-payment_in-saleSummaryByHSNReport {
   padding: 0.5%;
   width: 20%;
   /* background-color: yellow; */
 }
 
-#payment_in-salePurchaseByPartyGroupReport {
+#payment_in-saleSummaryByHSNReport {
   padding: 3%;
   width: 100%;
   border: 1px solid rgb(170, 170, 170);
@@ -168,44 +190,39 @@
   color: rgb(28, 28, 39);
   font-weight: bold;
 }
-.lowerDivSale-salePurchaseByPartyGroupReport {
+.lowerDivSale-saleSummaryByHSNReport {
   /* position: absolute; */
   width: 99%;
   margin-left: 1%;
 
-  height: 82%;
+  height: 83%;
   margin-top: 1%;
-  /* display: flex; */
+
   /* top: 24%; */
   overflow: auto;
   background-color: white;
 }
-.lowerDiv-content-salePurchaseByPartyGroupReport {
-  font-weight: bold;
-  font-size: 13px;
-  /* background-color: bisque; */
-  margin: 9px;
-}
-.top-part-A-salePurchaseByPartyGroupReport {
+
+.top-part-A-saleSummaryByHSNReport {
   display: flex;
   margin-left: 0.5%;
   /* background-color: green; */
 }
-.transaction-salePurchaseByPartyGroupReport {
+.transaction-saleSummaryByHSNReport {
   text-align: left;
   margin: 10px;
   font-weight: 550;
 }
-.search-input-salePurchaseByPartyGroupReport {
+.search-input-saleSummaryByHSNReport {
   /* height: 7%; */
   margin: 9px;
-  margin-left: auto;
+  margin-right: auto;
   border-radius: 3px;
   /* outline: 0px; */
   /* border: 0px; */
   border: 1px solid rgb(188, 188, 188);
 }
-.atTheEndDiv-salePurchaseByPartyGroupReport {
+.atTheEndDiv-saleSummaryByHSNReport {
   display: flex;
   width: 99%;
   margin-top: 0.2%;
@@ -213,19 +230,27 @@
   height: 5%;
   background-color: white;
 }
-.text1-salePurchaseByPartyGroupReport {
-  color: rgb(18, 153, 153);
+.text1-saleSummaryByHSNReport {
+  color: black;
   margin-top: 1%;
-  margin-left: 0.5%;
+  margin-left: 1%;
   font-size: 14px;
+  width: 12%;
+  display: flex;
+  /* background-color: chocolate; */
   /* font-weight: bold; */
 }
-
-.text3-salePurchaseByPartyGroupReport {
-  color: rgb(225, 23, 23);
+.value-oftext1-saleSummaryByHSNReport {
+  font-weight: bold;
+  margin-left: 5%;
+  /* background-color: burlywood; */
+  color: rgb(60, 194, 60);
+}
+.text3-saleSummaryByHSNReport {
+  color: black;
   margin-top: 1%;
   margin-left: auto;
-  margin-right: 30%;
+  margin-right: 0.5%;
   font-size: 14px;
   /* font-weight: bold; */
 }

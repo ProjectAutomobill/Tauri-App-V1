@@ -98,6 +98,7 @@ export const PartiesTable = (props) => {
             >
               AMOUNT
             </TableCell>
+            <TableCell sx={{ width: "10" }}></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -119,7 +120,7 @@ export const PartiesTable = (props) => {
                 <TableCell
                   sx={{
                     fontSize: 12,
-                    color: "green",
+                    color: row.Amount > 0 ? "green" : "red",
                     fontWeight: 600,
                   }}
                   onClick={() => console.log(props.partyName)}
@@ -127,6 +128,7 @@ export const PartiesTable = (props) => {
                 >
                   {row.Amount}
                 </TableCell>
+                <TableCell sx={{ width: "10" }}></TableCell>
               </TableRow>
             ))
             // })

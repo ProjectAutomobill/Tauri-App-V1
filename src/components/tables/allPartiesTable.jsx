@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   TableContainer,
   Table,
@@ -8,51 +8,192 @@ import {
   TableCell,
   Paper,
 } from "@mui/material";
-import "./transactionTable.css";
+// import "./transactionTable.css";
+import { invoke } from "@tauri-apps/api";
+import LoadingSpinner from "../../loading";
+import "./allPartiesTable.css";
+import { FiFilter } from "react-icons/fi";
 
-export const AllPartiesTable = () => {
+export const AllPartiesTable = (props) => {
+  const [data, setData] = useState();
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              S_NO
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                <div className="text-GroupName-allPartiesTable">#</div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PARTY NAME
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-2-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                <div className="text-GroupName-allPartiesTable">PARTY NAME</div>
+
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              EMAIL
+
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-3-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                EMAIL
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PHONE NO.
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-3-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                PHONE NO.
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              RECEIVABLE BALANCE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                RECEIVABLE BALANCE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              PAYABLE BALANCE
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                PAYABLE BALANCE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
-              CREDIT LIMIT
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-allPartiesTable"
+            >
+              <div className="table-header-box-allPartiesTable">
+                CREDIT LIMIT
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataTable.map((row) => (
+          {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.S_NO}</TableCell>
-
-              <TableCell sx={{ fontSize: 12 }}>{row.PARTY_NAME}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.EMAIL}</TableCell>
-
-              <TableCell sx={{ fontSize: 12 }}>{row.PHONE_NO}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.S_NO}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PARTY_NAME}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.EMAIL}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PHONE_NO}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
                 {row.RECEIVABLE_BALANCE}
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PAYABLE_BALANCE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.CREDIT_LIMIT}</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PAYABLE_BALANCE}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.CREDIT_LIMIT}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -60,14 +201,5 @@ export const AllPartiesTable = () => {
     </TableContainer>
   );
 };
-const dataTable = [
-  {
-    S_NO: "1",
-    PARTY_NAME: "JATIN",
-    EMAIL: "JBANSAL12090@GMAIL.COM",
-    PHONE_NO: 2,
-    RECEIVABLE_BALANCE: "64534",
-    PAYABLE_BALANCE: "$5356",
-    CREDIT_LIMIT: "$84568.66",
-  },
-];
+
+const dataTable = [{}];

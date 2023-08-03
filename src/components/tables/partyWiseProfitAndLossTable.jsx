@@ -8,51 +8,160 @@ import {
   TableCell,
   Paper,
 } from "@mui/material";
-import "./transactionTable.css";
+// import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
+import LoadingSpinner from "../../loading";
+import "./partyWiseProfitAndLossTable.css";
+import { FiFilter } from "react-icons/fi";
 
 export const PartyWiseProfitAndLossTable = (props) => {
   const [data, setData] = useState();
 
-  //   useEffect(() => {
-  //     // componentDidMount1();
-  //     invoke("get_paymentIn_data", {
-  //       number: props.userNumber,
-  //       company: props.userCompany,
-  //     })
-  //       // `invoke` returns a Promise
-  //       .then((response) => {
-  //         setData(JSON.parse(response));
-  //       });
-  //   }, []);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>S_NO</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              PHONE NO.
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-saleSummary"
+            >
+              <div className="table-header-box-partyWiseProfitAndLossTable">
+                #
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              TOTAL SALE AMOUNT
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-2-partyWiseProfitAndLossTable"
+            >
+              <div className="table-header-box-partyWiseProfitAndLossTable">
+                <div className="text-HSN-partyWiseProfitAndLossTable">
+                  PARTY NAME
+                </div>
+
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>
-              PROFIT(+)/LOSS(-)
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-2-partyWiseProfitAndLossTable"
+            >
+              <div className="table-header-box-partyWiseProfitAndLossTable">
+                PHONE NO.
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-partyWiseProfitAndLossTable"
+            >
+              <div className="table-header-box-partyWiseProfitAndLossTable">
+                TOTAL SALE AMOUNT
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-partyWiseProfitAndLossTable"
+            >
+              <div className="table-header-box-partyWiseProfitAndLossTable">
+                PROFIT(+)/LOSS(-)
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.S_NO}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PHONE_NO}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.NAME}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>
-                {row.TOTAL_SALE_AMOUNT}
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              ></TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.S_NO}
               </TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.PROFIT_LOSS}</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PARTY_NAME}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.SALE_QUANTITY}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.SALE_AMOUNT}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PURCHASE_QUANTITY}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.PURCHASE_AMOUNT}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -61,12 +170,4 @@ export const PartyWiseProfitAndLossTable = (props) => {
   );
 };
 
-const dataTable = [
-  {
-    S_NO: "1",
-    PHONE_NO: 8295276864,
-    NAME: "Terrell Scampion",
-    TOTAL_SALE_AMOUNT: 6,
-    PROFIT_LOSS: 26,
-  },
-];
+const dataTable = [{}];

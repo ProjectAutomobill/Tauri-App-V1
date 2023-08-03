@@ -1,0 +1,25 @@
+.table-row:hover {
+  background-color: rgb(242, 245, 245);
+}
+
+.coloumn-1-saleSummary {
+  width: 1%;
+  /* height: 50%; */
+  /* background-color: chartreuse; */
+}
+.coloumn-2-saleSummaryTable {
+  width: 12%;
+  /* height: 50%; */
+  /* background-color: chartreuse; */
+}
+.table-header-box-saleSummaryTable {
+  /* background-color: aqua; */
+  display: flex;
+  /* padding: 0; */
+  /* width: 50%; */
+}
+.coloumn-restOfAll-saleSummaryTable {
+  /* width: 30%; */
+  /* height: 50%; */
+  /* background-color: chartreuse; */
+}

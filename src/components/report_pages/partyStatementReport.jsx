@@ -31,23 +31,23 @@ export const PartyStatementReport = (props) => {
           </div>
 
           <div className="choose-dates-partyStatementReport">
-            <div className="between-label">
-              <label for="from-partyStatementReport">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-partyStatementReport"
-              name="from-partyStatementReport"
-            />
+            <div className="between-label-partyStatementReport">Between</div>
 
-            <label for="to-partyStatementReport" id="to-label">
-              To
-            </label>
-            <input
-              type="date"
-              id="to-partyStatementReport"
-              name="to-partyStatementReport"
-            />
+            <div className="date1-partyStatementReport">
+              <input
+                type="date"
+                className="from-partyStatementReport"
+                name="from-partyStatementReport"
+              />
+            </div>
+            <div className="to-choose-dates-partyStatementReport">To</div>
+            <div className="date1-partyStatementReport">
+              <input
+                type="date"
+                className="from-partyStatementReport"
+                name="from-partyStatementReport"
+              />
+            </div>
           </div>
           <div className="middleDiv-searchInput-partyStatementReport">
             <input
@@ -58,10 +58,37 @@ export const PartyStatementReport = (props) => {
               placeholder="Select Party "
             />
           </div>
+          {/*  options buttons start */}
           <div className="options-middlepart1-partyStatementReport">
+            <div className="option1-partyStatementReport">
+              <div className="image-option1-partyStatementReport">
+                <HiDocumentReport className="report-middlepart1-partyStatementReport" />
+              </div>
+              <div className="text1-option1-partyStatementReport">
+                Excel Report
+              </div>
+            </div>
+
+            <div className="option2-partyStatementReport">
+              <div className="image-option2-partyStatementReport">
+                <AiFillPrinter className="print-middlepart1-partyStatementReport" />
+              </div>
+              <div className="text1-option2-partyStatementReport">Print</div>
+            </div>
+          </div>
+          {/* <div className="middleDiv-searchInput-partyStatementReport">
+            <input
+              type="search"
+              name=""
+              id=""
+              className="first-input-partyStatementReport"
+              placeholder="Select Party "
+            />
+          </div> */}
+          {/* <div className="options-middlepart1-partyStatementReport">
             <HiDocumentReport className="report-middlepart1-partyStatementReport" />
             <AiFillPrinter className="print-middlepart1-partyStatementReport" />
-          </div>
+          </div> */}
         </div>
         <div className="middleDiv-part2-partyStatementReport">
           <div className="content-middleDiv-part2-partyStatementReport">

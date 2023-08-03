@@ -42,28 +42,45 @@ export const PartyReportByItemReport = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-partyReportByItemReport">
-            <div className="between-label">
-              <label for="from-partyReportByItemReport">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-partyReportByItemReport"
-              name="from-partyReportByItemReport"
-            />
+          {/* this month+ dates filter start */}
 
-            <label for="to-partyReportByItemReport" id="to-label">
-              To
-            </label>
-            <input
-              type="date"
-              id="to-partyReportByItemReport"
-              name="to-partyReportByItemReport"
-            />
+          <div className="choose-dates-partyReportByItemReport">
+            <div className="between-label-partyReportByItemReport">Between</div>
+
+            <div className="date1-partyReportByItemReport">
+              <input
+                type="date"
+                className="from-partyReportByItemReport"
+                name="from-partyReportByItemReport"
+              />
+            </div>
+            <div className="to-choose-dates-partyReportByItemReport">To</div>
+            <div className="date1-partyReportByItemReport">
+              <input
+                type="date"
+                className="from-partyReportByItemReport"
+                name="from-partyReportByItemReport"
+              />
+            </div>
           </div>
+
+          {/*  options buttons start */}
           <div className="options-middlepart1-partyReportByItemReport">
-            <HiDocumentReport className="report-middlepart1-partyReportByItemReport" />
-            <AiFillPrinter className="print-middlepart1-partyReportByItemReport" />
+            <div className="option1-partyReportByItemReport">
+              <div className="image-option1-partyReportByItemReport">
+                <HiDocumentReport className="report-middlepart1-partyReportByItemReport" />
+              </div>
+              <div className="text1-option1-partyReportByItemReport">
+                Excel Report
+              </div>
+            </div>
+
+            <div className="option2-partyReportByItemReport">
+              <div className="image-option2-partyReportByItemReport">
+                <AiFillPrinter className="print-middlepart1-partyReportByItemReport" />
+              </div>
+              <div className="text1-option2-partyReportByItemReport">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-partyReportByItemReport">

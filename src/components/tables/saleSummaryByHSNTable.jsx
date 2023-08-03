@@ -8,24 +8,15 @@ import {
   TableCell,
   Paper,
 } from "@mui/material";
-import "./transactionTable.css";
+// import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
+import LoadingSpinner from "../../loading";
+import "./saleSummaryByHSNTable.css";
 import { FiFilter } from "react-icons/fi";
 
-export const PaymentInTable = (props) => {
+export const SaleSummaryByHSNTable = (props) => {
   const [data, setData] = useState();
 
-  useEffect(() => {
-    // componentDidMount1();
-    invoke("get_paymentIn_data", {
-      number: props.userNumber,
-      company: props.userCompany,
-    })
-      // `invoke` returns a Promise
-      .then((response) => {
-        setData(JSON.parse(response));
-      });
-  }, []);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -38,9 +29,30 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+            ></TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-saleSummary"
             >
-              <div className="table-header-box-sale">
-                DATE
+              <div className="table-header-box-saleSummaryTable">#</div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-2-saleSummaryTable"
+            >
+              <div className="table-header-box-saleSummaryTable">
+                <div className="text-HSN-saleSummaryTable">HSN</div>
+
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -53,9 +65,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                REF NO.
+              <div className="table-header-box-saleSummaryTable">
+                TOTAL VALUE
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -68,9 +81,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                PARTY NAME
+              <div className="table-header-box-saleSummaryTable">
+                TAXABLE VALUE
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -83,9 +97,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                CATEGORY
+              <div className="table-header-box-saleSummaryTable">
+                IGST AMOUNT
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -98,9 +113,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                TYPE
+              <div className="table-header-box-saleSummaryTable">
+                CGST AMOUNT
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -113,9 +129,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                TOTAL
+              <div className="table-header-box-saleSummaryTable">
+                SGST AMOUNT
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -128,39 +145,10 @@ export const PaymentInTable = (props) => {
                 color: "gray",
                 borderRight: "1px solid rgb(230, 230, 230)",
               }}
+              className="coloumn-restOfAll-saleSummaryTable"
             >
-              <div className="table-header-box-sale">
-                RECEIVED/PAID
-                <div className="filter-div">
-                  <FiFilter className="filter-icon-sale" />
-                </div>
-              </div>
-            </TableCell>
-            <TableCell
-              sx={{
-                fontWeight: 570,
-                fontSize: 12,
-                color: "gray",
-                borderRight: "1px solid rgb(230, 230, 230)",
-              }}
-            >
-              <div className="table-header-box-sale">
-                BALANCE
-                <div className="filter-div">
-                  <FiFilter className="filter-icon-sale" />
-                </div>
-              </div>
-            </TableCell>
-            <TableCell
-              sx={{
-                fontWeight: 570,
-                fontSize: 12,
-                color: "gray",
-                borderRight: "1px solid rgb(230, 230, 230)",
-              }}
-            >
-              <div className="table-header-box-sale">
-                PRINT
+              <div className="table-header-box-saleSummaryTable">
+                ADD. CESS
                 <div className="filter-div">
                   <FiFilter className="filter-icon-sale" />
                 </div>
@@ -176,8 +164,14 @@ export const PaymentInTable = (props) => {
                   fontSize: 12,
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
+              ></TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
               >
-                {row.Date}
+                {row.S_NO}
               </TableCell>
               <TableCell
                 sx={{
@@ -185,7 +179,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                {row.ReceiptNo}
+                {row.HSN}
               </TableCell>
               <TableCell
                 sx={{
@@ -193,7 +187,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                {row.PartyName}
+                {row.TOTAL_VALUE}
               </TableCell>
               <TableCell
                 sx={{
@@ -201,7 +195,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                {row.CATEGORY}
+                {row.TAXABLE_VALUE}
               </TableCell>
               <TableCell
                 sx={{
@@ -209,7 +203,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                {row.TransactionType}
+                {row.IGST_AMOUNT}
               </TableCell>
               <TableCell
                 sx={{
@@ -217,7 +211,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                100
+                {row.CGST_AMOUNT}
               </TableCell>
               <TableCell
                 sx={{
@@ -225,7 +219,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                {row.Received}
+                {row.SGST_AMOUNT}
               </TableCell>
               <TableCell
                 sx={{
@@ -233,17 +227,7 @@ export const PaymentInTable = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                100
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontSize: 12,
-                  color: "black",
-                  fontWeight: 100,
-                  borderRight: "1px solid rgb(230, 230, 230)",
-                }}
-              >
-                Print
+                {row.ADD_CESS}
               </TableCell>
             </TableRow>
           ))}

@@ -13,6 +13,9 @@ import { invoke } from "@tauri-apps/api";
 export const PurchaseBills = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
+  const [totalPaid, setTotalPaid] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [searchText, setSearchText] = useState("");
 
   function navigateToSale() {
     navigate("/sale");
@@ -163,11 +166,23 @@ export const PurchaseBills = (props) => {
         </div>
         <div className="middleDiv-part2-purchaseBills">
           <div className="content-middleDiv-part2-purchaseBills">
-            <div className="paid-block">Paid</div>
+            <div className="paid-block">
+              Paid
+              <br />
+              <div className="amount-text-sale">₹{totalPaid}</div>
+            </div>
             <div className="plus-anotherOne-purchaseBills">+</div>
-            <div className="unpaid-block">Unpaid</div>
+            <div className="unpaid-block">
+              Unpaid
+              <br />
+              <div className="amount-text-sale">₹{totalAmount - totalPaid}</div>
+            </div>
             <div className="equal">=</div>
-            <div className="total-block">Total</div>
+            <div className="total-block">
+              Total
+              <br />
+              <div className="amount-text-sale">₹{totalAmount}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -179,6 +194,7 @@ export const PurchaseBills = (props) => {
             name=""
             className="search-input-purchaseBills"
             placeholder="Search"
+            onChange={(e) => setSearchText(e.target.value)}
           />
           {/* <Link to="/purchase"> */}
           <button
@@ -193,6 +209,9 @@ export const PurchaseBills = (props) => {
         <PurchaseBillsTable
           userNumber={props.userNumber}
           userCompany={props.userCompany}
+          setTotalPaid={setTotalPaid}
+          setTotalAmount={setTotalAmount}
+          searchText={searchText}
         />
       </div>
     </div>

@@ -39,28 +39,52 @@ export const SalePurchaseByPartyGroupReport = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-salePurchaseByPartyGroupReport">
-            <div className="between-label">
-              <label for="from-salePurchaseByPartyGroupReport">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-salePurchaseByPartyGroupReport"
-              name="from-salePurchaseByPartyGroupReport"
-            />
+          {/* this month+ dates filter start */}
 
-            <label for="to-salePurchaseByPartyGroupReport" id="to-label">
+          <div className="choose-dates-salePurchaseByPartyGroupReport">
+            <div className="between-label-salePurchaseByPartyGroupReport">
+              Between
+            </div>
+
+            <div className="date1-salePurchaseByPartyGroupReport">
+              <input
+                type="date"
+                className="from-salePurchaseByPartyGroupReport"
+                name="from-salePurchaseByPartyGroupReport"
+              />
+            </div>
+            <div className="to-choose-dates-salePurchaseByPartyGroupReport">
               To
-            </label>
-            <input
-              type="date"
-              id="to-salePurchaseByPartyGroupReport"
-              name="to-salePurchaseByPartyGroupReport"
-            />
+            </div>
+            <div className="date1-salePurchaseByPartyGroupReport">
+              <input
+                type="date"
+                className="from-salePurchaseByPartyGroupReport"
+                name="from-salePurchaseByPartyGroupReport"
+              />
+            </div>
           </div>
+
+          {/*  options buttons start */}
+
           <div className="options-middlepart1-salePurchaseByPartyGroupReport">
-            <HiDocumentReport className="report-middlepart1-salePurchaseByPartyGroupReport" />
-            <AiFillPrinter className="print-middlepart1-salePurchaseByPartyGroupReport" />
+            <div className="option1-salePurchaseByPartyGroupReport">
+              <div className="image-option1-salePurchaseByPartyGroupReport">
+                <HiDocumentReport className="report-middlepart1-salePurchaseByPartyGroupReport" />
+              </div>
+              <div className="text1-option1-salePurchaseByPartyGroupReport">
+                Excel Report
+              </div>
+            </div>
+
+            <div className="option2-salePurchaseByPartyGroupReport">
+              <div className="image-option2-salePurchaseByPartyGroupReport">
+                <AiFillPrinter className="print-middlepart1-salePurchaseByPartyGroupReport" />
+              </div>
+              <div className="text1-option2-salePurchaseByPartyGroupReport">
+                Print
+              </div>
+            </div>
           </div>
         </div>
       </div>

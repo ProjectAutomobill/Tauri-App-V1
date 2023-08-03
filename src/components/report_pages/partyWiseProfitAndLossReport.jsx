@@ -45,28 +45,51 @@ export const PartyWiseProfitAndLossReport = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-partyWiseProfitAndLossReport">
-            <div className="between-label">
-              <label for="from-partyWiseProfitAndLossReport">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-partyWiseProfitAndLossReport"
-              name="from-partyWiseProfitAndLossReport"
-            />
+          {/* this month+ dates filter start */}
 
-            <label for="to-partyWiseProfitAndLossReport" id="to-label">
+          <div className="choose-dates-partyWiseProfitAndLossReport">
+            <div className="between-label-partyWiseProfitAndLossReport">
+              Between
+            </div>
+
+            <div className="date1-partyWiseProfitAndLossReport">
+              <input
+                type="date"
+                className="from-partyWiseProfitAndLossReport"
+                name="from-partyWiseProfitAndLossReport"
+              />
+            </div>
+            <div className="to-choose-dates-partyWiseProfitAndLossReport">
               To
-            </label>
-            <input
-              type="date"
-              id="to-partyWiseProfitAndLossReport"
-              name="to-partyWiseProfitAndLossReport"
-            />
+            </div>
+            <div className="date1-partyWiseProfitAndLossReport">
+              <input
+                type="date"
+                className="from-partyWiseProfitAndLossReport"
+                name="from-partyWiseProfitAndLossReport"
+              />
+            </div>
           </div>
+
+          {/*  options buttons start */}
           <div className="options-middlepart1-partyWiseProfitAndLossReport">
-            <HiDocumentReport className="report-middlepart1-partyWiseProfitAndLossReport" />
-            <AiFillPrinter className="print-middlepart1-partyWiseProfitAndLossReport" />
+            <div className="option1-partyWiseProfitAndLossReport">
+              <div className="image-option1-partyWiseProfitAndLossReport">
+                <HiDocumentReport className="report-middlepart1-partyWiseProfitAndLossReport" />
+              </div>
+              <div className="text1-option1-partyWiseProfitAndLossReport">
+                Excel Report
+              </div>
+            </div>
+
+            <div className="option2-partyWiseProfitAndLossReport">
+              <div className="image-option2-partyWiseProfitAndLossReport">
+                <AiFillPrinter className="print-middlepart1-partyWiseProfitAndLossReport" />
+              </div>
+              <div className="text1-option2-partyWiseProfitAndLossReport">
+                Print
+              </div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-partyWiseProfitAndLossReport">
@@ -98,7 +121,10 @@ export const PartyWiseProfitAndLossReport = (props) => {
           Total Sale Amount: $ 0.00
         </div>
         <div className="text3-partyWiseProfitAndLossReport">
-          Total Profit(+) / Loss (-):$ 0.00
+          Total Profit(+) / Loss (-):
+          <div className="valueOf-text3-partyWiseProfitAndLossReport">
+            $ 0.00
+          </div>
         </div>
       </div>
     </div>
