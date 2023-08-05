@@ -28,6 +28,8 @@ export const SaleOrderTable = (props) => {
   }, []);
   return (
     <TableContainer component={Paper}>
+      {data == null && <LoadingSpinner className="loading_spinner" />}
+
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

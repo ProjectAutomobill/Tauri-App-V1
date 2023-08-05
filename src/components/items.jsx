@@ -281,14 +281,14 @@ export const Items = (props) => {
                       {" "}
                       <div className="label-upper-partyDetails-items">
                         PURCHASE PRICE :
-                        <div className="blue-text">{wholesalePrice}</div>
+                        <div className="blue-text"> {wholesalePrice}</div>
                       </div>
                     </div>
                     <div className="upperDivRight2-part1-salePrice-items">
                       {" "}
                       <div className="label-upper-partyDetails-items">
                         SALE PRICE :
-                        <div className="blue-text">{retailPrice}</div>
+                        <div className="blue-text"> {retailPrice}</div>
                       </div>
                     </div>
                   </div>
@@ -296,14 +296,15 @@ export const Items = (props) => {
                   <div className="upperDivRight2-part2-items">
                     <div className="upperDivRight2-part1-stockQuantity-items">
                       <div className="label-upper-partyDetails-items">
-                        STOCK QUANTITY :<div className="blue-text">{stock}</div>
+                        STOCK QUANTITY :
+                        <div className="blue-text"> {stock}</div>
                       </div>
                     </div>
                     <div className="upperDivRight2-part1-stockValue-items">
                       {" "}
                       <div className="label-upper-partyDetails-items">
                         STOCK VALUE :
-                        <div className="blue-text">{stockValue}</div>
+                        <div className="blue-text"> {stockValue}</div>
                       </div>
                     </div>
                   </div>

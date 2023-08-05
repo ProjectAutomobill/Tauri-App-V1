@@ -39,18 +39,38 @@ export const YourCompanies = (props) => {
   //       });
   //   }
   function navigateToDashBoard(val) {
-    // setCurrCompany(val);
     props.userCompany.current = val;
-    // console.log("MOVING TO DASHBOARD : " + props.userCompany.current);
     console.log("Company Var from ypurCompanies : " + val);
     navigate("/loggedIn", { state: { company: val } });
+  }
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
   }
   useEffect(() => {
     // getCompaniesNames();
     // showToastMessage();
     invoke("get_companies_name", { number: props.userNumber.current })
       // `invoke` returns a Promise
-      .then((response) => setCompanyNames(JSON.parse(response)));
+      .then((response) => {
+        setCompanyNames(JSON.parse(response));
+        if (JSON.parse(response).length < 1) {
+          invoke("create_default_company", {
+            number: props.userNumber.current,
+          }).then((response) => {
+            console.log("First Time User");
+            wait(2000);
+            invoke("get_companies_name", { number: props.userNumber.current })
+              // `invoke` returns a Promise
+              .then((response) => {
+                setCompanyNames(JSON.parse(response));
+              });
+          });
+        }
+      });
 
     // console.log(companyNames);
   }, []);

@@ -157,19 +157,21 @@ export const SaleInvoice = (props) => {
             <div className="paid-block">
               Paid
               <br />
-              <div className="amount-text-sale">₹{totalPaid}</div>
+              <div className="amount-text-sale">₹{totalPaid.toFixed(2)}</div>
             </div>
             <div className="plus-anotherOne-saleInvoice">+</div>
             <div className="unpaid-block">
               Unpaid
               <br />
-              <div className="amount-text-sale">₹{totalAmount - totalPaid}</div>
+              <div className="amount-text-sale">
+                ₹{(totalAmount - totalPaid).toFixed(2)}
+              </div>
             </div>
             <div className="equal">=</div>
             <div className="total-block">
               Total
               <br />
-              <div className="amount-text-sale">₹{totalAmount}</div>
+              <div className="amount-text-sale">₹{totalAmount.toFixed(2)}</div>
             </div>
           </div>
         </div>

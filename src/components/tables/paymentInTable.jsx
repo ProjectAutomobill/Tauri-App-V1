@@ -11,6 +11,7 @@ import {
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
 import { FiFilter } from "react-icons/fi";
+import LoadingSpinner from "../../loading";
 
 export const PaymentInTable = (props) => {
   const [data, setData] = useState();
@@ -28,6 +29,8 @@ export const PaymentInTable = (props) => {
   }, []);
   return (
     <TableContainer component={Paper}>
+      {data == null && <LoadingSpinner className="loading_spinner" />}
+
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

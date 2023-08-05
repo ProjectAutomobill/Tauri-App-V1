@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SideBar } from "./sidebar";
 import { MainSection } from "./mainSection";
 import "./home.css";
 export const Home = (props) => {
   // var [content, setContent] = useState("home");
+  const navigate = useNavigate();
 
   return (
     <div className="App-home">

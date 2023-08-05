@@ -11,6 +11,7 @@ import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import "./EandQ.css";
 import { invoke } from "@tauri-apps/api";
 import { EandQV2 } from "./EandQV2";
+import LoadingSpinner from "../../loading";
 
 export const EandQ = (props) => {
   const [b_name, setNewBName] = useState();
@@ -66,6 +67,8 @@ export const EandQ = (props) => {
 
   return (
     <div className="main-saleEandQ">
+      {data == null && <LoadingSpinner className="loading_spinner" />}
+
       <div className="upperDiv-saleEandQ">
         <div className="upperDivPart1-saleEandQ">
           <div className="input-business-saleEandQ">

@@ -10,7 +10,7 @@ import {
 import { RxCrossCircled, RxCross2 } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import { Input } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 // import { useSelector } from "react-redux";
 // import { Provider } from "react-redux";
@@ -49,11 +49,11 @@ export const AddPurchaseV3 = (props) => {
     setRows(rows.slice(0, -1));
   };
 
-  // const calcBalance = () => {
-  //   for (var i = 0; i < rows.length; i++) {
-  //     setBalance(balance + parseInt(rows[i]["amount"]));
-  //   }
-  // };
+  const navigate = useNavigate();
+
+  function navigateToDashboard() {
+    navigate("/loggedIn");
+  }
 
   const addRow1 = () => {
     // console.log("ADDING ROWS");
@@ -122,6 +122,13 @@ export const AddPurchaseV3 = (props) => {
     // ... Do something with the form data ...
     // });
   }
+  function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -135,6 +142,9 @@ export const AddPurchaseV3 = (props) => {
       totalPrice: totalAmount.toString(),
       recievedPrice: receivedAmount.toString(),
     });
+    props.showToastMessage();
+    wait(2000);
+    navigateToDashboard();
   };
 
   const handleChange = (event, index) => {

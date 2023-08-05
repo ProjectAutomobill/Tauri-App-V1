@@ -482,6 +482,21 @@ def getCompaniesNames():
     return userData.companies_list
 
 
+@app.route("/createDefaultCompany")
+def createDefaultCompany():
+    number = request.args.get("number")
+
+    db.collection(
+        "users",
+    ).add({"number": str(number)})
+
+    userData = UserData(number, " ")
+
+    db.collection("users", userData.doc_id, "company").add({"name": "Your Company"})
+
+    return "true"
+
+
 @app.route("/getSaleOrderData")
 def GetSaleOrderData():
     number = request.args.get("number")
@@ -638,6 +653,7 @@ def getItemDetails():
         }
     print(json_data)
     return json_data
+
 
 @app.route("/getSalesData")
 def getSalesData():

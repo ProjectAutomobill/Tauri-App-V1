@@ -113,6 +113,7 @@ function App() {
                 <AddPurchaseV3
                   userNumber={userNumber1}
                   userCompany={userCompany}
+                  showToastMessage={showToastMessageInvoice}
                 />
               }
             />
