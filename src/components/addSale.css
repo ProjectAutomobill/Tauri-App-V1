@@ -884,3 +884,17 @@ input[type="date"] {
   border-radius: 20px;
   font-size: 14px;
 }
+
+.options-AddSale {
+  border-radius: 1px;
+  height: 50px;
+  /* background-color: aqua; */
+}
+
+.item-options-AddSale {
+  position: fixed;
+  width: 30vw;
+  height: 10vh;
+  top: 10px;
+  background-color: #393939;
+}

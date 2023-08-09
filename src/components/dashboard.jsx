@@ -171,7 +171,7 @@ export const DashBoard = (props) => {
   function update_b_name() {
     invoke("change_business_name", {
       number: props.userNumber,
-      company: cName.toString(),
+      company: props.userCompany,
       bNameVal: b_name.toString(),
     });
     // `invoke` returns a Promise

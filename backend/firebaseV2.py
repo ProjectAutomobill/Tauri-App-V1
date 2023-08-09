@@ -482,6 +482,21 @@ def getCompaniesNames():
     return userData.companies_list
 
 
+@app.route("/addNewBusiness")
+def addNewBusiness():
+    number = request.args.get("number")
+    pnumber = request.args.get("pnumber")
+    email = request.args.get("email")
+    name = request.args.get("name")
+
+    userData = UserData(number, " ")
+    db.collection("users", userData.doc_id, "company").add(
+        {"name": str(name), "number": str(pnumber), "email": str(email)}
+    )
+
+    return "Added new Company"
+
+
 @app.route("/createDefaultCompany")
 def createDefaultCompany():
     number = request.args.get("number")
@@ -651,7 +666,7 @@ def getItemDetails():
             "WholesalePrice": doc.to_dict()["Wholesale_Price"],
             "Units": doc.to_dict()["Units"],
         }
-    print(json_data)
+    # print(json_data)
     return json_data
 
 

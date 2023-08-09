@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import "./transactionTable.css";
 import { invoke } from "@tauri-apps/api";
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
 import { FiFilter } from "react-icons/fi";
 
 export const TransactionTableItems = (props) => {
@@ -147,6 +147,14 @@ export const TransactionTableItems = (props) => {
                 </div>
               </div>
             </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+            ></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -215,6 +223,14 @@ export const TransactionTableItems = (props) => {
                 }}
               >
                 Paid
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                <BsThreeDotsVertical />
               </TableCell>
             </TableRow>
           ))}

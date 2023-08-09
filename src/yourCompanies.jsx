@@ -10,6 +10,7 @@ import { useEffect, useLocation } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { ToastContainer, toast } from "react-toastify";
+import { AddNewCompany } from "./addNewCompany";
 import "react-toastify/dist/ReactToastify.css";
 
 export const YourCompanies = (props) => {
@@ -42,6 +43,10 @@ export const YourCompanies = (props) => {
     props.userCompany.current = val;
     console.log("Company Var from ypurCompanies : " + val);
     navigate("/loggedIn", { state: { company: val } });
+  }
+
+  function navigateToNewCompany() {
+    navigate("/newCompany");
   }
   function wait(ms) {
     var start = new Date().getTime();
@@ -163,7 +168,12 @@ export const YourCompanies = (props) => {
           <button className="restore-backup-yourCompanies">
             Restore Backup
           </button>
-          <button className="new-company-yourCompanies">New Company</button>
+          <button
+            className="new-company-yourCompanies"
+            onClick={navigateToNewCompany}
+          >
+            New Company
+          </button>
         </div>
       </div>
     </div>

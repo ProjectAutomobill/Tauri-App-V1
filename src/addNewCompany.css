@@ -1,0 +1,153 @@
+.complete-page-business-addNewCompany {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  background-color: whitesmoke;
+}
+
+.right-section-addNewCompany {
+  width: 50%;
+  height: 100%;
+  /* background-color: bisque; */
+}
+
+.left-section-addNewCompany {
+  width: 50%;
+  height: 100%;
+  /* background-color: rgb(143, 100, 49); */
+  /* align-content: center; */
+}
+.image-content-addNewCompany {
+  /* background-color: chartreuse; */
+  display: block;
+  width: 35%;
+  height: 30%;
+  margin-top: 40%;
+  /* margin-bottom: auto; */
+  /* margin-right: auto; */
+  margin-left: 25%;
+  /* text-align: center; */
+}
+.image-section-addNewCompany {
+  /* background-color: blue; */
+  width: 70%;
+  height: 70%;
+  background-image: url("./assets/autotekk_logo-v5.jpg");
+  /* top: 30%; */
+  /* margin-bottom: auto; */
+  margin-right: auto;
+  margin-left: auto;
+  /* margin-top: 5%; */
+  border-radius: 12px;
+  /* padding: 1%; */
+  /*  */
+}
+.content-ofImage-addNewCompany {
+  font-weight: bold;
+  font-style: italic;
+  /* background-color: cyan; */
+  color: rgb(28, 129, 224);
+  /* margin-top: auto; */
+  width: 90%;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5%;
+  /* padding: 1%; */
+}
+.content2-ofImage-addNewCompany {
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 2%;
+  margin-right: 1%;
+  /* background-color: rgb(251, 255, 0); */
+  color: red;
+  /* margin-top: auto; */
+}
+.after-content-icon-addNewCompany {
+  height: 100%;
+  width: 8%;
+  color: blue;
+  /* margin-lef */
+}
+.add-main-business-addNewCompany {
+  background-color: white;
+  height: 60%;
+  width: 65%;
+  /* margin-right: auto; */
+  display: block;
+  padding-top: 5%;
+  margin-left: 10%;
+  margin-top: 20%;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 0 rgba(71, 70, 70, 0.2),
+    0 10px 10px 0 rgba(68, 67, 67, 0.2);
+}
+
+.main-heading-add-business-addNewCompany {
+  color: rgb(78, 75, 75);
+  /* background-color: aquamarine; */
+  width: 80%;
+  text-align: left;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+  /* margin */
+  /* margin-right: auto; */
+  /* font-weight: bold; */
+  font-size: 32px;
+}
+.heading-withInputs-addNewCompany {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* background-color: aqua; */
+}
+.input-business-addNewCompany {
+  width: 100%;
+  padding: 5px;
+  border: 0px;
+  outline: 0px;
+  margin-top: 5%;
+  border-bottom: 1px solid grey;
+}
+
+.tAndc-addNewCompany {
+  color: rgb(77, 75, 75);
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+  display: flex;
+  font-size: small;
+  /* background-color: rgb(165, 163, 42); */
+}
+.tAndc-2-content-addNewCompany {
+  color: red;
+  margin-left: 5px;
+}
+.last-button-addNewCompany {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+  /* background-color: red; */
+}
+.value-ofButton-addNewCompany {
+  color: white;
+  background-color: red;
+  width: 35%;
+  font-weight: bold;
+  padding: 1%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* padding-left: 1%;
+  padding-right: 1%; */
+  border: 0px;
+  outline: 0px;
+  border-radius: 2px;
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+}

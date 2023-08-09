@@ -25,10 +25,13 @@ import { Loading } from "./loading";
 import { AddCreditNote } from "./components/sales_pages/addCreditNote";
 import { AddDeliveryChallan } from "./components/sales_pages/addDeliveryChallan";
 import { TopBar } from "./topBar";
+import { AddNewCompany } from "./addNewCompany";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AddPurchaseOrder } from "./components/purchases_pages/addPurchaseOrder";
 import { AddDebitNote } from "./components/purchases_pages/addPurchaseReturn";
+
+import { InvoicePageV3 } from "./components/printInvoice/InvoicePageV3";
 export const AppContext = createContext(null);
 
 function App() {
@@ -48,6 +51,13 @@ function App() {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
+
+  const showToastMessageCompany = () => {
+    toast.success("New Company Added !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
   const showToastMessageEQ = () => {
     console.log("Toast Function Called");
     toast.success("E&Q Invoice Generated !", {
@@ -215,6 +225,25 @@ function App() {
                 <AddPurchaseOrder
                   userNumber={userNumber1}
                   userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/invoicePage"
+              element={
+                <InvoicePageV3
+                  userNumber={userNumber1}
+                  userCompany={userCompany}
+                />
+              }
+            />
+            <Route
+              path="/newCompany"
+              element={
+                <AddNewCompany
+                  userNumber={userNumber1}
+                  showToastMessage={showToastMessageCompany}
+                  // userCompany={userCompany}
                 />
               }
             />

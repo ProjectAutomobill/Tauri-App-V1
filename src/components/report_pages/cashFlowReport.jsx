@@ -22,7 +22,7 @@ export const CashFlowReport = (props) => {
 
   return (
     <div className="main-cashFlowReport">
-      <div className="middleDiv-cashFlowReport">
+      {/* <div className="middleDiv-cashFlowReport">
         <div className="middleDiv-part1-cashFlowReport">
           <div className="choose-months-cashFlowReport">
             <select id="months-cashFlowReport">
@@ -66,6 +66,70 @@ export const CashFlowReport = (props) => {
           <div className="options-middlepart1-cashFlowReport">
             <HiDocumentReport className="report-middlepart1-cashFlowReport" />
             <AiFillPrinter className="print-middlepart1-cashFlowReport" />
+          </div>
+        </div>
+        <div className="middleDiv-part2-cashFlowReport">
+          <div className="content-middleDiv-part2-cashFlowReport">
+            Opening Cash-in Hand: ₹ 0.00
+          </div>
+        </div>
+      </div> */}
+      <div className="middleDiv-cashFlowReport">
+        <div className="middleDiv-part1-cashFlowReport">
+          <div className="choose-months-cashFlowReport">
+            <select id="months-cashFlowReport">
+              <option value="thisMonth-cashFlowReport">This Month</option>
+              <option value="lastMonth-cashFlowReport">Last Month</option>
+              <option value="thisQuater-cashFlowReport">This Quater</option>
+              <option value="thisYear-cashFlowReport">This Year</option>
+              <option value="custom-cashFlowReport">Custom</option>
+            </select>
+          </div>
+
+          <div className="choose-dates-cashFlowReport">
+            <div className="between-label-cashFlowReport">Between</div>
+
+            <div className="date1-cashFlowReport">
+              <input
+                type="date"
+                className="from-cashFlowReport"
+                name="from-cashFlowReport"
+              />
+            </div>
+            <div className="to-choose-dates-cashFlowReport">To</div>
+            <div className="date1-cashFlowReport">
+              <input
+                type="date"
+                className="from-cashFlowReport"
+                name="from-cashFlowReport"
+              />
+            </div>
+          </div>
+          <div className="content-with-checkBox-cashFlowReport">
+            <input
+              type="checkbox"
+              name=""
+              className="checkbox-input-cashFlowReport"
+            />
+            <div className="para-inBetween-cashFlowReport">
+              Show zero amount transaction
+            </div>
+          </div>
+          {/*  options buttons start */}
+          <div className="options-middlepart1-cashFlowReport">
+            <div className="option1-cashFlowReport">
+              <div className="image-option1-cashFlowReport">
+                <HiDocumentReport className="report-middlepart1-cashFlowReport" />
+              </div>
+              <div className="text1-option1-cashFlowReport">Excel Report</div>
+            </div>
+
+            <div className="option2-cashFlowReport">
+              <div className="image-option2-cashFlowReport">
+                <AiFillPrinter className="print-middlepart1-cashFlowReport" />
+              </div>
+              <div className="text1-option2-cashFlowReport">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-cashFlowReport">

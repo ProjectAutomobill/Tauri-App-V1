@@ -1,0 +1,23 @@
+.table-row:hover {
+  background-color: rgb(242, 245, 245);
+}
+
+.coloumn-1-cashFlowReportTable {
+  width: 10%;
+  /* height: 50%; */
+  /* background-color: chartreuse; */
+}
+.coloumn-2-cashFlowReportTable {
+  width: 10%;
+  /* height: 50%; */
+  /* background-color: chartreuse; */
+}
+.table-header-box-cashFlowReportTable {
+  /* background-color: aqua; */
+  display: flex;
+  /* padding: 0; */
+  /* width: 50%; */
+}
+/* .coloumn-restOfAll-cashFlowReportTable {
+     
+    } */

@@ -34,28 +34,43 @@ export const AllTransaction = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-allTransaction">
-            <div className="between-label">
-              <label for="from-allTransaction">Between </label>
-            </div>
-            <input
-              type="date"
-              id="from-allTransaction"
-              name="from-allTransaction"
-            />
+          {/* this month+ dates filter start */}
 
-            <label for="to-allTransaction" id="to-label">
-              To
-            </label>
-            <input
-              type="date"
-              id="to-allTransaction"
-              name="to-allTransaction"
-            />
+          <div className="choose-dates-allTransaction">
+            <div className="between-label-allTransaction">Between</div>
+
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
+            <div className="to-choose-dates-allTransaction">To</div>
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
           </div>
+
+          {/*  options buttons start */}
           <div className="options-middlepart1-allTransaction">
-            <HiDocumentReport className="report-middlepart1-allTransaction" />
-            <AiFillPrinter className="print-middlepart1-allTransaction" />
+            <div className="option1-allTransaction">
+              <div className="image-option1-allTransaction">
+                <HiDocumentReport className="report-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option1-allTransaction">Excel Report</div>
+            </div>
+
+            <div className="option2-allTransaction">
+              <div className="image-option2-allTransaction">
+                <AiFillPrinter className="print-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option2-allTransaction">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-allTransaction">

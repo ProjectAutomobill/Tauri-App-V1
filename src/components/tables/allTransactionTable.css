@@ -1,0 +1,13 @@
+.table-row:hover {
+  background-color: rgb(242, 245, 245);
+}
+
+.table-header-box-allTransactionTable {
+  /* background-color: aqua; */
+  display: flex;
+  /* padding: 0; */
+  /* width: 50%; */
+}
+/* .coloumn-restOfAll-allTransactionTable {
+     
+    } */

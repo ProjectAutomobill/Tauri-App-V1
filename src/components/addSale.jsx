@@ -305,6 +305,7 @@ export const AddSale = (props) => {
 
                 {partyNames?.map((row, index) => (
                   <option
+                    className="options-AddSale"
                     value={row.Name}
                     // name="party-name-dropdown"
                     // onClick={(e) => testFunction(e.target.val)}
@@ -558,6 +559,7 @@ export const AddSale = (props) => {
                             onChange={(event) => handleChange(event, index)}
                           />
                         </td>
+                        {/* <div className="item-options-AddSale"></div> */}
                       </tr>
                     );
                   })}

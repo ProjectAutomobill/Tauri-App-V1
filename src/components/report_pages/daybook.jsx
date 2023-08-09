@@ -15,16 +15,27 @@ export const Daybook = () => {
       <div className="middleDiv-dayBook">
         <div className="middleDiv-part1-dayBook">
           <div className="choose-dates-dayBook">
-            <div id="between-label">
-              <label for="from-dayBook">Date </label>
+            <div className="between-label-dayBook">Date</div>
+
+            <div className="date1-dayBook">
+              <input type="date" className="from-dayBook" name="from-dayBook" />
             </div>
-            <input type="date" id="from-dayBook" name="from-dayBook" />
           </div>
 
           <div className="options-middlepart1-dayBook">
-            {/* <GoGraph className='graph-middlepart1-dayBook'/> */}
-            <HiDocumentReport className="report-middlepart1-dayBook" />
-            <AiFillPrinter className="print-middlepart1-dayBook" />
+            <div className="option1-dayBook">
+              <div className="image-option1-dayBook">
+                <HiDocumentReport className="report-middlepart1-dayBook" />
+              </div>
+              <div className="text1-option1-dayBook">Excel Report</div>
+            </div>
+
+            <div className="option2-dayBook">
+              <div className="image-option2-dayBook">
+                <AiFillPrinter className="print-middlepart1-dayBook" />
+              </div>
+              <div className="text1-option2-dayBook">Print</div>
+            </div>
           </div>
         </div>
       </div>

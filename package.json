@@ -19,6 +19,7 @@
     "concurrently": "^7.6.0",
     "firebase": "^9.15.0",
     "http-proxy-middleware": "^2.0.6",
+    "jspdf": "^2.5.1",
     "material-react-table": "^1.5.4",
     "nodemon": "^2.0.20",
     "otp-input-react": "^0.3.0",
