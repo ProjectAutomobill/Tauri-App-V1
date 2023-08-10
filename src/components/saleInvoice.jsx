@@ -129,7 +129,7 @@ export const SaleInvoice = (props) => {
             </select>
           </div>
 
-          <div className="choose-dates-saleInvoice">
+          {/* <div className="choose-dates-saleInvoice">
             <div id="between-label">
               <label for="from-saleInvoice">Between </label>
             </div>
@@ -144,12 +144,46 @@ export const SaleInvoice = (props) => {
               <option value="allFirms-saleInvoice">All Firm</option>
               <option value="myCompany-saleInvoice">My Company</option>
             </select>
-          </div>
+          </div> */}
+          <div className="choose-dates-purchaseBills">
+            <div className="between-label-allTransaction">Between</div>
 
-          <div className="options-middlepart1-saleInvoice">
-            <GoGraph className="graph-middlepart1-saleInvoice" />
-            <HiDocumentReport className="report-middlepart1-saleInvoice" />
-            <AiFillPrinter className="print-middlepart1-saleInvoice" />
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
+            <div className="to-choose-dates-allTransaction">To</div>
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
+          </div>
+          <div className="allFirms-middleDiv-purchaseBills">
+            <select id="firm-purchaseBills">
+              <option value="allFirms-purchaseBills"> ALL FIRMS</option>
+              <option value="myCompany-purchaseBills">Company</option>
+            </select>
+          </div>
+          <div className="options-middlepart1-allTransaction">
+            <div className="option1-allTransaction">
+              <div className="image-option1-allTransaction">
+                <HiDocumentReport className="report-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option1-allTransaction">Excel Report</div>
+            </div>
+
+            <div className="option2-allTransaction">
+              <div className="image-option2-allTransaction">
+                <AiFillPrinter className="print-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option2-allTransaction">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-saleInvoice">

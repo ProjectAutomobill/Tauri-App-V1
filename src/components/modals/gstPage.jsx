@@ -3,19 +3,34 @@ import "./gstPage.css";
 export const GstPage = (props) => {
   return (
     <div className="gst-content">
-      <input
-        type="email"
-        name=""
-        id=""
-        placeholder="Email"
-        onChange={(v) => props.setEmail(v.target.value)}
-        required
-      />
+      <div className="leftSide-gstPage">
+        <select name="" id="" className="partiesModal-gstInput-dropdown">
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Unregistered/Consumer
+          </option>
+        </select>
+        <select name="" id="" className="partiesModal-gstInput-dropdown">
+          <option value="" className="partiesModal-gstInput-dropdown">
+            State
+          </option>
+        </select>
+        <input
+          type="email"
+          name=""
+          id=""
+          placeholder="Email"
+          className="partiesModal-gstInput-dropdown"
+          onChange={(v) => props.setEmail(v.target.value)}
+          required
+        />
+      </div>
+      <div className="vertical-line-modal"></div>
       <input
         type="text"
         name=""
         id=""
         placeholder="Address"
+        className="partiesModal-gstInput"
         onChange={(v) => props.setAddress(v.target.value)}
         required
       />

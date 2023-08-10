@@ -110,9 +110,6 @@ export const PurchaseBills = (props) => {
         <div className="middleDiv-part1-purchaseBills">
           <div className="choose-months-purchaseBills">
             <select id="months-purchaseBills">
-              <option value="allpurchaseBills-purchaseBills">
-                All Sale Invoices
-              </option>
               <option value="thisMonth-purchaseBills">This Month</option>
               <option value="lastMonth-purchaseBills">Last Month</option>
               <option value="thisQuater-purchaseBills">This Quater</option>
@@ -137,31 +134,64 @@ export const PurchaseBills = (props) => {
               <option value="myCompany-purchaseBills">My Company</option>
             </select>
           </div> */}
-          <div className="choose-dates-purchaseBills">
-            <div id="between-label">
-              <label for="from-purchaseBills">Between </label>
+          {/* <div className="choose-dates-purchaseBills">
+            <div className="between-label-purchaseBills">Between</div>
+
+            <div className="date1-purchaseBills">
+              <input
+                type="date"
+                className="from-purchaseBills"
+                name="from-purchaseBills"
+              />
             </div>
-            <input
-              type="date"
-              id="from-purchaseBills"
-              name="from-purchaseBills"
-            />
+            <div className="to-choose-dates-purchaseBills">To</div>
+            <div className="date1-purchaseBills">
+              <input
+                type="date"
+                className="from-purchaseBills"
+                name="from-purchaseBills"
+              />
+            </div>
+          </div> */}
+          <div className="choose-dates-purchaseBills">
+            <div className="between-label-allTransaction">Between</div>
 
-            <label for="to-purchaseBills" id="to-label">
-              To
-            </label>
-            <input type="date" id="to-purchaseBills" name="to-purchaseBills" />
-
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
+            <div className="to-choose-dates-allTransaction">To</div>
+            <div className="date1-allTransaction">
+              <input
+                type="date"
+                className="from-allTransaction"
+                name="from-allTransaction"
+              />
+            </div>
+          </div>
+          <div className="allFirms-middleDiv-purchaseBills">
             <select id="firm-purchaseBills">
-              <option value="allFirms-purchaseBills">All Firm</option>
-              <option value="myCompany-purchaseBills">My Company</option>
+              <option value="allFirms-purchaseBills"> ALL FIRMS</option>
+              <option value="myCompany-purchaseBills">Company</option>
             </select>
           </div>
+          <div className="options-middlepart1-allTransaction">
+            <div className="option1-allTransaction">
+              <div className="image-option1-allTransaction">
+                <HiDocumentReport className="report-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option1-allTransaction">Excel Report</div>
+            </div>
 
-          <div className="options-middlepart1-purchaseBills">
-            {/* <GoGraph className='graph-middlepart1-purchaseBills'/> */}
-            <HiDocumentReport className="report-middlepart1-purchaseBills" />
-            <AiFillPrinter className="print-middlepart1-purchaseBills" />
+            <div className="option2-allTransaction">
+              <div className="image-option2-allTransaction">
+                <AiFillPrinter className="print-middlepart1-allTransaction" />
+              </div>
+              <div className="text1-option2-allTransaction">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-purchaseBills">

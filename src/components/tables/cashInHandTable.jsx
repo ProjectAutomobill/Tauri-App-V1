@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   TableContainer,
   Table,
@@ -8,27 +8,168 @@ import {
   TableCell,
   Paper,
 } from "@mui/material";
-import "./transactionTable.css";
+// import "./transactionTable.css";
+import { invoke } from "@tauri-apps/api";
+import LoadingSpinner from "../../loading";
+import "./cashInHandTable.css";
+import { FiFilter } from "react-icons/fi";
 
-export const CashInHandTable = () => {
+export const CashInHandTable = (props) => {
+  const [data, setData] = useState();
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>TYPE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>NAME</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>DATE</TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12 }}>AMOUNT</TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable">
+                <div className="text-HSN-cashInHandTable"> </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable">
+                TYPE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable">
+                NAME
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable">
+                DATE
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-1-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable">
+                AMOUNT
+                <div className="filter-div">
+                  <FiFilter className="filter-icon-sale" />
+                </div>
+              </div>
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                borderRight: "1px solid rgb(230, 230, 230)",
+              }}
+              className="coloumn-restOfAll-cashInHandTable"
+            >
+              <div className="table-header-box-cashInHandTable"> </div>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataTable.map((row) => (
+          {data?.map((row) => (
             <TableRow>
-              <TableCell sx={{ fontSize: 12 }}>{row.TYPE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.NAME}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.DATE}</TableCell>
-              <TableCell sx={{ fontSize: 12 }}>{row.AMOUNT}</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              ></TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.S_NO}
+              </TableCell>
+
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.NTYPE}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.NAME}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.DATE}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.AMOUNT}
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 12,
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                {row.OPTIONS}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -37,23 +178,4 @@ export const CashInHandTable = () => {
   );
 };
 
-const dataTable = [
-  {
-    TYPE: "Sale",
-    NAME: "Georgel",
-    DATE: "9/10/2010",
-    AMOUNT: 95,
-  },
-  {
-    TYPE: "Sale",
-    NAME: "cool data",
-    DATE: "8/26/2019",
-    AMOUNT: 100,
-  },
-  {
-    TYPE: "purchase",
-    NAME: "Maximilian Georgel",
-    DATE: "4/15/2032",
-    AMOUNT: 50,
-  },
-];
+const dataTable = [{}];

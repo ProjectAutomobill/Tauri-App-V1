@@ -1,4 +1,41 @@
 .gst-content {
   display: flex;
   gap: 5%;
+  height: 100px;
+  margin-top: 2%;
+}
+
+.vertical-line-modal {
+  width: 1px;
+  height: 150%;
+  background-color: rgb(230, 230, 230);
+}
+
+.partiesModal-gstInput {
+  height: 100%;
+  width: 30%;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid rgb(202, 202, 202);
+  color: rgb(202, 202, 202);
+  border-radius: 4px;
+}
+
+.leftSide-gstPage {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: 20%;
+}
+
+.partiesModal-gstInput-dropdown {
+  height: 100%;
+  width: 100%;
+  padding: 7px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid rgb(202, 202, 202);
+  color: rgb(202, 202, 202);
+  border-radius: 4px;
 }

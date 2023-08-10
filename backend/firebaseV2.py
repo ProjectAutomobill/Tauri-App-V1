@@ -554,6 +554,7 @@ def getPurchaseItemList():
     return userData.purchase_item_list
 
 
+# test
 @app.route("/getSalesTransactions")
 def getSaleTransactions():
     number = request.args.get("number")

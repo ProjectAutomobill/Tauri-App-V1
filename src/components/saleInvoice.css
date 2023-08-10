@@ -51,6 +51,7 @@
 .middleDiv-part1-saleInvoice {
   display: flex;
   height: 40%;
+  padding: 0.7%;
   /* background-color: rgb(128, 23, 109); */
 }
 

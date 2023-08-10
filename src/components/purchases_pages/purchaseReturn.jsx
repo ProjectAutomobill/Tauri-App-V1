@@ -97,9 +97,6 @@ export const PurchaseReturn = (props) => {
         <div className="middleDiv-part1-purchaseReturn">
           <div className="choose-months-purchaseReturn">
             <select id="months-purchaseReturn">
-              <option value="allpurchaseReturn-purchaseReturn">
-                All Sale Invoices
-              </option>
               <option value="thisMonth-purchaseReturn">This Month</option>
               <option value="lastMonth-purchaseReturn">Last Month</option>
               <option value="thisQuater-purchaseReturn">This Quater</option>
@@ -108,56 +105,42 @@ export const PurchaseReturn = (props) => {
             </select>
           </div>
 
-          {/* <div className='choose-dates-purchaseReturn'>
-              <label for="from-purchaseReturn">Betweeen :</label>
-              <input type="date" id="from-purchaseReturn" name="from-purchaseReturn"/>
-
-              <label for="to-purchaseReturn">To :</label>
-              <input type="date" id="to-purchaseReturn" name="to-purchaseReturn"/>
-              
-              
-
-            </div> */}
-
+          {/* date filter setting starts from here */}
           <div className="choose-dates-purchaseReturn">
-            {/* <div className="from-purchaseReturn">
-              Between :
+            <div className="between-label-purchaseReturn">Between</div>
+
+            <div className="date1-purchaseReturn">
               <input
                 type="date"
-                id="from-inputType-purchaseReturn"
+                className="from-purchaseReturn"
                 name="from-purchaseReturn"
               />
             </div>
-            <div className="to-purchaseReturn">
-              To :
+            <div className="to-choose-dates-purchaseReturn">To</div>
+            <div className="date1-purchaseReturn">
               <input
                 type="date"
-                id="to-inputType-purchaseReturn"
-                name="to-purchaseReturn"
+                className="from-purchaseReturn"
+                name="from-purchaseReturn"
               />
-            </div> */}
-            <div className="between-label">
-              <label for="from-purchaseReturn">Between </label>
             </div>
-            <input
-              type="date"
-              id="from-purchaseReturn"
-              name="from-purchaseReturn"
-            />
-
-            <label for="to-purchaseReturn" id="to-label">
-              To
-            </label>
-            <input
-              type="date"
-              id="to-purchaseReturn"
-              name="to-purchaseReturn"
-            />
           </div>
 
+          {/*  options buttons start */}
           <div className="options-middlepart1-purchaseReturn">
-            <HiDocumentReport className="report-middlepart1-purchaseReturn" />
-            <AiFillPrinter className="print-middlepart1-purchaseReturn" />
+            <div className="option1-purchaseReturn">
+              <div className="image-option1-purchaseReturn">
+                <HiDocumentReport className="report-middlepart1-purchaseReturn" />
+              </div>
+              <div className="text1-option1-purchaseReturn">Excel Report</div>
+            </div>
+
+            <div className="option2-purchaseReturn">
+              <div className="image-option2-purchaseReturn">
+                <AiFillPrinter className="print-middlepart1-purchaseReturn" />
+              </div>
+              <div className="text1-option2-purchaseReturn">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-purchaseReturn">
@@ -213,10 +196,7 @@ export const PurchaseReturn = (props) => {
             className="addBtnSale-sale2-purchaseReturn"
             onClick={() => navigateToaddDebitNote()}
           >
-            <BsFillPlusCircleFill
-              className="plus-purchaseReturn"
-              
-            />
+            <BsFillPlusCircleFill className="plus-purchaseReturn" />
             Add Debit Note
           </button>
           {/* </Link> */}

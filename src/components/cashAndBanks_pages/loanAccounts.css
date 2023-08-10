@@ -293,12 +293,14 @@
   margin-top: 15%;
   width: 30%;
   height: 30%;
-  color: rgb(29, 29, 120);
+  color: rgb(85, 197, 235);
 }
 .paragraph-loanAccounts {
   text-align: center;
+  margin-top: 2%;
   margin-left: 15%;
   margin-right: 15%;
+  color: rgb(104, 100, 100);
 }
 .add-your-first-estimate-loanAccounts {
   width: 24%;
@@ -307,4 +309,6 @@
   font-weight: 700;
   background-color: orange;
   border-radius: 7px;
+  border: 0px;
+  outline: 0px;
 }

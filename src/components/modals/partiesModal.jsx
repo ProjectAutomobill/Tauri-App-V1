@@ -6,6 +6,7 @@ import Tabs from "react-bootstrap/Tabs";
 import "./partiesModal.css";
 import { GstPage } from "./gstPage";
 import { invoke } from "@tauri-apps/api";
+import { RxCross2 } from "react-icons/rx";
 
 export function PartiesModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
@@ -49,7 +50,10 @@ export function PartiesModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Add Party</Modal.Title>
+        <Modal.Title id="modal-title-parties">
+          <div id="contained-modal-title-vcenter">Add Party</div>
+          <RxCross2 className="cross-partiesModal" onClick={props.onHide} />
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div id="body-content">
@@ -59,6 +63,7 @@ export function PartiesModal(props) {
               name=""
               id="party_name"
               placeholder="Party Name"
+              className="input-parties-modal"
               onChange={(v) => setPartyName(v.target.value)}
             />
             <input
@@ -66,6 +71,7 @@ export function PartiesModal(props) {
               name=""
               id="GSTIN"
               placeholder="GSTIN"
+              className="input-parties-modal"
               onChange={(v) => setGstin(v.target.value)}
             />
             <input
@@ -73,6 +79,7 @@ export function PartiesModal(props) {
               name=""
               id="Phone_no"
               placeholder="Phone No"
+              className="input-parties-modal"
               onChange={(v) => setPhoneNo(v.target.value)}
             />
           </div>

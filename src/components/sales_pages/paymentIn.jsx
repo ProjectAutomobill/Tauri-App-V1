@@ -118,43 +118,41 @@ export const PaymentIn = (props) => {
             </select>
           </div>
 
-          {/* <div className="choose-dates-paymentIn">
-            <label for="from-paymentIn">Betweeen :</label>
-            <input type="date" id="from-paymentIn" name="from-paymentIn" />
-
-            <label for="to-paymentIn">To :</label>
-            <input type="date" id="to-paymentIn" name="to-paymentIn" />
-          </div> */}
           <div className="choose-dates-paymentIn">
-            {/* <div className="from-paymentIn">
-              Between :
+            <div className="between-label-paymentIn">Between</div>
+
+            <div className="date1-paymentIn">
               <input
                 type="date"
-                id="from-inputType-paymentIn"
+                className="from-paymentIn"
                 name="from-paymentIn"
               />
             </div>
-            <div className="to-paymentIn">
-              To :
+            <div className="to-choose-dates-paymentIn">To</div>
+            <div className="date1-paymentIn">
               <input
                 type="date"
-                id="to-inputType-paymentIn"
-                name="to-paymentIn"
+                className="from-paymentIn"
+                name="from-paymentIn"
               />
-            </div> */}
-            <div className="between-label">
-              <label for="from-paymentIn">Between </label>
             </div>
-            <input type="date" id="from-paymentIn" name="from-paymentIn" />
-
-            <label for="to-paymentIn" id="to-label">
-              To
-            </label>
-            <input type="date" id="to-paymentIn" name="to-paymentIn" />
           </div>
+
+          {/*  options buttons start */}
           <div className="options-middlepart1-paymentIn">
-            <HiDocumentReport className="report-middlepart1-paymentIn" />
-            <AiFillPrinter className="print-middlepart1-paymentIn" />
+            <div className="option1-paymentIn">
+              <div className="image-option1-paymentIn">
+                <HiDocumentReport className="report-middlepart1-paymentIn" />
+              </div>
+              <div className="text1-option1-paymentIn">Excel Report</div>
+            </div>
+
+            <div className="option2-paymentIn">
+              <div className="image-option2-paymentIn">
+                <AiFillPrinter className="print-middlepart1-paymentIn" />
+              </div>
+              <div className="text1-option2-paymentIn">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-paymentIn">
@@ -190,6 +188,7 @@ export const PaymentIn = (props) => {
             </div>
           </div>
         </div>
+        {/* till here */}
       </div>
       <div className="lowerDivSale-paymentIn">
         {/* <h3 className='transaction-paymentIn'>TRANSACTIONS</h3> */}

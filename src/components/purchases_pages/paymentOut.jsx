@@ -97,9 +97,7 @@ export const PaymentOut = (props) => {
           <div className="choose-months-paymentOut">
             <select id="months-paymentOut">
               <option value="thisMonth-paymentOut">This Month</option>
-              <option value="allpaymentOut-paymentOut">
-                All Sale Invoices
-              </option>
+
               <option value="lastMonth-paymentOut">Last Month</option>
               <option value="thisQuater-paymentOut">This Quater</option>
               <option value="thisYear-paymentOut">This Year</option>
@@ -107,46 +105,42 @@ export const PaymentOut = (props) => {
             </select>
           </div>
 
-          {/* <div className='choose-dates-paymentOut'>
-              <label for="from-paymentOut">Betweeen :</label>
-              <input type="date" id="from-paymentOut" name="from-paymentOut"/>
+          {/* dates filter start from here */}
 
-              <label for="to-paymentOut">To :</label>
-              <input type="date" id="to-paymentOut" name="to-paymentOut"/>
-              
-              
-
-            </div> */}
           <div className="choose-dates-paymentOut">
-            {/* <div className="from-paymentOut">
-              Between :
+            <div className="between-label-paymentOut">Between</div>
+
+            <div className="date1-paymentOut">
               <input
                 type="date"
-                id="from-inputType-paymentOut"
+                className="from-paymentOut"
                 name="from-paymentOut"
               />
             </div>
-            <div className="to-paymentOut">
-              To :
+            <div className="to-choose-dates-paymentOut">To</div>
+            <div className="date1-paymentOut">
               <input
                 type="date"
-                id="to-inputType-paymentOut"
-                name="to-paymentOut"
+                className="from-paymentOut"
+                name="from-paymentOut"
               />
-            </div> */}
-            <div className="between-label">
-              <label for="from-paymentOut">Between </label>
             </div>
-            <input type="date" id="from-paymentOut" name="from-paymentOut" />
-
-            <label for="to-paymentOut" id="to-label">
-              To
-            </label>
-            <input type="date" id="to-paymentOut" name="to-paymentOut" />
           </div>
+          {/*  options buttons start */}
           <div className="options-middlepart1-paymentOut">
-            <HiDocumentReport className="report-middlepart1-paymentOut" />
-            <AiFillPrinter className="print-middlepart1-paymentOut" />
+            <div className="option1-paymentOut">
+              <div className="image-option1-paymentOut">
+                <HiDocumentReport className="report-middlepart1-paymentOut" />
+              </div>
+              <div className="text1-option1-paymentOut">Excel Report</div>
+            </div>
+
+            <div className="option2-paymentOut">
+              <div className="image-option2-paymentOut">
+                <AiFillPrinter className="print-middlepart1-paymentOut" />
+              </div>
+              <div className="text1-option2-paymentOut">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-paymentOut">

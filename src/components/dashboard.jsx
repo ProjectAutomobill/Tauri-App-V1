@@ -508,7 +508,9 @@ export const DashBoard = (props) => {
             </label>
           </div>
           <br />
-          <div className="tag-header-right-dashboard">Stock Inventory</div>
+          <div className="tag-header-right-part-stock-dashboard">
+            Stock Inventory
+          </div>
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Stock Value</div>
             <div className="inner-element-val-data-box-dashboard">
@@ -527,7 +529,9 @@ export const DashBoard = (props) => {
               </div>
             ))}
           </div>
-          <div className="tag-header-right-dashboard">Cash & Bank</div>
+          <div className="tag-header-right-part-cashAndBank-dashboard">
+            Cash & Bank
+          </div>
           <div className="data-box-stock-dashboard">
             <div className="inner-element-data-box-dashboard">Cash in hand</div>
             <div className="inner-element-val-data-box-dashboard">
@@ -561,7 +565,7 @@ export const DashBoard = (props) => {
               Paid(0)
             </div>
           </div>
-          <div className="tag-header-sales-dashboard">Sales</div>
+          <div className="tag-header-right-part-sale-dashboard">Sales</div>
           <div className="data-box-stock-sales-dashboard">
             <div className="inner-element-data-box-dashboard">Sales Order</div>
             <div
@@ -594,7 +598,9 @@ export const DashBoard = (props) => {
               Delivery Challan Amount
             </div>
           </div>
-          <div className="tag-header-purchase-dashboard">Purchase</div>
+          <div className="tag-header-right-part-purchase-dashboard">
+            Purchase
+          </div>
           <div className="data-box-stock-purchase-dashboard">
             <div className="inner-element-data-box-dashboard">
               Purchase Order

@@ -18,29 +18,46 @@ export const Plan = () => {
         </div>
       </div>
       <div className="section-4-Plan">
-        <div className="plan-details">
+        <div className="plan-details-Plan">
           <div className="validity-duration-div">
             <div className="heading-validity-Plan">Select Validity:</div>
-            <select className="validity-select-btn">
+            <select className="validity-select-btn-Plan">
               <option value="">1 Year Plan</option>
               <option value="">3 Years Plan</option>
             </select>
           </div>
-        </div>
-        <div className="plan-details-lower">
-          <div className="silver-plan">
-            <GiQueenCrown className="crown-silverplan" />
-            <div className="plan-price-silver">
-              <div className="text-silver-plan">Silver Plan</div>
-              <div className="price-silver-plan">₹ 2799</div>
-            </div>
-            <div className="buyNow-btn-plan">Buy Now</div>
-            <div className="lower-part-plan"></div>
+          <div className="horizontal-line-Plan"></div>
+          <div className="validity-duration-div">
+            <div className="heading-validity-Plan">Select Device:</div>
+            <div className="which-plan-Plan ">Desktop</div>
           </div>
-          <div className="silver-plan"></div>
+        </div>
+        <div className="plan-details-lower-Plan">
+          <div className="silver-Plan">
+            <GiQueenCrown className="crown-silverplan-Plan" />
+            <div className="plan-common-price-Plan">
+              <div className="text-common-Plan">Silver Plan</div>
+              <div className="price-common-Plan">₹ 2799</div>
+            </div>
+            <div className="buyNow-btn-Plan">Buy Now</div>
+            <div className="lower-part-Plan"></div>
+          </div>
+          <div className="gold-Plan">
+            <GiQueenCrown className="crown-goldplan-Plan" />
+            <div className="plan-common-price-Plan">
+              <div className="text-common-Plan">Gold Plan</div>
+              <div className="price-common-Plan">₹ 3599</div>
+              {/* <div className="more-info-Plan">
+                <div className="more-info-div-Plan ">1 Year</div>
+                <div className="more-info-div-Plan ">Desktop + Mobile</div>
+              </div> */}
+            </div>
+            <div className="buyNow-btn-gold-Plan">Renew</div>
+            <div className="lower-part-Plan"></div>
+          </div>
         </div>
       </div>
-      <RiChatSmile3Fill className="chat-icon-plan" />
+      <RiChatSmile3Fill className="chat-icon-Plan" />
     </div>
   );
 };

@@ -624,6 +624,42 @@
   margin-bottom: auto;
   /* background-color: rgb(30, 134, 225); */
 }
+.tag-header-right-part-stock-dashboard {
+  font-size: medium;
+  font-weight: 550;
+  color: rgb(105, 105, 105);
+  margin-right: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: aliceblue; */
+}
+.tag-header-right-part-cashAndBank-dashboard {
+  font-size: medium;
+  font-weight: 550;
+  color: rgb(105, 105, 105);
+  margin-right: 65%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: aliceblue; */
+}
+.tag-header-right-part-sale-dashboard {
+  font-size: medium;
+  font-weight: 550;
+  color: rgb(105, 105, 105);
+  margin-right: 85%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: aliceblue; */
+}
+.tag-header-right-part-purchase-dashboard {
+  font-size: medium;
+  font-weight: 550;
+  color: rgb(105, 105, 105);
+  margin-right: 75%;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background-color: aliceblue; */
+}
 .tag-header-right-dashboard {
   font-size: medium;
   font-weight: 550;
@@ -633,7 +669,6 @@
   margin-bottom: auto;
   /* background-color: aliceblue; */
 }
-
 .data-box-stock-dashboard {
   background-color: white;
   width: 98%;
@@ -777,12 +812,7 @@
     1px 2px 2px 1px rgba(209, 209, 209, 0.2);
   /* display: block; */
 }
-.tag-header-sales-dashboard {
-  font-size: large;
-  font-weight: bold;
-  color: rgb(142, 136, 136);
-  margin-right: 83%;
-}
+
 .data-box-stock-sales-dashboard {
   background-color: white;
   width: 98%;
@@ -798,12 +828,7 @@
   box-shadow: 1px 2px 2px 1px rgba(209, 209, 209, 0.2),
     1px 2px 2px 1px rgba(209, 209, 209, 0.2);
 }
-.tag-header-purchase-dashboard {
-  font-size: large;
-  font-weight: bold;
-  color: rgb(142, 136, 136);
-  margin-right: 74%;
-}
+
 .data-box-stock-purchase-dashboard {
   background-color: white;
   width: 98%;

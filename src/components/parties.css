@@ -266,11 +266,11 @@
   width: 40%;
   margin-left: 35%;
   background-color: orange;
-  border: none;
+  border: 0px;
   padding: 2%;
   font-size: smaller;
   color: white;
-  outline: none;
+  outline: 0px;
   border-radius: 10px;
 }
 

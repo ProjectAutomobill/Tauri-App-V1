@@ -97,10 +97,8 @@ export const SaleReturn = (props) => {
         <div className="middleDiv-part1-saleReturn">
           <div className="choose-months-saleReturn">
             <select id="months-saleReturn">
-              <option value="allsaleReturn-saleReturn">
-                All Sale Invoices
-              </option>
-              <option value="thisMonth-saleReturn">This Month</option>
+              <option value="allsaleReturn-saleReturn">This Month</option>
+              {/* <option value="thisMonth-saleReturn">All Sale Invoices</option> */}
               <option value="lastMonth-saleReturn">Last Month</option>
               <option value="thisQuater-saleReturn">This Quater</option>
               <option value="thisYear-saleReturn">This Year</option>
@@ -109,36 +107,39 @@ export const SaleReturn = (props) => {
           </div>
 
           <div className="choose-dates-saleReturn">
-            {/* <div className="from-saleReturn">
-              Between :
+            <div className="between-label-saleReturn">Between</div>
+
+            <div className="date1-saleReturn">
               <input
                 type="date"
-                id="from-inputType-saleReturn"
+                className="from-saleReturn"
                 name="from-saleReturn"
               />
             </div>
-            <div className="to-saleReturn">
-              To :
+            <div className="to-choose-dates-saleReturn">To</div>
+            <div className="date1-saleReturn">
               <input
                 type="date"
-                id="to-inputType-saleReturn"
-                name="to-saleReturn"
+                className="from-saleReturn"
+                name="from-saleReturn"
               />
-            </div> */}
-            <div className="between-label">
-              <label for="from-saleReturn">Between </label>
             </div>
-            <input type="date" id="from-saleReturn" name="from-saleReturn" />
-
-            <label for="to-saleReturn" id="to-label">
-              To
-            </label>
-            <input type="date" id="to-saleReturn" name="to-saleReturn" />
           </div>
-
+          {/*  options buttons start */}
           <div className="options-middlepart1-saleReturn">
-            <HiDocumentReport className="report-middlepart1-saleReturn" />
-            <AiFillPrinter className="print-middlepart1-saleReturn" />
+            <div className="option1-saleReturn">
+              <div className="image-option1-saleReturn">
+                <HiDocumentReport className="report-middlepart1-saleReturn" />
+              </div>
+              <div className="text1-option1-saleReturn">Excel Report</div>
+            </div>
+
+            <div className="option2-saleReturn">
+              <div className="image-option2-saleReturn">
+                <AiFillPrinter className="print-middlepart1-saleReturn" />
+              </div>
+              <div className="text1-option2-saleReturn">Print</div>
+            </div>
           </div>
         </div>
         <div className="middleDiv-part2-saleReturn">

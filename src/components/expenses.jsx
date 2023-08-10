@@ -101,9 +101,16 @@ export const Expenses = (props) => {
           </p>
           <br></br>
 
-          <button className="add-your-first-estimate-expenses">
+          {/* <button className="add-your-first-estimate-expenses">
             Add Expense
-          </button>
+          </button> */}
+          <div className="add-expense-button-div-expenses">
+            <BsFillPlusCircleFill className="plusExpenseButton-expenses" />
+            {/* <button className="addBtnSale-expenses" onClick={navigateToSale}>
+                Add Sale
+              </button> */}
+            <div className="addBtnExpense-expenses">Add Sale</div>
+          </div>
         </div>
       </div>
     </div>
