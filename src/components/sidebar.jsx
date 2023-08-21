@@ -30,7 +30,7 @@ export function SideBar(props) {
   const [modalShowCompanyModal, setModalShowCompanyModal] = useState(false);
   const [selectedSidebarOption, setSelectedSidebarOption] =
     useState("dashboard");
-  const [generalSetting, setGeneralSetting] = useState(false);
+  const [generalSetting, setGeneralSetting] = useState("Init");
   // const location = document.getElementById("useLocation()");
   const navigate = useNavigate();
   const location = useLocation();
@@ -122,18 +122,23 @@ export function SideBar(props) {
       });
   }
 
-  console.log(generalSetting["eq"]);
+  // console.log(generalSetting["settings"]["eq"]);
   useEffect(() => {
     // getCompanyName();
     invoke("get_company_name", {
       number: props.userNumber,
       company: props.userCompany,
-    }).then((response) => setCompanyName(JSON.parse(response)["name"]));
+    }).then((response) => {
+      setCompanyName(JSON.parse(response)["name"]);
+    });
 
     invoke("general_setting", {
       number: props.userNumber,
       company: props.userCompany,
-    }).then((response) => setGeneralSetting(JSON.parse(response)));
+    }).then(async (response) => {
+      await setGeneralSetting(JSON.parse(response));
+      console.log(JSON.parse(response));
+    });
     // .then((data) => setGeneralSetting(data));
   }, []);
   // console.log(props.val1);
@@ -150,398 +155,427 @@ export function SideBar(props) {
       </div>
       <div id="lineU"></div>
       <div id="lineD"></div>
-      <div
-        className={
-          selectedSidebarOption == "dashboard"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        {/* {selectedSidebarOption == "dashboard" && (
+
+      {
+        // generalSetting != "Init"
+        true && (
+          <div>
+            <div
+              className={
+                selectedSidebarOption == "dashboard"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              {/* {selectedSidebarOption == "dashboard" && (
           <div className="selected-redBox"></div>
         )} */}
-        <AiFillHome className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "dashboard"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("dashboard")}
-        >
-          Home
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "parties"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <BsPeopleFill className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "parties"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("parties")}
-        >
-          Parties
-        </h3>
-        <AiOutlinePlus className="plus" />
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "items"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <HiTemplate className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "items"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("items")}
-        >
-          Items
-        </h3>
-        <AiOutlinePlus className="plus" />
-      </div>
-
-      <div
-        className={
-          selectedSidebarOption == "sales"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <GiPaperBagOpen className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "sales"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          id="sale-btn"
-          onClick={() => dropdown_option("sales")}
-        >
-          Sales
-        </h3>
-        <FaAngleDown className="downArrow" id="sale-arrow" />
-      </div>
-
-      <div class="dropdown-container" id="sale-dropdown">
-        <div id="options-container">
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("sales")}
-          >
-            Sale Invoices
-          </a>
-          {generalSetting["eq"] && (
-            <a
-              href="#"
-              className="sideBarText-dropdown"
-              onClick={() => print("estimateAndquotation")}
+              <AiFillHome className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "dashboard"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("dashboard")}
+              >
+                Home
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "parties"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
             >
-              Estimate/Quotation
-            </a>
-          )}
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("paymentIn")}
-          >
-            Payment In
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("saleOrder")}
-          >
-            Sale Order
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("deliveryChallan")}
-          >
-            Delivery Challan
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("saleReturn")}
-          >
-            Sale return/ Cr. Note
-          </a>
-        </div>
-      </div>
+              <BsPeopleFill className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "parties"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("parties")}
+              >
+                Parties
+              </h3>
+              <AiOutlinePlus className="plus" />
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "items"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <HiTemplate className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "items"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("items")}
+              >
+                Items
+              </h3>
+              <AiOutlinePlus className="plus" />
+            </div>
 
-      <div
-        className={
-          selectedSidebarOption == "purchases"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <BsFillCartDashFill className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "purchases"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => dropdown_option_purchase("purchases")}
-        >
-          Purchase
-        </h3>
-        <FaAngleDown className="downArrow" id="sale-arrow" />
-      </div>
-      <div class="dropdown-container" id="purchase-dropdown">
-        <div id="options-container">
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("purchases")}
-          >
-            Purchase Bills
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("paymentOut")}
-          >
-            Payment Out
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("purchaseOrder")}
-          >
-            Purchase Order
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("purchaseReturn")}
-          >
-            Purchase return/ Dr. note
-          </a>
-        </div>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "expenses"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <AiFillWallet className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "expenses"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("expenses")}
-        >
-          Expenses
-        </h3>
-      </div>
+            <div
+              className={
+                selectedSidebarOption == "sales"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <GiPaperBagOpen className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "sales"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                id="sale-btn"
+                onClick={() => dropdown_option("sales")}
+              >
+                Sales
+              </h3>
+              <FaAngleDown className="downArrow" id="sale-arrow" />
+            </div>
 
-      <div
-        className={
-          selectedSidebarOption == "cashAndBanks"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <BsFillCartDashFill className="icons" />
-        <h3
-          className="sideBarText"
-          onClick={() => dropdown_option_cashAndBank("cashAndBanks")}
-        >
-          Cash & Banks
-        </h3>
-        <FaAngleDown className="downArrow" id="sale-arrow" />
-      </div>
-      <div class="dropdown-container" id="cashAndBanks-dropdown">
-        <div id="options-container">
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("cashAndBanks")}
-          >
-            Bank Accounts
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("cashInHand")}
-          >
-            Cash In Hand
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("cheques")}
-          >
-            Cheques
-          </a>
-          <a
-            href="#"
-            className="sideBarText-dropdown"
-            onClick={() => print("loanAccounts")}
-          >
-            Loan Accounts
-          </a>
-        </div>
-      </div>
+            <div class="dropdown-container" id="sale-dropdown">
+              <div id="options-container">
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("sales")}
+                >
+                  Sale Invoices
+                </a>
+                {/* generalSetting["settings"]["eq"] */}
+                {generalSetting != "Init" && generalSetting.eq && (
+                  <a
+                    href="#"
+                    className="sideBarText-dropdown"
+                    onClick={() => print("estimateAndquotation")}
+                  >
+                    Estimate/Quotation
+                  </a>
+                )}
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("paymentIn")}
+                >
+                  Payment In
+                </a>
+                {generalSetting != "Init" && generalSetting.so && (
+                  <a
+                    href="#"
+                    className="sideBarText-dropdown"
+                    onClick={() => print("saleOrder")}
+                  >
+                    Sale Order
+                  </a>
+                )}
 
-      <div
-        className={
-          selectedSidebarOption == "report"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <BsFillBarChartFill className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "report"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("report")}
-        >
-          Reports
-        </h3>
-      </div>
-      <div id="lineU"></div>
-      <div id="lineD"></div>
-      <div
-        className={
-          selectedSidebarOption == "otherProducts"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <TbFileReport className="icons" />
-        <h3
-          className={
-            selectedSidebarOption == "otherProducts"
-              ? "selected-sideBarText"
-              : "sideBarText"
-          }
-          onClick={() => print("otherProducts")}
-        >
-          Other Products
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "sync"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <GoSync className="icons" />
-        <h3 className="sideBarText" onClick={() => print("sync")}>
-          Sync
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "backup"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <MdSettingsBackupRestore className="icons" />
-        <h3 className="sideBarText" onClick={() => print("backup")}>
-          Backup & Restore
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "utilities"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <RiListSettingsFill className="icons" />
-        <h3 className="sideBarText" onClick={() => print("utilities")}>
-          Utilities
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "setting"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <IoIosSettings className="icons" />
-        <h3 className="sideBarText" onClick={navigateToSetting}>
-          Settings
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "trial"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <SlBadge className="icons" />
-        <h3 className="sideBarText" onClick={() => print("trial")}>
-          Trial Info
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "demo"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <MdOutlineOndemandVideo className="icons" />
-        <h3 className="sideBarText" onClick={() => print("demo")}>
-          Request A Demo
-        </h3>
-      </div>
-      <div
-        className={
-          selectedSidebarOption == "ShareFeedback"
-            ? "selected-sidebar-Component"
-            : "sidebar-Component"
-        }
-      >
-        <AiFillStar className="icons" />
-        <h3 className="sideBarText" onClick={() => print("ShareFeedback")}>
-          Share FeedBack
-        </h3>
-      </div>
-      <div className="plan-renew-Sidebar" onClick={() => print("plans")}>
-        <div className="upper-plan-Sidebar">
-          <RiVipCrownFill className="crown" />
-          <div className="text-plan">Your Free Trial has Ended.</div>
-        </div>
-        <div className="see-plan-div">
-          See Plan <FaArrowRight />
-        </div>
-      </div>
-      <CompanyModal
-        show={modalShowCompanyModal}
-        onHide={() => setModalShowCompanyModal(false)}
-      />
+                {generalSetting != "Init" && generalSetting.dc && (
+                  <a
+                    href="#"
+                    className="sideBarText-dropdown"
+                    onClick={() => print("deliveryChallan")}
+                  >
+                    Delivery Challan
+                  </a>
+                )}
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("saleReturn")}
+                >
+                  Sale return/ Cr. Note
+                </a>
+              </div>
+            </div>
+
+            <div
+              className={
+                selectedSidebarOption == "purchases"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <BsFillCartDashFill className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "purchases"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => dropdown_option_purchase("purchases")}
+              >
+                Purchase
+              </h3>
+              <FaAngleDown className="downArrow" id="sale-arrow" />
+            </div>
+            <div class="dropdown-container" id="purchase-dropdown">
+              <div id="options-container">
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("purchases")}
+                >
+                  Purchase Bills
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("paymentOut")}
+                >
+                  Payment Out
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("purchaseOrder")}
+                >
+                  Purchase Order
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("purchaseReturn")}
+                >
+                  Purchase return/ Dr. note
+                </a>
+              </div>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "expenses"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <AiFillWallet className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "expenses"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("expenses")}
+              >
+                Expenses
+              </h3>
+            </div>
+
+            <div
+              className={
+                selectedSidebarOption == "cashAndBanks"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <BsFillCartDashFill className="icons" />
+              <h3
+                className="sideBarText"
+                onClick={() => dropdown_option_cashAndBank("cashAndBanks")}
+              >
+                Cash & Banks
+              </h3>
+              <FaAngleDown className="downArrow" id="sale-arrow" />
+            </div>
+            <div class="dropdown-container" id="cashAndBanks-dropdown">
+              <div id="options-container">
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("cashAndBanks")}
+                >
+                  Bank Accounts
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("cashInHand")}
+                >
+                  Cash In Hand
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("cheques")}
+                >
+                  Cheques
+                </a>
+                <a
+                  href="#"
+                  className="sideBarText-dropdown"
+                  onClick={() => print("loanAccounts")}
+                >
+                  Loan Accounts
+                </a>
+              </div>
+            </div>
+
+            <div
+              className={
+                selectedSidebarOption == "report"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <BsFillBarChartFill className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "report"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("report")}
+              >
+                Reports
+              </h3>
+            </div>
+            <div id="lineU"></div>
+            <div id="lineD"></div>
+            <div
+              className={
+                selectedSidebarOption == "otherProducts"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <TbFileReport className="icons" />
+              <h3
+                className={
+                  selectedSidebarOption == "otherProducts"
+                    ? "selected-sideBarText"
+                    : "sideBarText"
+                }
+                onClick={() => print("otherProducts")}
+              >
+                Other Products
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "sync"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <GoSync className="icons" />
+              <h3 className="sideBarText" onClick={() => print("sync")}>
+                Sync
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "backup"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <MdSettingsBackupRestore className="icons" />
+              <h3 className="sideBarText" onClick={() => print("backup")}>
+                Backup & Restore
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "utilities"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <RiListSettingsFill className="icons" />
+              <h3 className="sideBarText" onClick={() => print("utilities")}>
+                Utilities
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "setting"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <IoIosSettings className="icons" />
+              <h3 className="sideBarText" onClick={navigateToSetting}>
+                Settings
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "trial"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <SlBadge className="icons" />
+              <h3 className="sideBarText" onClick={() => print("trial")}>
+                Trial Info
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "demo"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <MdOutlineOndemandVideo className="icons" />
+              <h3 className="sideBarText" onClick={() => print("demo")}>
+                Request A Demo
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "plans"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <SlBadge className="icons" />
+              <h3 className="sideBarText" onClick={() => print("plans")}>
+                Plans & Pricing
+              </h3>
+            </div>
+            <div
+              className={
+                selectedSidebarOption == "ShareFeedback"
+                  ? "selected-sidebar-Component"
+                  : "sidebar-Component"
+              }
+            >
+              <AiFillStar className="icons" />
+              <h3
+                className="sideBarText"
+                onClick={() => print("ShareFeedback")}
+              >
+                Share FeedBack
+              </h3>
+            </div>
+            <div className="plan-renew-Sidebar" onClick={() => print("plans")}>
+              <div className="upper-plan-Sidebar">
+                <RiVipCrownFill className="crown" />
+                <div className="text-plan">Your Free Trial has Ended.</div>
+              </div>
+              <div className="see-plan-div">
+                See Plan <FaArrowRight />
+              </div>
+            </div>
+            <CompanyModal
+              show={modalShowCompanyModal}
+              onHide={() => setModalShowCompanyModal(false)}
+            />
+          </div>
+        )
+      }
     </div>
   );
 }

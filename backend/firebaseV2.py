@@ -203,6 +203,11 @@ class UserData:
                                             "Transaction_Type": doc_T.to_dict()["Type"],
                                             "PartyName": doc_P.to_dict()["PartyName"],
                                             "Invoice_No": doc_T.to_dict()["Invoice_no"],
+                                            "Tax": doc_T.to_dict()["tax"],
+                                            "Tax_Amount": doc_T.to_dict()["tax_amount"],
+                                            "StateOfSupply": doc_T.to_dict()[
+                                                "StateOfSupply"
+                                            ],
                                         }
                                     )
                                     pendingBalance = pendingBalance + int(
@@ -400,26 +405,25 @@ def getGeneralSettings():
     number = request.args.get("number")
     company = request.args.get("company")
     userData = UserData(number, company)
-    print("#####################################################")
     print(userData.general_settings)
-    return {"eq": userData.general_settings[0]["settings"]["eq"]}
+    return {"settings": userData.general_settings[0]["settings"]}
 
 
+#############################################################################
 @app.route("/settings/general/Update/eq")
 def updateGeneralEQSettings():
     number = request.args.get("number")
     company = request.args.get("company")
     value = request.args.get("value")
-
+    print("Changing EQ Value : " + str(int(value)))
     boolVal = False
-    print(str(int(value)) + str(">>>>>>>>>>>>>>>>>>>>>>>>>"))
 
     if int(value) == 1:
         boolVal = True
 
+    print("BoolVal : " + str(boolVal))
     userData = UserData(number, company)
     print(userData.settingID)
-    print("<<<<<<<<<<<<<<<<<<<<<<<")
     db.collection(
         "users", userData.doc_id, "company", userData.companyID, "settings"
     ).document(userData.settingID).update({"eq": boolVal})
@@ -427,6 +431,49 @@ def updateGeneralEQSettings():
     return "true"
 
 
+@app.route("/settings/general/Update/so")
+def updateGeneralSOSettings():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    value = request.args.get("value")
+    # print("Changing EQ Value : " + str(int(value)))
+    boolVal = False
+
+    if int(value) == 1:
+        boolVal = True
+
+    print("BoolVal : " + str(boolVal))
+    userData = UserData(number, company)
+    print(userData.settingID)
+    db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "settings"
+    ).document(userData.settingID).update({"so": boolVal})
+
+    return "true"
+
+
+@app.route("/settings/general/Update/dc")
+def updateGeneraldcSettings():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    value = request.args.get("value")
+    # print("Changing EQ Value : " + str(int(value)))
+    boolVal = False
+
+    if int(value) == 1:
+        boolVal = True
+
+    print("BoolVal : " + str(boolVal))
+    userData = UserData(number, company)
+    print(userData.settingID)
+    db.collection(
+        "users", userData.doc_id, "company", userData.companyID, "settings"
+    ).document(userData.settingID).update({"dc": boolVal})
+
+    return "true"
+
+
+#############################################################################
 @app.route("/getTransactions")
 def getPartyTransactions():
     number = request.args.get("number")
@@ -659,6 +706,7 @@ def getItemDetails():
         "users", userData.doc_id, "company", userData.companyID, "items"
     ).where("ItemName", "==", str(item_name))
 
+    json_data = {}
     itemDoc = item_ref.get()
     for doc in itemDoc:
         json_data = {
@@ -1493,6 +1541,20 @@ def checkEQData():
     company = request.args.get("company")
     userData = UserData(number, company)
     return str(userData.e_q_flg)
+
+
+@app.route("/getSaleInvoiceDataForPrint")
+def getSaleInvoiceDataForPrint():
+    number = request.args.get("number")
+    company = request.args.get("company")
+    invoice_no = request.args.get("Invoice_no")
+    userData = UserData(number, company)
+    transactions = []
+    for i in range(len(userData.SaleTransactions)):
+        if int(invoice_no) == int(userData.SaleTransactions[i]["Invoice_No"]):
+            transactions.append(userData.SaleTransactions[i])
+
+    return {"data": transactions}
 
 
 if __name__ == "__main__":

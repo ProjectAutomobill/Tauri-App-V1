@@ -176,72 +176,82 @@ export const TransactionTable = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {dataT?.map((row, index) => (
-              <TableRow className={index % 2 == 0 ? "grayColor" : "whiteColor"}>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  <BsFillCircleFill
-                    className={
-                      row.Type == "Sale" ? "greenColor" : "orangeColor"
-                    }
-                  />
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Type}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Number}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Date}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Total}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    color: "black",
-                    fontWeight: 100,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  {row.Balance}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontSize: 12,
-                    borderRight: "1px solid rgb(230, 230, 230)",
-                  }}
-                >
-                  <BsThreeDotsVertical />
-                </TableCell>
-              </TableRow>
-            ))}
+            {dataT?.map(
+              (row, index) =>
+                (row.Type.includes(props.searchText) ||
+                  (props.searchText != null &&
+                    props.searchText.length == 0)) && (
+                  <TableRow
+                    className={index % 2 == 0 ? "grayColor" : "whiteColor"}
+                  >
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      <BsFillCircleFill
+                        className={
+                          row.Type == "Sale" ? "greenColor" : "orangeColor"
+                        }
+                      />
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Type}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                        float: "right",
+                      }}
+                    >
+                      {row.Number}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      {row.Date}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                        textAlign: "right",
+                      }}
+                    >
+                      ₹ {row.Total}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        color: "black",
+                        fontWeight: 100,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                        float: "right",
+                      }}
+                    >
+                      ₹ {row.Balance}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      <BsThreeDotsVertical />
+                    </TableCell>
+                  </TableRow>
+                )
+            )}
           </TableBody>
         </Table>
       </TableContainer>

@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "Autotekk",
-    "version": "0.1.0"
+    "version": "1.0.4"
   },
   "tauri": {
     "systemTray": {
@@ -71,11 +71,16 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "endpoints": [
+        "https://9047-103-199-226-84.ngrok-free.app/tauri-releases/releases/{{target}}/{{current_version}}"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDk2MUFCRTMzOUVGRUEyNDQKUldSRW92NmVNNzRhbGwvT0dOQzNxMDJ4VzdwWmNCVUZJVG0vM3g1Z3ExeERGUVFxbXY1Z1ZsR3gK"
     },
     "windows": [
       {
-        "fullscreen": false,
+        "fullscreen": true,
         "height": 720,
         "resizable": true,
         "title": "Autotekk",

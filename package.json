@@ -6,7 +6,7 @@
   "dependencies": {
     "@coreui/icons": "^2.1.0",
     "@coreui/icons-react": "^2.1.0",
-    "@coreui/react": "^4.5.0",
+    "@coreui/react": "^4.9.2",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.0",

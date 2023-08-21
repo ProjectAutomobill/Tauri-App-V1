@@ -20,8 +20,8 @@
 .image-content-addNewCompany {
   /* background-color: chartreuse; */
   display: block;
-  width: 35%;
-  height: 30%;
+  width: 38%;
+  height: 32%;
   margin-top: 40%;
   /* margin-bottom: auto; */
   /* margin-right: auto; */
@@ -48,10 +48,12 @@
   /* background-color: cyan; */
   color: rgb(28, 129, 224);
   /* margin-top: auto; */
-  width: 90%;
+  /* width: 100%; */
   display: flex;
-  margin-right: auto;
-  margin-left: auto;
+  justify-content: center;
+  /* margin-right: auto;
+  margin-left: auto; */
+  /* margin-left: 1%; */
   margin-top: 5%;
   /* padding: 1%; */
 }
@@ -117,8 +119,8 @@
 }
 
 .tAndc-addNewCompany {
-  color: rgb(77, 75, 75);
-  width: 80%;
+  color: rgb(126, 123, 123);
+  /* width: 80%; */
   margin-left: 10%;
   margin-top: 5%;
   display: flex;

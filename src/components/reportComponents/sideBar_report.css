@@ -55,3 +55,19 @@
   margin-left: 8%;
   /* background-color: aquamarine; */
 }
+.heading-inner-text-component-sidebar-report-special {
+  font-size: 12px;
+  position: absolute;
+  color: rgb(117, 117, 117);
+  width: fit-content;
+  height: fit-content;
+  font-weight: 550;
+  /* margin-top: auto;
+    margin-bottom: auto; */
+  /* float: left; */
+  top: 50%;
+  left: 0%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  margin-left: 8%;
+}

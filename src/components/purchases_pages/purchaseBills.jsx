@@ -107,7 +107,7 @@ export const PurchaseBills = (props) => {
       </div>
 
       <div className="middleDiv-purchaseBills">
-        <div className="middleDiv-part1-purchaseBills">
+        <div className="middleDiv-part1-purchaseBills-v1">
           <div className="choose-months-purchaseBills">
             <select id="months-purchaseBills">
               <option value="thisMonth-purchaseBills">This Month</option>

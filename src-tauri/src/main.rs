@@ -21,13 +21,14 @@ fn main() {
   //...................................
   tauri::Builder::default()
   .menu(menu)
-    .invoke_handler(tauri::generate_handler![get_companies_name,component_did_mount,purchase_balance,purchase_amount,total_sales_amount,get_stock_value,get_stock_qty,get_receive_list,get_pay_list,get_purchase_item_list,get_purchase_graph_data,get_purchase_graph_date,get_sale_graph_data,get_sale_graph_date,get_parties_details,get_party_names,get_party_transactions,change_business_name,add_party_details,get_item_details,add_item_details,get_company_name,get_parties_name,new_sale_data,new_purchase_data,get_sales_transaction,get_low_stock_data,get_item_transactions,add_paymentin_details,get_paymentIn_data,get_paymentOut_data, new_sale_order_data, get_sale_order_data,add_paymentOut_details,new_eq_data,general_setting,update_eq,get_eq_data,get_purchase_transaction,get_item_names,create_default_company,add_new_business])
+    .invoke_handler(tauri::generate_handler![get_companies_name,component_did_mount,purchase_balance,purchase_amount,total_sales_amount,get_stock_value,get_stock_qty,get_receive_list,get_pay_list,get_purchase_item_list,get_purchase_graph_data,get_purchase_graph_date,get_sale_graph_data,get_sale_graph_date,get_parties_details,get_party_names,get_party_transactions,change_business_name,add_party_details,get_item_details,add_item_details,get_company_name,get_parties_name,new_sale_data,new_purchase_data,get_sales_transaction,get_low_stock_data,get_item_transactions,add_paymentin_details,get_paymentIn_data,get_paymentOut_data, new_sale_order_data, get_sale_order_data,add_paymentOut_details,new_eq_data,general_setting,update_eq,get_eq_data,get_purchase_transaction,get_item_names,create_default_company,add_new_business,get_sale_transaction_for_print,update_so,update_dc])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
 
 // static url:&str = "http://13.200.29.224:443/";
-static url:&str = "http://127.0.0.1:8001/";
+// static url:&str = "http://127.0.0.1:8001/";
+static url:&str = "http://62.72.13.162:8002/";
 
 #[tauri::command]
 async fn get_companies_name(number : String) -> String {
@@ -908,7 +909,7 @@ async fn get_paymentOut_data(number : String, company : String) -> String{
 println!("{}", resp);
 resp.into()
 }
-
+//--------------------------------------------------------------------------------
 #[tauri::command]
 async fn update_eq(number : String, company : String, value : String) -> String{
   let mut a = String::from(url.to_owned() + &"settings/general/Update/eq?number=");
@@ -918,6 +919,64 @@ async fn update_eq(number : String, company : String, value : String) -> String{
   a.push_str(&number);
   b.push_str(&company);
   c.push_str(&value);
+
+  a.push_str(&b);
+  a.push_str(&c);
+  let resp = match reqwest::get(a).await {
+    Ok(resp) => resp.text().await.unwrap(),
+    Err(err) => panic!("Error: {}", err)
+};
+println!("{}", resp);
+resp.into()
+}
+#[tauri::command]
+async fn update_so(number : String, company : String, value : String) -> String{
+  let mut a = String::from(url.to_owned() + &"settings/general/Update/so?number=");
+  let mut b = String::from("&company=");
+  let mut c = String::from("&value=");
+
+  a.push_str(&number);
+  b.push_str(&company);
+  c.push_str(&value);
+
+  a.push_str(&b);
+  a.push_str(&c);
+  let resp = match reqwest::get(a).await {
+    Ok(resp) => resp.text().await.unwrap(),
+    Err(err) => panic!("Error: {}", err)
+};
+println!("{}", resp);
+resp.into()
+}
+#[tauri::command]
+async fn update_dc(number : String, company : String, value : String) -> String{
+  let mut a = String::from(url.to_owned() + &"settings/general/Update/dc?number=");
+  let mut b = String::from("&company=");
+  let mut c = String::from("&value=");
+
+  a.push_str(&number);
+  b.push_str(&company);
+  c.push_str(&value);
+
+  a.push_str(&b);
+  a.push_str(&c);
+  let resp = match reqwest::get(a).await {
+    Ok(resp) => resp.text().await.unwrap(),
+    Err(err) => panic!("Error: {}", err)
+};
+println!("{}", resp);
+resp.into()
+}
+//--------------------------------------------------------------------------------
+#[tauri::command(rename_all = "snake_case")]
+async fn get_sale_transaction_for_print(number : String, company : String, invoice_no : String) -> String{
+  let mut a = String::from(url.to_owned() + &"getSaleInvoiceDataForPrint?number=");
+  let mut b = String::from("&company=");
+  let mut c = String::from("&Invoice_no=");
+
+  a.push_str(&number);
+  b.push_str(&company);
+  c.push_str(&invoice_no);
 
   a.push_str(&b);
   a.push_str(&c);

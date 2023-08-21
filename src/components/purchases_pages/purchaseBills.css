@@ -39,9 +39,9 @@
   height: 18%;
   background-color: white;
 }
-.middleDiv-part1-purchaseBills {
-  display: flex;
+.middleDiv-part1-purchaseBills-v1 {
   height: 40%;
+  display: flex;
   /* background-color: aqua; */
 }
 
@@ -64,8 +64,8 @@
   font-weight: 550;
 }
 .choose-dates-purchaseBills {
-  margin-top: 5px;
-  height: 70%;
+  /* margin-top: 5px; */
+  height: 50%;
   width: 30%;
   display: flex;
   /* gap: 6px; */
@@ -75,8 +75,13 @@
   border: 1px solid rgb(210, 208, 208);
   /* border-radius: 4px; */
   /* background-color: bisque; */
+  margin-top: auto;
+  margin-bottom: auto;
 }
-
+.options-middlepart1-allTransaction {
+  /* background-color: yellow; */
+  height: fit-content;
+}
 .middleDiv-part2-purchaseBills {
   height: 50%;
   margin-top: 0.5%;
@@ -96,9 +101,11 @@
   /* background-color: chartreuse; */
   /* width: 10%; */
   margin-left: 1%;
-  margin-top: 5px;
-  height: 70%;
+  /* margin-top: 5px; */
+  height: 50%;
   width: 8%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 #firm-purchaseBills {
   margin-left: 1%;

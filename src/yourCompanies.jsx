@@ -48,6 +48,9 @@ export const YourCompanies = (props) => {
   function navigateToNewCompany() {
     navigate("/newCompany");
   }
+  function navigateToNewLogin() {
+    navigate("/");
+  }
   function wait(ms) {
     var start = new Date().getTime();
     var end = start;
@@ -100,19 +103,42 @@ export const YourCompanies = (props) => {
               //   className="mb-3"
 
               className="head-of-tabs-yourCompanies"
+              tabClassName="head-of-tabs-yourCompanies"
             >
               <Tab
                 eventKey="First"
                 title="Companies shared with me"
                 // style={{ backgroundColor: blue }}
-                className="tab-contents-first-settings-yourCompanies "
+                className="tab-contents-second-settings-yourCompanies"
+                tabClassName="tab-contents-information-settings-yourCompanies"
               >
-                Tab 1
+                {/* copied content only */}
+                <div className="top-layer-inTab-yourCompanies">
+                  <div className="info-in-secondTab-yourCompanies">
+                    <div className="leftContent-for-secondTab-yourCompanies">
+                      Below are the Company that are shared by you
+                    </div>
+                    <div className="rightContent-for-secondTab-yourCompanies">
+                      <div className="right-side-content-yourCompanies">
+                        {" "}
+                        <u>Browse Files(.vyp) </u>
+                      </div>
+                      <div className="verticalLine-for-secondTab-yourCompanies"></div>
+                      <div className="reload-for-secondTab-yourCompanies">
+                        <div className="right-side-reload-icon-yourCompanies">
+                          <AiOutlineReload className="reload-icon-yourCompanies" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* end of copied content  */}
               </Tab>
               <Tab
                 eventKey="second"
                 title="My Companies"
-                className="tab-contents-second-settings-yourCompanies "
+                className="tab-contents-second-settings-yourCompanies"
+                tabClassName="tab-contents-information-settings-yourCompanies"
               >
                 <div className="top-layer-inTab-yourCompanies">
                   <div className="info-in-secondTab-yourCompanies">
@@ -120,10 +146,15 @@ export const YourCompanies = (props) => {
                       Below are the Company that are created by you
                     </div>
                     <div className="rightContent-for-secondTab-yourCompanies">
-                      {/* <u>Browse Files(.vyp) </u> */}
+                      <div className="right-side-content-yourCompanies">
+                        {" "}
+                        <u>Browse Files(.vyp) </u>
+                      </div>
                       <div className="verticalLine-for-secondTab-yourCompanies"></div>
                       <div className="reload-for-secondTab-yourCompanies">
-                        <AiOutlineReload className="reload-icon-yourCompanies" />
+                        <div className="right-side-reload-icon-yourCompanies">
+                          <AiOutlineReload className="reload-icon-yourCompanies" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -174,6 +205,29 @@ export const YourCompanies = (props) => {
           >
             New Company
           </button>
+        </div>
+      </div>
+      <div className="last-div-yourCompanies">
+        <div className="last-div-left-content-yourCompanies">
+          <div className="content-last-div-yourCompanies">
+            Note: For ( Companies Shared With Me )These companies are not owned
+            by you and are only available for working when internet connection
+            is available.{" "}
+          </div>
+        </div>
+
+        <div className="last-div-right-content-yourCompanies">
+          <div className="last-div-logout-yourCompanies">
+            <button
+              className="logout-button-yourCompanies"
+              onClick={navigateToNewLogin}
+            >
+              Logout
+            </button>
+          </div>
+          <div className="content-last-div-yourCompanies">
+            Logging out will stop syncing data
+          </div>
         </div>
       </div>
     </div>

@@ -4,12 +4,18 @@ import "./parties.css";
 import { PartiesTable } from "./tables/partiesTable";
 import { TransactionTable } from "./tables/transactionTable";
 import { FiSearch } from "react-icons/fi";
-import { AiFillSetting, AiOutlinePlus, AiFillPrinter } from "react-icons/ai";
+import {
+  AiOutlineWhatsApp,
+  AiFillSetting,
+  AiOutlinePlus,
+  AiFillPrinter,
+} from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import { RiMessage2Fill } from "react-icons/ri";
+import { BiAlarmAdd } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineMessage } from "react-icons/ai";
-import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BiAlarm } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -42,11 +48,12 @@ export const Parties = (props) => {
   // const [cName, setCName] = useState(location.state.company);
   const [cName, setCName] = useState();
   const [b_name, setNewBName] = useState();
+  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
   // const [dataParty, setDataParty] = useState();
 
   if (prevParty != partyTransaction) {
-    console.log(partyTransaction + "------------------");
+    // console.log(partyTransaction + "------------------");
     setPrevParty(partyTransaction);
     invoke("get_parties_details", {
       number: props.userNumber,
@@ -56,12 +63,6 @@ export const Parties = (props) => {
       // `invoke` returns a Promise
       .then(async (response) => {
         setPartyDetails(JSON.parse(response));
-        // console.log("Party Data : " + partyDetails["Number"]);
-        // setPartyNumber(partyDetails["Number"]);
-        // setPartyEmail(partyDetails["Email"]);
-        // setPartyAddress(partyDetails["Address"]);
-        // setPartyGSTIN(partyDetails["GSTIN"]);
-
         await setPartyNumber(JSON.parse(response).Number);
         await setPartyEmail(JSON.parse(response).Email);
         await setPartyAddress(JSON.parse(response).Address);
@@ -304,17 +305,17 @@ export const Parties = (props) => {
                 <div className="upperDivRight1-name-parties">
                   <b>{partyTransaction}</b>
                 </div>
-                {/* <div className="upperDivRight1-options-parties">
-                  <div className="upperDivRight1-message-parties">
-                    <AiOutlineMessage />
+                <div className="left-content-right1-div-parties">
+                  <div className="icon1-RightDiv-parties">
+                    <RiMessage2Fill />{" "}
                   </div>
-                  <div className="upperDivRight1-whatsapp-parties">
+                  <div className="icon2-RightDiv-parties">
                     <AiOutlineWhatsApp />
                   </div>
-                  <div className="upperDivRight1-alarm-parties">
-                    <BiAlarm />
+                  <div className="icon3-RightDiv-parties">
+                    <BiAlarmAdd />
                   </div>
-                </div> */}
+                </div>
               </div>
 
               <div className="upperDivRight2-parties">
@@ -341,7 +342,7 @@ export const Parties = (props) => {
                   </div> */}
                   <div className="label-upper-partyDetails-setCreditLimit-parties">
                     <div className="label-upper-partyDetails-parties">
-                      Set Credit Limit :
+                      No Credit Limit Set :
                       <div className="blue-text">{partyNumber}</div>
                     </div>
                   </div>
@@ -390,7 +391,8 @@ export const Parties = (props) => {
                   name="search"
                   id=""
                   className="search-input-parties"
-                  placeholder="Search"
+                  placeholder=""
+                  onChange={(e) => setSearchText(e.target.value)}
                 ></input>
               </div>
               <div className="Ttable-parties">
@@ -398,6 +400,7 @@ export const Parties = (props) => {
                   partyName={partyTransaction}
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
+                  searchText={searchText}
                 />
               </div>
             </div>

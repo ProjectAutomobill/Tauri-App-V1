@@ -22,6 +22,7 @@ export const PartiesTable = (props) => {
   // console.log(dataTable1);
   const [data, setData] = useState();
   const [partyName, setPartyName] = useState();
+
   // const [url, SetUrl] = useState("https://04df-103-199-226-253.in.ngrok.io/");
   const location = useLocation();
   //  const [cName, setCName] = useState(location.state.company);

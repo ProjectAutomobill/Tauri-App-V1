@@ -8,10 +8,49 @@
 .section-1-Plan {
   width: 99%;
   height: 5%;
+  /* margin-top: 2%; */
   margin-left: 0.5%;
-  background-color: white;
+  /* background-color: rgb(219, 36, 36); */
+  display: flex;
 }
+.left-part-section-1-Plan {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  width: 23%;
+  /* background-color: aqua; */
+}
+.license-info-top-Plan {
+  font-weight: bold;
+  display: flex;
+  font-size: 14px;
+  gap: 5px;
+  color: rgb(105, 104, 104);
+}
+.info-sign-section-1-Plan {
+  /* margin-left: 0.1%; */
+  margin-top: auto;
 
+  margin-bottom: auto;
+}
+/* .vertical-line-top-Plan {
+  height: 40%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 1px solid rgb(205, 198, 198);
+} */
+.offline-payment-info-top-Plan {
+  font-weight: bold;
+  /* display: flex; */
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: 2%;
+  /* gap: 5px; */
+  color: rgb(105, 104, 104);
+}
 .section-2-Plan {
   width: 99%;
   height: 4%;
@@ -209,15 +248,6 @@
   font-weight: lighter;
 }
 
-.lower-part-Plan {
-  width: 95%;
-  height: 70%;
-  margin-left: 2.5%;
-  margin-top: 8%;
-  border-radius: 10px;
-  background-color: white;
-}
-
 .chat-icon-Plan {
   position: fixed;
   bottom: 0;
@@ -268,4 +298,30 @@
   margin-top: 8%;
   border-radius: 10px;
   background-color: white;
+  display: block;
+  overflow: auto;
+}
+
+.feature-part-Plan {
+  display: flex;
+  margin-top: 1%;
+  margin-left: 2%;
+  width: 90%;
+  height: 10%;
+  /* background-color: burlywood; */
+}
+
+.tick-sign-Plan {
+  color: green;
+  font-size: larger;
+}
+.content-feature-tick-Plan {
+  margin-left: 2%;
+  /* margin-right: %auto; */
+}
+.info-feature-tick-Plan {
+  margin-left: 1%;
+}
+.info-sign-Plan {
+  color: rgb(167, 162, 162);
 }

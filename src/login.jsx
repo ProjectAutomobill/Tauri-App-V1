@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./login.css";
 import { CarouselLogin } from "./carousel";
+import { FaFlag } from "react-icons/fa";
 import {
   getAuth,
   signInWithPhoneNumber,
@@ -9,11 +10,18 @@ import {
 } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 import { auth } from "./api-firebase/firebase-config";
 import OTPInput, { ResendOTP } from "otp-input-react";
+import {
+  CCarousel,
+  CCarouselItem,
+  CCardImage,
+  CImage,
+  CCarouselCaption,
+} from "@coreui/react";
 // import Spinner from "react-bootstrap/Spinner";
 // import { toast } from "react-toastify";
 import { UserData } from "./state_manager";
@@ -23,6 +31,7 @@ export const Login = (props) => {
   const [number, setNumber] = useState();
   const [otp, setOTP] = useState();
   const { setTest } = useContext(AppContext);
+  const [carouselNo, setCarouselNo] = useState(0);
 
   const showToastMessage = () => {
     toast.success("Logged In !", {
@@ -31,7 +40,8 @@ export const Login = (props) => {
   };
   const navigate = useNavigate();
   async function sendNumber() {
-    var numberSliced = String(number).slice(3);
+    // var numberSliced = String(number).slice(3);
+    var numberSliced = String(number);
     // console.log("Sliced Number : " + numberSliced);
     // props.setUserNumber(numberSliced);
     props.userNumber1.current = numberSliced;
@@ -121,11 +131,54 @@ export const Login = (props) => {
     navigate("/yourCompanies");
   }
 
+  function setValue(a) {
+    setCarouselNo(a);
+    // console.log(a);
+  }
+
+  function incrementOptions() {
+    if (carouselNo == 2) {
+    } else {
+      setCarouselNo(carouselNo + 1);
+    }
+    // console.log(carouselNo);
+  }
+  function decrementOptions() {
+    if (carouselNo == 0) {
+    } else {
+      setCarouselNo(carouselNo - 1);
+    }
+    // console.log(carouselNo);
+  }
+
   return (
     <div className="background-login">
       <ToastContainer />
       <div className="left-upper-login">
-        <div className="left-side-login">
+        <div className="crousel-box">
+          {carouselNo == 0 && <div className="image-login-crousel"></div>}
+          {carouselNo == 1 && <div className="image-login-crousel-1"></div>}
+          {carouselNo == 2 && <div className="image-login-crousel-2"></div>}
+          {carouselNo == 0 && (
+            <div className="heading-carousel">
+              Manage All Your Items At One Place
+            </div>
+          )}
+          {carouselNo == 1 && (
+            <div className="heading-carousel">Second Image</div>
+          )}
+          {carouselNo == 2 && (
+            <div className="heading-carousel">third Image</div>
+          )}
+          <div className="options-crousel">
+            <IoIosArrowBack onClick={decrementOptions} />
+            <div className="dot-options-1" onClick={() => setValue(0)}></div>
+            <div className="dot-options-2" onClick={() => setValue(1)}></div>
+            <div className="dot-options-3" onClick={() => setValue(2)}></div>
+            <IoIosArrowForward onClick={incrementOptions} />
+          </div>
+        </div>
+        {/* <div className="left-side-login">
           <input type="radio" name="position" checked />
           <input type="radio" name="position" />
           <input type="radio" name="position" />
@@ -138,7 +191,50 @@ export const Login = (props) => {
             <div class="item"></div>
             <div class="item"></div>
           </main>
-        </div>
+        </div> */}
+        {/* <div className="crousel-login">
+          <CCarousel controls indicators>
+            <CCarouselItem>
+              <CImage
+                className="d-block w-100"
+                src="https://picsum.photos/200/200"
+                alt="slide 1"
+              />
+              <CCarouselCaption className="d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </CCarouselCaption>
+            </CCarouselItem>
+            <CCarouselItem>
+              <CImage
+                className="d-block w-100"
+                src="https://picsum.photos/200/200"
+                alt="slide 2"
+              />
+              <CCarouselCaption className="d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </CCarouselCaption>
+            </CCarouselItem>
+            <CCarouselItem>
+              <CImage
+                className="d-block w-100"
+                src="https://picsum.photos/200/200"
+                alt="slide 3"
+              />
+              <CCarouselCaption className="d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </CCarouselCaption>
+            </CCarouselItem>
+          </CCarousel>
+        </div> */}
       </div>
       <div className="container-login">
         {/* <img
@@ -156,14 +252,19 @@ export const Login = (props) => {
             <div className="heading-one-login">
               <b>Let's Login now !</b>
             </div>
-
-            <input
-              type="tel"
-              placeholder="Enter mobile number"
-              id="mobile-login"
-              className="input-setting-login"
-              onChange={(e) => setNumber(e.target.value)}
-            />
+            <div className="inputbox-wrapper">
+              <div className="india-flg">
+                {/* <FaFlag className="flg-icon" /> */}
+                <div className="inner-text-flg">+91</div>
+              </div>
+              <input
+                type="tel"
+                placeholder="Enter mobile number"
+                id="mobile-login"
+                className="input-setting-login"
+                onChange={(e) => setNumber(e.target.value)}
+              />
+            </div>
             <div className="heading-second-login">
               <div>Have a Refferal/Partner Code ?</div>
             </div>
@@ -172,7 +273,14 @@ export const Login = (props) => {
               onClick={byPass}
               className="button-setting-login"
             >
-              Send OTP
+              Login
+            </button>
+            <button
+              type="button"
+              onClick={byPass}
+              className="button-setting-login-shared"
+            >
+              Join a Company Shared with you
             </button>
           </div>
         </form>
@@ -203,6 +311,7 @@ export const Login = (props) => {
           </button>
           <div id="recaptcha-container-login"></div>
         </div>
+        <div className="version-name">V1.0.4-alpha</div>
       </div>
       {/* <script src="script.js"></script> */}
     </div>

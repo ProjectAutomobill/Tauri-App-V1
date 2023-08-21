@@ -114,13 +114,13 @@ export const Items = (props) => {
       item_name: itemTransaction,
     })
       // `invoke` returns a Promise
-      .then(async (response) => {
+      .then((response) => {
         setItemDetails(JSON.parse(response));
         // console.log("Party Data : " + partyDetails["Number"]);
-        await setWholesalePrice(JSON.parse(response).WholesalePrice);
-        await setRetailPrice(JSON.parse(response).SalePrice);
-        await setStock(JSON.parse(response).Units);
-        await setStockValue(
+        setWholesalePrice(JSON.parse(response).WholesalePrice);
+        setRetailPrice(JSON.parse(response).SalePrice);
+        setStock(JSON.parse(response).Units);
+        setStockValue(
           parseInt(JSON.parse(response).Units) *
             parseInt(JSON.parse(response).SalePrice)
         );

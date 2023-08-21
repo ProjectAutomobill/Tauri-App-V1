@@ -8,6 +8,8 @@
 #Logo-topbar {
   float: left;
   margin-left: 1%;
+  height: 100%;
+  width: 10%;
 }
 
 .top-bar-content {
@@ -18,10 +20,24 @@
   color: rgb(55, 55, 55);
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 1%;
+  /* margin-left: 1%; */
+  margin-left: 0.7%;
   cursor: pointer;
 }
 
+.logo-img-topbar {
+  margin: 4px;
+  margin-right: 0px;
+  border-radius: 4px;
+  /* margin-right: 1%; */
+  content: url("assets/32x32.png");
+}
+
+.whatsapp-icon-topbar {
+  color: rgb(115, 234, 115);
+  font-size: 16px;
+  /* width: 40px; */
+}
 .top-bar-content-options {
   /* background-color: aqua; */
   width: fit-content;
@@ -54,6 +70,7 @@
   /* background-color: #04aa6d; */
   color: rgb(55, 55, 55);
   /* padding: 16px; */
+  background-color: white;
   font-size: 14px;
   border: none;
   margin-top: auto;

@@ -593,6 +593,11 @@ export const AddSaleOrder = (props) => {
         <div onClick={handleRemoveLast} id="add-row-button-addPurchaseV3">
           Remove Row
         </div>
+        <div id="balance-box-leftDiv-addSale">
+          <div className="left-div-lowerPart-addSale-des">Add Description</div>
+          <div className="left-div-lowerPart-addSale">Add Image</div>
+          <div className="left-div-lowerPart-addSale">Add Document</div>
+        </div>
         <div id="balance-box-addSale">
           <div className="balance-box-data-Sale">
             <label className="balance-box-label-addSale">Total</label>

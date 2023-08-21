@@ -86,7 +86,7 @@ export function PartiesModal(props) {
           <br />
           <br />
           <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey="home"
             id="uncontrolled-tab-example"
             className="mb-3"
           >

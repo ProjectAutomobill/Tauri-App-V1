@@ -143,6 +143,136 @@ export const SideBarReport = (props) => {
           Sale Summary By HSN
         </div>
       </div>
+      <div className="heading-component-sidebar-report">
+        <div className="heading-inner-text-sidebar-report">
+          Item/ Stock report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Stock Summary
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Serial Report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Batch Report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Report By Party
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Wise Profit And Loss
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Low Stock Summary
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Stock Detail
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Detail
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report-special">
+          Sale/Purchase Report By Item Category
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report-special">
+          Stock Summary Report By Item Category
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Item Wise Discount
+        </div>
+      </div>
+      <div className="heading-component-sidebar-report">
+        <div className="heading-inner-text-sidebar-report">Business Status</div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Bank Statement
+        </div>
+      </div>
+      <div className="heading-component-sidebar-report">
+        <div className="heading-inner-text-sidebar-report">Taxes</div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          GST Report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          GST Rate Report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("FormNo27EQReport")}
+        >
+          Form No. 27EQ
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div
+          className="heading-inner-text-component-sidebar-report"
+          onClick={() => props.setSideBarFlg("TCSReceivableReport")}
+        >
+          TCS Receivable
+        </div>
+      </div>
+      <div className="heading-component-sidebar-report">
+        <div className="heading-inner-text-sidebar-report">Expense report</div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Expense
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Expense Category Report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Expense Item Report
+        </div>
+      </div>
+      <div className="heading-component-sidebar-report">
+        <div className="heading-inner-text-sidebar-report">
+          Sale Order report
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Sale Order
+        </div>
+      </div>
+      <div className="component-sidebar-report">
+        <div className="heading-inner-text-component-sidebar-report">
+          Sale Order Item
+        </div>
+      </div>
     </div>
   );
 };

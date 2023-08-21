@@ -13,6 +13,18 @@ export const GstPage = (props) => {
           <option value="" className="partiesModal-gstInput-dropdown">
             State
           </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Haryana
+          </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Maharastra
+          </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Rajasthan
+          </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Delhi
+          </option>
         </select>
         <input
           type="email"

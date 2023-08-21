@@ -19,6 +19,7 @@ export const SaleInvoice = (props) => {
   const [searchText, setSearchText] = useState("");
   function goToSale() {
     navigate("/sale");
+    navigate("/invoicePage");
   }
   function navigateToPurchase() {
     navigate("/purchase");
@@ -115,7 +116,7 @@ export const SaleInvoice = (props) => {
         </div>
       </div>
       <div className="middleDiv-saleInvoice">
-        <div className="middleDiv-part1-saleInvoice">
+        <div className="middleDiv-part1-saleInvoice-v2">
           <div className="choose-months-saleInvoice">
             <select id="months-saleInvoice">
               <option value="allSaleInvoice-saleInvoice">

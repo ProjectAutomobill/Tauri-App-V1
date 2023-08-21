@@ -45,13 +45,13 @@
   margin-left: 1%;
   width: 98%;
   height: 19%;
-  background-color: rgb(255, 255, 255);
-  /* background-color: aquamarine; */
+  /* background-color: rgb(255, 255, 255); */
+  background-color: aquamarine;
 }
-.middleDiv-part1-saleInvoice {
+.middleDiv-part1-saleInvoice-v2 {
   display: flex;
   height: 40%;
-  padding: 0.7%;
+  padding: 0.3%;
   /* background-color: rgb(128, 23, 109); */
 }
 

@@ -47,7 +47,7 @@ export const ItemsTable = (props) => {
       .then((response) => {
         setItemData(JSON.parse(response));
       });
-
+    props.setStateChange(!props.stateChange);
     props.setrefresh(0);
   }
 
@@ -63,6 +63,7 @@ export const ItemsTable = (props) => {
         setItemData(JSON.parse(response));
         props.setTrans(JSON.parse(response)[0].Name);
       });
+    props.setStateChange(!props.stateChange);
   }, []);
   return (
     <TableContainer component={Paper}>

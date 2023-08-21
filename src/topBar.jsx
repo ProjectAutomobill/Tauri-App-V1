@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./topBar.css";
 import { AiOutlineReload, AiOutlineWhatsApp } from "react-icons/ai";
 import { FaRegWindowMinimize } from "react-icons/fa";
 import { BsTextareaResize } from "react-icons/bs";
+import { TfiClose } from "react-icons/tfi";
 import { ImCross } from "react-icons/im";
+import { VscChromeMinimize } from "react-icons/vsc";
 import { appWindow } from "@tauri-apps/api/window";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { Navigate, redirect, useNavigate, useLocation } from "react-router-dom";
 import { MdOutlineCall } from "react-icons/md";
+import { useEffect } from "react";
 
 export const TopBar = (props) => {
+  var [optionsFlg, setOptionsFlg] = useState(false);
+  var [prevVal, setPrevVal] = useState("/");
   //   document
   //     .getElementById("titlebar-minimize")
   //     .addEventListener("click", () => appWindow.minimize());
@@ -19,52 +24,78 @@ export const TopBar = (props) => {
   //     .getElementById("titlebar-close")
   //     .addEventListener("click", () => appWindow.close());
   const navigate = useNavigate();
+  const location = useLocation();
+
+  if (
+    prevVal != location.pathname.toString() &&
+    (location.pathname.toString() == "/yourCompanies" ||
+      location.pathname.toString() == "/")
+  ) {
+    console.log("Options Set to False");
+    setOptionsFlg(false);
+    setPrevVal(location.pathname.toString());
+  } else if (prevVal != location.pathname.toString()) {
+    console.log("Options Set to true\t" + location.pathname.toString());
+    setPrevVal(location.pathname.toString());
+    setOptionsFlg(true);
+  }
+
+  useEffect(() => {
+    console.log(location.pathname);
+  }, []);
   return (
     <div className="topBar-container">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAvrUnSvQymoN1-cYQv4YQBn6fShtchhOpbg&usqp=CAU"
+      {/* <img
+        src="D:\Autotekk\Tauri-App-V1\src-tauri\icons\128x128.png"
         alt=""
         id="Logo-topbar"
-      />
+      /> */}
+      <div className="logo-img-topbar"></div>
       <div className="top-bar-content">
-        <div class="dropdown">
-          <button class="dropbtn">Company</button>
-          <div class="dropdown-content">
-            <a
-              href="#"
-              className="company-items"
-              onClick={() => navigate("/yourCompanies")}
-            >
-              Change Company
-            </a>
-            <a href="#" className="company-items">
-              Rename Company Name
-            </a>
+        {optionsFlg && (
+          <div class="dropdown">
+            <button class="dropbtn">Company</button>
+            <div class="dropdown-content">
+              <a
+                href="#"
+                className="company-items"
+                onClick={() => navigate("/yourCompanies")}
+              >
+                Change Company
+              </a>
+              <a href="#" className="company-items">
+                Rename Company Name
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       {/* <div className="top-bar-content">Company</div> */}
       <div className="top-bar-content">Help</div>
-      <div
-        className="top-bar-content"
-        onClick={() => props.setContent("shortcuts")}
-      >
-        Shortcuts
-      </div>
-      <div className="top-bar-content">
-        <AiOutlineReload />
-      </div>
+      {optionsFlg && (
+        <div
+          className="top-bar-content"
+          onClick={() => props.setContent("shortcuts")}
+        >
+          Shortcuts
+        </div>
+      )}
+      {optionsFlg && (
+        <div className="top-bar-content">
+          <AiOutlineReload />
+        </div>
+      )}
       <div className="customer-support-data">
         Customer Support:
         <MdOutlineCall className="phone-icon-topBar" />
         <div className="pNumber-topBar">
-          (+91) 123456789 || <AiOutlineWhatsApp> </AiOutlineWhatsApp> (+91)
-          123456879
+          (+91) 123456789 ||{" "}
+          <AiOutlineWhatsApp className="whatsapp-icon-topbar" /> (+91) 123456879
         </div>
       </div>
       <div className="top-bar-content-options-box">
         <div className="top-bar-content-options">
-          <FaRegWindowMinimize
+          <VscChromeMinimize
             id="titlebar-minimize"
             onClick={() => appWindow.minimize()}
           />
@@ -76,7 +107,7 @@ export const TopBar = (props) => {
           />
         </div>
         <div className="top-bar-content-options">
-          <ImCross id="titlebar-close" onClick={() => appWindow.close()} />
+          <TfiClose id="titlebar-close" onClick={() => appWindow.close()} />
         </div>
       </div>
     </div>

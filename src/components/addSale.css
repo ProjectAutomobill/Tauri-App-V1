@@ -423,6 +423,7 @@
   /* background-color: white; */
   /* top: 1%; */
   margin-top: 7px;
+  /* margin-bottom: 5%; */
 }
 .white-strip-AddRow-Btn {
   width: 100%;
@@ -479,7 +480,47 @@
   margin-top: 3%;
   /* margin-top: 50px; */
 }
-
+#balance-box-leftDiv-addSale {
+  float: left;
+  margin-left: 40px;
+  width: fit-content;
+  /* background-color: green; */
+  display: block;
+  margin-top: 3%;
+  /* margin-top: 50px; */
+}
+.left-div-lowerPart-addSale {
+  /* width: 10%; */
+  margin-top: 8%;
+  height: 5%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: rgb(182, 182, 182);
+  border: 1px solid rgb(207, 207, 207);
+  background-color: rgb(238, 238, 238);
+}
+.left-div-lowerPart-addSale-des {
+  /* width: 10%; */
+  margin-top: 50%;
+  height: 5%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: rgb(182, 182, 182);
+  border: 1px solid rgb(207, 207, 207);
+  background-color: rgb(238, 238, 238);
+}
+.left-div-lowerPart-addSale-des:hover {
+  border: 1px solid blue;
+}
+.left-div-lowerPart-addSale:hover {
+  border: 1px solid blue;
+}
 .balance-box-input-addSale {
   /* background-color: aqua; */
   margin-bottom: 10px;

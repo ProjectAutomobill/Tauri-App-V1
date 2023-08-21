@@ -24,6 +24,8 @@ import { SalePurchaseByPartyReport } from "./report_pages/salePurchaseByPartyRep
 import { SalePurchaseByPartyGroupReport } from "./report_pages/salePurchaseByPartyGroupReport";
 import { PartyStatementReport } from "./report_pages/partyStatementReport";
 import { SaleSummaryByHSNReport } from "./report_pages/saleSummaryByHSNReport";
+import { FormNo27EQReport } from "./report_pages/formNo27EQReport";
+import { TCSReceivableReport } from "./report_pages/tcsReceivableReport";
 export const Report = (props) => {
   const navigate = useNavigate();
   const [b_name, setNewBName] = useState();
@@ -196,6 +198,20 @@ export const Report = (props) => {
             } else if (sideBarFlg === "SaleSummaryByHSNReport") {
               return (
                 <SaleSummaryByHSNReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "FormNo27EQReport") {
+              return (
+                <FormNo27EQReport
+                  userNumber={props.userNumber}
+                  userCompany={props.userCompany}
+                />
+              );
+            } else if (sideBarFlg === "TCSReceivableReport") {
+              return (
+                <TCSReceivableReport
                   userNumber={props.userNumber}
                   userCompany={props.userCompany}
                 />

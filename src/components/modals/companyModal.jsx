@@ -36,11 +36,11 @@ export function CompanyModal(props) {
       </Modal.Header>
 
       <Modal.Body>
-        <div id="company-body">
-          <div id="left-side-companyModal">
-            <h5>Add Logo</h5>
+        <div className="company-body">
+          <div className="left-side-companyModal">
+            {/* <div>Add Logo</div> */}Add Logo
           </div>
-          <div id="right-side-companyModal">
+          <div className="right-side-companyModal">
             <input
               type="text"
               name="business-name-companyModal"

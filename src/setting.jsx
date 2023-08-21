@@ -8,7 +8,7 @@ import { TransactionMessage } from "./settingsPages/transactionMessage";
 import { PrintSetting } from "./settingsPages/printSetting";
 import { ItemSetting } from "./settingsPages/itemSetting";
 import { UserManagement } from "./settingsPages/userManagement";
-export const Setting = () => {
+export const Setting = (props) => {
   const [selectedSetting, setSelectedSetting] = useState("General");
 
   useEffect(() => {}, []);
@@ -20,7 +20,12 @@ export const Setting = () => {
       <div id="mainsection-setting">
         {(() => {
           if (selectedSetting === "General") {
-            return <General />;
+            return (
+              <General
+                userNumber={props.userNumber}
+                userCompany={props.userCompany}
+              />
+            );
           } else if (selectedSetting === "Transaction") {
             return <Transaction />;
           } else if (selectedSetting === "TandG") {

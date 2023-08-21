@@ -4,8 +4,15 @@
 .grayColor {
   background-color: rgba(247, 247, 247, 255);
 }
+
+.grayColor:hover {
+  background-color: rgb(209, 233, 255);
+}
 .whiteColor {
   background-color: white;
+}
+.whiteColor:hover {
+  background-color: rgb(209, 233, 255);
 }
 
 .header-transaction-table {
@@ -17,13 +24,13 @@
 
 .orangeColor {
   color: orange;
-  font-size: small;
-  height: 10px;
+  font-size: x-small;
+  height: 8px;
 }
 
 .greenColor {
   color: rgb(6, 150, 6);
-  font-size: small;
+  font-size: x-small;
   /* background-color: aqua; */
-  height: 10px;
+  height: 8px;
 }
