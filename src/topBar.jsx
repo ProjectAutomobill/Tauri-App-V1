@@ -71,13 +71,43 @@ export const TopBar = (props) => {
         )}
       </div>
       {/* <div className="top-bar-content">Company</div> */}
-      <div className="top-bar-content">Help</div>
+      <div className="top-bar-content">
+        <div class="dropdown">
+          <button class="dropbtn">Help</button>
+          <div class="dropdown-content">
+            <a
+              href="#"
+              className="company-items"
+              onClick={() => navigate("/yourCompanies")}
+            >
+              Contact Us
+            </a>
+            <a href="#" className="company-items">
+              Autotekk Support
+            </a>
+            <a href="#" className="company-items">
+              Video Tutorial
+            </a>
+            <a href="#" className="company-items">
+              View Release Notes
+            </a>
+            <a href="#" className="company-items">
+              Check For Update
+            </a>
+            <a href="#" className="company-items">
+              Version : V1.0.4-alpha
+            </a>
+          </div>
+        </div>
+      </div>
       {optionsFlg && (
         <div
           className="top-bar-content"
           onClick={() => props.setContent("shortcuts")}
         >
-          Shortcuts
+          <div class="dropdown">
+            <button class="dropbtn">Shortcuts</button>
+          </div>
         </div>
       )}
       {optionsFlg && (

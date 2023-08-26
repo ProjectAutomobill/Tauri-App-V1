@@ -18,6 +18,7 @@ import { MdSettingsBackupRestore } from "react-icons/md";
 import { GoSync } from "react-icons/go";
 import { TbFileReport } from "react-icons/tb";
 import { FaAngleDown, FaArrowRight } from "react-icons/fa";
+import { FiChevronRight } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { Rotate90DegreesCcw, RotateLeft } from "@mui/icons-material";
 import { useState, useEffect } from "react";
@@ -152,6 +153,7 @@ export function SideBar(props) {
         <h5 style={{ color: "#e6e6e6" }} className="companyName-sidebar">
           {companyName}
         </h5>
+        <FiChevronRight className="profile-arrow-sidebar" />
       </div>
       <div id="lineU"></div>
       <div id="lineD"></div>
@@ -255,7 +257,7 @@ export function SideBar(props) {
                   Sale Invoices
                 </a>
                 {/* generalSetting["settings"]["eq"] */}
-                {generalSetting != "Init" && generalSetting.eq && (
+                {generalSetting != "Init" && generalSetting.settings.eq && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"
@@ -271,7 +273,7 @@ export function SideBar(props) {
                 >
                   Payment In
                 </a>
-                {generalSetting != "Init" && generalSetting.so && (
+                {generalSetting != "Init" && generalSetting.settings.so && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"
@@ -281,7 +283,7 @@ export function SideBar(props) {
                   </a>
                 )}
 
-                {generalSetting != "Init" && generalSetting.dc && (
+                {generalSetting != "Init" && generalSetting.settings.dc && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"

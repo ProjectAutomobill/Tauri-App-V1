@@ -170,7 +170,7 @@ export const General = (props) => {
                   handleChange();
                 }}
                 // defaultChecked={generalSetting["settings"]["eq"]}
-                defaultChecked={generalSetting.eq}
+                defaultChecked={generalSetting.settings.eq}
                 // onChange={(e) => handleChange()}
               />
               <div className="checkbox-data-text">Estimate/Quotation</div>
@@ -185,7 +185,7 @@ export const General = (props) => {
                   toggleSO();
                 }}
                 // defaultChecked={generalSetting["settings"]["so"]}
-                defaultChecked={generalSetting.so}
+                defaultChecked={generalSetting.settings.so}
               />
               <div className="checkbox-data-text">Sale/Purchase Order</div>
               <AiFillInfoCircle className="information-icon-general" />
@@ -209,7 +209,7 @@ export const General = (props) => {
                   toggleDC();
                 }}
                 // defaultChecked={generalSetting["settings"]["dc"]}
-                defaultChecked={generalSetting.dc}
+                defaultChecked={generalSetting.settings.dc}
               />
               <div className="checkbox-data-text">Delivery Challan</div>
               <AiFillInfoCircle className="information-icon-general" />

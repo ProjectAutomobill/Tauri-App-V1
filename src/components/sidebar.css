@@ -25,13 +25,21 @@
   margin-left: 2%;
   margin-right: 1%;
   font-size: xx-large;
+  cursor: pointer;
 }
 .companyName-sidebar {
   margin-top: auto;
   margin-bottom: auto;
   font-size: medium;
   font-weight: bold;
+  cursor: pointer;
   /* background-color: aliceblue; */
+}
+.profile-arrow-sidebar {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
 }
 .sidebar-Component {
   /* padding:0vmin; */

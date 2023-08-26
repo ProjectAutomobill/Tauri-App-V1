@@ -16,7 +16,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { invoke } from "@tauri-apps/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { ItemsCategoryTable } from "./tables/itemsCategoryTable";
+import { TransactionTableItemsCateogry } from "./tables/transactionTableItemCategory";
+import { TransactionTableItemsUnits } from "./tables/transactionTableItemUnits";
+import { ItemsUnitsTable } from "./tables/itemsUnitsTable";
 export const Items = (props) => {
   const showToastMessage = () => {
     toast.success("Item Added !", {
@@ -324,6 +327,121 @@ export const Items = (props) => {
                 </div>
                 <div className="Ttable-items">
                   <TransactionTableItems
+                    userNumber={props.userNumber}
+                    userCompany={props.userCompany}
+                    itemName={itemTransaction}
+                    // userCompany={cName}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {itemPage == 2 && (
+        <div className="lowerBody-items">
+          <div className="leftDiv-items">
+            <div className="leftDivbtnSearch-items">
+              <div className="searchIcon-class-items">
+                <BsSearch className="searchIcon-items" />
+              </div>
+              <button
+                className="partyBtn-items"
+                onClick={() => setModalShowItem(true)}
+              >
+                <AiOutlinePlus className="plus-items" />
+                Add Category
+              </button>
+            </div>
+            <ItemsCategoryTable />
+          </div>
+
+          <div className="rightDiv-items">
+            <div className="innerRightDiv-items">
+              <div className="upperDivRight-itemsCategory">
+                <div className="upperDivRight1-itemsCategory">
+                  <div className="upperDivRight1-name-itemsCategory">
+                    ITEMS NOT IN ANY CATEOGRY
+                  </div>
+                  <div className="upperDivRight1-button-itemsCategory">
+                    <button className="button-itemsCategory">
+                      Move To This Category
+                    </button>
+                  </div>
+                </div>
+                <div className="upperDivRight2-itemsCategory">6</div>{" "}
+              </div>
+
+              <div className="lowerDivRight-itemsCategory">
+                <div className="transaction-search-items">
+                  <h6 className="transaction-lowerDiv-itemsCategory">ITEMS</h6>
+                  <input
+                    type="search"
+                    name="search"
+                    id=""
+                    className="search-input-items"
+                    placeholder="Search"
+                  />
+                </div>
+                <div className="Ttable-items">
+                  <TransactionTableItemsCateogry
+                    userNumber={props.userNumber}
+                    userCompany={props.userCompany}
+                    itemName={itemTransaction}
+                    // userCompany={cName}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {itemPage == 3 && (
+        <div className="lowerBody-items">
+          <div className="leftDiv-items">
+            <div className="leftDivbtnSearch-items">
+              <div className="searchIcon-class-items">
+                <BsSearch className="searchIcon-items" />
+              </div>
+              <button
+                className="partyBtn-items"
+                onClick={() => setModalShowItem(true)}
+              >
+                <AiOutlinePlus className="plus-items" />
+                Add Units
+              </button>
+            </div>
+            <ItemsUnitsTable />
+          </div>
+
+          <div className="rightDiv-items">
+            <div className="innerRightDiv-items">
+              <div className="upperDivRight-itemsUnits">
+                <div className="upperDivRight1-itemsUnits">
+                  <div className="upperDivRight1-name-itemsCategory">BAGS</div>
+                  <div className="upperDivRight1-button-itemsUnits">
+                    <button className="button-itemsUnits">
+                      Add Conversion
+                    </button>
+                  </div>
+                </div>
+                {/* <div className="upperDivRight2-itemsCategory">6</div>{" "} */}
+              </div>
+
+              <div className="lowerDivRight-itemsCategory">
+                <div className="transaction-search-items">
+                  <h6 className="transaction-lowerDiv-itemsCategory">UNITS</h6>
+                  <input
+                    type="search"
+                    name="search"
+                    id=""
+                    className="search-input-items"
+                    placeholder="Search"
+                  />
+                </div>
+                <div className="Ttable-items">
+                  <TransactionTableItemsUnits
                     userNumber={props.userNumber}
                     userCompany={props.userCompany}
                     itemName={itemTransaction}

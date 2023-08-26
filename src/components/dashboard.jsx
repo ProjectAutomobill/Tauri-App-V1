@@ -9,7 +9,7 @@ import { PurchaseGraph } from "./charts/PurchaseChart";
 import { useState, useEffect } from "react";
 import { FaArrowDown, FaArrowUp, FaFileInvoice } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
-import { IoWalletOutline } from "react-icons/io5";
+import { IoWalletOutline, IoNotifications } from "react-icons/io5";
 import Dropdown from "react-bootstrap/Dropdown";
 import { invoke } from "@tauri-apps/api";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -302,6 +302,12 @@ export const DashBoard = (props) => {
             </div>
             <div className="vertical-line-upperPart-dashboard"></div>
 
+            <div
+              className="settingBtnDiv-upperPart-dashboard"
+              onClick={navigateToSettings}
+            >
+              <IoNotifications className="setting-upperPart-dashboard" />
+            </div>
             <div
               className="settingBtnDiv-upperPart-dashboard"
               onClick={navigateToSettings}
