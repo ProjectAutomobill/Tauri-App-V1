@@ -1,6 +1,6 @@
 .table-row:hover {
   /* background-color: rgb(242, 245, 245); */
-  background-color: rgb(179, 217, 252);
+  background-color: rgb(152, 205, 255);
 }
 
 .table-header-parties {
@@ -45,7 +45,7 @@
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 100px;
+  min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   color: black;
@@ -58,8 +58,20 @@
 
 .dropdown-option-design-parties {
   padding: 5px;
+  font-weight: 100;
 }
 .dropdown-option-design-parties:hover {
   background-color: rgb(179, 214, 255);
   cursor: pointer;
+}
+
+.filter-icon-parties-table {
+  color: red;
+  font-weight: bold;
+  font-size: medium;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* margin-left: auto; */
+  float: right;
+  /* background-color: antiquewhite; */
 }

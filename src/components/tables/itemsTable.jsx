@@ -14,6 +14,8 @@ import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { BiFilterAlt } from "react-icons/bi";
+
 export const ItemsTable = (props) => {
   const [itemData, setItemData] = useState();
 
@@ -74,8 +76,16 @@ export const ItemsTable = (props) => {
           <TableRow>
             <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
               ITEM
+              <BiFilterAlt className="filter-icon-parties-table" />
             </TableCell>
-            <TableCell sx={{ fontWeight: 570, fontSize: 12, color: "gray" }}>
+            <TableCell
+              sx={{
+                fontWeight: 570,
+                fontSize: 12,
+                color: "gray",
+                float: "right",
+              }}
+            >
               QUANTITY
             </TableCell>
           </TableRow>
@@ -97,13 +107,26 @@ export const ItemsTable = (props) => {
                   fontSize: 12,
                   color: row.Units > 5 ? "green" : "red",
                   fontWeight: 600,
-                  justifyContent: "right",
-                  alignItems: "right",
-                  alignContent: "right",
+                  float: "right",
+                  // justifyContent: "right",
+                  // alignItems: "right",
+                  // alignContent: "right",
+                  display: "flex",
+                  gap: "5%",
+                  paddingRight: 2,
                 }}
               >
                 {row.Units}
                 {/* <BsThreeDotsVertical /> */}
+                <div className="dropdown-btn-parties">
+                  <BsThreeDotsVertical className="three-dots-partyName" />
+                  <div className="dropdown-content-parties">
+                    <div className="dropdown-option-design-parties">
+                      View/Edit
+                    </div>
+                    <div className="dropdown-option-design-parties">Delete</div>
+                  </div>
+                </div>
               </TableCell>
               {/* <TableCell sx={{ fontSize: 12, color: "gray", fontWeight: 600 }}>
                 <BsThreeDotsVertical />

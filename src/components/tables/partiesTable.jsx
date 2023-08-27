@@ -14,6 +14,7 @@ import { getValue } from "@mui/system";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
+import { BiFilterAlt } from "react-icons/bi";
 
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
@@ -57,6 +58,8 @@ export const PartiesTable = (props) => {
       // `invoke` returns a Promise
       .then((response) => {
         setData(JSON.parse(response));
+        console.log(response);
+        console.trace(response);
       });
     props.setStateChange(!props.stateChange);
 
@@ -85,10 +88,16 @@ export const PartiesTable = (props) => {
         <TableHead>
           <TableRow>
             <TableCell
-              sx={{ fontWeight: 550, fontSize: 11, color: "gray" }}
+              sx={{
+                fontWeight: 550,
+                fontSize: 11,
+                color: "gray",
+                // backgroundColor: "blue",
+              }}
               className="table-header-parties"
             >
               PARTY
+              <BiFilterAlt className="filter-icon-parties-table" />
             </TableCell>
             <TableCell
               sx={{

@@ -6,13 +6,13 @@
 }
 
 .grayColor:hover {
-  background-color: rgb(209, 233, 255);
+  background-color: rgb(179, 217, 252);
 }
 .whiteColor {
   background-color: white;
 }
 .whiteColor:hover {
-  background-color: rgb(209, 233, 255);
+  background-color: rgb(179, 217, 252);
 }
 
 .header-transaction-table {

@@ -230,7 +230,22 @@ export const TransactionTableItems = (props) => {
                   borderRight: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                <BsThreeDotsVertical />
+                <div className="dropdown_partiesTable">
+                  <BsThreeDotsVertical />
+                  <div className="dropdown-options-partiesTable">
+                    <div className="option-table-party">View/Edit</div>
+                    <div className="option-table-party">Delete</div>
+                    <div className="option-table-party">Duplicate</div>
+                    <div className="option-table-party">Open PDF</div>
+                    <div className="option-table-party">Preview</div>
+                    <div className="option-table-party">Print</div>
+                    {/* <div className="option-table-party">
+                      Preview as Delivery Challan
+                    </div> */}
+                    <div className="option-table-party">Convert to return</div>
+                    <div className="option-table-party">Receive Payment</div>
+                  </div>
+                </div>
               </TableCell>
             </TableRow>
           ))}
