@@ -13,6 +13,8 @@ import { getPartyDetails } from "../../api-firebase/firebase";
 import { getValue } from "@mui/system";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
+
 import { invoke } from "@tauri-apps/api";
 import LoadingSpinner from "../../loading";
 import "./partiesTable.css";
@@ -99,7 +101,7 @@ export const PartiesTable = (props) => {
             >
               AMOUNT
             </TableCell>
-            <TableCell sx={{ width: "10" }}></TableCell>
+            {/* <TableCell sx={{ width: "10" }}></TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -123,13 +125,30 @@ export const PartiesTable = (props) => {
                     fontSize: 12,
                     color: row.Amount > 0 ? "green" : "red",
                     fontWeight: 600,
+                    display: "flex",
+                    gap: "5%",
+                    // float: "right",
+                    // alignContent: "right",
+                    // backgroundColor: "blue",
+                    paddingRight: 0,
                   }}
                   onClick={() => console.log(props.partyName)}
                   className="table-cell-data-amount"
                 >
                   {row.Amount}
+                  <div className="dropdown-btn-parties">
+                    <BsThreeDotsVertical className="three-dots-partyName" />
+                    <div className="dropdown-content-parties">
+                      <div className="dropdown-option-design-parties">
+                        View/Edit
+                      </div>
+                      <div className="dropdown-option-design-parties">
+                        Delete
+                      </div>
+                    </div>
+                  </div>
                 </TableCell>
-                <TableCell sx={{ width: "10" }}></TableCell>
+                {/* <TableCell sx={{ width: "10" }}></TableCell> */}
               </TableRow>
             ))
             // })

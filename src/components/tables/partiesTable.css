@@ -22,3 +22,44 @@
   font-weight: 540;
   color: rgb(65, 65, 65);
 }
+
+.three-dots-partyName {
+  /* background-color: aliceblue; */
+  width: fit-content;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-btn-parties {
+  /* background-color: red; */
+  margin-left: 10%;
+  position: relative;
+  display: inline-block;
+  /* background-color: green; */
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.dropdown-content-parties {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color: black;
+}
+
+.dropdown-btn-parties:hover .dropdown-content-parties {
+  display: block;
+  right: 10%;
+}
+
+.dropdown-option-design-parties {
+  padding: 5px;
+}
+.dropdown-option-design-parties:hover {
+  background-color: rgb(179, 214, 255);
+  cursor: pointer;
+}
