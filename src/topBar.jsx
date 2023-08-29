@@ -95,7 +95,7 @@ export const TopBar = (props) => {
               Check For Update
             </a>
             <a href="#" className="company-items">
-              Version : V1.0.4-alpha
+              Version : V1.0.5-alpha
             </a>
           </div>
         </div>

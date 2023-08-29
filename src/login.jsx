@@ -311,7 +311,7 @@ export const Login = (props) => {
           </button>
           <div id="recaptcha-container-login"></div>
         </div>
-        <div className="version-name">V1.0.4-alpha</div>
+        <div className="version-name">V1.0.5-alpha</div>
       </div>
       {/* <script src="script.js"></script> */}
     </div>

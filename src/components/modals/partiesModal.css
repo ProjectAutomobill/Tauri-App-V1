@@ -29,6 +29,7 @@
 
 .cross-partiesModal {
   margin-left: auto;
+  cursor: pointer;
 }
 
 #modal-title-parties {

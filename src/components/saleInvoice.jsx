@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { SaleInvoiceTable } from "./tables/salesInvoiceTable";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import { IoWalletOutline, IoNotifications } from "react-icons/io5";
 import { AiFillSetting } from "react-icons/ai";
 import { GoGraph } from "react-icons/go";
 import { HiDocumentReport } from "react-icons/hi";
@@ -101,7 +102,12 @@ export const SaleInvoice = (props) => {
               <button className="addBtnMore-saleInvoice">Add More</button>
             </div>
             <div className="vertical-line-upperPart-saleInvoice"></div>
-
+            <div
+              className="settingBtnDiv-upperPart-dashboard"
+              // onClick={navigateToSettings}
+            >
+              <IoNotifications className="setting-upperPart-dashboard" />
+            </div>
             <div className="settingBtnDiv-upperPart-saleInvoice">
               <AiFillSetting className="setting-upperPart-saleInvoice" />
             </div>

@@ -8,6 +8,12 @@ export const GstPage = (props) => {
           <option value="" className="partiesModal-gstInput-dropdown">
             Unregistered/Consumer
           </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Registered business - Regular
+          </option>
+          <option value="" className="partiesModal-gstInput-dropdown">
+            Registered business - Composition
+          </option>
         </select>
         <select name="" id="" className="partiesModal-gstInput-dropdown">
           <option value="" className="partiesModal-gstInput-dropdown">

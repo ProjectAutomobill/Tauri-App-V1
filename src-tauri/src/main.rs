@@ -27,8 +27,8 @@ fn main() {
 }
 
 // static url:&str = "http://13.200.29.224:443/";
-static url:&str = "http://127.0.0.1:8001/";
-// static url:&str = "http://62.72.13.162:8002/";
+// static url:&str = "http://127.0.0.1:8001/";
+static url:&str = "http://62.72.13.162:8002/";
 
 #[tauri::command]
 async fn get_companies_name(number : String) -> String {

@@ -113,7 +113,7 @@ export const ItemsTable = (props) => {
                   // alignContent: "right",
                   display: "flex",
                   gap: "5%",
-                  paddingRight: 2,
+                  paddingRight: 3,
                 }}
               >
                 {row.Units}

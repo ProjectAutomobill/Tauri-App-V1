@@ -257,7 +257,8 @@ export function SideBar(props) {
                   Sale Invoices
                 </a>
                 {/* generalSetting["settings"]["eq"] */}
-                {generalSetting != "Init" && generalSetting.settings.eq && (
+                {(true ||
+                  (generalSetting != "Init" && generalSetting.settings.eq)) && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"
@@ -273,7 +274,8 @@ export function SideBar(props) {
                 >
                   Payment In
                 </a>
-                {generalSetting != "Init" && generalSetting.settings.so && (
+                {(true ||
+                  (generalSetting != "Init" && generalSetting.settings.so)) && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"
@@ -283,7 +285,8 @@ export function SideBar(props) {
                   </a>
                 )}
 
-                {generalSetting != "Init" && generalSetting.settings.dc && (
+                {(true ||
+                  (generalSetting != "Init" && generalSetting.settings.dc)) && (
                   <a
                     href="#"
                     className="sideBarText-dropdown"

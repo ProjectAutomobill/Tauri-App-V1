@@ -1,0 +1,55 @@
+.row-first-adjust-modal {
+  width: 100%;
+  display: flex;
+}
+
+.itemname-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name-modal {
+  font-size: 14px;
+  color: gray;
+}
+.item-name {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.vertical-line-adjust-modal {
+  height: 1Q;
+  width: 100%;
+  border: 1px solid rgb(231, 231, 231);
+  margin-top: 2%;
+}
+.date-box-modal {
+  margin-left: auto;
+}
+.input-box-body-Adjust-Modal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  margin-top: 2%;
+}
+
+.body-input-Adjust-modal {
+  width: auto;
+  padding: 5px;
+  border: 1px solid rgb(196, 196, 196);
+  font-size: small;
+  border-radius: 2px;
+}
+
+.select-adjust-modal {
+  font-size: small;
+  background-color: rgb(232, 232, 251);
+  border: 0px;
+  outline: 0px;
+}
+
+.body-input-Adjust-modal:focus {
+  border: 1px solid rgb(119, 173, 238);
+  outline: none;
+}

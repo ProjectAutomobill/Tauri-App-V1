@@ -3,7 +3,7 @@ import "./printSetting.css";
 import { AiFillInfoCircle } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
 import { TableA } from "./tables/tableA";
-export const PrintSetting = () => {
+export const PrintSetting = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedTabUpper, setSelectedTabUpper] = useState(0);
   return (

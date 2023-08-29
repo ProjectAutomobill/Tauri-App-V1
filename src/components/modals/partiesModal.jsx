@@ -7,6 +7,8 @@ import "./partiesModal.css";
 import { GstPage } from "./gstPage";
 import { invoke } from "@tauri-apps/api";
 import { RxCross2 } from "react-icons/rx";
+import { CreditAndBalance } from "./creditAndBalance";
+import { AdditionalFields } from "./additionalFields";
 
 export function PartiesModal(props) {
   // const [url,setUrl] = useState("https://04df-103-199-226-253.in.ngrok.io ")
@@ -94,10 +96,10 @@ export function PartiesModal(props) {
               <GstPage setEmail={setEmail} setAddress={setAddress} />
             </Tab>
             <Tab eventKey="profile" title="Credit & Balance">
-              Tab 2
+              <CreditAndBalance setEmail={setEmail} setAddress={setAddress} />
             </Tab>
-            <Tab eventKey="contact" title="Additional Fields" disabled>
-              Tab 3
+            <Tab eventKey="contact" title="Additional Fields">
+              <AdditionalFields />
             </Tab>
           </Tabs>
           {/* <ul className="nav nav-tabs">

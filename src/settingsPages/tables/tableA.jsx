@@ -38,7 +38,7 @@ export const TableA = (props) => {
     if (temp != props.flg) {
       console.log("In UseEffect -> TableA");
       setTemp(props.flg);
-      props.Print();
+      // props.Print();
     }
   });
   return (

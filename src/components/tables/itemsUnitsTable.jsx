@@ -63,7 +63,7 @@ export const ItemsUnitsTable = (props) => {
   //   }, []);
   return (
     <TableContainer component={Paper}>
-      {itemData == null && <LoadingSpinner className="loading_spinner" />}
+      {/* {itemData == null && <LoadingSpinner className="loading_spinner" />} */}
 
       <Table aria-label="simple table">
         <TableHead>

@@ -81,7 +81,7 @@ export function CompanyModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button onClick={updateCompanyInfo}>Add</Button>
+        <Button onClick={updateCompanyInfo}>Save</Button>
       </Modal.Footer>
     </Modal>
   );

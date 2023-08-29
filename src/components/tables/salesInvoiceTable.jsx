@@ -18,7 +18,7 @@ import { AiFillPrinter } from "react-icons/ai";
 import { TiArrowForward } from "react-icons/ti";
 import { TableA } from "../../settingsPages/tables/tableA";
 import { jsPDF } from "jspdf";
-
+import { BsFillCircleFill, BsThreeDotsVertical } from "react-icons/bs";
 export const SaleInvoiceTable = (props) => {
   const [dataSales, setSalesData] = useState();
   //========================================================
@@ -403,6 +403,16 @@ export const SaleInvoiceTable = (props) => {
                 }}
                 className="table-header-saleInvoice"
               ></TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 570,
+                  fontSize: 12,
+                  color: "gray",
+                  borderRight: "1px solid rgb(230, 230, 230)",
+                  // display: "flex",
+                }}
+                className="table-header-saleInvoice"
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody className="table-row-saleInvoice">
@@ -411,7 +421,7 @@ export const SaleInvoiceTable = (props) => {
                 (row.PartyName.includes(props.searchText) ||
                   (props.searchText != null &&
                     props.searchText.length == 0)) && (
-                  <TableRow>
+                  <TableRow className="table-row-sale-invoice">
                     <TableCell
                       sx={{
                         paddingTop: "12px",
@@ -506,6 +516,36 @@ export const SaleInvoiceTable = (props) => {
                           onClick={() => print_call(row.Invoice_No)}
                         />
                         <TiArrowForward className="share-icon" />
+                      </div>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: 12,
+                        borderRight: "1px solid rgb(230, 230, 230)",
+                      }}
+                    >
+                      <div className="dropdown_partiesTable">
+                        <BsThreeDotsVertical />
+                        <div className="dropdown-options-partiesTable">
+                          <div className="option-table-party">View/Edit</div>
+                          <div className="option-table-party">
+                            Generate e-Invoice
+                          </div>
+                          <div className="option-table-party">
+                            Receive Payment
+                          </div>
+                          <div className="option-table-party">
+                            Convert To Return
+                          </div>
+                          <div className="option-table-party">
+                            Preview as Delivery Challan
+                          </div>
+                          <div className="option-table-party">Delete</div>
+                          <div className="option-table-party">Duplicate</div>
+                          <div className="option-table-party">Open PDF</div>
+                          <div className="option-table-party">Preview</div>
+                          <div className="option-table-party">Print</div>
+                        </div>
                       </div>
                     </TableCell>
                   </TableRow>

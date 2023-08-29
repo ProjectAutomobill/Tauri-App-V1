@@ -1,23 +1,23 @@
 .gst-content {
   display: flex;
   gap: 5%;
-  height: 100px;
+  height: 300px;
   margin-top: 2%;
 }
 
 .vertical-line-modal {
   width: 1px;
-  height: 150%;
+  height: 80%;
   background-color: rgb(230, 230, 230);
 }
 
 .partiesModal-gstInput {
-  height: 100%;
+  height: 30%;
   width: 30%;
   padding: 5px;
   font-size: 14px;
   outline: none;
-  border: 1px solid rgb(202, 202, 202);
+  border: 1px solid rgb(31, 27, 27);
   color: rgb(202, 202, 202);
   border-radius: 4px;
 }
@@ -26,11 +26,11 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  gap: 20%;
+  gap: 10%;
 }
 
 .partiesModal-gstInput-dropdown {
-  height: 100%;
+  height: 10%;
   width: 100%;
   padding: 7px;
   font-size: 14px;
@@ -38,4 +38,9 @@
   border: 1px solid rgb(202, 202, 202);
   color: rgb(166, 166, 166);
   border-radius: 4px;
+}
+
+.partiesModal-gstInput-dropdown:focus {
+  border: 1px solid rgb(73, 170, 255);
+  color: black;
 }

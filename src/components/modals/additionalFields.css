@@ -1,0 +1,51 @@
+.partiesModal-additionalFields-content {
+  display: flex;
+  /* gap: 5%; */
+  height: 300px;
+  margin-top: 2%;
+  /* height: fit-content; */
+
+  /* background-color: aliceblue; */
+}
+
+.leftSide-partiesModal-additionalFields {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  /* background-color: aqua; */
+  gap: 0%;
+}
+.checkbox-data-partiesModal-additionalFields {
+  display: flex;
+  /* padding-top: 2%; */
+  /* padding-bottom: 2%; */
+  /* margin-top: 2%; */
+  /* flex-direction: column; */
+  /* background-color: bisque; */
+  height: fit-content;
+  /* gap: 4%; */
+}
+
+.checkbox-input-partiesModal-additionalFields {
+  width: 18px;
+  height: 18px;
+  margin-right: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  outline: none;
+  border: none;
+  border: 2px solid gray;
+}
+.checkbox-input-data-partiesModal-additionalFields {
+  height: 100%;
+  width: 100%;
+  padding: 7px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid rgb(202, 202, 202);
+  color: rgb(166, 166, 166);
+  border-radius: 4px;
+}
+.checkbox-inputpartiesModal-additionalFields:checked::after {
+  background-color: aqua;
+}

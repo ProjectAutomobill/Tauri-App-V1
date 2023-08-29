@@ -20,6 +20,7 @@ import { ItemsCategoryTable } from "./tables/itemsCategoryTable";
 import { TransactionTableItemsCateogry } from "./tables/transactionTableItemCategory";
 import { TransactionTableItemsUnits } from "./tables/transactionTableItemUnits";
 import { ItemsUnitsTable } from "./tables/itemsUnitsTable";
+import { StockAdjustmentModal } from "./modals/stockAdjustmentModal";
 export const Items = (props) => {
   const showToastMessage = () => {
     toast.success("Item Added !", {
@@ -27,6 +28,7 @@ export const Items = (props) => {
     });
   };
   const [modalShowItem, setModalShowItem] = useState(false);
+  const [modalAdjustShowItem, setModalAdjustShowItem] = useState(false);
   const location = useLocation();
   // const [cName, setCName] = useState(location.state.company);
   const [cName, setCName] = useState();
@@ -275,7 +277,12 @@ export const Items = (props) => {
                     <b>{itemTransaction}</b>
                   </div>
                   <div className="upperDivRight1-button-items">
-                    <button className="button-items">Adjust Item</button>
+                    <button
+                      className="button-items"
+                      onClick={() => setModalAdjustShowItem(true)}
+                    >
+                      Adjust Item
+                    </button>
                   </div>
                 </div>
                 <div className="upperDivRight2-items">
@@ -461,6 +468,15 @@ export const Items = (props) => {
         getItemDetails={getItemDetails}
         setrefresh={setrefresh}
         toastMessage={showToastMessage}
+      />
+      <StockAdjustmentModal
+        show={modalAdjustShowItem}
+        onHide={() => setModalAdjustShowItem(false)}
+        userNumber={props.userNumber}
+        userCompany={props.userCompany}
+        // getItemDetails={getItemDetails}
+        // setrefresh={setrefresh}
+        // toastMessage={showToastMessage}
       />
     </div>
   );
